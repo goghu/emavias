@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  nombre: MyString
+  estado: MyString
+  borrado: 2018-05-18 12:07:49
+
+two:
+  nombre: MyString
+  estado: MyString
+  borrado: 2018-05-18 12:07:49

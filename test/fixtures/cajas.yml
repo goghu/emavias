@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  tipo: MyString
+  monto: 9.99
+  user_id: 1
+  fecha: 2018-07-14
+  pago_id: 1
+
+two:
+  tipo: MyString
+  monto: 9.99
+  user_id: 1
+  fecha: 2018-07-14
+  pago_id: 1

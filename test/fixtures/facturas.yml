@@ -1,0 +1,35 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  codigo_control: MyString
+  cliente: MyString
+  nit: MyString
+  nit_p: MyString
+  importe_total: MyString
+  fecha: 2018-07-25
+  fecha_limite: 2018-07-25
+  numero: 1
+  autorizacion: 1
+  qr: MyText
+  concepto: MyText
+  sucursale_id: 1
+  user_id: 1
+  monto_literal: MyString
+  anulado: 2018-07-25 15:36:01
+
+two:
+  codigo_control: MyString
+  cliente: MyString
+  nit: MyString
+  nit_p: MyString
+  importe_total: MyString
+  fecha: 2018-07-25
+  fecha_limite: 2018-07-25
+  numero: 1
+  autorizacion: 1
+  qr: MyText
+  concepto: MyText
+  sucursale_id: 1
+  user_id: 1
+  monto_literal: MyString
+  anulado: 2018-07-25 15:36:01

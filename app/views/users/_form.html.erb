@@ -1,0 +1,62 @@
+<%= form_with(model: user, local: true, html: {class: 'form-validacion',id: 'form-usuario',novalidate: true}) do |form| %>
+<div class="modal-header">
+    <h4 class="modal-title"><%= titulo %></h4>
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+</div>
+<div class="modal-body">
+
+    <div class="form-group">
+        <label for="recipient-name" class="control-label">Nombre:</label>
+        <div class="controls">
+            <%= form.text_field :nombre, class: "form-control",placeholder: "Ingrese el nombre de usuario", required: true, "data-validation-required-message": "El nombre es obligatorio" %>
+        </div>
+    </div>
+    
+    <div class="form-group">
+        <label for="recipient-name" class="control-label">Rol:</label>
+        <div class="controls">
+            <%= form.select :rol, [["Administrador","Administrador"],["Almacen","Almacen"]]  ,{},{class: 'form-control', required: 'required',id: "id-sel-rol"} %>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="recipient-name" class="control-label">Email:</label>
+        <div class="controls">
+            <%= form.email_field :email, class: "form-control",placeholder: "Ingrese el email", required: true, "data-validation-required-message": "El usuario es obligatorio" %>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="recipient-name" class="control-label">Password:</label>
+        <div class="controls">
+            <%= form.password_field :contra2, class: "form-control",placeholder: "Ingrese la
+            contraseña" %>
+        </div>
+    </div>
+
+</div>
+<div class="modal-footer">
+    <button type="button" class="btn btn-default waves-effect" data-dismiss="modal">Cancelar</button>
+    <button type="submit" class="btn btn-danger waves-effect waves-light">Guardar</button>
+</div>
+<% end %>
+
+<script type="text/javascript">
+    $("#form-usuario input,#form-usuario select").jqBootstrapValidation();
+
+    function descubrealmacen(){
+        if($("#id-sel-rol").val() == 'Almacen'){
+            $("#div-sel-alma").show();
+            $("#div-sel-alma select").attr('required');
+        }else{
+            $("#div-sel-alma").hide();
+            $("#div-sel-alma select").removeAttr('required');
+        }
+    }
+
+    descubrealmacen();
+
+    $("#id-sel-rol").on('change',function(){
+        descubrealmacen();
+    });
+</script>

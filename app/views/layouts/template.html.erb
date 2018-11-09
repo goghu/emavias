@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="utf-8">
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <meta content="" name="description">
+    <meta content="" name="author">
+    <!-- Favicon icon -->
+    <link href="<%= asset_path '/assets/images/favicon.png' %>" rel="icon" sizes="16x16" type="image/png">
+    <title>
+        ENVI
+    </title>
+    <!-- Bootstrap Core CSS -->
+    <link href="<%= asset_path '/assets/plugins/bootstrap/css/bootstrap.min.css' %>" rel="stylesheet">
+    <!-- Custom CSS -->
+    <% if flash[:msgbueno2] %>
+    <link href="<%= asset_path '/assets/plugins/toast-master/css/jquery.toast.css' %>" rel="stylesheet">
+    <% content_for :add_js do %>
+    <script src="<%= asset_path '/assets/plugins/toast-master/js/jquery.toast.js' %>"></script>
+    <script type="text/javascript">
+        $.toast({
+            heading: 'Excelente!!',
+            text: '<%= flash[:msgbueno2] %>',
+            position: 'top-right',
+            loaderBg: '#ff6849',
+            icon: 'success',
+            hideAfter: 4500
+
+        });
+    </script>
+    <% end %>
+    <% end %>
+    <% if flash[:msgerror2] %>
+    <link href="<%= asset_path '/assets/plugins/toast-master/css/jquery.toast.css' %>" rel="stylesheet">
+    <% content_for :add_js do %>
+    <script src="<%= asset_path '/assets/plugins/toast-master/js/jquery.toast.js' %>"></script>
+    <script type="text/javascript">
+        $.toast({
+            heading: 'Error!!',
+            text: '<%= flash[:msgerror2] %>',
+            position: 'top-right',
+            loaderBg: '#ff6849b k',
+            icon: 'error',
+            hideAfter: 4500
+        });
+    </script>
+    <% end %>
+    <% end %>
+    <%= yield :add_css %>
+
+    <link href="<%= asset_path '/css/style.css' %>" rel="stylesheet">
+    <!-- You can change the theme colors from here -->
+    <link href="<%= asset_path '/css/colors/blue-dark.css' %>" id="theme" rel="stylesheet">
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+            <%= csrf_meta_tags %>                                <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body class="fix-header card-no-border">
+    <!-- ============================================================== -->
+    <!-- Preloader - style you can find in spinners.css -->
+    <!-- ============================================================== -->
+    <div class="preloader">
+        <svg class="circular" viewbox="25 25 50 50">
+            <circle class="path" cx="50" cy="50" fill="none" r="20" stroke-miterlimit="10" stroke-width="2">
+            </circle>
+        </svg>
+    </div>
+    <!-- ============================================================== -->
+    <!-- Main wrapper - style you can find in pages.scss -->
+    <!-- ============================================================== -->
+    <div id="main-wrapper">
+        <% if current_user.rol == 'Administrador' %>
+        <%= render "elements/menu/admin" %>
+        <%= render "elements/sidebar/admin" %>
+        <% elsif current_user.rol == 'Almacen' || current_user.rol == 'Almacen invitado' %>
+        <%= render "elements/menu/admin" %>
+        <%= render "elements/sidebar/almacen" %>  
+        <% elsif current_user.rol == 'Cliente' %>
+        <%= render "elements/menu/admin" %>
+        <%= render "elements/sidebar/cliente" %>  
+        <% end %>
+        <!-- ============================================================== -->
+        <!-- Page wrapper  -->
+        <!-- ============================================================== -->
+        <div class="page-wrapper">
+            <!-- ============================================================== -->
+            <!-- Container fluid  -->
+            <!-- ============================================================== -->
+            <div class="container-fluid">
+
+
+                <% if flash[:msgbueno] %>
+                <div class="alert alert-success"> <i class="ti-check"></i> <%= flash[:msgbueno] %>
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close"> <span aria-hidden="true">&times;</span> </button>
+                </div>
+                <% end %>
+                <% if flash[:msgerror] %>
+                <div class="alert alert-danger"> <i class="ti-alert"></i> <%= flash[:msgerror] %>
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close"> <span aria-hidden="true">&times;</span> </button>
+                </div>
+                <% end %>
+
+                <%= yield %>
+            </div>
+            <!-- ============================================================== -->
+            <!-- End Container fluid  -->
+            <!-- ============================================================== -->
+            <!-- ============================================================== -->
+            <!-- footer -->
+            <!-- ============================================================== -->
+            <footer class="footer">
+                <!-- © 2018 3yN4r -->
+            </footer>
+            <!-- ============================================================== -->
+            <!-- End footer -->
+            <!-- ============================================================== -->
+        </div>
+        <!-- ============================================================== -->
+        <!-- End Page wrapper  -->
+        <!-- ============================================================== -->
+    </div>
+    <!-- ============================================================== -->
+    <!-- End Wrapper -->
+    <!-- ============================================================== -->
+    <div class="lanzador">
+    </div>
+    <!-- sample modal content -->
+    <div aria-hidden="true" aria-labelledby="myModalLabel" class="modal fade" id="myModal" role="dialog" style="display: none;">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div id="div_barra_cargando">
+                    <div class="progress">
+                        <div aria-valuemax="100" aria-valuemin="0" aria-valuenow="100" class="progress-bar bg-info progress-bar-striped" role="progressbar" style="width:100%;height:10px;">
+                            <span class="sr-only">
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div id="divmodal" style="display: none;">
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- ============================================================== -->
+    <!-- All Jquery -->
+    <!-- ============================================================== -->
+    <script src="<%= asset_path '/assets/plugins/jquery/jquery.min.js' %>">
+    </script>
+    <!-- Bootstrap tether Core JavaScript -->
+    <script src="<%= asset_path '/assets/plugins/bootstrap/js/popper.min.js' %>">
+    </script>
+    <script src="<%= asset_path '/assets/plugins/bootstrap/js/bootstrap.min.js' %>">
+    </script>
+    <!-- slimscrollbar scrollbar JavaScript -->
+    <script src="<%= asset_path '/js/jquery.slimscroll.js' %>">
+    </script>
+    <!--Wave Effects -->
+    <script src="<%= asset_path '/js/waves.js' %>">
+    </script>
+    <!--Menu sidebar -->
+    <script src="<%= asset_path '/js/sidebarmenu.js' %>">
+    </script>
+    <!--stickey kit -->
+    <script src="<%= asset_path '/assets/plugins/sticky-kit-master/dist/sticky-kit.min.js' %>">
+    </script>
+    <!--Custom JavaScript -->
+    <script src="<%= asset_path '/js/custom.min.js' %>">
+    </script>
+    <!-- ============================================================== -->
+    <!-- Style switcher -->
+    <!-- ============================================================== -->
+    
+
+    <script type="text/javascript">
+     var sw_modal = false;
+     $('#myModal').on('show.bs.modal', function (e) {
+        sw_modal = true;
+    });
+     $('#myModal').on('hide.bs.modal', function (e) {
+        sw_modal = false;
+    });
+
+     function cargarmodal(urll, silargo) {
+        if (silargo) {
+            $("#myModal").find('.modal-dialog').attr('class', 'modal-dialog modal-lg');
+        } else {
+            $("#myModal").find('.modal-dialog').attr('class', 'modal-dialog modal-md');
+        }
+
+        $("#div_barra_cargando").show();
+
+        if (!sw_modal) {
+            $("#myModal").modal({
+            });
+        }
+
+
+        $("#divmodal").show();
+
+        $("#divmodal").load(urll, function (responseText, textStatus, req) {
+            if (textStatus == "error") {
+                $("#divmodal").hide();
+                alert("error!!!");
+            }
+            else {
+                $("#div_barra_cargando").hide(800);
+            }
+        });
+
+    }
+
+    $("a[data-method='delete']").on('click',function(e){
+        eliminarconurl($(this).attr('href'));
+        return false;
+    });
+    function eliminarconurl(rulruta){ 
+     token = document.getElementsByName("csrf-token")[0].getAttribute('content');   
+     var form = document.createElement("form");
+     var element1 = document.createElement("input"); 
+     var element2 = document.createElement("input");  
+     form.method = "POST";
+     form.action = rulruta;   
+     element1.value="delete";
+     element1.name="_method";
+     form.appendChild(element1);  
+     element2.value=token;
+     element2.name="authenticity_token";
+     form.appendChild(element2);
+     document.body.appendChild(form);
+     form.submit();
+ }
+
+</script>
+<%= yield :add_js %>
+<script src="<%= asset_path '/assets/plugins/styleswitcher/jQuery.style.switcher.js' %>">
+</script>
+</body>
+</html>

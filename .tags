@@ -1,0 +1,511 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+AddAdicionalToFacturas	db/migrate/20180815202713_add_adicional_to_facturas.rb	/^class AddAdicionalToFacturas < ActiveRecord::Migration[5.1]$/;"	c	inherits:ActiveRecord.Migration
+AddAlmacenToCotizaciones	db/migrate/20180602161706_add_almacen_to_cotizaciones.rb	/^class AddAlmacenToCotizaciones < ActiveRecord::Migration[5.1]$/;"	c	inherits:ActiveRecord.Migration
+AddAlmacenToUsers	db/migrate/20180523170344_add_almacen_to_users.rb	/^class AddAlmacenToUsers < ActiveRecord::Migration[5.1]$/;"	c	inherits:ActiveRecord.Migration
+AddAlmaceneIdToCajas	db/migrate/20180714170448_add_almacene_id_to_cajas.rb	/^class AddAlmaceneIdToCajas < ActiveRecord::Migration[5.1]$/;"	c	inherits:ActiveRecord.Migration
+AddAlmaceneIdToPagos	db/migrate/20180724221718_add_almacene_id_to_pagos.rb	/^class AddAlmaceneIdToPagos < ActiveRecord::Migration[5.1]$/;"	c	inherits:ActiveRecord.Migration
+AddCajaidToCajas	db/migrate/20180808210717_add_cajaid_to_cajas.rb	/^class AddCajaidToCajas < ActiveRecord::Migration[5.1]$/;"	c	inherits:ActiveRecord.Migration
+AddCamposToUsers	db/migrate/20180427183132_add_campos_to_users.rb	/^class AddCamposToUsers < ActiveRecord::Migration[5.1]$/;"	c	inherits:ActiveRecord.Migration
+AddCantidadToPaquetes	db/migrate/20180515211113_add_cantidad_to_paquetes.rb	/^class AddCantidadToPaquetes < ActiveRecord::Migration[5.1]$/;"	c	inherits:ActiveRecord.Migration
+AddCantidadminToProductos	db/migrate/20180604142126_add_cantidadmin_to_productos.rb	/^class AddCantidadminToProductos < ActiveRecord::Migration[5.1]$/;"	c	inherits:ActiveRecord.Migration
+AddCategoriaIdToProducto	db/migrate/20180521222417_add_categoria_id_to_producto.rb	/^class AddCategoriaIdToProducto < ActiveRecord::Migration[5.1]$/;"	c	inherits:ActiveRecord.Migration
+AddClienteToCotizaciones	db/migrate/20180530214103_add_cliente_to_cotizaciones.rb	/^class AddClienteToCotizaciones < ActiveRecord::Migration[5.1]$/;"	c	inherits:ActiveRecord.Migration
+AddDetailsToPaquetes	db/migrate/20180502181605_add_details_to_paquetes.rb	/^class AddDetailsToPaquetes < ActiveRecord::Migration[5.1]$/;"	c	inherits:ActiveRecord.Migration
+AddDeviseToUsers	db/migrate/20180508200607_add_devise_to_users.rb	/^class AddDeviseToUsers < ActiveRecord::Migration[5.1]$/;"	c	inherits:ActiveRecord.Migration
+AddDireccionToProductos	db/migrate/20180606154300_add_direccion_to_productos.rb	/^class AddDireccionToProductos < ActiveRecord::Migration[5.1]$/;"	c	inherits:ActiveRecord.Migration
+AddFechaToCotizaciones	db/migrate/20180721165312_add_fecha_to_cotizaciones.rb	/^class AddFechaToCotizaciones < ActiveRecord::Migration[5.1]$/;"	c	inherits:ActiveRecord.Migration
+AddFechaToPagos	db/migrate/20180711230028_add_fecha_to_pagos.rb	/^class AddFechaToPagos < ActiveRecord::Migration[5.1]$/;"	c	inherits:ActiveRecord.Migration
+AddNitToUsers	db/migrate/20180802194514_add_nit_to_users.rb	/^class AddNitToUsers < ActiveRecord::Migration[5.1]$/;"	c	inherits:ActiveRecord.Migration
+AddNumeroVentaToFacturas	db/migrate/20180730200653_add_numero_venta_to_facturas.rb	/^class AddNumeroVentaToFacturas < ActiveRecord::Migration[5.1]$/;"	c	inherits:ActiveRecord.Migration
+AddPaqueteIdToCotizaciones	db/migrate/20180530162009_add_paquete_id_to_cotizaciones.rb	/^class AddPaqueteIdToCotizaciones < ActiveRecord::Migration[5.1]$/;"	c	inherits:ActiveRecord.Migration
+AddPrecioVentaToVentas	db/migrate/20180807200022_add_precio_venta_to_ventas.rb	/^class AddPrecioVentaToVentas < ActiveRecord::Migration[5.1]$/;"	c	inherits:ActiveRecord.Migration
+AddRolToUsers	db/migrate/20180522215035_add_rol_to_users.rb	/^class AddRolToUsers < ActiveRecord::Migration[5.1]$/;"	c	inherits:ActiveRecord.Migration
+AddTelefonosDireccionToUsers	db/migrate/20180822213037_add_telefonos_direccion_to_users.rb	/^class AddTelefonosDireccionToUsers < ActiveRecord::Migration[5.1]$/;"	c	inherits:ActiveRecord.Migration
+AddTotalToAlmacenes	db/migrate/20180714170502_add_total_to_almacenes.rb	/^class AddTotalToAlmacenes < ActiveRecord::Migration[5.1]$/;"	c	inherits:ActiveRecord.Migration
+AddVentaIdToCajas	db/migrate/20180902213125_add_venta_id_to_cajas.rb	/^class AddVentaIdToCajas < ActiveRecord::Migration[5.1]$/;"	c	inherits:ActiveRecord.Migration
+Almacene	app/models/almacene.rb	/^class Almacene < ApplicationRecord$/;"	c	inherits:ApplicationRecord
+AlmaceneDatatable	app/datatables/almacene_datatable.rb	/^class AlmaceneDatatable < AjaxDatatablesRails::Base$/;"	c	inherits:AjaxDatatablesRails.Base
+AlmaceneTest	test/models/almacene_test.rb	/^class AlmaceneTest < ActiveSupport::TestCase$/;"	c	inherits:ActiveSupport.TestCase
+AlmacenesController	app/controllers/almacenes_controller.rb	/^class AlmacenesController < ApplicationController$/;"	c	inherits:ApplicationController
+Application	config/application.rb	/^  class Application < Rails::Application$/;"	c	class:Blog	inherits:Rails.Application
+ApplicationCable	app/channels/application_cable/channel.rb	/^module ApplicationCable$/;"	m
+ApplicationCable	app/channels/application_cable/connection.rb	/^module ApplicationCable$/;"	m
+ApplicationController	app/controllers/application_controller.rb	/^class ApplicationController < ActionController::Base$/;"	c	inherits:ActionController.Base
+ApplicationHelper	app/helpers/application_helper.rb	/^module ApplicationHelper$/;"	m
+ApplicationJob	app/jobs/application_job.rb	/^class ApplicationJob < ActiveJob::Base$/;"	c	inherits:ActiveJob.Base
+ApplicationMailer	app/mailers/application_mailer.rb	/^class ApplicationMailer < ActionMailer::Base$/;"	c	inherits:ActionMailer.Base
+ApplicationRecord	app/models/application_record.rb	/^class ApplicationRecord < ActiveRecord::Base$/;"	c	inherits:ActiveRecord.Base
+ApplicationSystemTestCase	test/application_system_test_case.rb	/^class ApplicationSystemTestCase < ActionDispatch::SystemTestCase$/;"	c	inherits:ActionDispatch.SystemTestCase
+Blog	config/application.rb	/^module Blog$/;"	m
+Caja	app/models/caja.rb	/^class Caja < ApplicationRecord$/;"	c	inherits:ApplicationRecord
+CajaDatatable	app/datatables/caja_datatable.rb	/^class CajaDatatable < AjaxDatatablesRails::Base$/;"	c	inherits:AjaxDatatablesRails.Base
+CajaTest	test/models/caja_test.rb	/^class CajaTest < ActiveSupport::TestCase$/;"	c	inherits:ActiveSupport.TestCase
+CajasController	app/controllers/cajas_controller.rb	/^class CajasController < ApplicationController$/;"	c	inherits:ApplicationController
+CajasControllerTest	test/controllers/cajas_controller_test.rb	/^class CajasControllerTest < ActionDispatch::IntegrationTest$/;"	c	inherits:ActionDispatch.IntegrationTest
+CajasHelper	app/helpers/cajas_helper.rb	/^module CajasHelper$/;"	m
+CajasTest	test/system/cajas_test.rb	/^class CajasTest < ApplicationSystemTestCase$/;"	c	inherits:ApplicationSystemTestCase
+CambiarEmailToUsers	db/migrate/20180530221511_cambiar_email_to_users.rb	/^class CambiarEmailToUsers < ActiveRecord::Migration[5.1]$/;"	c	inherits:ActiveRecord.Migration
+CambiarTipo	db/migrate/20180424185539_cambiar_tipo.rb	/^class CambiarTipo < ActiveRecord::Migration[5.1]$/;"	c	inherits:ActiveRecord.Migration
+CategoriaController	app/controllers/categoria_controller.rb	/^class CategoriaController < ApplicationController$/;"	c	inherits:ApplicationController
+CategoriaControllerTest	test/controllers/categoria_controller_test.rb	/^class CategoriaControllerTest < ActionDispatch::IntegrationTest$/;"	c	inherits:ActionDispatch.IntegrationTest
+CategoriaDatatable	app/datatables/categoria_datatable.rb	/^class CategoriaDatatable < AjaxDatatablesRails::Base$/;"	c	inherits:AjaxDatatablesRails.Base
+CategoriaHelper	app/helpers/categoria_helper.rb	/^module CategoriaHelper$/;"	m
+CategoriaTest	test/system/categoria_test.rb	/^class CategoriaTest < ApplicationSystemTestCase$/;"	c	inherits:ApplicationSystemTestCase
+Categorium	app/models/categorium.rb	/^class Categorium < ApplicationRecord$/;"	c	inherits:ApplicationRecord
+CategoriumTest	test/models/categorium_test.rb	/^class CategoriumTest < ActiveSupport::TestCase$/;"	c	inherits:ActiveSupport.TestCase
+ChangeAutorizacionToFacturas	db/migrate/20180801211934_change_autorizacion_to_facturas.rb	/^class ChangeAutorizacionToFacturas < ActiveRecord::Migration[5.1]$/;"	c	inherits:ActiveRecord.Migration
+ChangeImporteTotalToFacturas	db/migrate/20180728150633_change_importe_total_to_facturas.rb	/^class ChangeImporteTotalToFacturas < ActiveRecord::Migration[5.1]$/;"	c	inherits:ActiveRecord.Migration
+Channel	app/channels/application_cable/channel.rb	/^  class Channel < ActionCable::Channel::Base$/;"	c	class:ApplicationCable	inherits:ActionCable.Channel.Base
+ClienteCotizacionDatatable	app/datatables/cliente_cotizacion_datatable.rb	/^class ClienteCotizacionDatatable < AjaxDatatablesRails::Base$/;"	c	inherits:AjaxDatatablesRails.Base
+ClienteDatatable	app/datatables/cliente_datatable.rb	/^class ClienteDatatable < AjaxDatatablesRails::Base$/;"	c	inherits:AjaxDatatablesRails.Base
+ClientesController	app/controllers/clientes_controller.rb	/^class ClientesController < ApplicationController$/;"	c	inherits:ApplicationController
+ConfirmationsController	app/controllers/users/confirmations_controller.rb	/^class Users::ConfirmationsController < Devise::ConfirmationsController$/;"	c	class:Users	inherits:Devise.ConfirmationsController
+Connection	app/channels/application_cable/connection.rb	/^  class Connection < ActionCable::Connection::Base$/;"	c	class:ApplicationCable	inherits:ActionCable.Connection.Base
+Controlv7	app/controllers/controlv7.rb	/^class Controlv7$/;"	c
+CotizacionDatatable	app/datatables/cotizacion_datatable.rb	/^class CotizacionDatatable < AjaxDatatablesRails::Base$/;"	c	inherits:AjaxDatatablesRails.Base
+Cotizacione	app/models/cotizacione.rb	/^class Cotizacione < ApplicationRecord$/;"	c	inherits:ApplicationRecord
+CotizacioneClienteDatatable	app/datatables/cotizacione_cliente_datatable.rb	/^class CotizacioneClienteDatatable < AjaxDatatablesRails::Base$/;"	c	inherits:AjaxDatatablesRails.Base
+CotizacioneDatatable	app/datatables/cotizacione_datatable.rb	/^class CotizacioneDatatable < AjaxDatatablesRails::Base$/;"	c	inherits:AjaxDatatablesRails.Base
+CotizacionesController	app/controllers/cotizaciones_controller.rb	/^class CotizacionesController < ApplicationController$/;"	c	inherits:ApplicationController
+CreateAlmacenes	db/migrate/20180423141123_create_almacenes.rb	/^class CreateAlmacenes < ActiveRecord::Migration[5.1]$/;"	c	inherits:ActiveRecord.Migration
+CreateCajas	db/migrate/20180714161443_create_cajas.rb	/^class CreateCajas < ActiveRecord::Migration[5.1]$/;"	c	inherits:ActiveRecord.Migration
+CreateCategoria	db/migrate/20180518160749_create_categoria.rb	/^class CreateCategoria < ActiveRecord::Migration[5.1]$/;"	c	inherits:ActiveRecord.Migration
+CreateCotizaciones	db/migrate/20180516154630_create_cotizaciones.rb	/^class CreateCotizaciones < ActiveRecord::Migration[5.1]$/;"	c	inherits:ActiveRecord.Migration
+CreateFacturas	db/migrate/20180725193601_create_facturas.rb	/^class CreateFacturas < ActiveRecord::Migration[5.1]$/;"	c	inherits:ActiveRecord.Migration
+CreateMovimientos	db/migrate/20180423162622_create_movimientos.rb	/^class CreateMovimientos < ActiveRecord::Migration[5.1]$/;"	c	inherits:ActiveRecord.Migration
+CreatePagos	db/migrate/20180711200240_create_pagos.rb	/^class CreatePagos < ActiveRecord::Migration[5.1]$/;"	c	inherits:ActiveRecord.Migration
+CreatePaquete	db/migrate/20180424144152_create_paquete.rb	/^class CreatePaquete < ActiveRecord::Migration[5.1]$/;"	c	inherits:ActiveRecord.Migration
+CreateParametros	db/migrate/20180725193425_create_parametros.rb	/^class CreateParametros < ActiveRecord::Migration[5.1]$/;"	c	inherits:ActiveRecord.Migration
+CreateProductos	db/migrate/20180424143427_create_productos.rb	/^class CreateProductos < ActiveRecord::Migration[5.1]$/;"	c	inherits:ActiveRecord.Migration
+CreateRangosPrecios	db/migrate/20180523202556_create_rangos_precios.rb	/^class CreateRangosPrecios < ActiveRecord::Migration[5.1]$/;"	c	inherits:ActiveRecord.Migration
+CreateTotals	db/migrate/20180423175343_create_totals.rb	/^class CreateTotals < ActiveRecord::Migration[5.1]$/;"	c	inherits:ActiveRecord.Migration
+CreateUsers	db/migrate/20180417214120_create_users.rb	/^class CreateUsers < ActiveRecord::Migration[5.1]$/;"	c	inherits:ActiveRecord.Migration
+CreateVentas	db/migrate/20180517143944_create_ventas.rb	/^class CreateVentas < ActiveRecord::Migration[5.1]$/;"	c	inherits:ActiveRecord.Migration
+Factura	app/models/factura.rb	/^class Factura < ApplicationRecord$/;"	c	inherits:ApplicationRecord
+FacturaDatatable	app/datatables/factura_datatable.rb	/^class FacturaDatatable < AjaxDatatablesRails::Base$/;"	c	inherits:AjaxDatatablesRails.Base
+FacturaTest	test/models/factura_test.rb	/^class FacturaTest < ActiveSupport::TestCase$/;"	c	inherits:ActiveSupport.TestCase
+FacturasController	app/controllers/facturas_controller.rb	/^class FacturasController < ApplicationController$/;"	c	inherits:ApplicationController
+FacturasControllerTest	test/controllers/facturas_controller_test.rb	/^class FacturasControllerTest < ActionDispatch::IntegrationTest$/;"	c	inherits:ActionDispatch.IntegrationTest
+FacturasHelper	app/helpers/facturas_helper.rb	/^module FacturasHelper$/;"	m
+FacturasTest	test/system/facturas_test.rb	/^class FacturasTest < ApplicationSystemTestCase$/;"	c	inherits:ApplicationSystemTestCase
+Inven	app/controllers/inven.rb	/^class Inven$/;"	c
+InventarioDatatable	app/datatables/inventario_datatable.rb	/^class InventarioDatatable < AjaxDatatablesRails::Base$/;"	c	inherits:AjaxDatatablesRails.Base
+Movimiento	app/models/movimiento.rb	/^class Movimiento < ApplicationRecord$/;"	c	inherits:ApplicationRecord
+MovimientoTest	test/models/movimiento_test.rb	/^class MovimientoTest < ActiveSupport::TestCase$/;"	c	inherits:ActiveSupport.TestCase
+OmniauthCallbacksController	app/controllers/users/omniauth_callbacks_controller.rb	/^class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController$/;"	c	class:Users	inherits:Devise.OmniauthCallbacksController
+Pago	app/models/pago.rb	/^class Pago < ApplicationRecord$/;"	c	inherits:ApplicationRecord
+PagosController	app/controllers/pagos_controller.rb	/^class PagosController < ApplicationController$/;"	c	inherits:ApplicationController
+PagosControllerTest	test/controllers/pagos_controller_test.rb	/^class PagosControllerTest < ActionDispatch::IntegrationTest$/;"	c	inherits:ActionDispatch.IntegrationTest
+PagosHelper	app/helpers/pagos_helper.rb	/^module PagosHelper$/;"	m
+Panelcontrols	app/models/panelcontrol.rb	/^class Panelcontrols < ApplicationRecord$/;"	c	inherits:ApplicationRecord
+PanelcontrolsController	app/controllers/panelcontrols_controller.rb	/^class PanelcontrolsController < ApplicationController$/;"	c	inherits:ApplicationController
+Paquete	app/models/paquete.rb	/^class Paquete < ApplicationRecord$/;"	c	inherits:ApplicationRecord
+PaqueteDatatable	app/datatables/paquete_datatable.rb	/^class PaqueteDatatable < AjaxDatatablesRails::Base$/;"	c	inherits:AjaxDatatablesRails.Base
+PaqueteTest	test/models/paquete_test.rb	/^class PaqueteTest < ActiveSupport::TestCase$/;"	c	inherits:ActiveSupport.TestCase
+PaquetesController	app/controllers/paquetes_controller.rb	/^class PaquetesController < ApplicationController$/;"	c	inherits:ApplicationController
+Parametro	app/models/parametro.rb	/^class Parametro < ApplicationRecord$/;"	c	inherits:ApplicationRecord
+ParametroDatatable	app/datatables/parametro_datatable.rb	/^class ParametroDatatable < AjaxDatatablesRails::Base$/;"	c	inherits:AjaxDatatablesRails.Base
+ParametroTest	test/models/parametro_test.rb	/^class ParametroTest < ActiveSupport::TestCase$/;"	c	inherits:ActiveSupport.TestCase
+ParametrosController	app/controllers/parametros_controller.rb	/^class ParametrosController < ApplicationController$/;"	c	inherits:ApplicationController
+ParametrosControllerTest	test/controllers/parametros_controller_test.rb	/^class ParametrosControllerTest < ActionDispatch::IntegrationTest$/;"	c	inherits:ActionDispatch.IntegrationTest
+ParametrosHelper	app/helpers/parametros_helper.rb	/^module ParametrosHelper$/;"	m
+ParametrosTest	test/system/parametros_test.rb	/^class ParametrosTest < ApplicationSystemTestCase$/;"	c	inherits:ApplicationSystemTestCase
+PasswordsController	app/controllers/users/passwords_controller.rb	/^class Users::PasswordsController < Devise::PasswordsController$/;"	c	class:Users	inherits:Devise.PasswordsController
+Producto	app/models/producto.rb	/^class Producto < ApplicationRecord$/;"	c	inherits:ApplicationRecord
+ProductoDatatable	app/datatables/producto_datatable.rb	/^class ProductoDatatable < AjaxDatatablesRails::Base$/;"	c	inherits:AjaxDatatablesRails.Base
+ProductoTest	test/models/producto_test.rb	/^class ProductoTest < ActiveSupport::TestCase$/;"	c	inherits:ActiveSupport.TestCase
+ProductosController	app/controllers/productos_controller.rb	/^class ProductosController < ApplicationController$/;"	c	inherits:ApplicationController
+RangosPrecio	app/models/rangos_precio.rb	/^class RangosPrecio < ApplicationRecord$/;"	c	inherits:ApplicationRecord
+RangosPrecioTest	test/models/rangos_precio_test.rb	/^class RangosPrecioTest < ActiveSupport::TestCase$/;"	c	inherits:ActiveSupport.TestCase
+RangosPreciosController	app/controllers/rangos_precios_controller.rb	/^class RangosPreciosController < ApplicationController$/;"	c	inherits:ApplicationController
+RangosPreciosControllerTest	test/controllers/rangos_precios_controller_test.rb	/^class RangosPreciosControllerTest < ActionDispatch::IntegrationTest$/;"	c	inherits:ActionDispatch.IntegrationTest
+RangosPreciosHelper	app/helpers/rangos_precios_helper.rb	/^module RangosPreciosHelper$/;"	m
+RangosPreciosTest	test/system/rangos_precios_test.rb	/^class RangosPreciosTest < ApplicationSystemTestCase$/;"	c	inherits:ApplicationSystemTestCase
+Rc4	app/controllers/rc4.rb	/^class Rc4$/;"	c
+RegistrationsController	app/controllers/users/registrations_controller.rb	/^class Users::RegistrationsController < Devise::RegistrationsController$/;"	c	class:Users	inherits:Devise.RegistrationsController
+ReportesController	app/controllers/reportes_controller.rb	/^class ReportesController < ApplicationController$/;"	c	inherits:ApplicationController
+ReportesControllerTest	test/controllers/reportes_controller_test.rb	/^class ReportesControllerTest < ActionDispatch::IntegrationTest$/;"	c	inherits:ActionDispatch.IntegrationTest
+ReportesHelper	app/helpers/reportes_helper.rb	/^module ReportesHelper$/;"	m
+SessionsController	app/controllers/users/sessions_controller.rb	/^class Users::SessionsController < Devise::SessionsController$/;"	c	class:Users	inherits:Devise.SessionsController
+TestCase	test/test_helper.rb	/^class ActiveSupport::TestCase$/;"	c	class:ActiveSupport
+Total	app/models/total.rb	/^class Total < ApplicationRecord$/;"	c	inherits:ApplicationRecord
+TotalTest	test/models/total_test.rb	/^class TotalTest < ActiveSupport::TestCase$/;"	c	inherits:ActiveSupport.TestCase
+TotaleDatatable	app/datatables/totale_datatable.rb	/^class TotaleDatatable < AjaxDatatablesRails::Base$/;"	c	inherits:AjaxDatatablesRails.Base
+UnlocksController	app/controllers/users/unlocks_controller.rb	/^class Users::UnlocksController < Devise::UnlocksController$/;"	c	class:Users	inherits:Devise.UnlocksController
+User	app/models/user.rb	/^class User < ApplicationRecord$/;"	c	inherits:ApplicationRecord
+UserDatatable	app/datatables/user_datatable.rb	/^class UserDatatable < AjaxDatatablesRails::Base$/;"	c	inherits:AjaxDatatablesRails.Base
+UserTest	test/models/user_test.rb	/^class UserTest < ActiveSupport::TestCase$/;"	c	inherits:ActiveSupport.TestCase
+UsersController	app/controllers/users_controller.rb	/^class UsersController < ApplicationController$/;"	c	inherits:ApplicationController
+UsersControllerTest	test/controllers/users_controller_test.rb	/^class UsersControllerTest < ActionDispatch::IntegrationTest$/;"	c	inherits:ActionDispatch.IntegrationTest
+UsersHelper	app/helpers/users_helper.rb	/^module UsersHelper$/;"	m
+UsersTest	test/system/users_test.rb	/^class UsersTest < ApplicationSystemTestCase$/;"	c	inherits:ApplicationSystemTestCase
+Venta	app/models/venta.rb	/^class Venta < ApplicationRecord$/;"	c	inherits:ApplicationRecord
+VentaClienteDatatable	app/datatables/venta_cliente_datatable.rb	/^class VentaClienteDatatable < AjaxDatatablesRails::Base$/;"	c	inherits:AjaxDatatablesRails.Base
+VentaDatatable	app/datatables/venta_datatable.rb	/^class VentaDatatable < AjaxDatatablesRails::Base$/;"	c	inherits:AjaxDatatablesRails.Base
+VentasController	app/controllers/ventas_controller.rb	/^class VentasController < ApplicationController$/;"	c	inherits:ApplicationController
+Verhoeff	app/controllers/verhoeff.rb	/^class Verhoeff$/;"	c
+WelcomeController	app/controllers/welcome_controller.rb	/^class WelcomeController < ApplicationController$/;"	c	inherits:ApplicationController
+WelcomeControllerTest	test/controllers/welcome_controller_test.rb	/^class WelcomeControllerTest < ActionDispatch::IntegrationTest$/;"	c	inherits:ActionDispatch.IntegrationTest
+WelcomeHelper	app/helpers/welcome_helper.rb	/^module WelcomeHelper$/;"	m
+administracion	app/controllers/almacenes_controller.rb	/^  def administracion$/;"	f	class:AlmacenesController
+administrar_almacen	app/controllers/almacenes_controller.rb	/^  def administrar_almacen$/;"	f	class:AlmacenesController
+after_sign_in_path_for	app/controllers/application_controller.rb	/^  def after_sign_in_path_for(resource_or_scope)$/;"	f	class:ApplicationController
+after_sign_out_path_for	app/controllers/application_controller.rb	/^  def after_sign_out_path_for(resource_or_scope)$/;"	f	class:ApplicationController
+almacene	app/models/total.rb	/^	belongs_to :almacene,foreign_key:"almacen_id"$/;"	F	class:Total
+almacene=	app/models/total.rb	/^	belongs_to :almacene,foreign_key:"almacen_id"$/;"	F	class:Total
+almacene_params	app/controllers/almacenes_controller.rb	/^    def almacene_params$/;"	f	class:AlmacenesController
+appendVerhoeff	app/controllers/controlv7.rb	/^	def appendVerhoeff(n, c) $/;"	f	class:Controlv7
+base64	app/controllers/controlv7.rb	/^	def base64(n)$/;"	f	class:Controlv7
+build_almacene	app/models/total.rb	/^	belongs_to :almacene,foreign_key:"almacen_id"$/;"	F	class:Total
+build_categorium	app/models/producto.rb	/^	belongs_to :categorium, foreign_key: "categoria_id", optional: true$/;"	F	class:Producto
+build_cotizacione	app/models/venta.rb	/^	belongs_to :cotizacione$/;"	F	class:Venta
+build_cuser	app/models/cotizacione.rb	/^	belongs_to :cuser, class_name: "User", foreign_key: "cliente", optional: true$/;"	F	class:Cotizacione
+build_paq	app/models/paquete.rb	/^	belongs_to :paq, class_name: "Paq", foreign_key: "paquete_id", optional: true$/;"	F	class:Paquete
+build_paquete	app/models/cotizacione.rb	/^	belongs_to :paquete, optional: true$/;"	F	class:Cotizacione
+build_producto	app/models/cotizacione.rb	/^	belongs_to :producto$/;"	F	class:Cotizacione
+build_producto	app/models/panelcontrol.rb	/^	belongs_to :producto$/;"	F	class:Panelcontrols
+build_producto	app/models/paquete.rb	/^	belongs_to :producto, optional: true$/;"	F	class:Paquete
+build_producto	app/models/total.rb	/^	belongs_to :producto$/;"	F	class:Total
+build_user	app/models/caja.rb	/^	belongs_to :user$/;"	F	class:Caja
+build_user	app/models/cotizacione.rb	/^	belongs_to :user$/;"	F	class:Cotizacione
+caja_params	app/controllers/cajas_controller.rb	/^  def caja_params$/;"	f	class:CajasController
+cajachica	app/controllers/reportes_controller.rb	/^  def cajachica$/;"	f	class:ReportesController
+cantidad	app/controllers/productos_controller.rb	/^  def cantidad$/;"	f	class:ProductosController
+categorium	app/models/producto.rb	/^	belongs_to :categorium, foreign_key: "categoria_id", optional: true$/;"	F	class:Producto
+categorium=	app/models/producto.rb	/^	belongs_to :categorium, foreign_key: "categoria_id", optional: true$/;"	F	class:Producto
+categorium_params	app/controllers/categoria_controller.rb	/^    def categorium_params$/;"	f	class:CategoriaController
+change	db/migrate/20180417214120_create_users.rb	/^  def change$/;"	f	class:CreateUsers
+change	db/migrate/20180423141123_create_almacenes.rb	/^  def change$/;"	f	class:CreateAlmacenes
+change	db/migrate/20180423162622_create_movimientos.rb	/^  def change$/;"	f	class:CreateMovimientos
+change	db/migrate/20180423175343_create_totals.rb	/^  def change$/;"	f	class:CreateTotals
+change	db/migrate/20180424143427_create_productos.rb	/^  def change$/;"	f	class:CreateProductos
+change	db/migrate/20180424144152_create_paquete.rb	/^  def change$/;"	f	class:CreatePaquete
+change	db/migrate/20180424185539_cambiar_tipo.rb	/^  def change$/;"	f	class:CambiarTipo
+change	db/migrate/20180427183132_add_campos_to_users.rb	/^  def change$/;"	f	class:AddCamposToUsers
+change	db/migrate/20180502181605_add_details_to_paquetes.rb	/^  def change$/;"	f	class:AddDetailsToPaquetes
+change	db/migrate/20180515211113_add_cantidad_to_paquetes.rb	/^  def change$/;"	f	class:AddCantidadToPaquetes
+change	db/migrate/20180516154630_create_cotizaciones.rb	/^  def change$/;"	f	class:CreateCotizaciones
+change	db/migrate/20180517143944_create_ventas.rb	/^  def change$/;"	f	class:CreateVentas
+change	db/migrate/20180518160749_create_categoria.rb	/^  def change$/;"	f	class:CreateCategoria
+change	db/migrate/20180521222417_add_categoria_id_to_producto.rb	/^  def change$/;"	f	class:AddCategoriaIdToProducto
+change	db/migrate/20180522215035_add_rol_to_users.rb	/^  def change$/;"	f	class:AddRolToUsers
+change	db/migrate/20180523170344_add_almacen_to_users.rb	/^  def change$/;"	f	class:AddAlmacenToUsers
+change	db/migrate/20180523202556_create_rangos_precios.rb	/^  def change$/;"	f	class:CreateRangosPrecios
+change	db/migrate/20180530162009_add_paquete_id_to_cotizaciones.rb	/^  def change$/;"	f	class:AddPaqueteIdToCotizaciones
+change	db/migrate/20180530214103_add_cliente_to_cotizaciones.rb	/^  def change$/;"	f	class:AddClienteToCotizaciones
+change	db/migrate/20180530221511_cambiar_email_to_users.rb	/^  def change$/;"	f	class:CambiarEmailToUsers
+change	db/migrate/20180602161706_add_almacen_to_cotizaciones.rb	/^  def change$/;"	f	class:AddAlmacenToCotizaciones
+change	db/migrate/20180604142126_add_cantidadmin_to_productos.rb	/^  def change$/;"	f	class:AddCantidadminToProductos
+change	db/migrate/20180606154300_add_direccion_to_productos.rb	/^  def change$/;"	f	class:AddDireccionToProductos
+change	db/migrate/20180711200240_create_pagos.rb	/^  def change$/;"	f	class:CreatePagos
+change	db/migrate/20180711230028_add_fecha_to_pagos.rb	/^  def change$/;"	f	class:AddFechaToPagos
+change	db/migrate/20180714161443_create_cajas.rb	/^  def change$/;"	f	class:CreateCajas
+change	db/migrate/20180714170448_add_almacene_id_to_cajas.rb	/^  def change$/;"	f	class:AddAlmaceneIdToCajas
+change	db/migrate/20180714170502_add_total_to_almacenes.rb	/^  def change$/;"	f	class:AddTotalToAlmacenes
+change	db/migrate/20180721165312_add_fecha_to_cotizaciones.rb	/^  def change$/;"	f	class:AddFechaToCotizaciones
+change	db/migrate/20180724221718_add_almacene_id_to_pagos.rb	/^  def change$/;"	f	class:AddAlmaceneIdToPagos
+change	db/migrate/20180725193425_create_parametros.rb	/^  def change$/;"	f	class:CreateParametros
+change	db/migrate/20180725193601_create_facturas.rb	/^  def change$/;"	f	class:CreateFacturas
+change	db/migrate/20180728150633_change_importe_total_to_facturas.rb	/^  def change$/;"	f	class:ChangeImporteTotalToFacturas
+change	db/migrate/20180730200653_add_numero_venta_to_facturas.rb	/^  def change$/;"	f	class:AddNumeroVentaToFacturas
+change	db/migrate/20180801211934_change_autorizacion_to_facturas.rb	/^  def change$/;"	f	class:ChangeAutorizacionToFacturas
+change	db/migrate/20180802194514_add_nit_to_users.rb	/^  def change$/;"	f	class:AddNitToUsers
+change	db/migrate/20180807200022_add_precio_venta_to_ventas.rb	/^  def change$/;"	f	class:AddPrecioVentaToVentas
+change	db/migrate/20180808210717_add_cajaid_to_cajas.rb	/^  def change$/;"	f	class:AddCajaidToCajas
+change	db/migrate/20180815202713_add_adicional_to_facturas.rb	/^  def change$/;"	f	class:AddAdicionalToFacturas
+change	db/migrate/20180822213037_add_telefonos_direccion_to_users.rb	/^  def change$/;"	f	class:AddTelefonosDireccionToUsers
+change	db/migrate/20180902213125_add_venta_id_to_cajas.rb	/^  def change$/;"	f	class:AddVentaIdToCajas
+contra2	app/models/user.rb	/^	attr_accessor :contra2$/;"	f	class:User
+contra2=	app/models/user.rb	/^	attr_accessor :contra2$/;"	f	class:User
+cotizacione	app/models/venta.rb	/^	belongs_to :cotizacione$/;"	F	class:Venta
+cotizacione=	app/models/venta.rb	/^	belongs_to :cotizacione$/;"	F	class:Venta
+cotizaciones_cliente	app/controllers/cotizaciones_controller.rb	/^  def cotizaciones_cliente$/;"	f	class:CotizacionesController
+crea_cotizacion_cliente	app/controllers/cotizaciones_controller.rb	/^  def crea_cotizacion_cliente$/;"	f	class:CotizacionesController
+create	app/controllers/almacenes_controller.rb	/^  def create$/;"	f	class:AlmacenesController
+create	app/controllers/cajas_controller.rb	/^  def create$/;"	f	class:CajasController
+create	app/controllers/categoria_controller.rb	/^  def create$/;"	f	class:CategoriaController
+create	app/controllers/clientes_controller.rb	/^  def create$/;"	f	class:ClientesController
+create	app/controllers/cotizaciones_controller.rb	/^  def create$/;"	f	class:CotizacionesController
+create	app/controllers/facturas_controller.rb	/^  def create$/;"	f	class:FacturasController
+create	app/controllers/pagos_controller.rb	/^	def create$/;"	f	class:PagosController
+create	app/controllers/panelcontrols_controller.rb	/^  def create$/;"	f	class:PanelcontrolsController
+create	app/controllers/paquetes_controller.rb	/^  def create$/;"	f	class:PaquetesController
+create	app/controllers/parametros_controller.rb	/^  def create$/;"	f	class:ParametrosController
+create	app/controllers/productos_controller.rb	/^  def create$/;"	f	class:ProductosController
+create	app/controllers/rangos_precios_controller.rb	/^  def create$/;"	f	class:RangosPreciosController
+create	app/controllers/users_controller.rb	/^  def create$/;"	f	class:UsersController
+create	app/controllers/ventas_controller.rb	/^  def create$/;"	f	class:VentasController
+create_almacene	app/models/total.rb	/^	belongs_to :almacene,foreign_key:"almacen_id"$/;"	F	class:Total
+create_almacene!	app/models/total.rb	/^	belongs_to :almacene,foreign_key:"almacen_id"$/;"	F	class:Total
+create_categorium	app/models/producto.rb	/^	belongs_to :categorium, foreign_key: "categoria_id", optional: true$/;"	F	class:Producto
+create_categorium!	app/models/producto.rb	/^	belongs_to :categorium, foreign_key: "categoria_id", optional: true$/;"	F	class:Producto
+create_cotizacione	app/models/venta.rb	/^	belongs_to :cotizacione$/;"	F	class:Venta
+create_cotizacione!	app/models/venta.rb	/^	belongs_to :cotizacione$/;"	F	class:Venta
+create_cuser	app/models/cotizacione.rb	/^	belongs_to :cuser, class_name: "User", foreign_key: "cliente", optional: true$/;"	F	class:Cotizacione
+create_cuser!	app/models/cotizacione.rb	/^	belongs_to :cuser, class_name: "User", foreign_key: "cliente", optional: true$/;"	F	class:Cotizacione
+create_paq	app/models/paquete.rb	/^	belongs_to :paq, class_name: "Paq", foreign_key: "paquete_id", optional: true$/;"	F	class:Paquete
+create_paq!	app/models/paquete.rb	/^	belongs_to :paq, class_name: "Paq", foreign_key: "paquete_id", optional: true$/;"	F	class:Paquete
+create_paquete	app/models/cotizacione.rb	/^	belongs_to :paquete, optional: true$/;"	F	class:Cotizacione
+create_paquete!	app/models/cotizacione.rb	/^	belongs_to :paquete, optional: true$/;"	F	class:Cotizacione
+create_producto	app/models/cotizacione.rb	/^	belongs_to :producto$/;"	F	class:Cotizacione
+create_producto	app/models/panelcontrol.rb	/^	belongs_to :producto$/;"	F	class:Panelcontrols
+create_producto	app/models/paquete.rb	/^	belongs_to :producto, optional: true$/;"	F	class:Paquete
+create_producto	app/models/total.rb	/^	belongs_to :producto$/;"	F	class:Total
+create_producto!	app/models/cotizacione.rb	/^	belongs_to :producto$/;"	F	class:Cotizacione
+create_producto!	app/models/panelcontrol.rb	/^	belongs_to :producto$/;"	F	class:Panelcontrols
+create_producto!	app/models/paquete.rb	/^	belongs_to :producto, optional: true$/;"	F	class:Paquete
+create_producto!	app/models/total.rb	/^	belongs_to :producto$/;"	F	class:Total
+create_user	app/models/caja.rb	/^	belongs_to :user$/;"	F	class:Caja
+create_user	app/models/cotizacione.rb	/^	belongs_to :user$/;"	F	class:Cotizacione
+create_user!	app/models/caja.rb	/^	belongs_to :user$/;"	F	class:Caja
+create_user!	app/models/cotizacione.rb	/^	belongs_to :user$/;"	F	class:Cotizacione
+cuser	app/models/cotizacione.rb	/^	belongs_to :cuser, class_name: "User", foreign_key: "cliente", optional: true$/;"	F	class:Cotizacione
+cuser=	app/models/cotizacione.rb	/^	belongs_to :cuser, class_name: "User", foreign_key: "cliente", optional: true$/;"	F	class:Cotizacione
+data	app/datatables/almacene_datatable.rb	/^  def data$/;"	f	class:AlmaceneDatatable
+data	app/datatables/caja_datatable.rb	/^  def data$/;"	f	class:CajaDatatable
+data	app/datatables/categoria_datatable.rb	/^  def data$/;"	f	class:CategoriaDatatable
+data	app/datatables/cliente_cotizacion_datatable.rb	/^    def data$/;"	f	class:ClienteCotizacionDatatable
+data	app/datatables/cliente_datatable.rb	/^  def data$/;"	f	class:ClienteDatatable
+data	app/datatables/cotizacion_datatable.rb	/^  def data$/;"	f	class:CotizacionDatatable
+data	app/datatables/cotizacione_cliente_datatable.rb	/^  def data$/;"	f	class:CotizacioneClienteDatatable
+data	app/datatables/cotizacione_datatable.rb	/^  def data$/;"	f	class:CotizacioneDatatable
+data	app/datatables/factura_datatable.rb	/^  def data$/;"	f	class:FacturaDatatable
+data	app/datatables/inventario_datatable.rb	/^  def data$/;"	f	class:InventarioDatatable
+data	app/datatables/paquete_datatable.rb	/^  def data$/;"	f	class:PaqueteDatatable
+data	app/datatables/parametro_datatable.rb	/^  def data$/;"	f	class:ParametroDatatable
+data	app/datatables/producto_datatable.rb	/^  def data$/;"	f	class:ProductoDatatable
+data	app/datatables/totale_datatable.rb	/^  def data$/;"	f	class:TotaleDatatable
+data	app/datatables/user_datatable.rb	/^  def data$/;"	f	class:UserDatatable
+data	app/datatables/venta_cliente_datatable.rb	/^    def data$/;"	f	class:VentaClienteDatatable
+data	app/datatables/venta_datatable.rb	/^  def data$/;"	f	class:VentaDatatable
+datosgenera	app/controllers/facturas_controller.rb	/^  def datosgenera(nitci, monto, nombre_empresa, nombre_comprador)$/;"	f	class:FacturasController
+destroy	app/controllers/almacenes_controller.rb	/^  def destroy$/;"	f	class:AlmacenesController
+destroy	app/controllers/cajas_controller.rb	/^  def destroy$/;"	f	class:CajasController
+destroy	app/controllers/categoria_controller.rb	/^  def destroy$/;"	f	class:CategoriaController
+destroy	app/controllers/clientes_controller.rb	/^  def destroy$/;"	f	class:ClientesController
+destroy	app/controllers/cotizaciones_controller.rb	/^  def destroy$/;"	f	class:CotizacionesController
+destroy	app/controllers/facturas_controller.rb	/^  def destroy$/;"	f	class:FacturasController
+destroy	app/controllers/pagos_controller.rb	/^	def destroy$/;"	f	class:PagosController
+destroy	app/controllers/panelcontrols_controller.rb	/^  def destroy  $/;"	f	class:PanelcontrolsController
+destroy	app/controllers/paquetes_controller.rb	/^  def destroy$/;"	f	class:PaquetesController
+destroy	app/controllers/parametros_controller.rb	/^  def destroy$/;"	f	class:ParametrosController
+destroy	app/controllers/productos_controller.rb	/^  def destroy$/;"	f	class:ProductosController
+destroy	app/controllers/rangos_precios_controller.rb	/^  def destroy$/;"	f	class:RangosPreciosController
+destroy	app/controllers/users_controller.rb	/^  def destroy$/;"	f	class:UsersController
+destroy	app/controllers/ventas_controller.rb	/^  def destroy$/;"	f	class:VentasController
+down	db/migrate/20180508200607_add_devise_to_users.rb	/^  def self.down$/;"	F	class:AddDeviseToUsers
+dt_actions	app/datatables/cliente_cotizacion_datatable.rb	/^    def dt_actions(idPropucto)$/;"	f	class:ClienteCotizacionDatatable
+dt_actions	app/datatables/cotizacion_datatable.rb	/^  def dt_actions(idPropucto)$/;"	f	class:CotizacionDatatable
+edit	app/controllers/almacenes_controller.rb	/^  def edit$/;"	f	class:AlmacenesController
+edit	app/controllers/cajas_controller.rb	/^  def edit$/;"	f	class:CajasController
+edit	app/controllers/categoria_controller.rb	/^  def edit$/;"	f	class:CategoriaController
+edit	app/controllers/clientes_controller.rb	/^  def edit$/;"	f	class:ClientesController
+edit	app/controllers/cotizaciones_controller.rb	/^  def edit$/;"	f	class:CotizacionesController
+edit	app/controllers/facturas_controller.rb	/^  def edit$/;"	f	class:FacturasController
+edit	app/controllers/panelcontrols_controller.rb	/^  def edit$/;"	f	class:PanelcontrolsController
+edit	app/controllers/paquetes_controller.rb	/^  def edit$/;"	f	class:PaquetesController
+edit	app/controllers/parametros_controller.rb	/^  def edit$/;"	f	class:ParametrosController
+edit	app/controllers/productos_controller.rb	/^  def edit; end$/;"	f	class:ProductosController
+edit	app/controllers/rangos_precios_controller.rb	/^  def edit$/;"	f	class:RangosPreciosController
+edit	app/controllers/users_controller.rb	/^  def edit$/;"	f	class:UsersController
+edit	app/controllers/ventas_controller.rb	/^  def edit$/;"	f	class:VentasController
+elimina_transferencia	app/controllers/cajas_controller.rb	/^  def elimina_transferencia$/;"	f	class:CajasController
+eliminar_mov	app/controllers/almacenes_controller.rb	/^def eliminar_mov$/;"	f	class:AlmacenesController
+encode	app/controllers/rc4.rb	/^	def encode(msg, key, mode = 'hex')$/;"	f	class:Rc4
+encrypt_password	app/models/user.rb	/^	def encrypt_password$/;"	f	class:User
+excel	app/controllers/productos_controller.rb	/^  def excel$/;"	f	class:ProductosController
+excel_inventarios	app/controllers/almacenes_controller.rb	/^  def excel_inventarios(nombre_excel,almacen_id)$/;"	f	class:AlmacenesController
+excel_productos	app/controllers/productos_controller.rb	/^  def excel_productos(nombre_excel)$/;"	f	class:ProductosController
+factura_params	app/controllers/facturas_controller.rb	/^    def factura_params$/;"	f	class:FacturasController
+fil_total_productos	app/datatables/inventario_datatable.rb	/^  def fil_total_productos$/;"	f	class:InventarioDatatable
+filter_fecha_condition	app/datatables/cotizacione_cliente_datatable.rb	/^  def filter_fecha_condition$/;"	f	class:CotizacioneClienteDatatable
+filter_fecha_condition	app/datatables/cotizacione_datatable.rb	/^  def filter_fecha_condition$/;"	f	class:CotizacioneDatatable
+filter_fecha_condition	app/datatables/venta_cliente_datatable.rb	/^    def filter_fecha_condition$/;"	f	class:VentaClienteDatatable
+filter_fecha_condition	app/datatables/venta_datatable.rb	/^  def filter_fecha_condition$/;"	f	class:VentaDatatable
+filter_nombre_almacen_condition	app/datatables/cotizacione_cliente_datatable.rb	/^  def filter_nombre_almacen_condition$/;"	f	class:CotizacioneClienteDatatable
+filter_nombre_cliente_condition	app/datatables/cotizacione_datatable.rb	/^  def filter_nombre_cliente_condition$/;"	f	class:CotizacioneDatatable
+filter_nombre_cliente_condition	app/datatables/venta_cliente_datatable.rb	/^    def filter_nombre_cliente_condition$/;"	f	class:VentaClienteDatatable
+filter_nombre_cliente_condition	app/datatables/venta_datatable.rb	/^  def filter_nombre_cliente_condition$/;"	f	class:VentaDatatable
+filter_nombre_usuario_condition	app/datatables/caja_datatable.rb	/^  def filter_nombre_usuario_condition$/;"	f	class:CajaDatatable
+filter_pq_nombre_condition	app/datatables/paquete_datatable.rb	/^  def filter_pq_nombre_condition$/;"	f	class:PaqueteDatatable
+filter_total_bs_condition	app/datatables/cotizacione_cliente_datatable.rb	/^  def filter_total_bs_condition$/;"	f	class:CotizacioneClienteDatatable
+filter_total_bs_condition	app/datatables/cotizacione_datatable.rb	/^  def filter_total_bs_condition$/;"	f	class:CotizacioneDatatable
+filter_total_venta_condition	app/datatables/venta_cliente_datatable.rb	/^    def filter_total_venta_condition$/;"	f	class:VentaClienteDatatable
+filter_total_venta_condition	app/datatables/venta_datatable.rb	/^  def filter_total_venta_condition$/;"	f	class:VentaDatatable
+genera	app/controllers/controlv7.rb	/^	def genera(numautorizacion, numfactura, nitcliente, fecha, monto, clave)$/;"	f	class:Controlv7
+get	app/controllers/verhoeff.rb	/^	def get(num)$/;"	f	class:Verhoeff
+get_canti_panel	app/controllers/panelcontrols_controller.rb	/^  def get_canti_panel$/;"	f	class:PanelcontrolsController
+get_datos_ingresos	app/controllers/panelcontrols_controller.rb	/^  def get_datos_ingresos$/;"	f	class:PanelcontrolsController
+get_datos_topclientes	app/controllers/panelcontrols_controller.rb	/^  def get_datos_topclientes$/;"	f	class:PanelcontrolsController
+get_datos_topproductos	app/controllers/panelcontrols_controller.rb	/^  def get_datos_topproductos$/;"	f	class:PanelcontrolsController
+get_raw_records	app/datatables/almacene_datatable.rb	/^  def get_raw_records$/;"	f	class:AlmaceneDatatable
+get_raw_records	app/datatables/caja_datatable.rb	/^  def get_raw_records$/;"	f	class:CajaDatatable
+get_raw_records	app/datatables/categoria_datatable.rb	/^  def get_raw_records$/;"	f	class:CategoriaDatatable
+get_raw_records	app/datatables/cliente_cotizacion_datatable.rb	/^    def get_raw_records$/;"	f	class:ClienteCotizacionDatatable
+get_raw_records	app/datatables/cliente_datatable.rb	/^  def get_raw_records$/;"	f	class:ClienteDatatable
+get_raw_records	app/datatables/cotizacion_datatable.rb	/^  def get_raw_records$/;"	f	class:CotizacionDatatable
+get_raw_records	app/datatables/cotizacione_cliente_datatable.rb	/^  def get_raw_records$/;"	f	class:CotizacioneClienteDatatable
+get_raw_records	app/datatables/cotizacione_datatable.rb	/^  def get_raw_records$/;"	f	class:CotizacioneDatatable
+get_raw_records	app/datatables/factura_datatable.rb	/^  def get_raw_records$/;"	f	class:FacturaDatatable
+get_raw_records	app/datatables/inventario_datatable.rb	/^  def get_raw_records$/;"	f	class:InventarioDatatable
+get_raw_records	app/datatables/paquete_datatable.rb	/^  def get_raw_records$/;"	f	class:PaqueteDatatable
+get_raw_records	app/datatables/parametro_datatable.rb	/^  def get_raw_records$/;"	f	class:ParametroDatatable
+get_raw_records	app/datatables/producto_datatable.rb	/^  def get_raw_records$/;"	f	class:ProductoDatatable
+get_raw_records	app/datatables/totale_datatable.rb	/^  def get_raw_records$/;"	f	class:TotaleDatatable
+get_raw_records	app/datatables/user_datatable.rb	/^  def get_raw_records$/;"	f	class:UserDatatable
+get_raw_records	app/datatables/venta_cliente_datatable.rb	/^    def get_raw_records$/;"	f	class:VentaClienteDatatable
+get_raw_records	app/datatables/venta_datatable.rb	/^  def get_raw_records$/;"	f	class:VentaDatatable
+get_total	app/controllers/almacenes_controller.rb	/^  def get_total(idalmacen,idproducto)$/;"	f	class:AlmacenesController
+get_total	app/controllers/inven.rb	/^	def get_total(idalmacen,idproducto)$/;"	f	class:Inven
+guarda_entrega	app/controllers/cajas_controller.rb	/^  def guarda_entrega$/;"	f	class:CajasController
+guarda_excel	app/controllers/almacenes_controller.rb	/^  def guarda_excel$/;"	f	class:AlmacenesController
+guarda_excel	app/controllers/productos_controller.rb	/^  def guarda_excel$/;"	f	class:ProductosController
+guarda_factura	app/controllers/facturas_controller.rb	/^  def guarda_factura$/;"	f	class:FacturasController
+guarda_ingreso	app/controllers/almacenes_controller.rb	/^  def guarda_ingreso$/;"	f	class:AlmacenesController
+guarda_salida	app/controllers/almacenes_controller.rb	/^def guarda_salida$/;"	f	class:AlmacenesController
+guarda_transferencia	app/controllers/almacenes_controller.rb	/^def guarda_transferencia$/;"	f	class:AlmacenesController
+hoycajachica	app/controllers/reportes_controller.rb	/^  def hoycajachica$/;"	f	class:ReportesController
+impresion	app/controllers/cotizaciones_controller.rb	/^  def impresion$/;"	f	class:CotizacionesController
+impresion	app/controllers/ventas_controller.rb	/^  def impresion$/;"	f	class:VentasController
+imprimir	app/controllers/cajas_controller.rb	/^  def imprimir$/;"	f	class:CajasController
+index	app/controllers/almacenes_controller.rb	/^  def index$/;"	f	class:AlmacenesController
+index	app/controllers/cajas_controller.rb	/^  def index$/;"	f	class:CajasController
+index	app/controllers/categoria_controller.rb	/^  def index$/;"	f	class:CategoriaController
+index	app/controllers/clientes_controller.rb	/^  def index$/;"	f	class:ClientesController
+index	app/controllers/cotizaciones_controller.rb	/^  def index$/;"	f	class:CotizacionesController
+index	app/controllers/facturas_controller.rb	/^  def index$/;"	f	class:FacturasController
+index	app/controllers/panelcontrols_controller.rb	/^  def index$/;"	f	class:PanelcontrolsController
+index	app/controllers/paquetes_controller.rb	/^  def index$/;"	f	class:PaquetesController
+index	app/controllers/parametros_controller.rb	/^  def index$/;"	f	class:ParametrosController
+index	app/controllers/productos_controller.rb	/^  def index$/;"	f	class:ProductosController
+index	app/controllers/rangos_precios_controller.rb	/^  def index$/;"	f	class:RangosPreciosController
+index	app/controllers/reportes_controller.rb	/^  def index$/;"	f	class:ReportesController
+index	app/controllers/users_controller.rb	/^  def index$/;"	f	class:UsersController
+index	app/controllers/ventas_controller.rb	/^  def index$/;"	f	class:VentasController
+index	app/controllers/welcome_controller.rb	/^  def index$/;"	f	class:WelcomeController
+ingreso	app/controllers/almacenes_controller.rb	/^  def ingreso$/;"	f	class:AlmacenesController
+lista_cliente	app/controllers/ventas_controller.rb	/^  def lista_cliente$/;"	f	class:VentasController
+llena_paquetes	app/controllers/productos_controller.rb	/^  def llena_paquetes$/;"	f	class:ProductosController
+llena_precios	app/controllers/productos_controller.rb	/^  def llena_precios$/;"	f	class:ProductosController
+lospaquetes	app/datatables/cliente_cotizacion_datatable.rb	/^    def lospaquetes(idPropucto)$/;"	f	class:ClienteCotizacionDatatable
+lospaquetes	app/datatables/cotizacion_datatable.rb	/^  def lospaquetes(idPropucto)$/;"	f	class:CotizacionDatatable
+lospaquetes	app/datatables/inventario_datatable.rb	/^  def lospaquetes(idPropucto)$/;"	f	class:InventarioDatatable
+losprecios	app/datatables/cliente_cotizacion_datatable.rb	/^    def losprecios(idPropucto)$/;"	f	class:ClienteCotizacionDatatable
+losprecios	app/datatables/cotizacion_datatable.rb	/^  def losprecios(idPropucto)$/;"	f	class:CotizacionDatatable
+movimiento_params	app/controllers/almacenes_controller.rb	/^    def movimiento_params$/;"	f	class:AlmacenesController
+movimientos	app/controllers/almacenes_controller.rb	/^  def movimientos$/;"	f	class:AlmacenesController
+new	app/controllers/almacenes_controller.rb	/^  def new$/;"	f	class:AlmacenesController
+new	app/controllers/cajas_controller.rb	/^  def new$/;"	f	class:CajasController
+new	app/controllers/categoria_controller.rb	/^  def new$/;"	f	class:CategoriaController
+new	app/controllers/clientes_controller.rb	/^  def new$/;"	f	class:ClientesController
+new	app/controllers/cotizaciones_controller.rb	/^  def new$/;"	f	class:CotizacionesController
+new	app/controllers/facturas_controller.rb	/^  def new$/;"	f	class:FacturasController
+new	app/controllers/panelcontrols_controller.rb	/^  def new$/;"	f	class:PanelcontrolsController
+new	app/controllers/paquetes_controller.rb	/^  def new$/;"	f	class:PaquetesController
+new	app/controllers/parametros_controller.rb	/^  def new$/;"	f	class:ParametrosController
+new	app/controllers/productos_controller.rb	/^  def new$/;"	f	class:ProductosController
+new	app/controllers/rangos_precios_controller.rb	/^  def new$/;"	f	class:RangosPreciosController
+new	app/controllers/users_controller.rb	/^  def new$/;"	f	class:UsersController
+new	app/controllers/ventas_controller.rb	/^  def new$/;"	f	class:VentasController
+nueva_contizacion_cliente	app/controllers/cotizaciones_controller.rb	/^  def nueva_contizacion_cliente$/;"	f	class:CotizacionesController
+nueva_entrega	app/controllers/cajas_controller.rb	/^  def nueva_entrega$/;"	f	class:CajasController
+nuevo	app/controllers/facturas_controller.rb	/^  def nuevo$/;"	f	class:FacturasController
+pagos_dia	app/controllers/reportes_controller.rb	/^  def pagos_dia$/;"	f	class:ReportesController
+paq	app/models/paquete.rb	/^	belongs_to :paq, class_name: "Paq", foreign_key: "paquete_id", optional: true$/;"	F	class:Paquete
+paq=	app/models/paquete.rb	/^	belongs_to :paq, class_name: "Paq", foreign_key: "paquete_id", optional: true$/;"	F	class:Paquete
+paquete	app/models/cotizacione.rb	/^	belongs_to :paquete, optional: true$/;"	F	class:Cotizacione
+paquete=	app/models/cotizacione.rb	/^	belongs_to :paquete, optional: true$/;"	F	class:Cotizacione
+paquete_params	app/controllers/paquetes_controller.rb	/^    def paquete_params$/;"	f	class:PaquetesController
+parametro_params	app/controllers/parametros_controller.rb	/^    def parametro_params$/;"	f	class:ParametrosController
+precio_cliente	app/controllers/cotizaciones_controller.rb	/^  def precio_cliente$/;"	f	class:CotizacionesController
+precios	app/controllers/rangos_precios_controller.rb	/^  def precios$/;"	f	class:RangosPreciosController
+producto	app/models/cotizacione.rb	/^	belongs_to :producto$/;"	F	class:Cotizacione
+producto	app/models/panelcontrol.rb	/^	belongs_to :producto$/;"	F	class:Panelcontrols
+producto	app/models/paquete.rb	/^	belongs_to :producto, optional: true$/;"	F	class:Paquete
+producto	app/models/total.rb	/^	belongs_to :producto$/;"	F	class:Total
+producto=	app/models/cotizacione.rb	/^	belongs_to :producto$/;"	F	class:Cotizacione
+producto=	app/models/panelcontrol.rb	/^	belongs_to :producto$/;"	F	class:Panelcontrols
+producto=	app/models/paquete.rb	/^	belongs_to :producto, optional: true$/;"	F	class:Paquete
+producto=	app/models/total.rb	/^	belongs_to :producto$/;"	F	class:Total
+producto_params	app/controllers/panelcontrols_controller.rb	/^    def producto_params$/;"	f	class:PanelcontrolsController
+producto_params	app/controllers/productos_controller.rb	/^  def producto_params$/;"	f	class:ProductosController
+productos	app/controllers/almacenes_controller.rb	/^  def productos$/;"	f	class:AlmacenesController
+productos_dia	app/controllers/reportes_controller.rb	/^  def productos_dia$/;"	f	class:ReportesController
+productos_path	app/datatables/cliente_cotizacion_datatable.rb	/^    def_delegators :@view, :productos_path$/;"	f	class:ClienteCotizacionDatatable
+productos_path	app/datatables/cotizacion_datatable.rb	/^  def_delegators :@view, :productos_path$/;"	f	class:CotizacionDatatable
+rangos_precio_params	app/controllers/rangos_precios_controller.rb	/^    def rangos_precio_params$/;"	f	class:RangosPreciosController
+regulariza_nombres	app/controllers/paquetes_controller.rb	/^  def regulariza_nombres$/;"	f	class:PaquetesController
+salida	app/controllers/almacenes_controller.rb	/^ def salida$/;"	f	class:AlmacenesController
+set_almacene	app/controllers/almacenes_controller.rb	/^    def set_almacene$/;"	f	class:AlmacenesController
+set_caja	app/controllers/cajas_controller.rb	/^  def set_caja$/;"	f	class:CajasController
+set_categorium	app/controllers/categoria_controller.rb	/^    def set_categorium$/;"	f	class:CategoriaController
+set_cotizaciones	app/controllers/cotizaciones_controller.rb	/^    def set_cotizaciones$/;"	f	class:CotizacionesController
+set_factura	app/controllers/facturas_controller.rb	/^    def set_factura$/;"	f	class:FacturasController
+set_paquete	app/controllers/paquetes_controller.rb	/^    def set_paquete$/;"	f	class:PaquetesController
+set_parametro	app/controllers/parametros_controller.rb	/^    def set_parametro$/;"	f	class:ParametrosController
+set_producto	app/controllers/panelcontrols_controller.rb	/^    def set_producto$/;"	f	class:PanelcontrolsController
+set_producto	app/controllers/productos_controller.rb	/^  def set_producto$/;"	f	class:ProductosController
+set_rangos_precio	app/controllers/rangos_precios_controller.rb	/^    def set_rangos_precio$/;"	f	class:RangosPreciosController
+set_total	app/controllers/almacenes_controller.rb	/^  def set_total(idalmacen,idproducto,total)$/;"	f	class:AlmacenesController
+set_total	app/controllers/inven.rb	/^	def set_total(idalmacen,idproducto,total)$/;"	f	class:Inven
+set_user	app/controllers/clientes_controller.rb	/^    def set_user$/;"	f	class:ClientesController
+set_user	app/controllers/users_controller.rb	/^    def set_user$/;"	f	class:UsersController
+set_ventas	app/controllers/ventas_controller.rb	/^    def set_ventas$/;"	f	class:VentasController
+show	app/controllers/cajas_controller.rb	/^  def show$/;"	f	class:CajasController
+show	app/controllers/categoria_controller.rb	/^  def show$/;"	f	class:CategoriaController
+show	app/controllers/clientes_controller.rb	/^  def show$/;"	f	class:ClientesController
+show	app/controllers/cotizaciones_controller.rb	/^  def show$/;"	f	class:CotizacionesController
+show	app/controllers/facturas_controller.rb	/^  def show$/;"	f	class:FacturasController
+show	app/controllers/panelcontrols_controller.rb	/^  def show$/;"	f	class:PanelcontrolsController
+show	app/controllers/paquetes_controller.rb	/^  def show$/;"	f	class:PaquetesController
+show	app/controllers/parametros_controller.rb	/^  def show$/;"	f	class:ParametrosController
+show	app/controllers/productos_controller.rb	/^  def show; end$/;"	f	class:ProductosController
+show	app/controllers/rangos_precios_controller.rb	/^  def show$/;"	f	class:RangosPreciosController
+show	app/controllers/users_controller.rb	/^  def show$/;"	f	class:UsersController
+show	app/controllers/ventas_controller.rb	/^  def show$/;"	f	class:VentasController
+sube_excel	app/controllers/almacenes_controller.rb	/^  def sube_excel$/;"	f	class:AlmacenesController
+sube_excel	app/controllers/productos_controller.rb	/^  def sube_excel$/;"	f	class:ProductosController
+totalpagado	app/datatables/venta_cliente_datatable.rb	/^    def totalpagado(numero)$/;"	f	class:VentaClienteDatatable
+totalpagado	app/datatables/venta_datatable.rb	/^  def totalpagado(numero)$/;"	f	class:VentaDatatable
+transferencia	app/controllers/almacenes_controller.rb	/^def transferencia$/;"	f	class:AlmacenesController
+up	db/migrate/20180508200607_add_devise_to_users.rb	/^  def self.up$/;"	F	class:AddDeviseToUsers
+update	app/controllers/almacenes_controller.rb	/^  def update$/;"	f	class:AlmacenesController
+update	app/controllers/cajas_controller.rb	/^  def update$/;"	f	class:CajasController
+update	app/controllers/categoria_controller.rb	/^  def update$/;"	f	class:CategoriaController
+update	app/controllers/clientes_controller.rb	/^  def update$/;"	f	class:ClientesController
+update	app/controllers/cotizaciones_controller.rb	/^  def update$/;"	f	class:CotizacionesController
+update	app/controllers/facturas_controller.rb	/^  def update$/;"	f	class:FacturasController
+update	app/controllers/panelcontrols_controller.rb	/^  def update$/;"	f	class:PanelcontrolsController
+update	app/controllers/paquetes_controller.rb	/^  def update$/;"	f	class:PaquetesController
+update	app/controllers/parametros_controller.rb	/^  def update$/;"	f	class:ParametrosController
+update	app/controllers/productos_controller.rb	/^  def update$/;"	f	class:ProductosController
+update	app/controllers/rangos_precios_controller.rb	/^  def update$/;"	f	class:RangosPreciosController
+update	app/controllers/users_controller.rb	/^  def update$/;"	f	class:UsersController
+update	app/controllers/ventas_controller.rb	/^  def update$/;"	f	class:VentasController
+user	app/models/caja.rb	/^	belongs_to :user$/;"	F	class:Caja
+user	app/models/cotizacione.rb	/^	belongs_to :user$/;"	F	class:Cotizacione
+user=	app/models/caja.rb	/^	belongs_to :user$/;"	F	class:Caja
+user=	app/models/cotizacione.rb	/^	belongs_to :user$/;"	F	class:Cotizacione
+user_params	app/controllers/clientes_controller.rb	/^    def user_params$/;"	f	class:ClientesController
+user_params	app/controllers/users_controller.rb	/^    def user_params$/;"	f	class:UsersController
+venta_params	app/controllers/ventas_controller.rb	/^    def venta_params$/;"	f	class:VentasController
+ventas	app/controllers/reportes_controller.rb	/^  def ventas$/;"	f	class:ReportesController
+ventas_dia	app/controllers/reportes_controller.rb	/^  def ventas_dia$/;"	f	class:ReportesController
+view_columns	app/datatables/almacene_datatable.rb	/^  def view_columns$/;"	f	class:AlmaceneDatatable
+view_columns	app/datatables/caja_datatable.rb	/^  def view_columns$/;"	f	class:CajaDatatable
+view_columns	app/datatables/categoria_datatable.rb	/^  def view_columns$/;"	f	class:CategoriaDatatable
+view_columns	app/datatables/cliente_cotizacion_datatable.rb	/^    def view_columns$/;"	f	class:ClienteCotizacionDatatable
+view_columns	app/datatables/cliente_datatable.rb	/^  def view_columns$/;"	f	class:ClienteDatatable
+view_columns	app/datatables/cotizacion_datatable.rb	/^  def view_columns$/;"	f	class:CotizacionDatatable
+view_columns	app/datatables/cotizacione_cliente_datatable.rb	/^  def view_columns$/;"	f	class:CotizacioneClienteDatatable
+view_columns	app/datatables/cotizacione_datatable.rb	/^  def view_columns$/;"	f	class:CotizacioneDatatable
+view_columns	app/datatables/factura_datatable.rb	/^  def view_columns$/;"	f	class:FacturaDatatable
+view_columns	app/datatables/inventario_datatable.rb	/^  def view_columns$/;"	f	class:InventarioDatatable
+view_columns	app/datatables/paquete_datatable.rb	/^  def view_columns$/;"	f	class:PaqueteDatatable
+view_columns	app/datatables/parametro_datatable.rb	/^  def view_columns$/;"	f	class:ParametroDatatable
+view_columns	app/datatables/producto_datatable.rb	/^  def view_columns$/;"	f	class:ProductoDatatable
+view_columns	app/datatables/totale_datatable.rb	/^  def view_columns$/;"	f	class:TotaleDatatable
+view_columns	app/datatables/user_datatable.rb	/^  def view_columns$/;"	f	class:UserDatatable
+view_columns	app/datatables/venta_cliente_datatable.rb	/^    def view_columns$/;"	f	class:VentaClienteDatatable
+view_columns	app/datatables/venta_datatable.rb	/^  def view_columns$/;"	f	class:VentaDatatable

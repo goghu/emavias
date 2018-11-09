@@ -1,0 +1,2 @@
+module RangosPreciosHelper
+end

@@ -1,0 +1,102 @@
+<!-- ============================================================== -->
+<!-- Left Sidebar - style you can find in sidebar.scss  -->
+<!-- ============================================================== -->
+<aside class="left-sidebar no-imprime">
+    <!-- Sidebar scroll-->
+    <div class="scroll-sidebar">
+        <!-- User profile -->
+        <div class="user-profile">
+            <!-- User profile image -->
+            <div class="profile-img">
+                <img alt="user" src="<%= asset_path '/assets/images/users/icon-user-default_5.png' %>"/>
+            </div>
+            <!-- User profile text-->
+            <div class="profile-text">
+                <a aria-expanded="true" aria-haspopup="true" class="dropdown-toggle link u-dropdown" data-toggle="dropdown" href="#" role="button">
+                    <%= current_user.nombre%>
+                    <span class="caret">
+                    </span>
+                </a>
+                <div class="dropdown-menu animated flipInY">
+                    <a href="javascript:void(0)" class="dropdown-item navbar-link editar_usuario" data-id=<%= current_user.id %> ><i class="fa fa-user"></i> Mi Perfil</a>
+
+                    <div class="dropdown-divider">
+                    </div>
+
+                    <li><%= link_to destroy_user_session_path, method: :delete, :class=>'dropdown-item navbar-link' do  %>
+                    <i class="fa fa-power-off"></i>&nbsp;&nbsp;Salir<%end %></li>
+
+                    <!-- <a class="dropdown-item" href="login.html">
+                        <i class="fa fa-power-off">
+                        </i>
+                        Logout
+                    </a> -->
+                </div>
+            </div>
+        </div>
+        <!-- End User profile text-->
+        <!-- Sidebar navigation-->
+        <nav class="sidebar-nav">
+            <ul id="sidebarnav">
+                <!-- <li><%= link_to  controller: "panelcontrols", action: "index" do %>
+                    <i class="mdi mdi-chart-areaspline"></i> <span class="hide-menu">Panel Control</span><%end %>
+                </li> -->
+                <li><%= link_to  controller: "users", action: "index" do %>
+                    <i class="mdi mdi-account-card-details"></i> <span class="hide-menu">Usuarios</span><%end %>
+                </li>
+                <!-- <li><%= link_to  controller: "clientes", action: "index" do %>
+                    <i class="mdi mdi-account"></i> <span class="hide-menu">Personas</span><%end %>
+                </li>
+                <li><%= link_to  controller: "almacenes", action: "index" do%>
+                <i class="mdi mdi-bulletin-board"></i> <span class="hide-menu">Almacenes</span><%end %></li>
+                <li><%= link_to  controller: "productos", action: "index" do%>
+                <i class="mdi mdi-code-equal"></i> <span class="hide-menu">Productos</span><%end %></li>
+                <li>
+                  <%= link_to  controller: "categoria", action: "index" do %>
+                    <i class="mdi mdi-chart-bubble"></i> <span class="hide-menu">Categorias</span>
+                  <% end %>
+                </li>
+                <li><%= link_to  controller: "paquetes", action: "index" do%>
+                <i class="mdi mdi-inbox-arrow-down"></i> <span class="hide-menu">Paquetes</span><%end %></li>
+                <li><%= link_to  controller: "parametros", action: "index" do%>
+                <i class="mdi mdi-inbox-arrow-down"></i> <span class="hide-menu">Parametros</span><%end %></li>
+                <li>
+                    <a class="has-arrow " href="#" aria-expanded="false"><i class="mdi mdi-code-equal"></i><span class="hide-menu">Reportes</span></a>
+                    <ul aria-expanded="false" class="collapse">
+                        <li><a href="<%= reportes_ventas_path %>">Ventas</a></li>
+                        <li><a href="<%= reportes_ventas_dia_path %>">Ventas por dia</a></li>
+                        <li><a href="<%= reportes_productos_dia_path %>">Productos por dia </a></li>
+                        <li><a href="<%= reportes_pagos_dia_path %>">Pagos por dia</a></li>
+                        <li><a href="<%= reportes_cajachica_path %>">Caja chica</a></li>
+                        <li><a href="<%= reportes_movimientos_path %>">Movimientos Inv.</a></li>
+                    </ul>
+                </li> -->
+            </ul>
+          </li>
+            </ul>
+        </nav>
+       <% time = Time.now %>
+    </div>
+    <!-- End Sidebar scroll-->
+    <!-- Bottom points-->
+    <div class="sidebar-footer">
+        <%= link_to destroy_user_session_path, method: :delete, :class=>'link',title: "Salir"  do  %>
+        <i class="mdi mdi-power">
+        </i>
+        <%end %>
+    </div>
+    <!-- End Bottom points-->
+</aside>
+
+<% content_for :add_js do %>
+<script type="text/javascript">
+ $(document).on('click','.editar_p',function(){
+    el_id = $(this).data('id');
+    cargarmodal('/users/'+el_id+'/edit');
+  });
+
+</script>
+<% end %>
+<!-- ============================================================== -->
+<!-- End Left Sidebar - style you can find in sidebar.scss  -->
+<!-- ============================================================== -->

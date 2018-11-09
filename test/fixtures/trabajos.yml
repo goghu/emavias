@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  producto_id: 1
+  numero: 1
+  unidad: MyString
+  cantidad: 1
+  marca: MyString
+  modelo: MyString
+  estado: MyString
+
+two:
+  producto_id: 1
+  numero: 1
+  unidad: MyString
+  cantidad: 1
+  marca: MyString
+  modelo: MyString
+  estado: MyString

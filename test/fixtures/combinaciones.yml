@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  productoa_id: 1
+  productob_id: 1
+  precio: 9.99
+
+two:
+  productoa_id: 1
+  productob_id: 1
+  precio: 9.99

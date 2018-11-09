@@ -1,0 +1,27 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  cliente_id: 1
+  nombre: MyString
+  objeto: MyString
+  numero: 1
+  cuce: MyString
+  codigo: MyString
+  telefono: MyString
+  estado: MyString
+  elaborado: 1
+  entregado: 1
+  hora: 2018-10-19 19:33:49
+
+two:
+  cliente_id: 1
+  nombre: MyString
+  objeto: MyString
+  numero: 1
+  cuce: MyString
+  codigo: MyString
+  telefono: MyString
+  estado: MyString
+  elaborado: 1
+  entregado: 1
+  hora: 2018-10-19 19:33:49

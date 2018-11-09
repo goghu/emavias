@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  producto_id: 1
+  minimo: 1
+  maximo: 1
+  precio: 9.99
+  borrado: 2018-05-23 16:25:57
+
+two:
+  producto_id: 1
+  minimo: 1
+  maximo: 1
+  precio: 9.99
+  borrado: 2018-05-23 16:25:57

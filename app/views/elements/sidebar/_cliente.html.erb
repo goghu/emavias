@@ -1,0 +1,65 @@
+<aside class="left-sidebar">
+    <!-- Sidebar scroll-->
+    <div class="scroll-sidebar">
+        <!-- User profile -->
+        <div class="user-profile">
+            <!-- User profile image -->
+            <div class="profile-img">
+                <img alt="user" src="<%= asset_path '/assets/images/users/icon-user-default_5.png' %>"/>
+            </div>
+            <!-- User profile text-->
+            <div class="profile-text">
+                <a aria-expanded="true" aria-haspopup="true" class="dropdown-toggle link u-dropdown" data-toggle="dropdown" href="#" role="button">
+                    <%= current_user.nombre%>
+                    <span class="caret">
+                    </span>
+                </a>
+                <div class="dropdown-menu animated flipInY">
+
+                   <a href="javascript:void(0)" class="dropdown-item navbar-link editar_usuario" data-id=<%= current_user.id %> ><i class="fa fa-user"></i> Mi Perfil</a>
+                   
+                   <div class="dropdown-divider">
+                   </div>
+                   <li><%= link_to destroy_user_session_path, method: :delete, :class=>'dropdown-item navbar-link' do  %>
+
+                    <i class="fa fa-power-off"></i>&nbsp;&nbsp;Salir<%end %></li>
+                    <!-- <a class="dropdown-item" href="login.html">
+                        <i class="fa fa-power-off">
+                        </i>
+                        Logout
+                    </a> -->
+                </div>
+            </div>
+        </div>
+        <!-- End User profile text-->
+        <!-- Sidebar navigation-->
+        <nav class="sidebar-nav">
+            <ul id="sidebarnav">
+                <li>
+                    <%= link_to  nueva_contizacion_cliente_path do%>
+                    <i class="mdi mdi-code-equal"></i> <span class="hide-menu">Nueva cotizacion</span>
+                    <%end %>
+                </li>
+                <li>
+                    <%= link_to  cotizaciones_cliente_path do%>
+                    <i class="mdi mdi-code-equal"></i> <span class="hide-menu">Cotizaciones</span>
+                    <%end %>
+                </li>
+                <li>
+                    <%= link_to  ventas_lista_cliente_path do%>
+                    <i class="mdi mdi-code-equal"></i> <span class="hide-menu">Compras</span>
+                    <%end %>
+                </li>
+            </ul>
+        </li>
+    </ul>
+</nav>
+<!-- End Sidebar navigation -->
+</div>
+<!-- End Sidebar scroll-->
+
+</aside>
+
+    <!-- ============================================================== -->
+    <!-- End Left Sidebar - style you can find in sidebar.scss  -->
+    <!-- ============================================================== -->
