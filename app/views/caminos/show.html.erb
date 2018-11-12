@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Unidade:</strong>
+  <%= @camino.unidade_id %>
+</p>
+
+<p>
+  <strong>Alternativo:</strong>
+  <%= @camino.alternativo %>
+</p>
+
+<p>
+  <strong>Correlativo:</strong>
+  <%= @camino.correlativo %>
+</p>
+
+<%= link_to 'Edit', edit_camino_path(@camino) %> |
+<%= link_to 'Back', caminos_path %>

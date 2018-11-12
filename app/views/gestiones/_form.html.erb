@@ -1,0 +1,22 @@
+<%= form_with(model: gestione, local: true) do |form| %>
+  <% if gestione.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(gestione.errors.count, "error") %> prohibited this gestione from being saved:</h2>
+
+      <ul>
+      <% gestione.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :numero %>
+    <%= form.text_field :numero, id: :gestione_numero %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

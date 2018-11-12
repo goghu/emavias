@@ -1,0 +1,32 @@
+<%= form_with(model: camino, local: true) do |form| %>
+  <% if camino.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(camino.errors.count, "error") %> prohibited this camino from being saved:</h2>
+
+      <ul>
+      <% camino.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :unidade_id %>
+    <%= form.number_field :unidade_id, id: :camino_unidade_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :alternativo %>
+    <%= form.check_box :alternativo, id: :camino_alternativo %>
+  </div>
+
+  <div class="field">
+    <%= form.label :correlativo %>
+    <%= form.number_field :correlativo, id: :camino_correlativo %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

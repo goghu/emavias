@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  descripcion: MyString
+  correlativo: 1
+  presento: false
+  observaciones: MyString
+
+two:
+  descripcion: MyString
+  correlativo: 1
+  presento: false
+  observaciones: MyString

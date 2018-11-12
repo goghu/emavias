@@ -1,0 +1,2 @@
+class Camino < ApplicationRecord
+end

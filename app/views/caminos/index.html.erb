@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Caminos</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Unidade</th>
+      <th>Alternativo</th>
+      <th>Correlativo</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @caminos.each do |camino| %>
+      <tr>
+        <td><%= camino.unidade_id %></td>
+        <td><%= camino.alternativo %></td>
+        <td><%= camino.correlativo %></td>
+        <td><%= link_to 'Show', camino %></td>
+        <td><%= link_to 'Edit', edit_camino_path(camino) %></td>
+        <td><%= link_to 'Destroy', camino, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Camino', new_camino_path %>
