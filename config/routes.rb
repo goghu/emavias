@@ -1,4 +1,5 @@
   Rails.application.routes.draw do
+  resources :ruta
   resources :documentos
   resources :compras
   resources :caminos
@@ -21,6 +22,8 @@
   # devise_scope :user do
   #   get '/usuarios/sign_in', to: 'users/sessions#new', as: 'new_user_session'
   # end
+  get '/compra/mis_compras/:usuario', to: 'compras#mis_compras', as: 'mis_compras'
+
 
   # devise_for :users, path: 'auth', path_names: {  sign_out: 'logout', sign_up: 'cmon_let_me_in' }
 

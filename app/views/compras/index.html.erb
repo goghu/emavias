@@ -36,7 +36,7 @@
     <!-- find modal -->
   
     <div class="col-md-6 col-4 align-self-center">
-      <%= link_to '<i class="mdi mdi-plus-circle"></i> Nuevo'.html_safe, new_producto_path, class: "btn pull-right btn-success" %>
+      <%= link_to '<i class="mdi mdi-plus-circle"></i> Nuevo'.html_safe, new_compra_path, class: "btn pull-right btn-success" %>
       <button type="button" onclick="cargarmodal('/producto/sube_excel');" class="btn btn-default pull-right" title="Subir archivo excel de productos"><i class="mdi mdi-file-excel"></i>Excel</button>
     </div>
   </div>
@@ -44,22 +44,18 @@
     <div class="col-12">
       <div class="card">
         <div class="card-body">
-          <table class="table table-bordered" id="mitabla" data-source="<%= productos_path(format: :json) %>">
+          <table class="table table-bordered" id="mitabla" data-source="<%= mis_compras_path(format: :json) %>">
             <thead>
               <tr>
-                <th style="width: 10%" class="busqda">Codigo</th>
-                <th class="busqda">Nombre</th>
-                <!-- <th class="busqda">Descripcion</th> -->
-                <th class="busqda">Precio</th>
-                <th class="busqda">Categoria</th>
+                <th style="width: 10%" class="busqda">Id</th>
+                <th class="busqda">Numero</th>
+                <th class="busqda">Fecha</th>
                 <th></th>
               </tr>
               <tr>
-                <th>Codigo</th>
-                <th>Nombre</th>
-                <!-- <th>Descripcion</th> -->
-                <th>Precio</th>
-                <th>Categoria</th>
+                <th>Id</th>
+                <th>Numero</th>
+                <th>Fecha</th>
                 <th></th>
               </tr>
             </thead>
@@ -67,7 +63,7 @@
             <tbody>
             </tbody>
           </table>
-          <%= render "elements/ayudas/productos" %>
+          <%# render "elements/ayudas/productos" %>
         </div>
       </div>
     </div>
@@ -94,11 +90,9 @@
       "pagingType": "full_numbers",
       "columns": [
       
-      {"data": "codigo"},
-      {"data": "nombre"},
-      // {"data": "descripcion"},
-      {"data": "precio"},
-      {"data": "categoria"},
+      {"data": "id"},
+      {"data": "numero"},
+      {"data": "fecha"},
       {
         data: null,
         orderable: false,
@@ -258,34 +252,5 @@
   
   </script>
   <% end %>
-<p id="notice"><%= notice %></p>
-
-<h1>Compras</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Numero</th>
-      <th>Docvalor</th>
-      <th>Fecha</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @compras.each do |compra| %>
-      <tr>
-        <td><%= compra.numero %></td>
-        <td><%= compra.docvalor %></td>
-        <td><%= compra.fecha %></td>
-        <td><%= link_to 'Show', compra %></td>
-        <td><%= link_to 'Edit', edit_compra_path(compra) %></td>
-        <td><%= link_to 'Destroy', compra, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
 
 <%= link_to 'New Compra', new_compra_path %>

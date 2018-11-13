@@ -6,10 +6,8 @@ class ComprasController < ApplicationController
   # GET /compras.json
   def index
     # @compras = Compra.all
-    respond_to do |format|
-    format.html
-    format.json { render json: ComprasDatatable.new(view_context) }
-    end
+    @usuario = current_user.id
+    # byebug
   end
 
   # GET /compras/1
@@ -29,8 +27,10 @@ class ComprasController < ApplicationController
   # POST /compras
   # POST /compras.json
   def create
-    
+    # byebug
     @compra = Compra.new(compra_params)
+    @compra.user_id=current_user.id
+    # compra_params[:compra][:user_id]=current_user.id
 
     respond_to do |format|
       if @compra.save
@@ -65,6 +65,20 @@ class ComprasController < ApplicationController
       format.html { redirect_to compras_url, notice: 'Compra was successfully destroyed.' }
       format.json { head :no_content }
     end
+  end
+
+  def mis_compras
+    # @compras = Compra.all
+    # byebug
+    # usuario = current_user.id
+    respond_to do |format|
+    format.html
+    format.json { render json: ComprasDatatable.new(view_context) }
+    end
+  end
+
+  def solicitudees_rpa
+    
   end
 
   private

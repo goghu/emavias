@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Nombre:</strong>
+  <%= @rutum.nombre %>
+</p>
+
+<p>
+  <strong>Descripcion:</strong>
+  <%= @rutum.descripcion %>
+</p>
+
+<%= link_to 'Edit', edit_rutum_path(@rutum) %> |
+<%= link_to 'Back', ruta_path %>

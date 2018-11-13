@@ -1,0 +1,256 @@
+<style>
+    .oculto{
+      display: none;
+    }
+  </style>
+  <div class="row page-titles">
+    <div class="col-md-6 col-8 align-self-center">
+      <h3 class="text-themecolor m-b-0 m-t-0">
+        LISTADO DE PRODUCTOS
+        <div class="btn btn-md btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-lg">
+          <i class="fa fa-question-circle"></i> &nbsp;Ayuda
+        </div>
+      </h3>
+    </div>
+  
+        <!-- modal -->
+      <div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true" style="display: none;">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="myLargeModalLabel">TUTORIAL</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                </div>
+                <div class="modal-body">
+                    <iframe width="100%" height="400" src="https://www.youtube.com/embed/dt9ddOaqb3A?ecver=1" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger waves-effect text-left" data-dismiss="modal">Cancelar</button>
+                </div>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+      </div>
+    <!-- /.modal -->
+    <!-- find modal -->
+  
+    <div class="col-md-6 col-4 align-self-center">
+      <%= link_to '<i class="mdi mdi-plus-circle"></i> Nuevo'.html_safe, new_compra_path, class: "btn pull-right btn-success" %>
+      <button type="button" onclick="cargarmodal('/producto/sube_excel');" class="btn btn-default pull-right" title="Subir archivo excel de productos"><i class="mdi mdi-file-excel"></i>Excel</button>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12">
+      <div class="card">
+        <div class="card-body">
+          <table class="table table-bordered" id="mitabla" data-source="<%= mis_compras_path(format: :json) %>">
+            <thead>
+              <tr>
+                <th style="width: 10%" class="busqda">Id</th>
+                <th class="busqda">Numero</th>
+                <th class="busqda">Fecha</th>
+                <th></th>
+              </tr>
+              <tr>
+                <th>Id</th>
+                <th>Numero</th>
+                <th>Fecha</th>
+                <th></th>
+              </tr>
+            </thead>
+  
+            <tbody>
+            </tbody>
+          </table>
+          <%# render "elements/ayudas/productos" %>
+        </div>
+      </div>
+    </div>
+  </div>
+  <% content_for :add_css do %>
+  
+  <link href="<%= asset_path '/assets/plugins/sweetalert/sweetalert.css' %>" rel="stylesheet" type="text/css">
+  <% end %>
+  <% content_for :add_js do %>
+  <script src="<%= asset_path '/assets/plugins/datatables/jquery.dataTables.min.js' %>"></script>
+  <script src="<%= asset_path '/js/validation.js' %>"></script>
+  <script src="<%= asset_path '/assets/plugins/sweetalert/sweetalert.min.js' %>"></script>
+  <script type="text/javascript">
+    var token = document.getElementsByName("csrf-token")[0].getAttribute('content');
+  
+    $('#mitabla thead th.busqda').each(function () {
+      var title = $('#mitabla thead th').eq($(this).index()).text();
+      $(this).html('<input type="text" class="form-control" placeholder="' + title + '" />');
+    });
+    var table5 = $('#mitabla').DataTable({
+      "processing": true,
+      "serverSide": true,
+      "ajax": $('#mitabla').data('source'),
+      "pagingType": "full_numbers",
+      "columns": [
+      
+      {"data": "id"},
+      {"data": "numero"},
+      {"data": "fecha"},
+      {
+        data: null,
+        orderable: false,
+        render: function ( data, type, row ) {
+          btneditar = '<button class="btn btn-info editar_m" data-id="'+data['id']+'" title="Editar"><i class="fa fa-pencil"></i></button>';
+          btneliminar = '<button class="btn btn-danger eliminar_m" data-id="'+data['id']+'" data-nombre="'+data['nombre']+'" title="Eliminar"><i class="fa fa-remove"></i></button>';
+          btn_precios = '<button class="btn btn-success precios_m" data-id="'+data['id']+'" data-nombre="'+data['nombre']+'" title="Precios"><i class="fa fa-dollar"></i></button>';
+          btn_cantidad = '<button class="btn btn-warning cantidad_m" data-id="'+data['id']+'" data-nombre="'+data['nombre']+'" title="Cantidad"><i class="fa fa-sort-amount-desc"></i></button>';
+          return btneditar+' '+btn_precios+' '+btn_cantidad+' '+btneliminar;
+        }
+      }
+      ],
+      "oLanguage": {
+        "sUrl": "https://cdn.datatables.net/plug-ins/1.10.16/i18n/Spanish.json"
+      }
+    });
+  
+    table5.columns().every(function (index) {
+      $('#mitabla thead tr th:eq(' + index + ') input').on('keyup', function () {
+        table5.column($(this).parent().index() + ':visible')
+        .search(this.value)
+        .draw();
+      });
+    });
+  
+    $(document).on('click','.editar_m',function(){
+      el_id = $(this).data('id');
+      window.location.href = '/productos/'+el_id+'/edit';
+    });
+  
+    $(document).on('click','.precios_m',function(){
+      el_id = $(this).data('id');
+      cargarmodal('/rangos_precio/precios/'+el_id);
+    });
+  
+    $(document).on('click','.cantidad_m',function(){
+      el_id = $(this).data('id');
+      el_nombre=$(this).data('nombre');
+      cargarmodal('/cantidad/'+el_id);
+    });
+  
+    $(document).on('click','.eliminar_m',function(){
+      el_id = $(this).data('id');
+      el_nombre = $(this).data('nombre');
+      pregunta_eli('/productos/'+el_id,'Eliminar el producto '+el_nombre);
+    });
+  
+  
+    function pregunta_eli(urll, texto) {
+      swal({
+        title: "Esta seguro?",
+        text: texto,
+        type: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#DD6B55",
+        confirmButtonText: "Si",
+        cancelButtonText: "No",
+        closeOnConfirm: false,
+        closeOnCancel: false
+      }, function (isConfirm) {
+        if (isConfirm) {
+          var form = document.createElement("form");
+          var element1 = document.createElement("input");
+          var element2 = document.createElement("input");
+  
+          form.method = "POST";
+          form.action = urll;
+  
+          element1.value="delete";
+          element1.name="_method";
+          form.appendChild(element1);
+  
+          element2.value=token;
+          element2.name="authenticity_token";
+          form.appendChild(element2);
+  
+          document.body.appendChild(form);
+  
+          form.submit();
+  
+        } else {
+          swal("Cancelado", "(DE " + texto + ')', "error");
+        }
+      });
+    }
+  
+  
+  
+    $(document).on('submit','#form-archivo',function(e){
+      la_action = $(this).attr('action');
+  
+      //los_datos = $(this).serializeArray();
+      var formData = new FormData($('#form-archivo')[0]);
+      $.ajax({
+        type: 'POST',
+        url: la_action,
+        beforeSend: function () {
+            $('#contieneprogreso').show();
+            $('.pocu').hide(100);
+        },
+        xhr: function () {  // Custom XMLHttpRequest
+            var myXhr = $.ajaxSettings.xhr();
+            if (myXhr.upload) { // Check if upload property exists
+                myXhr.upload.addEventListener('progress', progressHandlingFunction, false); // For handling the progress of the upload
+            }
+            return myXhr;
+        },
+        dataType: "json",
+        data: formData,
+        cache: false,
+                      contentType: false,
+                      processData: false,
+        success: function(data){
+          $('#myModal').modal('hide');
+          alertabn("Se registro correctamente los datos del almacen");
+        },
+        error: function(data){
+          mensajederror("error");
+        }
+      });
+      e.preventDefault();
+    });
+  
+  
+    function mensajederror(eltexto){
+      $.toast({
+        heading: 'Error',
+        text: eltexto,
+        position: 'top-right',
+        loaderBg:'#ff6849',
+        icon: 'error',
+        hideAfter: 4500
+  
+      })
+    }
+  
+    function alertabn(mensaje) {
+      swal({
+        title: "Excelente!",
+        text: mensaje,
+        type: 'success'
+      }, function () {
+        $(".lanzador").trigger("click");
+      })
+    }
+  
+  
+    function progressHandlingFunction(e) {
+        if (e.lengthComputable) {
+            $('#cargaarchivo').css({width: parseInt((e.loaded / e.total) * 100) + '%'});
+            $('#cargaarchivo').html(parseInt((e.loaded / e.total) * 100));
+        }
+    }
+    $(".lanzador").click(function(){
+      table5.draw();
+    });
+  
+  </script>
+  <% end %>
+
+<%= link_to 'New Compra', new_compra_path %>

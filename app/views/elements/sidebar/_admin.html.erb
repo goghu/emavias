@@ -47,7 +47,7 @@
                     <% end %>
                 </li>
                 <li>
-                    <%= link_to  controller: "compras", action: "index" do %>
+                    <%= link_to  controller: "compras", action: "mis_compras", usuario: current_user.id do %>
                     <i class="mdi mdi-cart"></i> <span class="hide-menu">Compras</span>
                     <% end %>
                 </li>
