@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20181112172036) do
+ActiveRecord::Schema.define(version: 20181113013444) do
 
   create_table "caminos", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.integer "unidade_id"
@@ -28,6 +28,7 @@ ActiveRecord::Schema.define(version: 20181112172036) do
   end
 
   create_table "compras", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
+    t.integer "user_id"
     t.string "numero", limit: 20
     t.string "docvalor", limit: 25
     t.date "fecha"
@@ -36,6 +37,7 @@ ActiveRecord::Schema.define(version: 20181112172036) do
   end
 
   create_table "documentos", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
+    t.integer "camino_id"
     t.string "descripcion", limit: 20
     t.integer "correlativo", limit: 2
     t.boolean "presento"
@@ -58,6 +60,7 @@ ActiveRecord::Schema.define(version: 20181112172036) do
   end
 
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
+    t.integer "unidade_id"
     t.string "nombre"
     t.string "password_salt", limit: 240
     t.string "password_hash", limit: 240

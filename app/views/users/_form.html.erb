@@ -5,17 +5,47 @@
 </div>
 <div class="modal-body">
 
-    <div class="form-group">
-        <label for="recipient-name" class="control-label">Nombre:</label>
-        <div class="controls">
-            <%= form.text_field :nombre, class: "form-control",placeholder: "Ingrese el nombre de usuario", required: true, "data-validation-required-message": "El nombre es obligatorio" %>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="form-group">
+                <label for="recipient-name" class="control-label">Nombre:</label>
+                <div class="controls">
+                    <%= form.text_field :nombre, class: "form-control" ,placeholder: "Ej: Edgar Monroy Duarte", required: true, "data-validation-required-message": "El nombre es obligatorio" %>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6">
+            <div class="form-group">
+                <label for="recipient-name" class="control-label">Cargo</label>
+                <div class="controls">
+                    <%= form.select :cargo_id, Cargo.all.collect {|p| [p.descripcion, p.id]} ,{},class: 'form-control', required: 'required' %>
+                </div>
+            </div>
+        
+        </div>
+        <div class="col-md-6">
+            <div class="form-group">
+                <label for="recipient-name" class="control-label">Unidad</label>
+                <div class="controls">
+                    <%= form.select :unidade_id, Unidade.all.collect {|p| [p.descripcion, p.id]} ,{},class: 'form-control', required: 'required' %>
+                </div>
+            </div>
+        
         </div>
     </div>
     
+    <div class="row">
+        <div class="col-md-6"></div>
+        <div class="col-md-6"></div>
+    </div>
+
     <div class="form-group">
         <label for="recipient-name" class="control-label">Rol:</label>
         <div class="controls">
-            <%= form.select :rol, [["Administrador","Administrador"],["Almacen","Almacen"]]  ,{},{class: 'form-control', required: 'required',id: "id-sel-rol"} %>
+            <%= form.select :rol, [["Administrador","Administrador"], ["Funcionario", "Funcionario"]] ,{},{class: 'form-control', required: 'required',id: "id-sel-rol"} %>
         </div>
     </div>
 
@@ -29,8 +59,7 @@
     <div class="form-group">
         <label for="recipient-name" class="control-label">Password:</label>
         <div class="controls">
-            <%= form.password_field :contra2, class: "form-control",placeholder: "Ingrese la
-            contraseña" %>
+            <%= form.password_field :contra2, class: "form-control",placeholder: "Ingrese la contraseña" %>
         </div>
     </div>
 

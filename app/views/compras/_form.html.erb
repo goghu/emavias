@@ -2,51 +2,25 @@
   <div class="col-lg-12">
     <div class="card card-outline-info">
       <div class="card-body">
-        <%= form_with(model: producto, local: true, html: {id: "form-producto",novalidate: true}) do |form| %>
+        <%= form_with(model: compra, local: true, html: {id: "form-compras",novalidate: true}) do |form| %>
         <div class="form-body">
+
           <div class="row">
 
-            <div class="col-md-3">
+            <div class="col-md-6">
               <div class="form-group">
-                <label class="control-label">Codigo</label>
+                <label class="control-label">Numero</label>
                 <div class="controls">
-                  <%= form.text_field :codigo, id: :producto_codigo,  class: 'form-control', required: 'required',placeholder:'Ej. CL-117' %>
+                  <%= form.text_field :numero, id: :compra_numero,  class: 'form-control', required: 'required',placeholder:'Ej. 25478' %>
                 </div>
               </div>
             </div>
 
             <div class="col-md-6">
               <div class="form-group">
-                <label class="control-label">Nombre</label>
+                <label class="control-label">Fecha</label>
                 <div class="controls">
-                  <%= form.text_field :nombre, id: :producto_nombre, class: 'form-control', required: 'required',placeholder:'Ej. cintas adhesiva aro pequeño ' %>
-                </div>
-              </div>
-            </div>
-
-            <div class="col-md-3">
-              <div class="form-group">
-                <label class="control-label">Categoria</label>
-                <div class="controls">
-                  <% form.select :categoria_id, Categorium.where(borrado: nil).collect {|p| [p.nombre,p.id]} ,{},class: 'form-control', required: 'required' %>
-
-                  <%= select_tag "producto[categoria_id]",
-                    options_from_collection_for_select(
-                      Categorium.where(
-                        borrado: nil,
-                      ).order(
-                        nombre: :asc
-                      ),
-                      :id,
-                      :nombre,
-                      :selected => form.object.categoria_id
-                    ),
-                    {
-                      :class => 'form-control',
-                      :required => 'required',
-                      # :prompt => "Seleccione Categoria"
-                    }
-                %>
+                  <%= form.date_field :fecha, id: :compra_fecha, class: 'form-control', required: 'required' %>
                 </div>
               </div>
             </div>
@@ -54,106 +28,153 @@
           </div>
 
           <div class="row">
-            <div class="col-md-3">
+
+            <div class="col-md-1">
               <div class="form-group">
-                <label class="control-label">Ancho</label>
+                <label class="control-label">No.</label>
                 <div class="controls">
-                  <%= form.text_field :ancho, id: :producto_ancho,  class: 'form-control',placeholder:'Ej. 18 mm' %>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-3">
-              <div class="form-group">
-                <label class="control-label">Largo</label>
-                <div class="controls">
-                  <%= form.text_field :largo, id: :producto_largo,  class: 'form-control',placeholder:'Ej. 25 Y' %>
+                  1
                 </div>
               </div>
             </div>
 
-            <div class="col-md-3">
-              <div class="form-group">
-                <label class="control-label">Espesor</label>
-                <div class="controls">
-                  <%= form.text_field :espesor, id: :producto_espesor,  class: 'form-control',placeholder:'Ej. 0.2 mm' %>
-                </div>
-
-              </div>
-            </div>
-
-            <div class="col-md-3">
-              <div class="form-group">
-                <label class="control-label">Adhesivo</label>
-                <div class="controls">
-                  <%= form.text_field :adhesivo, id: :producto_adhesivo,  class: 'form-control',placeholder:'Ej. con adhesivo' %>
-                </div>
-
-              </div>
-            </div>
-
-          </div>
-
-          <div class="row">
-            <div class="col-md-3">
-              <div class="form-group">
-                <label class="control-label">Precio</label>
-                <div class="controls">
-                  <%= form.text_field :precio, id: :producto_precio,  class: 'form-control', required: 'required',type:'number',step:'0.01',placeholder:'Ej. 16' %>
-                </div>
-
-              </div>
-            </div>
-            <div class="col-md-3">
-              <div class="form-group">
-                <label class="control-label">Peso</label>
-                <div class="controls">
-                  <%= form.text_field :peso, id: :producto_peso,  class: 'form-control',placeholder:'Ej. 30 kg' %>
-                </div>
-
-              </div>
-            </div>
-
-            <div class="col-md-3">
-              <div class="form-group">
-                <label class="control-label">Color</label>
-                <div class="controls">
-                  <%= form.text_field :color, id: :producto_color,  class: 'form-control',placeholder:'Ej. blanco' %>
-                </div>
-              </div>
-            </div>
-
-            <div class="col-md-3">
-              <div class="form-group has-warning">
-                <label class="control-label">Cantidad minima</label>
-                <div class="controls">
-                  <%= form.text_field :cantidad_min, id: :producto_cantidad_min,  class: 'form-control',required: 'required',type:'number',
-                  placeholder:'Ej. 10' %>
-                </div>
-              </div>
-            </div>
-
-
-          </div>
-
-          <div class="row">
-            <div class="col-md-8">
+            <div class="col-md-6">
               <div class="form-group">
                 <label class="control-label">Descripcion</label>
                 <div class="controls">
-                  <%= form.text_field :descripcion, id: :producto_descripcion,  class: 'form-control',placeholder:'Ej. resistencia electrica 4.5Kv.' %>
+                  <%= form.text_field :codigo, id: :producto_codigo,  class: 'form-control', required: 'required',placeholder:'Ej. Proyector' %>
                 </div>
               </div>
             </div>
-            <div class="col-md-4">
+
+            <div class="col-md-2">
               <div class="form-group">
-                    <label class="control-label">Imagen</label>
-                    <%= form.file_field :direccion, id: :producto_direccion, class: 'form-control' %>
-                  </div>
+                <label class="control-label">Unidad</label>
+                <div class="controls">
+                  <%= form.text_field :nombre, id: :producto_nombre, class: 'form-control', required: 'required',placeholder:'Ej. 10' %>
+                </div>
+              </div>
             </div>
+
+            <div class="col-md-1">
+              <div class="form-group">
+                <label class="control-label">P. Unitario</label>
+                <div class="controls">
+                  <%= form.text_field :nombre, id: :producto_nombre, class: 'form-control', required: 'required',placeholder:'Ej. 10' %>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-2">
+              <div class="form-group">
+                <label class="control-label">P. Referencial</label>
+                <div class="controls">
+                  <%= form.text_field :nombre, id: :producto_nombre, class: 'form-control', required: 'required',placeholder:'Ej. 10' %>
+                </div>
+              </div>
+            </div>
+
           </div>
+
+          <div class="row">
+          
+            <div class="col-md-1">
+              <div class="form-group">
+                <div class="controls">
+                  2
+                </div>
+              </div>
+            </div>
+          
+            <div class="col-md-6">
+              <div class="form-group">
+                <div class="controls">
+                  <%= form.text_field :codigo, id: :producto_codigo,  class: 'form-control', required: 'required',placeholder:'Ej. Proyector' %>
+                </div>
+              </div>
+            </div>
+          
+            <div class="col-md-2">
+              <div class="form-group">
+                <div class="controls">
+                  <%= form.text_field :nombre, id: :producto_nombre, class: 'form-control', required: 'required',placeholder:'Ej. 10' %>
+                </div>
+              </div>
+            </div>
+          
+            <div class="col-md-1">
+              <div class="form-group">
+                <div class="controls">
+                  <%= form.text_field :nombre, id: :producto_nombre, class: 'form-control', required: 'required',placeholder:'Ej. 10' %>
+                </div>
+              </div>
+            </div>
+          
+            <div class="col-md-2">
+              <div class="form-group">
+                <div class="controls">
+                  <%= form.text_field :nombre, id: :producto_nombre, class: 'form-control', required: 'required',placeholder:'Ej. 10' %>
+                </div>
+              </div>
+            </div>
+          
+          </div>
+
+            <div class="row">
+            
+              <div class="col-md-1">
+                <div class="form-group">
+                  <div class="controls">
+                    3
+                  </div>
+                </div>
+              </div>
+            
+              <div class="col-md-6">
+                <div class="form-group">
+                  <div class="controls">
+                    <%= form.text_field :codigo, id: :producto_codigo,  class: 'form-control', required: 'required',placeholder:'Ej. Proyector' %>
+                  </div>
+                </div>
+              </div>
+            
+              <div class="col-md-2">
+                <div class="form-group">
+                  <div class="controls">
+                    <%= form.text_field :nombre, id: :producto_nombre, class: 'form-control', required: 'required',placeholder:'Ej. 10' %>
+                  </div>
+                </div>
+              </div>
+            
+              <div class="col-md-1">
+                <div class="form-group">
+                  <div class="controls">
+                    <%= form.text_field :nombre, id: :producto_nombre, class: 'form-control', required: 'required',placeholder:'Ej. 10' %>
+                  </div>
+                </div>
+              </div>
+            
+              <div class="col-md-2">
+                <div class="form-group">
+                  <div class="controls">
+                    <%= form.text_field :nombre, id: :producto_nombre, class: 'form-control', required: 'required',placeholder:'Ej. 10' %>
+                  </div>
+                </div>
+              </div>
+            
+            </div>
+  
           <div class="form-actions">
-            <button type="submit" class="btn btn-success"><i class="fa fa-check"></i> Guardar</button>
-                <%= link_to 'Cancelar', productos_path, class: "btn btn-inverse" %>
+
+            <div class="row">
+              <div class="col-md-6">
+                <button type="submit" class="btn btn-block btn-success"><i class="fa fa-check"></i> Guardar</button>
+              </div>
+              <div class="col-md-6">
+                <%= link_to 'Cancelar', compras_path, class: "btn btn-block btn-inverse" %>
+              </div>
+            </div>
+
           </div>
         </div>
         <% end %>
@@ -162,45 +183,11 @@
   </div>
 </div>
 
-
-
 <% content_for :add_js do %>
 <script src="<%= asset_path '/js/validation.js' %>"></script>
 
 <script type="text/javascript">
   $("#form-producto input").jqBootstrapValidation();
 </script>
-<% end %>
 
-<%= form_with(model: compra, local: true) do |form| %>
-  <% if compra.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(compra.errors.count, "error") %> prohibited this compra from being saved:</h2>
-
-      <ul>
-      <% compra.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="field">
-    <%= form.label :numero %>
-    <%= form.text_field :numero, id: :compra_numero %>
-  </div>
-
-  <div class="field">
-    <%= form.label :docvalor %>
-    <%= form.text_field :docvalor, id: :compra_docvalor %>
-  </div>
-
-  <div class="field">
-    <%= form.label :fecha %>
-    <%= form.date_select :fecha, id: :compra_fecha %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
 <% end %>

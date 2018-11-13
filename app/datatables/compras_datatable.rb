@@ -1,11 +1,11 @@
-class CategoriaDatatable < AjaxDatatablesRails::Base
+class ComprasDatatable < AjaxDatatablesRails::Base
 
   def view_columns
     # Declare strings in this format: ModelName.column_name
     # or in aliased_join_table.column_name format
     @view_columns ||= {
-      id: { source: "Categorium.id", cond: :eq },
-      nombre: { source: "Categorium.nombre", cond: :like }
+      id: { source: "Compra.id", cond: :eq },
+      name: { source: "User.name", cond: :like }
     }
   end
 
@@ -13,8 +13,8 @@ class CategoriaDatatable < AjaxDatatablesRails::Base
     records.map do |record|
       {
         # example:
-        id: record.id,
-        nombre: record.nombre
+        # id: record.id,
+        # name: record.name
       }
     end
   end
@@ -22,8 +22,6 @@ class CategoriaDatatable < AjaxDatatablesRails::Base
   private
 
   def get_raw_records
-    Categorium.select("id", "nombre")
-    .where(borrado: nil)
     # insert query here
   end
 

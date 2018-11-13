@@ -94,7 +94,6 @@ class UsersController < ApplicationController
   end
 
 
-
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_user
@@ -103,6 +102,6 @@ class UsersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params.require(:user).permit(:nombre,:email,:contra2,:rol,:almacene_id)
+      params.require(:user).permit(:nombre, :email, :contra2, :rol, :almacene_id, :cargo_id, :unidade_id)
     end
   end
