@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Compra:</strong>
+  <%= @item.compra_id %>
+</p>
+
+<p>
+  <strong>Descripcion:</strong>
+  <%= @item.descripcion %>
+</p>
+
+<p>
+  <strong>Unidad:</strong>
+  <%= @item.unidad %>
+</p>
+
+<p>
+  <strong>P unitario:</strong>
+  <%= @item.p_unitario %>
+</p>
+
+<p>
+  <strong>P referencial:</strong>
+  <%= @item.p_referencial %>
+</p>
+
+<p>
+  <strong>Estado:</strong>
+  <%= @item.estado %>
+</p>
+
+<%= link_to 'Edit', edit_item_path(@item) %> |
+<%= link_to 'Back', items_path %>

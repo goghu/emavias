@@ -17,6 +17,7 @@
     </div>
 
     <div class="row">
+        
         <div class="col-md-6">
             <div class="form-group">
                 <label for="recipient-name" class="control-label">Cargo</label>
@@ -33,8 +34,8 @@
                     <%= form.select :unidade_id, Unidade.all.collect {|p| [p.descripcion, p.id]} ,{},class: 'form-control', required: 'required' %>
                 </div>
             </div>
-        
         </div>
+
     </div>
     
     <div class="row">

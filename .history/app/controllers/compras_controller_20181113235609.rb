@@ -35,7 +35,6 @@ class ComprasController < ApplicationController
     respond_to do |format|
       if @compra.save
         # items.map {|item| Item.new(item).save } 
-        items.each_pa
         format.html { redirect_to @compra, notice: 'Compra was successfully created.' }
         format.json { render :show, status: :created, location: @compra }
       else

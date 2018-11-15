@@ -79,7 +79,7 @@
         <% if current_user.rol == 'Administrador' %>
         <%= render "elements/menu/admin" %>
         <%= render "elements/sidebar/admin" %>
-        <% elsif current_user.rol == 'Almacen' || current_user.rol == 'Almacen invitado' %>
+        <% elsif current_user.rol == 'Funcionario' %>
         <%= render "elements/menu/admin" %>
         <%= render "elements/sidebar/almacen" %>  
         <% elsif current_user.rol == 'Cliente' %>

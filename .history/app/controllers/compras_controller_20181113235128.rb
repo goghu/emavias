@@ -27,15 +27,14 @@ class ComprasController < ApplicationController
   # POST /compras
   # POST /compras.json
   def create
-    # byebug
+    byebug
     @compra = Compra.new(compra_params)
     @compra.user_id=current_user.id
     # compra_params[:compra][:user_id]=current_user.id
-    items = params["item"]
+    items = 
     respond_to do |format|
       if @compra.save
-        # items.map {|item| Item.new(item).save } 
-        items.each_pa
+        tax_rates.map {|tax_rate| TaxRate.new(tax_rate).save } 
         format.html { redirect_to @compra, notice: 'Compra was successfully created.' }
         format.json { render :show, status: :created, location: @compra }
       else
