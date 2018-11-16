@@ -28,3 +28,6 @@ emavias.code-workspace
 
 /public/uploads/*
 !/public/uploads/empty
+
+# opciones de visual code
+.vscode/settings.json
