@@ -1,5 +1,6 @@
 class CargosController < ApplicationController
   before_action :set_cargo, only: [:show, :edit, :update, :destroy]
+  layout "template"
 
   # GET /cargos
   # GET /cargos.json
@@ -59,6 +60,79 @@ class CargosController < ApplicationController
       format.html { redirect_to cargos_url, notice: 'Cargo was successfully destroyed.' }
       format.json { head :no_content }
     end
+  end
+
+  def excel
+    dir = Rails.root.join("public", "excels", "unidades.xlsx")
+    workbook = RubyXL::Parser.parse(dir)
+    workbook.worksheets[0] # Returns first worksheet
+    workbook[0]            # Returns first worksheet
+    workbook["Sheet1"]     # Finds and returns worksheet titled "Sheet1"
+
+    # importacion de cargos
+
+    # sheet1 = workbook[0]
+    # cant_filas = sheet1.sheet_data.size
+    # cant_filas.times do |cont|
+    #   if cont == 0
+    #     puts "cabeceras"
+    #   else
+    #     puts "No. -- #{workbook[0][cont][0].value}"
+    #     puts "Des -- #{workbook[0][cont][1].value}"
+    #     mod_cargo = Cargo.new
+    #     mod_cargo.descripcion = workbook[0][cont][1].value.to_s
+    #     mod_cargo.save
+
+    # fin importacion de cargos
+
+    # importacion de unidades
+
+    # sheet1 = workbook[0]
+    # cant_filas = sheet1.sheet_data.size
+    # cant_filas.times do |cont|
+    #   if cont == 0
+    #     puts "cabeceras"
+    #   else
+    #     puts "No. -- #{workbook[0][cont][0].value}"
+    #     puts "Des -- #{workbook[0][cont][1].value}"
+    #     mod_unidade = Unidade.new
+    #     mod_unidade.descripcion = workbook[0][cont][1].value.to_s
+    #     mod_unidade.save
+
+    # fin importacion de unidades
+
+    # importacion de personas
+
+    sheet1 = workbook[0]
+    cant_filas = sheet1.sheet_data.size
+    cant_filas.times do |cont|
+      if cont == 0
+        puts "cabeceras"
+      else
+        puts "No. -- #{workbook[0][cont][0].value}"
+        puts "Unidad -- #{workbook[0][cont][1].value}"
+        puts "Cargo -- #{workbook[0][cont][2].value}"
+        puts "Nombre -- #{workbook[0][cont][3].value}"
+        mod_usuario = User.create
+        unidad = Unidade.where(descripcion: workbook[0][cont][1].value)
+        if unidad.present?
+          mod_usuario = unidad.id
+        end
+        if prod
+          puts "el resultado es: #{prod.nombre}"
+          puts "el id es: #{prod.id}"
+          p_mod = Paquete.find_by(producto_id: prod.id)
+          p_mod.nombre = prod.codigo.to_s + " Caja " + workbook[0][cont][3].value.to_s + " U"
+          p_mod.cantidad = workbook[0][cont][3].value
+          p_mod.cantidad_real = workbook[0][cont][3].value
+          p_mod.save
+        end
+
+    # fin importacion de personas
+
+      end
+    end
+    # byebug
   end
 
   private

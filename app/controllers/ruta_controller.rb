@@ -1,10 +1,12 @@
 class RutaController < ApplicationController
-  before_action :set_rutum, only: [:show, :edit, :update, :destroy]
+  before_action :set_ruta, only: [:show, :edit, :update, :destroy]
+
+  layout "template"
 
   # GET /ruta
   # GET /ruta.json
   def index
-    @ruta = Rutum.all
+    @ruta = Ruta.all
   end
 
   # GET /ruta/1
@@ -14,7 +16,7 @@ class RutaController < ApplicationController
 
   # GET /ruta/new
   def new
-    @rutum = Rutum.new
+    @ruta = Ruta.new
   end
 
   # GET /ruta/1/edit
@@ -28,8 +30,8 @@ class RutaController < ApplicationController
 
     respond_to do |format|
       if @rutum.save
-        format.html { redirect_to @rutum, notice: 'Rutum was successfully created.' }
-        format.json { render :show, status: :created, location: @rutum }
+        format.html { redirect_to @ruta, notice: 'Rutum was successfully created.' }
+        format.json { render :show, status: :created, location: @ruta }
       else
         format.html { render :new }
         format.json { render json: @rutum.errors, status: :unprocessable_entity }

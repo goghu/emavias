@@ -34,8 +34,17 @@ class ComprasController < ApplicationController
     items = params["item"]
     respond_to do |format|
       if @compra.save
+        id_compra = @compra.id
         # items.map {|item| Item.new(item).save }
-        items.each_pa
+        items.each_pair do |indice, i|
+          mod_item = Item.new
+          mod_item.compra_id = id_compra
+          mod_item.descripcion = i['descripcion']
+          mod_item.unidad = i['unidad']
+          mod_item.p_unitario = i['p_unitario']
+          mod_item.p_referencial = i['p_referencial']
+          mod_item.save
+        end
         format.html { redirect_to @compra, notice: "Compra was successfully created." }
         format.json { render :show, status: :created, location: @compra }
       else

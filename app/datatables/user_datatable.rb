@@ -1,13 +1,14 @@
 class UserDatatable < AjaxDatatablesRails::Base
-
   def view_columns
     # Declare strings in this format: ModelName.column_name
     # or in aliased_join_table.column_name format
     @view_columns ||= {
-      id: { source: "User.id", cond: :eq },
-      nombre: { source: "User.nombre", cond: :like },
-      email: { source: "User.email", cond: :like },
-      rol: { source: "User.rol", cond: :like }
+      # id: {source: "User.id", cond: :eq},
+      nombre: {source: "User.nombre", cond: :like},
+      cargo: {source: "Cargo.descripcion", cond: :like},
+      unidade: {source: "Unidade.descripcion", cond: :like},
+      email: {source: "User.email", cond: :like},
+      rol: {source: "User.rol", cond: :like},
     }
   end
 
@@ -15,10 +16,12 @@ class UserDatatable < AjaxDatatablesRails::Base
     records.map do |record|
       {
         # example:
-        id: record.id,
+        # id: record.id,
         nombre: record.nombre,
+        cargo: record.cargo,
+        unidade: record.unidade,
         email: record.email,
-        rol: record.rol
+        rol: record.rol,
       }
     end
   end
@@ -27,7 +30,7 @@ class UserDatatable < AjaxDatatablesRails::Base
 
   def get_raw_records
     # insert query here
-    User.where(deleted: nil,rol: ["Administrador","Almacen"]).order('created_at DESC')
+    User.where(deleted: nil, rol: ["Administrador", "Funcionario"]).order("created_at DESC")
   end
 
   # ==== These methods represent the basic operations to perform on records
