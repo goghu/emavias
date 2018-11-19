@@ -16,16 +16,25 @@
 
             <div class="row">
 
-                <div class="col-md-6">
+                <div class="col-md-4">
                     <div class="form-group">
-                        <label class="control-label">Numero</label>
+                        <label class="control-label">Hoja Ruta</label>
                         <div class="controls">
                             <%= form.text_field :numero, id: :compra_numero,  class: 'form-control', required: 'required',placeholder:'Ej. 25478' %>
                         </div>
                     </div>
                 </div>
 
-                <div class="col-md-6">
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label class="control-label">Formulario</label>
+                        <div class="controls">
+                            <%= form.text_field :docvalor, id: :compra_docvalor,  class: 'form-control', required: 'required',placeholder:'Ej. 45678' %>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
                   <div class="form-group">
                     <label class="control-label">Fecha</label>
                     <div class="controls">
@@ -53,7 +62,7 @@
                         <div class="form-group">
                             <label class="control-label-{?}">Descripcion</label>
                             <div class="controls">
-                                <%= form.text_field :descripcion, name: 'item[{?}][descripcion]', id: :compra_numero, class: 'form-control', required: 'required',placeholder:'Ej. 25478' %>
+                                <%= form.text_field :descripcion, name: 'item[{?}][descripcion]', id: :compra_numero, class: 'form-control', required: 'required',placeholder:'Ej. compra de un proyector' %>
 
                                 <!-- <input type="text" class="span6 form-control" name="item[{?}][descripcion]" id="task_{?}"> -->
                             </div>
@@ -66,7 +75,7 @@
                             <div class="controls">
                             <%# form.text_field :numero, id: :compra_numero, class: 'form-control',
                             required: 'required',placeholder:'Ej. 25478' %>
-                            <input type="text" class="span2 form-control" name="item[{?}][unidad]" value="{task}" id="task_{?}">
+                            <input type="text" class="span2 form-control" name="item[{?}][unidad]" >
                         </div>
                     </div>
                 </div>
@@ -77,7 +86,7 @@
                         <div class="controls">
                             <%# form.text_field :numero, id: :compra_numero, class: 'form-control',
                             required: 'required',placeholder:'Ej. 25478' %>
-                            <input type="text" class="span2 form-control" name="item[{?}][p_unitario]" value="{task}" id="task_{?}">
+                            <input type="text" class="span2 form-control" name="item[{?}][cantidad]" >
                         </div>
                     </div>
                 </div>
@@ -88,7 +97,7 @@
                         <div class="controls">
                             <%# form.text_field :numero, id: :compra_numero, class: 'form-control',
                             required: 'required',placeholder:'Ej. 25478' %>
-                            <input type="text" class="span2 form-control" name="item[{?}][p_referencial]" value="{task}" id="task_{?}">
+                            <input type="text" class="span2 form-control" name="item[{?}][p_unitario]" >
                         </div>
                     </div>
                 </div>
@@ -99,7 +108,7 @@
                         <div class="controls">
                             <%# form.text_field :numero, id: :compra_numero, class: 'form-control',
                             required: 'required',placeholder:'Ej. 25478' %>
-                            <input type="text" class="span2 form-control" name="item[{?}][descripcion]" value="{task}" id="task_{?}">
+                            <input type="text" class="span2 form-control" name="item[{?}][p_referencial]" >
                         </div>
                     </div>
                 </div>

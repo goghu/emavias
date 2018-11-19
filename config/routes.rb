@@ -28,6 +28,8 @@ Rails.application.routes.draw do
   get "/rutas/ver_caminos/:id_ruta", to: "ruta#ver_caminos", as: "ruta_ver_caminos"
   post "/rutas/guarda_camino", to: "ruta#guarda_camino", as: "ruta_guarda_camino"
   post "/rutas/crear", to: "ruta#crear", as: "ruta_crear"
+  get "/user/inicio", to: "users#inicio", as: "users_inicio"
+  get "/compra/mis_tramites", to: "compras#mis_tramites", as: "compras_mis_tramites"
 
   # devise_for :users, path: 'auth', path_names: {  sign_out: 'logout', sign_up: 'cmon_let_me_in' }
 

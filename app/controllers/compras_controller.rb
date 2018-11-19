@@ -30,6 +30,15 @@ class ComprasController < ApplicationController
     # byebug
     @compra = Compra.new(compra_params)
     @compra.user_id = current_user.id
+    if params[:compra][:existencia]
+      @compra.existencia = 1
+    end
+    if params[:compra][:poa]
+      @compra.poa = 1
+    end
+    if params[:compra][:presupuestaria]
+      @compra.presupuestaria = 1
+    end
     # compra_params[:compra][:user_id]=current_user.id
     items = params["item"]
     respond_to do |format|
@@ -39,10 +48,11 @@ class ComprasController < ApplicationController
         items.each_pair do |indice, i|
           mod_item = Item.new
           mod_item.compra_id = id_compra
-          mod_item.descripcion = i['descripcion']
-          mod_item.unidad = i['unidad']
-          mod_item.p_unitario = i['p_unitario']
-          mod_item.p_referencial = i['p_referencial']
+          mod_item.descripcion = i["descripcion"]
+          mod_item.unidad = i["unidad"]
+          mod_item.cantidad = i["cantidad"]
+          mod_item.p_unitario = i["p_unitario"]
+          mod_item.p_referencial = i["p_referencial"]
           mod_item.save
         end
         format.html { redirect_to @compra, notice: "Compra was successfully created." }
@@ -79,13 +89,19 @@ class ComprasController < ApplicationController
   end
 
   def mis_compras
+
     # @compras = Compra.all
     # byebug
     # usuario = current_user.id
-    respond_to do |format|
-      format.html
-      format.json { render json: ComprasDatatable.new(view_context) }
-    end
+    # respond_to do |format|
+    #   format.html
+    #   format.json { render json: ComprasDatatable.new(view_context) }
+    # end
+  end
+
+  def mis_tramites
+    id_usuario = current_user.id
+    @compras = Compra.where(user_id: id_usuario).last(350)
   end
 
   def solicitudees_rpa
@@ -100,6 +116,6 @@ class ComprasController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def compra_params
-    params.require(:compra).permit(:numero, :docvalor, :fecha)
+    params.require(:compra).permit(:numero, :docvalor, :fecha, :existencia, :poa, :presupuestaria)
   end
 end

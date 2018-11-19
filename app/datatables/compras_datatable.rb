@@ -6,9 +6,9 @@ class ComprasDatatable < AjaxDatatablesRails::Base
     # Declare strings in this format: ModelName.column_name
     # or in aliased_join_table.column_name format
     @view_columns ||= {
-      id: { source: "Compra.id", cond: :eq },
-      numero: { source: "Compra.numero", cond: :like },
-      fecha: { source: "Compra.fecha", cond: :like }
+      id: {source: "Compra.id", cond: :eq},
+      numero: {source: "Compra.numero", cond: :like},
+      fecha: {source: "Compra.fecha", cond: :like},
     }
   end
 
@@ -18,7 +18,7 @@ class ComprasDatatable < AjaxDatatablesRails::Base
         # example:
         id: record.id,
         numero: record.numero,
-        fecha: record.fecha
+        fecha: record.fecha,
       }
     end
   end
@@ -31,7 +31,7 @@ class ComprasDatatable < AjaxDatatablesRails::Base
     # byebug
     # id_usuario = 1.to_i
     # byebug
-    Compra.where(user_id: id_usuario).order('created_at DESC')
+    Compra.where(user_id: id_usuario).order("created_at DESC")
     # Compra.all
   end
 

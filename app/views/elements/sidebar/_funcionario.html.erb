@@ -19,19 +19,20 @@
                     </span>
                 </a>
                 <div class="dropdown-menu animated flipInY">
-
-                   <a href="javascript:void(0)" class="dropdown-item navbar-link editar_usuario" data-id=<%= current_user.id %> ><i class="fa fa-user"></i> Mi Perfil</a>
-                   
-                   <div class="dropdown-divider">
-                   </div>
-                   <li><%= link_to destroy_user_session_path, method: :delete, :class=>'dropdown-item navbar-link' do  %>
-
-                    <i class="fa fa-power-off"></i>&nbsp;&nbsp;Salir<%end %></li>
+                    <a href="javascript:void(0)" class="dropdown-item navbar-link editar_usuario" data-id=<%=current_user.id %> ><i
+                            class="fa fa-user"></i> Mi Perfil</a>
+                    <div class="dropdown-divider">
+                    </div>
+                    <li>
+                        <%= link_to destroy_user_session_path, method: :delete, :class=>'dropdown-item navbar-link' do  %>
+                        <i class="fa fa-power-off"></i>&nbsp;&nbsp;Salir
+                        <%end %>
+                    </li>
                     <!-- <a class="dropdown-item" href="login.html">
-                        <i class="fa fa-power-off">
-                        </i>
-                        Logout
-                    </a> -->
+                                        <i class="fa fa-power-off">
+                                        </i>
+                                        Logout
+                                    </a> -->
                 </div>
             </div>
         </div>
@@ -39,12 +40,13 @@
         <!-- Sidebar navigation-->
         <nav class="sidebar-nav">
             <ul id="sidebarnav">
-
-             
+                <li>
+                    <%= link_to  controller: "compras", action: "mis_tramites" do %>
+                    <i class="mdi mdi-account-card-details"></i> <span class="hide-menu">Mis tramites</span>
+                    <% end %>
+                </li>
             </ul>
-        </li>
-    </ul>
-</nav>
+        </nav>
 <!-- End Sidebar navigation -->
 </div>
 <!-- End Sidebar scroll-->
