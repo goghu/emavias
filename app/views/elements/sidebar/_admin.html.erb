@@ -51,6 +51,24 @@
                     <i class="mdi mdi-cart"></i> <span class="hide-menu">Compras</span>
                     <% end %>
                 </li>
+                <li>
+                    <%= link_to  controller: "unidades", action: "index", usuario: current_user.id do %>
+                    <i class="fa fa-cog"></i> <span class="hide-menu">Unidades</span>
+                    <% end %>
+                </li>
+
+                <li>
+                    <%= link_to  controller: "cargos", action: "index", usuario: current_user.id do %>
+                    <i class="fa fa-cog"></i> <span class="hide-menu">Cargos</span>
+                    <% end %>
+                </li>
+
+                <li>
+                    <%= link_to  controller: "ruta", action: "index" do %>
+                    <i class="fa fa-cog"></i> <span class="hide-menu">Rutas</span>
+                    <% end %>
+                </li>
+
                 <!--
                 <li><%# link_to  controller: "almacenes", action: "index" do%>
                 <i class="mdi mdi-bulletin-board"></i> <span class="hide-menu">Almacenes</span><%# end %></li>

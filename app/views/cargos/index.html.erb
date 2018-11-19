@@ -2,12 +2,12 @@
 
 <h1>Cargos</h1>
 
-<table>
+<table class="table table-bordered" id="myTable">
   <thead>
     <tr>
       <th>Descripcion</th>
       <th>Nivel</th>
-      <th colspan="3"></th>
+      <th></th>
     </tr>
   </thead>
 
@@ -16,9 +16,11 @@
       <tr>
         <td><%= cargo.descripcion %></td>
         <td><%= cargo.nivel %></td>
-        <td><%= link_to 'Show', cargo %></td>
-        <td><%= link_to 'Edit', edit_cargo_path(cargo) %></td>
-        <td><%= link_to 'Destroy', cargo, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td>
+          <%= link_to 'Ver', cargo %>
+          <%= link_to 'Editar', edit_cargo_path(cargo) %>
+          <%= link_to 'Eliminar', cargo, method: :delete, data: { confirm: 'Are you sure?' } %>
+        </td>
       </tr>
     <% end %>
   </tbody>
@@ -27,3 +29,23 @@
 <br>
 
 <%= link_to 'New Cargo', new_cargo_path %>
+
+<%= link_to 'Nueva Ruta', new_rutum_path %>
+<% content_for :add_css do %>
+<link href="<%= asset_path '/assets/plugins/toast-master/css/jquery.toast.css' %>" rel="stylesheet">
+<link href="<%= asset_path '/assets/plugins/sweetalert/sweetalert.css' %>" rel="stylesheet" type="text/css">
+<% end %>
+<% content_for :add_js do %>
+<script src="<%= asset_path '/assets/plugins/datatables/jquery.dataTables.min.js' %>"></script>
+<script src="<%= asset_path '/js/validation.js' %>"></script>
+<script src="<%= asset_path '/assets/plugins/toast-master/js/jquery.toast.js' %>"></script>
+<script src="<%= asset_path '/assets/plugins/sweetalert/sweetalert.min.js' %>"></script>
+<script type="text/javascript">
+  var table5 = $('#myTable').DataTable({
+    "oLanguage": {
+      "sUrl": "https://cdn.datatables.net/plug-ins/1.10.16/i18n/Spanish.json"
+    }
+  });
+</script>
+<% end %>
+

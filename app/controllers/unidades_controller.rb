@@ -1,6 +1,6 @@
 class UnidadesController < ApplicationController
   before_action :set_unidade, only: [:show, :edit, :update, :destroy]
-
+  layout "template"
   # GET /unidades
   # GET /unidades.json
   def index

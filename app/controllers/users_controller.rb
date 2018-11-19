@@ -7,11 +7,12 @@ class UsersController < ApplicationController
   def index
 
     # @users = User.where(deleted: nil)
+    @users = User.all
     #byebug
-    respond_to do |format|
-      format.html
-      format.json { render json: UserDatatable.new(view_context) }
-    end
+    # respond_to do |format|
+    #   format.html
+    #   format.json { render json: UserDatatable.new(view_context) }
+    # end
   end
 
   # GET /users/1

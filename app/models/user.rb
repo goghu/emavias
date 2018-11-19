@@ -1,6 +1,7 @@
 class User < ApplicationRecord
-  belongs_to :unidade, optional: true
+  
   belongs_to :cargo, optional: true
+  belongs_to :unidade, optional: true
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable

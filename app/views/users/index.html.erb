@@ -42,19 +42,31 @@
     <div class="card">
       <div class="card-body">
         <div class="table-responsive">
-          <table class="table table-bordered" id="mitabla" data-source="<%= users_path(format: :json) %>">
+          <table class="table table-bordered" id="myTable">
             <thead>
               <tr>
                 <th>Nombre</th>
-                <th>Cargo</th>
+<!--                 <th>Cargo</th>
                 <th>Unidad</th>
-                <th>Email</th>
+ -->                <th>Email</th>
                 <th>Rol</th>
                 <th></th>
               </tr>
             </thead>
             <tbody>
-
+              <% @users.each do |u| %>
+              <tr>
+                <td><%= u.nombre %></td>
+<!--                 <td><%# u.cargo.descripcion %></td>
+                <td><%# u.unidade %></td>
+ -->                <td><%= u.email %></td>
+                <td><%= u.rol %></td>
+                <td>
+                  <button class="btn btn-info editar_m" data-id="2" title="Editar"><i class="fa fa-pencil"></i></button>
+                  <button class="btn btn-danger eliminar_m" data-id="2" data-nombre="<% u.nombre %>" title="Eliminar"><i class="fa fa-remove"></i></button>
+                </td>
+              </tr>
+              <% end %>
             </tbody>
           </table>
           <%= render "elements/ayudas/users" %>
@@ -74,30 +86,12 @@
 <script src="<%= asset_path '/assets/plugins/sweetalert/sweetalert.min.js' %>"></script>
 <script type="text/javascript">
 
-  var table5 = $('#mitabla').DataTable({
-    "processing": true,
-    "serverSide": true,
-    "ajax": $('#mitabla').data('source'),
-    "pagingType": "full_numbers",
-    "columns": [
-    {"data": "nombre"},
-    {"data": "cargo"},
-    {"data": "unidade"},
-    {"data": "email"},
-    {"data": "rol"},
-    {
-      data: null,
-      render: function ( data, type, row ) {
-        btneditar = '<button class="btn btn-info editar_m" data-id="'+data['id']+'" title="Editar"><i class="fa fa-pencil"></i></button>';
-        btneliminar = '<button class="btn btn-danger eliminar_m" data-id="'+data['id']+'" data-nombre="'+data['nombre']+'" title="Eliminar"><i class="fa fa-remove"></i></button>';
-        return btneditar+ ' '+btneliminar;
-      }
-    }
-    ],
+  var table5 = $('#myTable').DataTable({
     "oLanguage": {
       "sUrl": "https://cdn.datatables.net/plug-ins/1.10.16/i18n/Spanish.json"
     }
   });
+
   var token = document.getElementsByName("csrf-token")[0].getAttribute('content');
 
   $(document).on('click','.editar_m',function(){

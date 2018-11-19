@@ -1,16 +1,16 @@
 <%# form_tag('/create', method: :post) do %>
-<%= form_with url: '/create', method: :get, local: true do |form| %>
+<%= form_tag('/rutas/crear') do %>
   <div class="field">
-    <%= forssssssm.label :nombre %>
-    <%= form.text_field :nombre, id: :ruta_nombre %>
+    <%= label_tag :nombre %>
+    <%= text_field_tag('ruta[nombre]') %>
   </div>
 
   <div class="field">
-    <%= formaaa.label :descripcion %>
-    <%= form.text_field :descripcion, id: :ruta_descripcion %>
+    <%= label_tag :descripcion %>
+    <%= text_field_tag('ruta[descripcion]') %>
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= submit_tag('Guardar') %>
   </div>
 <% end %>

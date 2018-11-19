@@ -25,6 +25,9 @@ Rails.application.routes.draw do
   # end
   get "/compra/mis_compras/:usuario", to: "compras#mis_compras", as: "mis_compras"
   get "/cargo/excel", to: "cargos#excel", as: "cargos_excel"
+  get "/rutas/ver_caminos/:id_ruta", to: "ruta#ver_caminos", as: "ruta_ver_caminos"
+  post "/rutas/guarda_camino", to: "ruta#guarda_camino", as: "ruta_guarda_camino"
+  post "/rutas/crear", to: "ruta#crear", as: "ruta_crear"
 
   # devise_for :users, path: 'auth', path_names: {  sign_out: 'logout', sign_up: 'cmon_let_me_in' }
 

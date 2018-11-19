@@ -16,9 +16,9 @@
       <tr>
         <td><%= unidade.descripcion %></td>
         <td><%= unidade.estado %></td>
-        <td><%= link_to 'Show', unidade %></td>
-        <td><%= link_to 'Edit', edit_unidade_path(unidade) %></td>
-        <td><%= link_to 'Destroy', unidade, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Mostrar', unidade %></td>
+        <td><%= link_to 'Editar', edit_unidade_path(unidade) %></td>
+        <td><%= link_to 'Eliminar', unidade, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -26,4 +26,4 @@
 
 <br>
 
-<%= link_to 'New Unidade', new_unidade_path %>
+<%= link_to 'Nueva Unidad', new_unidade_path %>
