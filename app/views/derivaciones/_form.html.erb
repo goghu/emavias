@@ -1,0 +1,52 @@
+<%= form_with(model: derivacione, local: true) do |form| %>
+  <% if derivacione.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(derivacione.errors.count, "error") %> prohibited this derivacione from being saved:</h2>
+
+      <ul>
+      <% derivacione.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :usero_id %>
+    <%= form.number_field :usero_id, id: :derivacione_usero_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :unidadeo_id %>
+    <%= form.number_field :unidadeo_id, id: :derivacione_unidadeo_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :userd_id %>
+    <%= form.number_field :userd_id, id: :derivacione_userd_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :unidadd_id %>
+    <%= form.number_field :unidadd_id, id: :derivacione_unidadd_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :fecha %>
+    <%= form.date_select :fecha, id: :derivacione_fecha %>
+  </div>
+
+  <div class="field">
+    <%= form.label :estado %>
+    <%= form.text_field :estado, id: :derivacione_estado %>
+  </div>
+
+  <div class="field">
+    <%= form.label :observaciones %>
+    <%= form.text_field :observaciones, id: :derivacione_observaciones %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

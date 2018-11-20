@@ -1,6 +1,8 @@
 .tabla-impresion{
   border: 1px solid #54667a;
   width: 100%;
+      color: #000000;
+
 }
 
 .tabla-impresion tr td{
@@ -35,9 +37,13 @@
 }
 
 @media print{
+  body{
+    color: #000000;
+  }
   .tabla-impresion{
     border: 1px solid #54667a;
     width: 100%;
+    color: #000000;
   }
  .tabla-impresion tr td.subtotal{
    color: #ff0000;

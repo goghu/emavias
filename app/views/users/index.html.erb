@@ -62,8 +62,8 @@
  -->                <td><%= u.email %></td>
                 <td><%= u.rol %></td>
                 <td>
-                  <button class="btn btn-info editar_m" data-id="2" title="Editar"><i class="fa fa-pencil"></i></button>
-                  <button class="btn btn-danger eliminar_m" data-id="2" data-nombre="<% u.nombre %>" title="Eliminar"><i class="fa fa-remove"></i></button>
+                  <button class="btn btn-info editar_m" data-id="<%= u.id %>" title="Editar"><i class="fa fa-pencil"></i></button>
+                  <button class="btn btn-danger eliminar_m" data-id="<%= u.id %>" data-nombre="<% u.nombre %>" title="Eliminar"><i class="fa fa-remove"></i></button>
                 </td>
               </tr>
               <% end %>

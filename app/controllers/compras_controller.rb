@@ -55,7 +55,7 @@ class ComprasController < ApplicationController
           mod_item.p_referencial = i["p_referencial"]
           mod_item.save
         end
-        format.html { redirect_to @compra, notice: "Compra was successfully created." }
+        format.html { redirect_to action: "mis_tramites" }
         format.json { render :show, status: :created, location: @compra }
       else
         format.html { render :new }
@@ -102,6 +102,15 @@ class ComprasController < ApplicationController
   def mis_tramites
     id_usuario = current_user.id
     @compras = Compra.where(user_id: id_usuario).last(350)
+  end
+
+  def imprime_solicitud
+    # byebug
+    @solicitud = Compra.find(params[:id])
+  end
+
+  def derivar
+    
   end
 
   def solicitudees_rpa

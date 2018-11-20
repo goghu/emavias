@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :derivaciones
   resources :items
   resources :ruta
   resources :documentos
@@ -30,6 +31,7 @@ Rails.application.routes.draw do
   post "/rutas/crear", to: "ruta#crear", as: "ruta_crear"
   get "/user/inicio", to: "users#inicio", as: "users_inicio"
   get "/compra/mis_tramites", to: "compras#mis_tramites", as: "compras_mis_tramites"
+  get "/compra/imprime_solicitud/:id", to: "compras#imprime_solicitud", as: "compras_imprime_solicitud"
 
   # devise_for :users, path: 'auth', path_names: {  sign_out: 'logout', sign_up: 'cmon_let_me_in' }
 

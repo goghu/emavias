@@ -59,7 +59,12 @@
             <tr>
               <td><%= c.numero %></td>
               <td><%= c.docvalor %></td>
-              <td></td>
+              <td>
+                <!-- <button class="btn btn-warning editar_m" data-id="<%# c.id %>" title="Editar"><i class="fa fa-pencil"></i></button> -->
+                <button class="btn btn-info imprimir_m" data-id="<%= c.id %>" title="Imprimir"><i class="fa fa-print"></i></button>
+                <button class="btn btn-primary derivar_m" data-id="<%= c.id %>" title="Derivar"><i class="fa fa-send"></i></button>
+                <button class="btn btn-danger eliminar_m" data-id="<%= c.id %>" data-nombre="demo" title="Eliminar"><i class="fa fa-remove"></i></button>
+              </td>
             </tr>
             <% end %>
           </tbody>
@@ -90,9 +95,9 @@
     window.location.href = '/productos/' + el_id + '/edit';
   });
 
-  $(document).on('click', '.precios_m', function () {
+  $(document).on('click', '.imprimir_m', function () {
     el_id = $(this).data('id');
-    cargarmodal('/rangos_precio/precios/' + el_id);
+    window.location.href = '/compra/imprime_solicitud/' + el_id;
   });
 
   $(document).on('click', '.cantidad_m', function () {
@@ -219,5 +224,3 @@
 
 </script>
 <% end %>
-
-<%= link_to 'New Compra', new_compra_path %>

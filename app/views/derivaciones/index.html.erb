@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Derivaciones</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Usero</th>
+      <th>Unidadeo</th>
+      <th>Userd</th>
+      <th>Unidadd</th>
+      <th>Fecha</th>
+      <th>Estado</th>
+      <th>Observaciones</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @derivaciones.each do |derivacione| %>
+      <tr>
+        <td><%= derivacione.usero_id %></td>
+        <td><%= derivacione.unidadeo_id %></td>
+        <td><%= derivacione.userd_id %></td>
+        <td><%= derivacione.unidadd_id %></td>
+        <td><%= derivacione.fecha %></td>
+        <td><%= derivacione.estado %></td>
+        <td><%= derivacione.observaciones %></td>
+        <td><%= link_to 'Show', derivacione %></td>
+        <td><%= link_to 'Edit', edit_derivacione_path(derivacione) %></td>
+        <td><%= link_to 'Destroy', derivacione, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Derivacione', new_derivacione_path %>
