@@ -39,6 +39,15 @@ class ComprasController < ApplicationController
     if params[:compra][:presupuestaria]
       @compra.presupuestaria = 1
     end
+    numero = 1
+    ultima_compra = Compra.last
+    # byebug
+    if ultima_compra.present?
+      # ultima_compra.numero.to_i
+      @compra.numero = ultima_compra.numero.to_i + numero
+    else
+      @compra.numero = numero
+    end
     # compra_params[:compra][:user_id]=current_user.id
     items = params["item"]
     respond_to do |format|
@@ -89,7 +98,6 @@ class ComprasController < ApplicationController
   end
 
   def mis_compras
-
     # @compras = Compra.all
     # byebug
     # usuario = current_user.id
@@ -99,6 +107,11 @@ class ComprasController < ApplicationController
     # end
   end
 
+  def edita_compra
+    # byebug
+    @items_datos = Item.where(compra_id: params[:id_compra])
+  end
+
   def mis_tramites
     id_usuario = current_user.id
     @compras = Compra.where(user_id: id_usuario).last(350)
@@ -106,14 +119,17 @@ class ComprasController < ApplicationController
 
   def imprime_solicitud
     # byebug
-    @solicitud = Compra.find(params[:id])
+    @solicitud = Compra.find(params[:id_compra])
   end
 
   def derivar
-    
   end
 
-  def solicitudees_rpa
+  def solicitudes_rpa
+  end
+
+  def asignar
+    @compra = Compra.find(params[:id_compra])
   end
 
   private

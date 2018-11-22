@@ -31,7 +31,9 @@ Rails.application.routes.draw do
   post "/rutas/crear", to: "ruta#crear", as: "ruta_crear"
   get "/user/inicio", to: "users#inicio", as: "users_inicio"
   get "/compra/mis_tramites", to: "compras#mis_tramites", as: "compras_mis_tramites"
-  get "/compra/imprime_solicitud/:id", to: "compras#imprime_solicitud", as: "compras_imprime_solicitud"
+  get "/compra/imprime_solicitud/:id_compra", to: "compras#imprime_solicitud", as: "compras_imprime_solicitud"
+  get "/compra/edita_compra/:id_compra", to: "compras#edita_compra", as: "compras_edita_compra"
+  get "/compra/asignar/:id_compra", to: "compras#asignar", as: "compras_asignar"
 
   # devise_for :users, path: 'auth', path_names: {  sign_out: 'logout', sign_up: 'cmon_let_me_in' }
 

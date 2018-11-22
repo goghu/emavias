@@ -62,7 +62,7 @@
               <td>
                 <!-- <button class="btn btn-warning editar_m" data-id="<%# c.id %>" title="Editar"><i class="fa fa-pencil"></i></button> -->
                 <button class="btn btn-info imprimir_m" data-id="<%= c.id %>" title="Imprimir"><i class="fa fa-print"></i></button>
-                <button class="btn btn-primary derivar_m" data-id="<%= c.id %>" title="Derivar"><i class="fa fa-send"></i></button>
+                <button class="btn btn-primary asignar_m" data-id="<%= c.id %>" title="Asignar documentos"><i class="fa fa-file-text"></i></button>
                 <button class="btn btn-danger eliminar_m" data-id="<%= c.id %>" data-nombre="demo" title="Eliminar"><i class="fa fa-remove"></i></button>
               </td>
             </tr>
@@ -85,19 +85,20 @@
 <script type="text/javascript">
   //var token = document.getElementsByName("csrf-token")[0].getAttribute('content');
   var table5 = $('#myTable').DataTable({
-      "oLanguage": {
-        "sUrl": "https://cdn.datatables.net/plug-ins/1.10.16/i18n/Spanish.json"
-      }
-    });
+    "oLanguage": {
+      "sUrl": "https://cdn.datatables.net/plug-ins/1.10.16/i18n/Spanish.json"
+    },
+    "order": [[0, "desc"]]
+  });
 
   $(document).on('click', '.editar_m', function () {
     el_id = $(this).data('id');
-    window.location.href = '/productos/' + el_id + '/edit';
+    window.location.href = '/compra/edita_compra/' + el_id;
   });
 
-  $(document).on('click', '.imprimir_m', function () {
+  $(document).on('click', '.asignar_m', function () {
     el_id = $(this).data('id');
-    window.location.href = '/compra/imprime_solicitud/' + el_id;
+    window.location.href = '/compra/asignar/' + el_id;
   });
 
   $(document).on('click', '.cantidad_m', function () {
