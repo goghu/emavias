@@ -128,6 +128,11 @@ class ComprasController < ApplicationController
   def solicitudes_rpa
   end
 
+  def completa_solicitud
+    params
+    byebug
+  end
+
   def asignar
     @compra = Compra.find(params[:id_compra])
   end

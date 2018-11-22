@@ -1,3 +1,16 @@
+<style type="text/css">
+    input[type="checkbox"] {
+        -ms-transform: scale(2);
+        /* IE */
+        -moz-transform: scale(2);
+        /* FF */
+        -webkit-transform: scale(2);
+        /* Safari and Chrome */
+        -o-transform: scale(2);
+        /* Opera */
+        padding: 10px;
+    }
+</style>
 <%= form_with(model: user, local: true, html: {class: 'form-validacion',id: 'form-usuario',novalidate: true}) do |form| %>
 <div class="modal-header">
     <h4 class="modal-title"><%= titulo %></h4>
@@ -39,14 +52,24 @@
     </div>
     
     <div class="row">
-        <div class="col-md-6"></div>
-        <div class="col-md-6"></div>
-    </div>
-
-    <div class="form-group">
-        <label for="recipient-name" class="control-label">Rol:</label>
-        <div class="controls">
-            <%= form.select :rol, [["Administrador","Administrador"], ["Funcionario", "Funcionario"]] ,{},{class: 'form-control', required: 'required',id: "id-sel-rol"} %>
+        <div class="col-md-6">
+            <div class="form-group">
+                <label for="recipient-name" class="control-label">Rol:</label>
+                <div class="controls">
+                    <%= form.select :rol, [["Administrador","Administrador"], ["Funcionario", "Funcionario"]] ,{},{class: 'form-control', required: 'required',id: "id-sel-rol"} %>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="form-group">
+                <label for="recipient-name" class="control-label">Jefe de Unidad</label>
+                <div class="controls">
+                    <label>
+                        <%= form.check_box :jefe %>
+                        <!-- <input type="checkbox" id="cbox1" name="user[jefe]">&nbsp;&nbsp; Si -->
+                        <%# form.text_field :numero, id: :compra_numero,  class: 'form-control', required: 'required',placeholder:'Ej. 25478' %>
+                </div>
+            </div>
         </div>
     </div>
 
