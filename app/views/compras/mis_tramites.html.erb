@@ -96,6 +96,11 @@
     window.location.href = '/compra/edita_compra/' + el_id;
   });
 
+  $(document).on('click', '.imprimir_m', function () {
+    el_id = $(this).data('id');
+    window.location.href = '/compra/imprime_solicitud/' + el_id;
+  });
+
   $(document).on('click', '.asignar_m', function () {
     el_id = $(this).data('id');
     window.location.href = '/compra/asignar/' + el_id;
