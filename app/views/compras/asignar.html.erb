@@ -100,8 +100,8 @@
   <div class="col-lg-12">
     <div class="card card-outline-info">
       <div class="card-body">
-        <%= form_tag('/compra/completa_solicitud') do %>
-
+        <%= form_tag('/compra/completa_solicitud', method: :post) do %>
+        <%= hidden_field_tag(:compra_id, @compra.id ) %>
         <div class="form-body">
 
         <div class="row">
@@ -110,16 +110,16 @@
             <div class="form-group">
               <label class="control-label">Hoja Ruta</label>
               <div class="controls">
-                <%= text_field :numero, nil, class: 'form-control', required: 'required', placeholder:'Ej. 25478' %>
+                <%= text_field_tag :docvalor, nil, class: 'form-control', required: 'required', placeholder:'Ej. 25478' %>
               </div>
             </div>
           </div>
         
           <div class="col-md-4">
             <div class="form-group">
-              <label class="control-label">Formulario</label>
+              <label class="control-label">Numero</label>
               <div class="controls">
-                <%= text_field :formulario, nil, value: @compra.numero, class: 'form-control', required: 'required', placeholder:'Ej. 25478' %>
+                <%= text_field_tag :numero, nil, value: @compra.numero, class: 'form-control', required: 'required', placeholder:'Ej. 25478' %>
               </div>
             </div>
           </div>
@@ -128,7 +128,7 @@
             <div class="form-group">
               <label class="control-label">Fecha</label>
               <div class="controls">
-                <%= date_field_tag :fecha, nil, class: 'form-control' %>
+                <%= date_field_tag :fecha, nil, value: DateTime.now.to_date, class: 'form-control' %>
               </div>
             </div>
           </div>
@@ -141,8 +141,7 @@
                 <div class="form-group">
                     <div class="controls">
                         <label>
-                          <%= form.check_box :jefe %>
-                          <input type="checkbox" id="cbox1" name="compra[existencia]">&nbsp;&nbsp; Inexistencia
+                        <input type="checkbox" id="cbox1" name="existencia" checked>&nbsp;&nbsp; Inexistencia
                         <%# form.text_field :numero, id: :compra_numero,  class: 'form-control', required: 'required',placeholder:'Ej. 25478' %>
                     </div>
                 </div>
@@ -151,7 +150,7 @@
             <div class="col-md-3">
                 <div class="form-group">
                     <div class="controls">
-                        <label><input type="checkbox" id="cbox1" name="compra[poa]">&nbsp;&nbsp; Autorizacion</label>
+                        <label><input type="checkbox" id="cbox1" name="autorizaciones" checked>&nbsp;&nbsp; Autorizacion</label>
                         <%# form.text_field :numero, id: :compra_numero,  class: 'form-control', required: 'required',placeholder:'Ej. 25478' %>
                     </div>
                 </div>
@@ -160,7 +159,7 @@
             <div class="col-md-3">
               <div class="form-group">
                 <div class="controls">
-                    <label><input type="checkbox" id="cbox1" name="compra[presupuestaria]">&nbsp;&nbsp; POA</label>
+                    <label><input type="checkbox" id="cbox1" name="poa" checked>&nbsp;&nbsp; POA</label>
                   <%# form.date_field :fecha, id: :compra_fecha, class: 'form-control', required: 'required' %>
                 </div>
               </div>
@@ -169,7 +168,7 @@
             <div class="col-md-3">
               <div class="form-group">
                 <div class="controls">
-                  <label><input type="checkbox" id="cbox1" name="compra[presupuestaria]">&nbsp;&nbsp; Certificacion Presupuestaria</label>
+                  <label><input type="checkbox" id="cbox1" name="presupuestaria" checked>&nbsp;&nbsp; Certificacion Presupuestaria</label>
                   <%# form.date_field :fecha, id: :compra_fecha, class: 'form-control', required: 'required' %>
                 </div>
               </div>
@@ -182,7 +181,7 @@
           <div class="col-md-6">
             <div class="form-group">
               <div class="controls">
-                <label><input type="checkbox" id="cbox1" name="compra[existencia]">&nbsp;&nbsp; Especificaciones Tecnicas
+                <label><input type="checkbox" id="cbox1" name="especificaciones">&nbsp;&nbsp; Especificaciones Tecnicas
                   <%# form.text_field :numero, id: :compra_numero,  class: 'form-control', required: 'required',placeholder:'Ej. 25478' %>
               </div>
             </div>
@@ -191,7 +190,7 @@
           <div class="col-md-6">
             <div class="form-group">
               <div class="controls">
-                <label><input type="checkbox" id="cbox1" name="compra[poa]">&nbsp;&nbsp; Cotizacion</label>
+                <label><input type="checkbox" id="cbox1" name="cotizacion">&nbsp;&nbsp; Cotizacion</label>
                 <%# form.text_field :numero, id: :compra_numero,  class: 'form-control', required: 'required',placeholder:'Ej. 25478' %>
               </div>
             </div>
@@ -205,7 +204,7 @@
             <div class="form-group">
               <label class="control-label">Observaciones</label>
               <div class="controls">
-                <%= text_field :observaciones, nil, class: 'form-control', required: 'required', placeholder:'Ej. 25478' %>
+                <%= text_field_tag :obs, nil, class: 'form-control', placeholder:'Ej. Aqui las observaciones' %>
               </div>
             </div>
           </div>
@@ -220,7 +219,10 @@
                   jefe_unidad = User.where(unidade_id: datos_usuario.unidade_id, jefe: 1).first
                   jefe_unidad.nombre
                 %>
-                <%= hidden_field(:compra, :userd_id, value: jefe_unidad.id ) %>
+                <%= hidden_field_tag(:usero_id, current_user.id ) %>
+                <%= hidden_field_tag(:unidado_id, current_user.unidade_id ) %>
+                <%= hidden_field_tag(:userd_id, jefe_unidad.id ) %>
+                <%= hidden_field_tag(:unidadd_id, jefe_unidad.unidade_id ) %>
               </div>
             </div>
           </div>
@@ -230,7 +232,7 @@
         </div>
           <div class="row">
             <div class="col-md-6">
-              <button type="submit" class="btn btn-block btn-success"><i class="fa fa-check"></i> Aceptar</button>
+              <button type="submit" class="btn btn-block btn-success"><i class="fa fa-check"></i> Aceptar y Derivar</button>
             </div>
             <div class="col-md-6">
               <%= link_to 'Rechazar', compras_mis_tramites_path, class: "btn btn-block btn-inverse" %>
@@ -242,7 +244,13 @@
   </div>
 </div>
 
-
+<script>
+  $(document).ready(function () {
+      //$('#fecha').val(new Date().toDateInputValue());
+      //document.getElementById('fecha').valueAsDate = new Date();
+      //document.getElementById('fecha').value = moment().format('YYYY-MM-DD');
+  });​
+</script>
 <% content_for :add_css do %>
 
 <link href="<%= asset_path '/assets/plugins/sweetalert/sweetalert.css' %>" rel="stylesheet" type="text/css">

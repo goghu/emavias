@@ -39,6 +39,16 @@ class ComprasController < ApplicationController
     if params[:compra][:presupuestaria]
       @compra.presupuestaria = 1
     end
+    if params[:compra][:cotizacion]
+      @compra.cotizacion = 1
+    end
+    if params[:compra][:especificaciones]
+      @compra.especificaciones = 1
+    end
+    if params[:compra][:autorizaciones]
+      @compra.autorizaciones = 1
+    end
+
     numero = 1
     ultima_compra = Compra.last
     # byebug
@@ -129,8 +139,40 @@ class ComprasController < ApplicationController
   end
 
   def completa_solicitud
-    params
-    byebug
+    # params
+    modelo_compra = Compra.find(params[:compra_id])
+    # byebug
+    if params[:existencia]
+      modelo_compra.existencia = 1
+    end
+    if params[:autorizaciones]
+      modelo_compra.autorizaciones = 1
+    end
+    if params[:poa]
+      modelo_compra.poa = 1
+    end
+    if params[:presupuestaria]
+      modelo_compra.presupuestaria = 1
+    end
+    if params[:especificaciones]
+      modelo_compra.especificaciones = 1
+    end
+    if params[:cotizacion]
+      modelo_compra.cotizacion = 1
+    end
+
+    modelo_compra.docvalor = params[:docvalor]
+    modelo_compra.fecha = params[:fecha]
+    modelo_compra.obs = params[:obs]
+    modelo_compra.save
+
+    modelo_derivacion = Derivacione.new
+    modelo_derivacion.usero_id = params[:usero_id]
+    modelo_derivacion.unidadeo_id = params[:unidado_id]
+    modelo_derivacion.userd_id = params[:userd_id]
+    modelo_derivacion.unidadd_id = params[:unidadd_id]
+    modelo_derivacion.fecha = params[:fecha]
+    modelo_derivacion.save
   end
 
   def asignar
@@ -146,6 +188,6 @@ class ComprasController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def compra_params
-    params.require(:compra).permit(:numero, :docvalor, :fecha, :existencia, :poa, :presupuestaria)
+    params.require(:compra).permit(:numero, :docvalor, :fecha, :existencia, :poa, :presupuestaria, :cotizacion, :especificaciones, :autorizaciones, :fecha)
   end
 end
