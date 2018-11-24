@@ -35,6 +35,7 @@ Rails.application.routes.draw do
   get "/compra/edita_compra/:id_compra", to: "compras#edita_compra", as: "compras_edita_compra"
   get "/compra/asignar/:id_compra", to: "compras#asignar", as: "compras_asignar"
   post "/compra/completa_solicitud", to: "compras#completa_solicitud", as: "compras_completa_solicitud"
+  get "/compra/bandeja_entrada", to: "compras#bandeja_entrada", as: "compras_bandeja_entrada"
 
   # devise_for :users, path: 'auth', path_names: {  sign_out: 'logout', sign_up: 'cmon_let_me_in' }
 

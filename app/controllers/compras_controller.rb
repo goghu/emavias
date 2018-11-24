@@ -124,7 +124,9 @@ class ComprasController < ApplicationController
 
   def mis_tramites
     id_usuario = current_user.id
-    @compras = Compra.where(user_id: id_usuario).last(350)
+    # @compras = Compra.where(user_id: id_usuario).last(350)
+    # @compras = Compra.where(user_id: id_usuario).joins("LEFT JOIN derivaciones ON compra.id = derivaciones.compra_id")
+    @compras = Compra.where(user_id: id_usuario).joins("LEFT JOIN derivaciones ON compras.id = derivaciones.compra_id").where('derivaciones.compra_id IS ?', nil)
   end
 
   def imprime_solicitud
@@ -171,12 +173,18 @@ class ComprasController < ApplicationController
     modelo_derivacion.unidadeo_id = params[:unidado_id]
     modelo_derivacion.userd_id = params[:userd_id]
     modelo_derivacion.unidadd_id = params[:unidadd_id]
+    modelo_derivacion.compra_id = params[:compra_id]
     modelo_derivacion.fecha = params[:fecha]
     modelo_derivacion.save
+    redirect_to action: 'mis_tramites'
   end
 
   def asignar
     @compra = Compra.find(params[:id_compra])
+  end
+
+  def bandeja_entrada
+    @documentos = Derivacione.last(350)
   end
 
   private
