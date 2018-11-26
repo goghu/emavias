@@ -265,12 +265,16 @@
 
           <div class="row">
 
-            <div class="col-md-9">
+            <div class="col-md-3">
               <div class="form-group">
                 <label class="control-label">Observaciones</label>
                 <div class="controls">
                   <%= @documento.compra.obs %>
                   <%# text_field_tag :obs, nil, class: 'form-control', placeholder:'Ej. Aqui las observaciones' %>
+                  <%= hidden_field_tag(:compra_id, @documento.compra.id ) %>
+                  <%= hidden_field_tag(:usero_id, current_user.id ) %>
+                  <%= hidden_field_tag(:unidadeo_id, current_user.unidade_id ) %>
+
                 </div>
               </div>
             </div>
@@ -278,9 +282,18 @@
             <% if current_user.id == 14 %>
               <div class="col-md-3">
                 <div class="form-group">
-                  <label class="control-label">Derivar a</label>
+                  <label class="control-label">Proceso</label>
                   <div class="controls">
-                    <%= select("ruta", "ruta_id", Ruta.all.collect {|u| [ u.nombre, u.id ] }, {include_blank: 'Seleccione Ruta'}) %>
+                    <%= select("ruta", "ruta_id", Ruta.all.collect {|u| [ u.nombre, u.id ] }, {include_blank: 'Seleccione Ruta'}, {class: 'form-control'}) %>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-md-3">
+                <div class="form-group">
+                  <label class="control-label">Derivar a</label>
+                  <div class="controls" id="carga_persona">
+                    <%# select("ruta", "ruta_id", Ruta.all.collect {|u| [ u.nombre, u.id ] }, {include_blank: 'Seleccione Ruta'}, {class: 'form-control'}) %>
                   </div>
                 </div>
               </div>  
@@ -295,12 +308,6 @@
                     jefe_unidad = User.where(unidade_id: datos_usuario.unidade_id, jefe: 1).first
                     jefe_unidad.nombre
                   %>
-                    Lic. Oscar Valdes Loayza
-                    <%= hidden_field_tag(:compra_id, @documento.compra.id ) %>
-                    <%= hidden_field_tag(:usero_id, current_user.id ) %>
-                    <%= hidden_field_tag(:unidadeo_id, current_user.unidade_id ) %>
-                    <%= hidden_field_tag(:userd_id, 14 ) %>
-                    <%= hidden_field_tag(:unidadd_id, 12 ) %>
                   </div>
                 </div>
               </div>              
@@ -323,13 +330,6 @@
   </div>
 </div>
 
-<script>
-  $(document).ready(function () {
-    //$('#fecha').val(new Date().toDateInputValue());
-    //document.getElementById('fecha').valueAsDate = new Date();
-    //document.getElementById('fecha').value = moment().format('YYYY-MM-DD');
-  });​
-</script>
 <% content_for :add_css do %>
 
 <link href="<%= asset_path '/assets/plugins/sweetalert/sweetalert.css' %>" rel="stylesheet" type="text/css">
@@ -339,7 +339,7 @@
 <script src="<%= asset_path '/js/validation.js' %>"></script>
 <script src="<%= asset_path '/assets/plugins/sweetalert/sweetalert.min.js' %>"></script>
 <script type="text/javascript">
-  //var token = document.getElementsByName("csrf-token")[0].getAttribute('content');
+  var token = document.getElementsByName("csrf-token")[0].getAttribute('content');
   var table5 = $('#myTable').DataTable({
     "oLanguage": {
       "sUrl": "https://cdn.datatables.net/plug-ins/1.10.16/i18n/Spanish.json"
@@ -478,5 +478,16 @@
     table5.draw();
   });
 
+</script>
+
+<script>
+  $(document).ready(function() {
+      // console.log( "ready!" );
+      $("#ruta_ruta_id").change(function(){
+        // alert('Hizo cambio');
+        var proceso = $("#ruta_ruta_id").val();
+        $("#carga_persona").load("/camino/carga_funcionario/"+proceso);
+      });
+  });
 </script>
 <% end %>

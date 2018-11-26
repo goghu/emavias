@@ -37,6 +37,15 @@ class CaminosController < ApplicationController
     end
   end
 
+  def carga_funcionario
+    @camino = Camino.where(ruta_id: params["proceso"], correlativo: 1).first
+    render layout: false
+  end
+
+  def eliminar
+    
+  end
+
   # PATCH/PUT /caminos/1
   # PATCH/PUT /caminos/1.json
   def update

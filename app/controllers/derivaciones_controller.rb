@@ -75,7 +75,9 @@ class DerivacionesController < ApplicationController
     m_derivacion.unidadeo_id = params[:unidadeo_id]
     m_derivacion.userd_id = params[:userd_id]
     m_derivacion.unidadd_id = params[:unidadd_id]
+    m_derivacion.correlativo = params[:correlativo]
     m_derivacion.estado = 'Recibido'
+    m_derivacion.fecha = Date.current
     m_derivacion.save
 
     redirect_to controller: 'compras', action: 'bandeja_entrada'
@@ -84,6 +86,9 @@ class DerivacionesController < ApplicationController
   def ver_documento
     # byebug
     @documento = Derivacione.find(params[:id_derivacion])
+    # byebug
+    # @ultimo_paso = Derivacione.where(compra_id: @documento.compra_id).last
+
   end
 
   private

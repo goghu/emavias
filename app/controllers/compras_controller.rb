@@ -175,6 +175,7 @@ class ComprasController < ApplicationController
     modelo_derivacion.unidadd_id = params[:unidadd_id]
     modelo_derivacion.compra_id = params[:compra_id]
     modelo_derivacion.fecha = params[:fecha]
+    modelo_derivacion.estado = 'Recibido'
     modelo_derivacion.save
     redirect_to action: 'mis_tramites'
   end

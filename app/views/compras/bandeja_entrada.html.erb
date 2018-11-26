@@ -49,10 +49,11 @@
         <table class="table table-bordered" id="myTable">
           <thead>
             <tr>
+              <th>Persona</th>
               <th>U/Origen</th>
-              <th>U/Origen</th>
-              <th>Hoja Ruta</th>
+              <th>Numero</th>
               <th>Formulario</th>
+              <th>Fecha</th>
               <th></th>
             </tr>
           </thead>
@@ -62,6 +63,7 @@
               <td><%= d.user_o.nombre %></td>
               <td><%= d.unidad_o.descripcion %></td>
               <td><%= d.compra.numero %></td>
+              <td><%= d.compra.docvalor %></td>
               <td><%= d.fecha %></td>
               <td>
                 <!-- <button class="btn btn-warning editar_m" data-id="<%# c.id %>" title="Editar"><i class="fa fa-pencil"></i></button> -->
