@@ -5,6 +5,9 @@
   <div class="col-md-6">
     <%= form_tag('/rutas/guarda_camino') do %>
     <%= select("camino", "unidade_id", Unidade.all.collect {|u| [ u.descripcion, u.id ] }, {include_blank: 'Seleccione Unidad'}) %>
+    <div id="carga_funcionarios">
+    <%= select("camino", "user_id", User.all.collect {|u| [ u.nombre, u.id ] }, {include_blank: 'Seleccione Funcionario'}) %>
+    </div>
     <%= number_field_tag('camino[correlativo]') %>
     <%= hidden_field_tag('camino[ruta_id]', @ruta.id) %>
     <%= submit_tag("Guardar") %>
@@ -17,6 +20,7 @@
       <thead>
         <tr>
           <th>Unidad</th>
+          <th>Funcionario</th>
           <th>Orden</th>
           <th></th>
         </tr>
@@ -25,12 +29,9 @@
       <tbody>
         <% @caminos.each do |camino| %>
         <tr>
-          <td>
-            <%= camino.unidade.descripcion %>
-          </td>
-          <td>
-            <%= camino.correlativo %>
-          </td>
+          <td><%= camino.unidade.descripcion %></td>
+          <td><%= camino.user.nombre %></td>
+          <td><%= camino.correlativo %></td>
           <td>
             <%# link_to 'Ver', rutum %>
             <%# link_to 'Editar', edit_rutum_path(rutum.id) %>
@@ -60,6 +61,16 @@
 <script src="<%= asset_path '/assets/plugins/toast-master/js/jquery.toast.js' %>"></script>
 <script src="<%= asset_path '/assets/plugins/sweetalert/sweetalert.min.js' %>"></script>
 <script type="text/javascript">
+
+  $( document ).ready(function() {
+      // console.log( "ready!" );
+      $("#camino_unidade_id").change(function(){
+        // alert('Hizo cambio');
+        var id_unidad = $("#camino_unidade_id").val();
+        $( "#carga_funcionarios" ).load( "/rutas/muestra_funcionarios/"+id_unidad );
+      });
+  });
+
   var table5 = $('#myTable').DataTable({
     "oLanguage": {
       "sUrl": "https://cdn.datatables.net/plug-ins/1.10.16/i18n/Spanish.json"

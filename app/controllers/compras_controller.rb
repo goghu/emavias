@@ -184,7 +184,8 @@ class ComprasController < ApplicationController
   end
 
   def bandeja_entrada
-    @documentos = Derivacione.last(350)
+    @documentos = Derivacione.where("userd_id = ? AND estado = ?", current_user.id, 'Recibido').last(350)
+    # @documentos = Derivacione.where("userd_id = ?", current_user.id).last(350)
   end
 
   private

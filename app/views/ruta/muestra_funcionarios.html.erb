@@ -1,0 +1,1 @@
+<%= select("camino", "user_id", User.where(unidade_id: @unidad).all.collect {|u| [ u.nombre, u.id ] }, {include_blank: 'Seleccione Funcionario'}) %>

@@ -71,6 +71,17 @@ class RutaController < ApplicationController
     # byebug
     @caminos = Camino.order(correlativo: :asc).where(ruta_id: params[:id_ruta])
     @ruta = Ruta.find(params[:id_ruta])
+    # respond_to do |format|
+    #   format.html { @ruta }
+    #   format.json { render json: @ruta }
+    # end
+  end
+
+  def muestra_funcionarios
+    # byebug
+    @unidad = params[:id_unidad]
+    @funcionarios = User.where(unidade_id: params[:id_unidad])
+    render layout: false
   end
 
   def guarda_camino
@@ -79,6 +90,7 @@ class RutaController < ApplicationController
     @n_camino.ruta_id = params[:camino][:ruta_id]
     @n_camino.unidade_id = params[:camino][:unidade_id]
     @n_camino.correlativo = params[:camino][:correlativo]
+    @n_camino.user_id = params[:camino][:user_id]
     @n_camino.save
     redirect_to action: "ver_caminos", id_ruta: params[:camino][:ruta_id]
   end
@@ -92,6 +104,6 @@ class RutaController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def rutum_params
-    params.require(:rutum).permit(:nombre, :descripcion)
+    params.require(:rutum).permit(:nombre, :descripcion, :ruta_id, :unidade_id)
   end
 end

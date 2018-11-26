@@ -1,5 +1,6 @@
 class DerivacionesController < ApplicationController
   before_action :set_derivacione, only: [:show, :edit, :update, :destroy]
+  layout 'template'
 
   # GET /derivaciones
   # GET /derivaciones.json
@@ -59,6 +60,30 @@ class DerivacionesController < ApplicationController
       format.html { redirect_to derivaciones_url, notice: 'Derivacione was successfully destroyed.' }
       format.json { head :no_content }
     end
+  end
+
+  def guarda_derivacion
+    # byebug
+    consulta = Derivacione.where(compra_id: params[:compra_id]).last
+    c_derivacion = Derivacione.find(consulta.id)
+    c_derivacion.estado = 'Derivado'
+    c_derivacion.save
+
+    m_derivacion = Derivacione.new
+    m_derivacion.compra_id = params[:compra_id]
+    m_derivacion.usero_id = params[:usero_id]
+    m_derivacion.unidadeo_id = params[:unidadeo_id]
+    m_derivacion.userd_id = params[:userd_id]
+    m_derivacion.unidadd_id = params[:unidadd_id]
+    m_derivacion.estado = 'Recibido'
+    m_derivacion.save
+
+    redirect_to controller: 'compras', action: 'bandeja_entrada'
+  end
+
+  def ver_documento
+    # byebug
+    @documento = Derivacione.find(params[:id_derivacion])
   end
 
   private

@@ -1,0 +1,482 @@
+<%# @documento.inspect %>
+<style>
+  .oculto {
+    display: none;
+  }
+
+  input[type="checkbox"] {
+    -ms-transform: scale(2);/* IE */
+    -moz-transform: scale(2);/* FF */
+    -webkit-transform: scale(2);/* Safari and Chrome */
+    -o-transform: scale(2);/* Opera */
+    padding: 10px;
+  }
+</style>
+<div class="row page-titles">
+  <div class="col-md-6 col-8 align-self-center">
+    <h3 class="text-themecolor m-b-0 m-t-0">
+      COMPRA NUMERO #
+      <%= @documento.compra.numero %>
+      <!-- <div class="btn btn-md btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-lg">
+        <i class="fa fa-question-circle"></i> &nbsp;Ayuda
+      </div> -->
+    </h3>
+  </div>
+
+  <!-- modal -->
+  <div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
+    aria-hidden="true" style="display: none;">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title" id="myLargeModalLabel">TUTORIAL</h4>
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        </div>
+        <div class="modal-body">
+          <iframe width="100%" height="400" src="" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger waves-effect text-left" data-dismiss="modal">Cancelar</button>
+        </div>
+      </div>
+      <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+  </div>
+  <!-- /.modal -->
+  <!-- find modal -->
+
+  <!-- <div class="col-md-6 col-4 align-self-center">
+    <%= link_to '<i class="mdi mdi-plus-circle"></i> Nueva Solicitud'.html_safe, new_compra_path, class: "btn pull-right btn-success" %>
+  </div> -->
+</div>
+<div class="row">
+  <div class="col-12">
+    <div class="card">
+      <div class="card-body">
+        <div class="table-responsive">
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th>No.</th>
+                <th>Descripcion</th>
+                <th>Unidad</th>
+                <th>Cantidad</th>
+                <th>P. Unitario</th>
+                <th>P. Referencial</th>
+              </tr>
+            </thead>
+            <tbody>
+              <% precio_total = 0 %>
+
+              <% @documento.compra.item.each_with_index do |i, con| %>
+              <tr>
+                <td>
+                  <%= con+1 %>
+                </td>
+                <td>
+                  <%= i.descripcion %>
+                </td>
+                <td>
+                  <%= i.unidad %>
+                </td>
+                <td>
+                  <%= i.cantidad %>
+                </td>
+                <% precio_total = precio_total + i.p_unitario %>
+                <td style="text-align: right">
+                  <%= i.p_unitario %>
+                </td>
+                <td style="text-align: right">
+                  <%= i.p_referencial %>
+                </td>
+              </tr>
+
+              <% end %>
+
+              <tr>
+                <td colspan="5" style="font-size: 14pt; text-align: right;"><b>TOTAL</b></td>
+                <td id="idprectotal" style="font-size: 12pt; text-align: right;">
+                  <%= number_to_currency(precio_total, unit: "") %>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-lg-12">
+    <div class="card card-outline-info">
+      <div class="card-body">
+        <%= form_tag('/derivacione/guarda_derivacion', method: :post) do %>
+        <div class="form-body">
+
+          <div class="row">
+
+            <div class="col-md-4">
+              <div class="form-group">
+                <label class="control-label">Hoja Ruta</label>
+                <div class="controls">
+                  <%# text_field_tag :docvalor, nil, class: 'form-control', required: 'required', placeholder:'Ej. 25478' %>
+                  <%= @documento.compra.docvalor %>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-4">
+              <div class="form-group">
+                <label class="control-label">Numero</label>
+                <div class="controls">
+                  <%= @documento.compra.numero %>
+                  <%# text_field_tag :numero, nil, value: @compra.numero, class: 'form-control', required: 'required', placeholder:'Ej. 25478' %>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-4">
+              <div class="form-group">
+                <label class="control-label">Fecha</label>
+                <div class="controls">
+                  <%= @documento.compra.fecha %>
+                  <%# date_field_tag :fecha, nil, value: DateTime.now.to_date, class: 'form-control' %>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          <div class="row">
+
+            <div class="col-md-3">
+              <div class="form-group">
+                <div class="controls">
+                    <%# @documento.compra.existencia %>
+                    Inexistencia <b>(
+                    <% if @documento.compra.existencia.present? %>
+                      SI
+                    <% else %>
+                      NO
+                    <% end %>
+                    )</b>
+                    <!-- <input type="checkbox" id="cbox1" name="existencia" checked>&nbsp;&nbsp; Inexistencia -->
+                    <%# form.text_field :numero, id: :compra_numero,  class: 'form-control', required: 'required',placeholder:'Ej. 25478' %>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-3">
+              <div class="form-group">
+                <div class="controls">
+                  Autorizacion <b>(
+                  <% if @documento.compra.autorizaciones.present? %>
+                    SI
+                  <% else %>
+                    NO
+                  <% end %>
+                  )</b>
+
+                  <!-- <label><input type="checkbox" id="cbox1" name="autorizaciones" checked>&nbsp;&nbsp; Autorizacion</label> -->
+                  <%# form.text_field :numero, id: :compra_numero,  class: 'form-control', required: 'required',placeholder:'Ej. 25478' %>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-3">
+              <div class="form-group">
+                <div class="controls">
+                  POA <b>(
+                  <% if @documento.compra.poa.present? %>
+                    SI
+                  <% else %>
+                    NO
+                  <% end %>
+                  )</b>
+
+                  <!-- <label><input type="checkbox" id="cbox1" name="poa" checked>&nbsp;&nbsp; POA</label> -->
+                  <%# form.date_field :fecha, id: :compra_fecha, class: 'form-control', required: 'required' %>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-3">
+              <div class="form-group">
+                <div class="controls">
+                  Certificacion Presupuestaria <b>(
+                  <% if @documento.compra.presupuestaria.present? %>
+                    SI
+                  <% else %>
+                    NO
+                  <% end %>
+                  )</b>
+
+<!--                   <label><input type="checkbox" id="cbox1" name="presupuestaria" checked>&nbsp;&nbsp; Certificacion
+                    Presupuestaria</label>
+ -->                  <%# form.date_field :fecha, id: :compra_fecha, class: 'form-control', required: 'required' %>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          <div class="row">
+
+            <div class="col-md-6">
+              <div class="form-group">
+                <div class="controls">
+                  Especificaciones Tecnicas <b>(
+                  <% if @documento.compra.especificaciones.present? %>
+                    SI
+                  <% else %>
+                    NO
+                  <% end %>
+                  )</b>
+
+<!--                   <label><input type="checkbox" id="cbox1" name="especificaciones">&nbsp;&nbsp; Especificaciones
+                    Tecnicas
+ -->                    <%# form.text_field :numero, id: :compra_numero,  class: 'form-control', required: 'required',placeholder:'Ej. 25478' %>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-6">
+              <div class="form-group">
+                <div class="controls">
+                  Cotizacion <b>(
+                  <% if @documento.compra.cotizacion.present? %>
+                    SI
+                  <% else %>
+                    NO
+                  <% end %>
+                  )</b>
+
+                  <!-- <label><input type="checkbox" id="cbox1" name="cotizacion">&nbsp;&nbsp; Cotizacion</label> -->
+                  <%# form.text_field :numero, id: :compra_numero,  class: 'form-control', required: 'required',placeholder:'Ej. 25478' %>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          <div class="row">
+
+            <div class="col-md-9">
+              <div class="form-group">
+                <label class="control-label">Observaciones</label>
+                <div class="controls">
+                  <%= @documento.compra.obs %>
+                  <%# text_field_tag :obs, nil, class: 'form-control', placeholder:'Ej. Aqui las observaciones' %>
+                </div>
+              </div>
+            </div>
+
+            <% if current_user.id == 14 %>
+              <div class="col-md-3">
+                <div class="form-group">
+                  <label class="control-label">Derivar a</label>
+                  <div class="controls">
+                    <%= select("ruta", "ruta_id", Ruta.all.collect {|u| [ u.nombre, u.id ] }, {include_blank: 'Seleccione Ruta'}) %>
+                  </div>
+                </div>
+              </div>  
+            <% else %>
+              <div class="col-md-3">
+                <div class="form-group">
+                  <label class="control-label">Derivar a</label>
+                  <div class="controls">
+                    <%# 
+                    current_user.id.inspect
+                    datos_usuario = User.find(41)
+                    jefe_unidad = User.where(unidade_id: datos_usuario.unidade_id, jefe: 1).first
+                    jefe_unidad.nombre
+                  %>
+                    Lic. Oscar Valdes Loayza
+                    <%= hidden_field_tag(:compra_id, @documento.compra.id ) %>
+                    <%= hidden_field_tag(:usero_id, current_user.id ) %>
+                    <%= hidden_field_tag(:unidadeo_id, current_user.unidade_id ) %>
+                    <%= hidden_field_tag(:userd_id, 14 ) %>
+                    <%= hidden_field_tag(:unidadd_id, 12 ) %>
+                  </div>
+                </div>
+              </div>              
+            <% end %>
+
+          </div>
+
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+            <button type="submit" class="btn btn-block btn-success"><i class="fa fa-check"></i> Aceptar y Derivar</button>
+          </div>
+          <div class="col-md-6">
+            <%= link_to 'Rechazar', compras_mis_tramites_path, class: "btn btn-block btn-inverse" %>
+          </div>
+        </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  $(document).ready(function () {
+    //$('#fecha').val(new Date().toDateInputValue());
+    //document.getElementById('fecha').valueAsDate = new Date();
+    //document.getElementById('fecha').value = moment().format('YYYY-MM-DD');
+  });​
+</script>
+<% content_for :add_css do %>
+
+<link href="<%= asset_path '/assets/plugins/sweetalert/sweetalert.css' %>" rel="stylesheet" type="text/css">
+<% end %>
+<% content_for :add_js do %>
+<script src="<%= asset_path '/assets/plugins/datatables/jquery.dataTables.min.js' %>"></script>
+<script src="<%= asset_path '/js/validation.js' %>"></script>
+<script src="<%= asset_path '/assets/plugins/sweetalert/sweetalert.min.js' %>"></script>
+<script type="text/javascript">
+  //var token = document.getElementsByName("csrf-token")[0].getAttribute('content');
+  var table5 = $('#myTable').DataTable({
+    "oLanguage": {
+      "sUrl": "https://cdn.datatables.net/plug-ins/1.10.16/i18n/Spanish.json"
+    }
+  });
+
+  $(document).on('click', '.editar_m', function () {
+    el_id = $(this).data('id');
+    window.location.href = '/compra/edita_compra/' + el_id;
+  });
+
+  $(document).on('click', '.asignar_m', function () {
+    el_id = $(this).data('id');
+    window.location.href = '/compra/asignar/' + el_id;
+  });
+
+  $(document).on('click', '.cantidad_m', function () {
+    el_id = $(this).data('id');
+    el_nombre = $(this).data('nombre');
+    cargarmodal('/cantidad/' + el_id);
+  });
+
+  $(document).on('click', '.eliminar_m', function () {
+    el_id = $(this).data('id');
+    el_nombre = $(this).data('nombre');
+    pregunta_eli('/productos/' + el_id, 'Eliminar el producto ' + el_nombre);
+  });
+
+
+  function pregunta_eli(urll, texto) {
+    swal({
+      title: "Esta seguro?",
+      text: texto,
+      type: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#DD6B55",
+      confirmButtonText: "Si",
+      cancelButtonText: "No",
+      closeOnConfirm: false,
+      closeOnCancel: false
+    }, function (isConfirm) {
+      if (isConfirm) {
+        var form = document.createElement("form");
+        var element1 = document.createElement("input");
+        var element2 = document.createElement("input");
+
+        form.method = "POST";
+        form.action = urll;
+
+        element1.value = "delete";
+        element1.name = "_method";
+        form.appendChild(element1);
+
+        element2.value = token;
+        element2.name = "authenticity_token";
+        form.appendChild(element2);
+
+        document.body.appendChild(form);
+
+        form.submit();
+
+      } else {
+        swal("Cancelado", "(DE " + texto + ')', "error");
+      }
+    });
+  }
+
+
+
+  $(document).on('submit', '#form-archivo', function (e) {
+    la_action = $(this).attr('action');
+
+    //los_datos = $(this).serializeArray();
+    var formData = new FormData($('#form-archivo')[0]);
+    $.ajax({
+      type: 'POST',
+      url: la_action,
+      beforeSend: function () {
+        $('#contieneprogreso').show();
+        $('.pocu').hide(100);
+      },
+      xhr: function () {  // Custom XMLHttpRequest
+        var myXhr = $.ajaxSettings.xhr();
+        if (myXhr.upload) { // Check if upload property exists
+          myXhr.upload.addEventListener('progress', progressHandlingFunction, false); // For handling the progress of the upload
+        }
+        return myXhr;
+      },
+      dataType: "json",
+      data: formData,
+      cache: false,
+      contentType: false,
+      processData: false,
+      success: function (data) {
+        $('#myModal').modal('hide');
+        alertabn("Se registro correctamente los datos del almacen");
+      },
+      error: function (data) {
+        mensajederror("error");
+      }
+    });
+    e.preventDefault();
+  });
+
+
+  function mensajederror(eltexto) {
+    $.toast({
+      heading: 'Error',
+      text: eltexto,
+      position: 'top-right',
+      loaderBg: '#ff6849',
+      icon: 'error',
+      hideAfter: 4500
+
+    })
+  }
+
+  function alertabn(mensaje) {
+    swal({
+      title: "Excelente!",
+      text: mensaje,
+      type: 'success'
+    }, function () {
+      $(".lanzador").trigger("click");
+    })
+  }
+
+
+  function progressHandlingFunction(e) {
+    if (e.lengthComputable) {
+      $('#cargaarchivo').css({ width: parseInt((e.loaded / e.total) * 100) + '%' });
+      $('#cargaarchivo').html(parseInt((e.loaded / e.total) * 100));
+    }
+  }
+  $(".lanzador").click(function () {
+    table5.draw();
+  });
+
+</script>
+<% end %>
