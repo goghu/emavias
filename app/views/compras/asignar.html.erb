@@ -215,7 +215,7 @@
               <div class="controls">
                 <%= 
                   current_user.id.inspect
-                  datos_usuario = User.find(41)
+                  datos_usuario = User.find(current_user.id)
                   jefe_unidad = User.where(unidade_id: datos_usuario.unidade_id, jefe: 1).first
                   jefe_unidad.nombre
                 %>
