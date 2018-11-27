@@ -1,6 +1,6 @@
 class DerivacionesController < ApplicationController
   before_action :set_derivacione, only: [:show, :edit, :update, :destroy]
-  layout 'template'
+  layout "template"
 
   # GET /derivaciones
   # GET /derivaciones.json
@@ -29,7 +29,7 @@ class DerivacionesController < ApplicationController
 
     respond_to do |format|
       if @derivacione.save
-        format.html { redirect_to @derivacione, notice: 'Derivacione was successfully created.' }
+        format.html { redirect_to @derivacione, notice: "Derivacione was successfully created." }
         format.json { render :show, status: :created, location: @derivacione }
       else
         format.html { render :new }
@@ -43,7 +43,7 @@ class DerivacionesController < ApplicationController
   def update
     respond_to do |format|
       if @derivacione.update(derivacione_params)
-        format.html { redirect_to @derivacione, notice: 'Derivacione was successfully updated.' }
+        format.html { redirect_to @derivacione, notice: "Derivacione was successfully updated." }
         format.json { render :show, status: :ok, location: @derivacione }
       else
         format.html { render :edit }
@@ -57,7 +57,7 @@ class DerivacionesController < ApplicationController
   def destroy
     @derivacione.destroy
     respond_to do |format|
-      format.html { redirect_to derivaciones_url, notice: 'Derivacione was successfully destroyed.' }
+      format.html { redirect_to derivaciones_url, notice: "Derivacione was successfully destroyed." }
       format.json { head :no_content }
     end
   end
@@ -66,7 +66,7 @@ class DerivacionesController < ApplicationController
     # byebug
     consulta = Derivacione.where(compra_id: params[:compra_id]).last
     c_derivacion = Derivacione.find(consulta.id)
-    c_derivacion.estado = 'Derivado'
+    c_derivacion.estado = "Derivado"
     c_derivacion.save
 
     m_derivacion = Derivacione.new
@@ -76,29 +76,38 @@ class DerivacionesController < ApplicationController
     m_derivacion.userd_id = params[:userd_id]
     m_derivacion.unidadd_id = params[:unidadd_id]
     m_derivacion.correlativo = params[:correlativo]
-    m_derivacion.estado = 'Recibido'
+    m_derivacion.ruta_id = params[:ruta_id]
+    m_derivacion.estado = "Recibido"
     m_derivacion.fecha = Date.current
     m_derivacion.save
 
-    redirect_to controller: 'compras', action: 'bandeja_entrada'
+    redirect_to controller: "compras", action: "bandeja_entrada"
   end
 
   def ver_documento
     # byebug
     @documento = Derivacione.find(params[:id_derivacion])
+    if @documento.ruta_id.present?
+      siguiente = @documento.correlativo.to_i + 1
+      camino = Camino.where(ruta_id: @documento.ruta_id, correlativo: siguiente).take
+      if camino.present?
+        @siguiente_funcionario = camino
+      end
+    end
     # byebug
     # @ultimo_paso = Derivacione.where(compra_id: @documento.compra_id).last
 
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_derivacione
-      @derivacione = Derivacione.find(params[:id])
-    end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def derivacione_params
-      params.require(:derivacione).permit(:usero_id, :unidadeo_id, :userd_id, :unidadd_id, :fecha, :estado, :observaciones)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_derivacione
+    @derivacione = Derivacione.find(params[:id])
+  end
+
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def derivacione_params
+    params.require(:derivacione).permit(:usero_id, :unidadeo_id, :userd_id, :unidadd_id, :fecha, :estado, :observaciones)
+  end
 end

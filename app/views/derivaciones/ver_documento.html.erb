@@ -278,6 +278,10 @@
                 </div>
               </div>
             </div>
+            <% if @siguiente_funcionario.present? %>
+            <%# @siguiente_funcionario %>
+              <%= @siguiente_funcionario.user.nombre %>
+            <% end %>
 
             <% if current_user.id == 14 %>
               <div class="col-md-3">
