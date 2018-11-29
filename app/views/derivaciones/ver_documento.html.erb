@@ -71,12 +71,8 @@
 
               <% @documento.compra.item.each_with_index do |i, con| %>
               <tr>
-                <td>
-                  <%= con+1 %>
-                </td>
-                <td>
-                  <%= i.descripcion %>
-                </td>
+                <td><%= con+1 %></td>
+                <td><%= i.descripcion %></td>
                 <td>
                   <%= i.unidad %>
                 </td>
@@ -278,12 +274,8 @@
                 </div>
               </div>
             </div>
-            <% if @siguiente_funcionario.present? %>
-            <%# @siguiente_funcionario %>
-              <%= @siguiente_funcionario.user.nombre %>
-            <% end %>
-
-            <% if current_user.id == 14 %>
+            
+            <% if @rpa.present? %>
               <div class="col-md-3">
                 <div class="form-group">
                   <label class="control-label">Proceso</label>
@@ -306,6 +298,19 @@
                 <div class="form-group">
                   <label class="control-label">Derivar a</label>
                   <div class="controls">
+                    <% if @siguiente_funcionario.present? %>
+                      <%# @siguiente_funcionario %>
+                      <%= @siguiente_funcionario.user.nombre %>
+                      <%= hidden_field_tag(:userd_id, @siguiente_funcionario.user.id ) %>
+                      <%= hidden_field_tag(:unidadd_id, @siguiente_funcionario.user.unidade_id ) %>
+                    <% else %>
+                      <b><%= @rpa.unidade.descripcion %></b><br>
+                      <%= @rpa.nombre %>
+                      <%# hidden_field_tag(:compra_id, @documento.compra.id ) %>
+                      <%= hidden_field_tag(:userd_id, @rpa.id ) %>
+                      <%= hidden_field_tag(:unidadd_id, @rpa.unidade_id ) %>
+                    <% end %>
+
                     <%# 
                     current_user.id.inspect
                     datos_usuario = User.find(41)

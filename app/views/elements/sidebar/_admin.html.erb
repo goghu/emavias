@@ -46,11 +46,11 @@
                     <i class="mdi mdi-account-card-details"></i> <span class="hide-menu">Usuarios</span>
                     <% end %>
                 </li>
-                <li>
-                    <%= link_to  controller: "compras", action: "mis_compras", usuario: current_user.id do %>
+                <!-- <li>
+                    <%# link_to  controller: "compras", action: "mis_compras", usuario: current_user.id do %>
                     <i class="mdi mdi-cart"></i> <span class="hide-menu">Compras</span>
-                    <% end %>
-                </li>
+                    <%# end %>
+                </li> -->
                 <li>
                     <%= link_to  controller: "unidades", action: "index", usuario: current_user.id do %>
                     <i class="fa fa-cog"></i> <span class="hide-menu">Unidades</span>
