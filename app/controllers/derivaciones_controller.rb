@@ -98,7 +98,12 @@ class DerivacionesController < ApplicationController
     end
     # byebug
     # @ultimo_paso = Derivacione.where(compra_id: @documento.compra_id).last
+  end
 
+  def ver_documento_rpa
+    # byebug
+    @documento = Derivacione.find(params[:id_derivacion])
+    # byebug
   end
 
   private

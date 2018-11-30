@@ -37,6 +37,7 @@ Rails.application.routes.draw do
   post "/compra/completa_solicitud", to: "compras#completa_solicitud", as: "compras_completa_solicitud"
   get "/compra/bandeja_entrada", to: "compras#bandeja_entrada", as: "compras_bandeja_entrada"
   get "/derivacione/ver_documento/:id_derivacion", to: "derivaciones#ver_documento", as: "derivaciones_ver_documento"
+  get "/derivacione/ver_documento_rpa/:id_derivacion", to: "derivaciones#ver_documento_rpa", as: "derivaciones_ver_documento_rpa"
   post "/derivacione/guarda_derivacion", to: "derivaciones#guarda_derivacion", as: "derivaciones_guarda_derivacion"
   get "/rutas/muestra_funcionarios/:id_unidad", to: "ruta#muestra_funcionarios", as: "ruta_muestra_funcionario"
   get "/camino/eliminar/:id_camino/:cod_ruta", to: "caminos#eliminar", as: "camino_eliminar"

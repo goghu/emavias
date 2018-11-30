@@ -58,6 +58,8 @@
             </tr>
           </thead>
           <tbody>
+            <% usuario_actual = current_user %>
+            <% consuta_usuario =  %>
             <% @documentos.each do |d| %>
             <tr>
               <td><%= d.user_o.nombre %></td>
@@ -66,9 +68,11 @@
               <td><%= d.compra.docvalor %></td>
               <td><%= d.fecha %></td>
               <td>
-                <!-- <button class="btn btn-warning editar_m" data-id="<%# c.id %>" title="Editar"><i class="fa fa-pencil"></i></button> -->
-                <!-- <button class="btn btn-info imprimir_m" data-id="<%= d.id %>" title="Imprimir"><i class="fa fa-print"></i></button> -->
-                <button class="btn btn-info ver_m" data-id="<%= d.id %>" title="Ver Documento"><i class="fa fa-file-text"></i></button>
+                <% if(current_user.unidade_id == 5) && (current_user.cargo_id == 41) %>
+                  <button class="btn btn-info ver_m_rpa" data-id="<%= d.id %>" title="Ver Documento"><i class="fa fa-file-text"></i></button>
+                <% else %>
+                  <button class="btn btn-info ver_m" data-id="<%= d.id %>" title="Ver Documento"><i class="fa fa-file-text"></i></button>
+                <% end %>
                 <button class="btn btn-danger eliminar_m" data-id="<%= d.id %>" data-nombre="demo" title="Eliminar"><i class="fa fa-remove"></i></button>
               </td>
             </tr>
@@ -100,6 +104,11 @@
   $(document).on('click', '.ver_m', function () {
     el_id = $(this).data('id');
     window.location.href = '/derivacione/ver_documento/' + el_id;
+  });
+
+  $(document).on('click', '.ver_m_rpa', function () {
+    el_id = $(this).data('id');
+    window.location.href = '/derivacione/ver_documento_rpa/' + el_id;
   });
 
   $(document).on('click', '.imprimir_m', function () {
