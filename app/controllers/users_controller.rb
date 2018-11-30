@@ -39,7 +39,7 @@ class UsersController < ApplicationController
     if user_params[:contra2] != ""
       parausuarios[:password] = user_params[:contra2]
     end
-    byebug
+    # byebug
     @user = User.new(parausuarios)
     if params[:jefe].present?
       @user.jefe = 1

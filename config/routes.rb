@@ -39,7 +39,7 @@ Rails.application.routes.draw do
   get "/derivacione/ver_documento/:id_derivacion", to: "derivaciones#ver_documento", as: "derivaciones_ver_documento"
   post "/derivacione/guarda_derivacion", to: "derivaciones#guarda_derivacion", as: "derivaciones_guarda_derivacion"
   get "/rutas/muestra_funcionarios/:id_unidad", to: "ruta#muestra_funcionarios", as: "ruta_muestra_funcionario"
-  get "/camino/eliminar/:id_camino", to: "caminos#eliminar", as: "camino_eliminar"
+  get "/camino/eliminar/:id_camino/:cod_ruta", to: "caminos#eliminar", as: "camino_eliminar"
   get "/camino/carga_funcionario/:proceso", to: "caminos#carga_funcionario", as: "camino_carga_funcionario"
 
   # devise_for :users, path: 'auth', path_names: {  sign_out: 'logout', sign_up: 'cmon_let_me_in' }

@@ -275,52 +275,23 @@
               </div>
             </div>
             
-            <% if @rpa.present? %>
-              <div class="col-md-3">
-                <div class="form-group">
-                  <label class="control-label">Proceso</label>
-                  <div class="controls">
-                    <%= select("ruta", "ruta_id", Ruta.all.collect {|u| [ u.nombre, u.id ] }, {include_blank: 'Seleccione Ruta'}, {class: 'form-control'}) %>
-                  </div>
-                </div>
-              </div>
-
-              <div class="col-md-3">
-                <div class="form-group">
-                  <label class="control-label">Derivar a</label>
-                  <div class="controls" id="carga_persona">
-                    <%# select("ruta", "ruta_id", Ruta.all.collect {|u| [ u.nombre, u.id ] }, {include_blank: 'Seleccione Ruta'}, {class: 'form-control'}) %>
-                  </div>
-                </div>
-              </div>  
-            <% else %>
-              <div class="col-md-3">
-                <div class="form-group">
-                  <label class="control-label">Derivar a</label>
-                  <div class="controls">
-                    <% if @siguiente_funcionario.present? %>
-                      <%# @siguiente_funcionario %>
-                      <%= @siguiente_funcionario.user.nombre %>
-                      <%= hidden_field_tag(:userd_id, @siguiente_funcionario.user.id ) %>
-                      <%= hidden_field_tag(:unidadd_id, @siguiente_funcionario.user.unidade_id ) %>
-                    <% else %>
-                      <b><%= @rpa.unidade.descripcion %></b><br>
-                      <%= @rpa.nombre %>
-                      <%# hidden_field_tag(:compra_id, @documento.compra.id ) %>
-                      <%= hidden_field_tag(:userd_id, @rpa.id ) %>
-                      <%= hidden_field_tag(:unidadd_id, @rpa.unidade_id ) %>
-                    <% end %>
-
-                    <%# 
-                    current_user.id.inspect
-                    datos_usuario = User.find(41)
-                    jefe_unidad = User.where(unidade_id: datos_usuario.unidade_id, jefe: 1).first
-                    jefe_unidad.nombre
-                  %>
+            <div class="col-md-3">
+              <div class="form-group">
+                <label class="control-label">Derivar a</label>
+                <div class="controls">
+                  <% if @siguiente_funcionario.present? %>
+                    <%= @siguiente_funcionario.user.nombre %>
+                    <%= hidden_field_tag(:userd_id, @siguiente_funcionario.user.id ) %>
+                    <%= hidden_field_tag(:unidadd_id, @siguiente_funcionario.user.unidade_id ) %>
+                  <% else %>
+                    <b><%= @rpa.unidade.descripcion %></b><br>
+                    <%= @rpa.nombre %>
+                    <%= hidden_field_tag(:userd_id, @rpa.id ) %>
+                    <%= hidden_field_tag(:unidadd_id, @rpa.unidade_id ) %>
+                  <% end %>
                   </div>
                 </div>
               </div>              
-            <% end %>
 
           </div>
 

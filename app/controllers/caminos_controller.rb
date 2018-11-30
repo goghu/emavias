@@ -44,7 +44,9 @@ class CaminosController < ApplicationController
   end
 
   def eliminar
-    
+    # byebug
+    Camino.destroy(params[:id_camino])
+    redirect_to controller: 'ruta', action: 'ver_caminos', id_ruta: params[:cod_ruta] 
   end
 
   # PATCH/PUT /caminos/1

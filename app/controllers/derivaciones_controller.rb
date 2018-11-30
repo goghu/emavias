@@ -94,7 +94,7 @@ class DerivacionesController < ApplicationController
         @siguiente_funcionario = camino
       end
     else
-      @rpa = User.where(unidade_id: 5, jefe: 1).take
+      @rpa = User.where(unidade_id: 'RPA').take
     end
     # byebug
     # @ultimo_paso = Derivacione.where(compra_id: @documento.compra_id).last

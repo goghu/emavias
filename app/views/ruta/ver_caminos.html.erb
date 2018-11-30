@@ -36,7 +36,7 @@
             <%# link_to 'Ver', rutum %>
             <%# link_to 'Editar', edit_rutum_path(rutum.id) %>
             <%# link_to 'Caminos', ruta_ver_caminos_path(rutum) %>
-            <%= link_to 'Eliminar', controller: 'caminos', action: 'eliminar', id_camino: camino.id %>
+            <%= link_to 'Eliminar', controller: 'caminos', action: 'eliminar', id_camino: camino.id, cod_ruta: camino.ruta_id %>
           </td>
         </tr>
         <% end %>
