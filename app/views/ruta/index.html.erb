@@ -17,10 +17,10 @@
         <td><%= rutum.nombre %></td>
         <td><%= rutum.descripcion %></td>
         <td>
-          <%= link_to 'Ver', rutum %>
-          <%= link_to 'Editar', edit_rutum_path(rutum.id) %>
+          <%# link_to 'Ver', rutum %>
+          <%# link_to 'Editar', edit_ruta_path(ruta.id) %>
           <%= link_to 'Caminos', ruta_ver_caminos_path(rutum) %>
-          <%= link_to 'Eliminar', rutum, method: :delete, data: { confirm: 'Estas seguro?' } %>
+          <%# link_to 'Eliminar', rutum, method: :delete, data: { confirm: 'Estas seguro?' } %>
         </td>
       </tr>
     <% end %>

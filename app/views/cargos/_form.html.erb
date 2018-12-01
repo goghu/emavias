@@ -13,15 +13,15 @@
 
   <div class="field">
     <%= form.label :descripcion %>
-    <%= form.text_field :descripcion, id: :cargo_descripcion %>
+    <%= form.text_field :descripcion, id: :cargo_descripcion, class: 'form-control' %>
   </div>
 
   <div class="field">
-    <%= form.label :nivel %>
-    <%= form.number_field :nivel, id: :cargo_nivel %>
+    <%= form.label :Unidad %>
+    <%= select("cargo", "unidade_id", Unidade.all.collect {|u| [ u.descripcion, u.id ] }, {include_blank: 'Seleccione Unidad'}, {class: 'form-control'}) %>
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <input type="submit" value="Guardar">
   </div>
 <% end %>

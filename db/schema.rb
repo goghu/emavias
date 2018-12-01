@@ -10,9 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20181126212223) do
+ActiveRecord::Schema.define(version: 20181201144911) do
 
   create_table "caminos", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
+    t.integer "cargo_id"
     t.integer "user_id"
     t.integer "ruta_id"
     t.integer "unidade_id"
@@ -23,6 +24,7 @@ ActiveRecord::Schema.define(version: 20181126212223) do
   end
 
   create_table "cargos", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
+    t.integer "unidade_id"
     t.string "descripcion", limit: 150
     t.integer "nivel"
     t.datetime "created_at", null: false
@@ -46,6 +48,8 @@ ActiveRecord::Schema.define(version: 20181126212223) do
   end
 
   create_table "derivaciones", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
+    t.integer "cargod_id"
+    t.integer "cargoo_id"
     t.integer "ruta_id"
     t.integer "correlativo"
     t.integer "compra_id"
@@ -61,6 +65,7 @@ ActiveRecord::Schema.define(version: 20181126212223) do
   end
 
   create_table "documentos", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
+    t.string "tipo", limit: 120
     t.integer "camino_id"
     t.string "descripcion", limit: 20
     t.integer "correlativo", limit: 2

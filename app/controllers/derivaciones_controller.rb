@@ -77,6 +77,8 @@ class DerivacionesController < ApplicationController
     m_derivacion.unidadd_id = params[:unidadd_id]
     m_derivacion.correlativo = params[:correlativo]
     m_derivacion.ruta_id = params[:ruta_id]
+    m_derivacion.cargoo_id = params[:cargoo_id]
+    m_derivacion.cargod_id = params[:cargod_id]
     m_derivacion.estado = "Recibido"
     m_derivacion.fecha = Date.current
     m_derivacion.save
@@ -86,15 +88,17 @@ class DerivacionesController < ApplicationController
 
   def ver_documento
     # byebug
-    @documento = Derivacione.find(params[:id_derivacion])
-    if @documento.ruta_id.present?
-      siguiente = @documento.correlativo.to_i + 1
-      camino = Camino.where(ruta_id: @documento.ruta_id, correlativo: siguiente).take
-      if camino.present?
-        @siguiente_funcionario = camino
+    @derivacion = Derivacione.find(params[:id_derivacion])
+    @items = 
+    if @derivacion.ruta_id.present?
+      siguiente = @derivacion.correlativo.to_i + 1
+      @camino = Camino.where(ruta_id: @derivacion.ruta_id, correlativo: siguiente).take
+      if @camino.present?
+        siguiente_cargo = User.where(cargo_id: @camino.cargo_id, deleted: nil).take
+        @siguiente_funcionario = siguiente_cargo
       end
     else
-      @rpa = User.where(unidade_id: 5, cargo_id: 41).take
+      @rpa = User.where(unidade_id: 5, cargo_id: 41, deleted: nil).take
     end
     # byebug
     # @ultimo_paso = Derivacione.where(compra_id: @documento.compra_id).last
@@ -103,6 +107,13 @@ class DerivacionesController < ApplicationController
   def ver_documento_rpa
     # byebug
     @documento = Derivacione.find(params[:id_derivacion])
+
+    # byebug
+  end
+
+  def ver_derivaciones
+    @derivaciones = Derivacione.where(compra_id: params[:id_compra])
+    @compra = Compra.find(params[:id_compra])
     # byebug
   end
 
@@ -115,6 +126,6 @@ class DerivacionesController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def derivacione_params
-    params.require(:derivacione).permit(:usero_id, :unidadeo_id, :userd_id, :unidadd_id, :fecha, :estado, :observaciones)
+    params.require(:derivacione).permit(:usero_id, :unidadeo_id, :userd_id, :unidadd_id, :fecha, :estado, :observaciones, :cargoo_id, :cargod_id)
   end
 end

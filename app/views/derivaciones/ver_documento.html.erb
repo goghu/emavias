@@ -1,4 +1,4 @@
-<%# @documento.inspect %>
+<%# @derivacion.inspect %>
 <style>
   .oculto {
     display: none;
@@ -16,7 +16,7 @@
   <div class="col-md-6 col-8 align-self-center">
     <h3 class="text-themecolor m-b-0 m-t-0">
       COMPRA NUMERO #
-      <%= @documento.compra.numero %>
+      <%= @derivacion.compra.numero %>
       <!-- <div class="btn btn-md btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-lg">
         <i class="fa fa-question-circle"></i> &nbsp;Ayuda
       </div> -->
@@ -69,7 +69,7 @@
             <tbody>
               <% precio_total = 0 %>
 
-              <% @documento.compra.item.each_with_index do |i, con| %>
+              <% @derivacion.compra.item.each_with_index do |i, con| %>
               <tr>
                 <td><%= con+1 %></td>
                 <td><%= i.descripcion %></td>
@@ -120,7 +120,7 @@
                 <label class="control-label">Hoja Ruta</label>
                 <div class="controls">
                   <%# text_field_tag :docvalor, nil, class: 'form-control', required: 'required', placeholder:'Ej. 25478' %>
-                  <%= @documento.compra.docvalor %>
+                  <%= @derivacion.compra.docvalor %>
                 </div>
               </div>
             </div>
@@ -129,7 +129,7 @@
               <div class="form-group">
                 <label class="control-label">Numero</label>
                 <div class="controls">
-                  <%= @documento.compra.numero %>
+                  <%= @derivacion.compra.numero %>
                   <%# text_field_tag :numero, nil, value: @compra.numero, class: 'form-control', required: 'required', placeholder:'Ej. 25478' %>
                 </div>
               </div>
@@ -139,7 +139,7 @@
               <div class="form-group">
                 <label class="control-label">Fecha</label>
                 <div class="controls">
-                  <%= @documento.compra.fecha %>
+                  <%= @derivacion.compra.fecha %>
                   <%# date_field_tag :fecha, nil, value: DateTime.now.to_date, class: 'form-control' %>
                 </div>
               </div>
@@ -152,9 +152,9 @@
             <div class="col-md-3">
               <div class="form-group">
                 <div class="controls">
-                    <%# @documento.compra.existencia %>
+                    <%# @derivacion.compra.existencia %>
                     Inexistencia <b>(
-                    <% if @documento.compra.existencia.present? %>
+                    <% if @derivacion.compra.existencia.present? %>
                       SI
                     <% else %>
                       NO
@@ -170,7 +170,7 @@
               <div class="form-group">
                 <div class="controls">
                   Autorizacion <b>(
-                  <% if @documento.compra.autorizaciones.present? %>
+                  <% if @derivacion.compra.autorizaciones.present? %>
                     SI
                   <% else %>
                     NO
@@ -187,7 +187,7 @@
               <div class="form-group">
                 <div class="controls">
                   POA <b>(
-                  <% if @documento.compra.poa.present? %>
+                  <% if @derivacion.compra.poa.present? %>
                     SI
                   <% else %>
                     NO
@@ -204,7 +204,7 @@
               <div class="form-group">
                 <div class="controls">
                   Certificacion Presupuestaria <b>(
-                  <% if @documento.compra.presupuestaria.present? %>
+                  <% if @derivacion.compra.presupuestaria.present? %>
                     SI
                   <% else %>
                     NO
@@ -226,7 +226,7 @@
               <div class="form-group">
                 <div class="controls">
                   Especificaciones Tecnicas <b>(
-                  <% if @documento.compra.especificaciones.present? %>
+                  <% if @derivacion.compra.especificaciones.present? %>
                     SI
                   <% else %>
                     NO
@@ -244,7 +244,7 @@
               <div class="form-group">
                 <div class="controls">
                   Cotizacion <b>(
-                  <% if @documento.compra.cotizacion.present? %>
+                  <% if @derivacion.compra.cotizacion.present? %>
                     SI
                   <% else %>
                     NO
@@ -261,13 +261,14 @@
 
           <div class="row">
 
-            <div class="col-md-3">
+            <div class="col-md-6">
               <div class="form-group">
                 <label class="control-label">Observaciones</label>
                 <div class="controls">
-                  <%= @documento.compra.obs %>
-                  <%# text_field_tag :obs, nil, class: 'form-control', placeholder:'Ej. Aqui las observaciones' %>
-                  <%= hidden_field_tag(:compra_id, @documento.compra.id ) %>
+                  <%= @derivacion.compra.obs %>
+
+                  <%= hidden_field_tag(:cargoo_id, current_user.cargo_id ) %>
+                  <%= hidden_field_tag(:compra_id, @derivacion.compra.id ) %>
                   <%= hidden_field_tag(:usero_id, current_user.id ) %>
                   <%= hidden_field_tag(:unidadeo_id, current_user.unidade_id ) %>
 
@@ -275,32 +276,38 @@
               </div>
             </div>
             
-              <div class="col-md-3">
-                <div class="form-group">
-                  <label class="control-label">Derivar a</label>
-                  <div class="controls">
-                    <% if @siguiente_funcionario.present? %>
-                      <%# @siguiente_funcionario %>
-                      <%= @siguiente_funcionario.user.nombre %>
-                      <%= hidden_field_tag(:userd_id, @siguiente_funcionario.user.id ) %>
-                      <%= hidden_field_tag(:unidadd_id, @siguiente_funcionario.user.unidade_id ) %>
-                    <% else %>
-                      <b><%= @rpa.unidade.descripcion %></b><br>
-                      <%= @rpa.nombre %>
-                      <%# hidden_field_tag(:compra_id, @documento.compra.id ) %>
-                      <%= hidden_field_tag(:userd_id, @rpa.id ) %>
-                      <%= hidden_field_tag(:unidadd_id, @rpa.unidade_id ) %>
-                    <% end %>
+            <div class="col-md-6">
+              <div class="form-group">
+                <label class="control-label">Derivar a</label>
+                <div class="controls">
+                  <% if @siguiente_funcionario.present? %>
+                    <%= hidden_field_tag(:correlativo, @camino.correlativo ) %>
+                    <%= hidden_field_tag(:ruta_id, @camino.ruta_id ) %>
+                    <%= hidden_field_tag(:userd_id, @siguiente_funcionario.id ) %>
+                    <%= hidden_field_tag(:unidadd_id, @siguiente_funcionario.unidade_id ) %>
+                    <%= hidden_field_tag(:cargod_id, @siguiente_funcionario.cargo_id ) %>
+                    <b>UNIDAD</b>
+                    <%= @siguiente_funcionario.unidade.descripcion %><br />
+                    <b>CARGO</b>
+                    <%= @siguiente_funcionario.cargo.descripcion %>
+                    <b>NOMBRE</b>
+                    <%= @siguiente_funcionario.nombre %>
+                  <% else %>
+                    <b>UNIDAD</b>
+                    <%= @rpa.unidade.descripcion %><br />
+                    <b>CARGO</b>
+                    <%= @rpa.cargo.descripcion %>
+                    <b>NOMBRE</b>
+                    <%= @rpa.nombre %>
 
-                    <%# 
-                    current_user.id.inspect
-                    datos_usuario = User.find(41)
-                    jefe_unidad = User.where(unidade_id: datos_usuario.unidade_id, jefe: 1).first
-                    jefe_unidad.nombre
-                  %>
-                  </div>
+                    <%= hidden_field_tag(:userd_id, @rpa.id ) %>
+                    <%= hidden_field_tag(:unidadd_id, @rpa.unidade_id ) %>
+                    <%= hidden_field_tag(:cargod_id, @rpa.cargo_id ) %>
+
+                  <% end %>
                 </div>
-              </div>              
+              </div>
+            </div>              
 
           </div>
 

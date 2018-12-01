@@ -15,7 +15,13 @@
     <% @cargos.each do |cargo| %>
       <tr>
         <td><%= cargo.descripcion %></td>
-        <td><%= cargo.nivel %></td>
+        <td>
+          <% if cargo.unidade.present? %>
+            <%= cargo.unidade.descripcion %>
+          <% else %>
+            N/T
+          <% end %>
+        </td>
         <td>
           <%= link_to 'Ver', cargo %>
           <%= link_to 'Editar', edit_cargo_path(cargo) %>
@@ -28,9 +34,8 @@
 
 <br>
 
-<%= link_to 'New Cargo', new_cargo_path %>
+<%= link_to 'Nuevo Cargo', new_cargo_path %>
 
-<%= link_to 'Nueva Ruta', new_rutum_path %>
 <% content_for :add_css do %>
 <link href="<%= asset_path '/assets/plugins/toast-master/css/jquery.toast.css' %>" rel="stylesheet">
 <link href="<%= asset_path '/assets/plugins/sweetalert/sweetalert.css' %>" rel="stylesheet" type="text/css">

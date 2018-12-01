@@ -262,10 +262,11 @@
 
           <div class="row">
 
-            <div class="col-md-3">
+            <div class="col-md-6">
               <div class="form-group">
                 <label class="control-label">Proceso</label>
                 <div class="controls">
+                  <%= hidden_field_tag(:cargoo_id, current_user.cargo_id ) %>
                   <%= hidden_field_tag(:compra_id, @documento.compra.id ) %>
                   <%= hidden_field_tag(:usero_id, current_user.id ) %>
                   <%= hidden_field_tag(:unidadeo_id, current_user.unidade_id ) %>
@@ -274,7 +275,7 @@
               </div>
             </div>
             
-            <div class="col-md-3">
+            <div class="col-md-6">
               <div class="form-group">
                 <label class="control-label">Derivar a</label>
                 <div class="controls" id="carga_persona">

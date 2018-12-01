@@ -175,6 +175,8 @@ class ComprasController < ApplicationController
     modelo_derivacion.unidadd_id = params[:unidadd_id]
     modelo_derivacion.compra_id = params[:compra_id]
     modelo_derivacion.fecha = params[:fecha]
+    modelo_derivacion.cargoo_id = params[:cargoo_id]
+    modelo_derivacion.cargod_id = params[:cargod_id]
     modelo_derivacion.estado = 'Recibido'
     modelo_derivacion.save
     redirect_to action: 'mis_tramites'
@@ -182,6 +184,8 @@ class ComprasController < ApplicationController
 
   def asignar
     @compra = Compra.find(params[:id_compra])
+    datos_usuario = User.find(current_user.id)
+    @jefe_unidad = User.where(unidade_id: datos_usuario.unidade_id, jefe: 1, deleted: nil).take
   end
 
   def bandeja_entrada

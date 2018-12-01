@@ -1,5 +1,7 @@
 class DocumentosController < ApplicationController
   before_action :set_documento, only: [:show, :edit, :update, :destroy]
+    layout "template"
+
 
   # GET /documentos
   # GET /documentos.json
@@ -59,6 +61,22 @@ class DocumentosController < ApplicationController
       format.html { redirect_to documentos_url, notice: 'Documento was successfully destroyed.' }
       format.json { head :no_content }
     end
+  end
+
+  def nuevo
+    @listado_documentos = Documento.where(camino_id: params[:id_camino])
+    @camino = Camino.find(params[:id_camino])
+  end
+
+  def guarda_nuevo
+    # byebug
+    m_documento = Documento.new
+    m_documento.camino_id = params[:camino_id]  
+    m_documento.descripcion = params[:descripcion]  
+    m_documento.tipo = params[:tipo]  
+    m_documento.presento = params[:presento]
+    m_documento.save
+    redirect_to action: 'nuevo', id_camino: params[:camino_id]  
   end
 
   private

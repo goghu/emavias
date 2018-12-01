@@ -1,5 +1,12 @@
-<%= @camino.user.nombre %>
-<%= hidden_field_tag(:userd_id, @camino.user.id ) %>
-<%= hidden_field_tag(:unidadd_id, @camino.user.unidade_id ) %>
+<%= hidden_field_tag(:cargod_id, @funcionario.cargo_id ) %>
+<%= hidden_field_tag(:userd_id, @funcionario.id ) %>
+<%= hidden_field_tag(:unidadd_id, @funcionario.unidade_id ) %>
 <%= hidden_field_tag(:correlativo, @camino.correlativo ) %>
 <%= hidden_field_tag(:ruta_id, @ruta_id ) %>
+<b>UNIDAD</b>
+<%= @funcionario.unidade.descripcion %><br />
+<b>CARGO</b>
+<%= @funcionario.cargo.descripcion %>
+<b>NOMBRE</b>
+<%= @funcionario.nombre %>
+

@@ -200,7 +200,7 @@
 
         <div class="row">
         
-          <div class="col-md-9">
+          <div class="col-md-6">
             <div class="form-group">
               <label class="control-label">Observaciones</label>
               <div class="controls">
@@ -209,20 +209,23 @@
             </div>
           </div>
 
-          <div class="col-md-3">
+          <div class="col-md-6">
             <div class="form-group">
               <label class="control-label">Derivar a</label>
               <div class="controls">
-                <%= 
-                  current_user.id.inspect
-                  datos_usuario = User.find(current_user.id)
-                  jefe_unidad = User.where(unidade_id: datos_usuario.unidade_id, jefe: 1).first
-                  jefe_unidad.nombre
-                %>
+                <b>UNIDAD</b>
+                <%= @jefe_unidad.unidade.descripcion %><br />
+                <b>CARGO</b>
+                <%= @jefe_unidad.cargo.descripcion %>
+                <b>NOMBRE</b>
+                <%= @jefe_unidad.nombre %>
+
+                <%= hidden_field_tag(:cargoo_id, current_user.cargo_id ) %>
                 <%= hidden_field_tag(:usero_id, current_user.id ) %>
                 <%= hidden_field_tag(:unidado_id, current_user.unidade_id ) %>
-                <%= hidden_field_tag(:userd_id, jefe_unidad.id ) %>
-                <%= hidden_field_tag(:unidadd_id, jefe_unidad.unidade_id ) %>
+                <%= hidden_field_tag(:userd_id, @jefe_unidad.id ) %>
+                <%= hidden_field_tag(:unidadd_id, @jefe_unidad.unidade_id ) %>
+                <%= hidden_field_tag(:cargod_id, @jefe_unidad.cargo_id ) %>
               </div>
             </div>
           </div>

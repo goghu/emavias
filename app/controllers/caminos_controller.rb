@@ -38,7 +38,8 @@ class CaminosController < ApplicationController
   end
 
   def carga_funcionario
-    @camino = Camino.where(ruta_id: params[:proceso], correlativo: 1).first
+    @camino = Camino.where(ruta_id: params[:proceso], correlativo: 1).take
+    @funcionario = User.where(cargo_id: @camino.cargo_id, deleted: nil).take
     @ruta_id = params[:proceso]
     render layout: false
   end

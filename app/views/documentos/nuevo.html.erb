@@ -1,43 +1,44 @@
 <!-- <p id="notice"><%# notice %></p> -->
-
-<h1><%= @ruta.nombre %></h1>
+<h2><%= @camino.ruta.nombre %></h2>
+<h3><%= @camino.unidade.descripcion %> (<%= @camino.cargo.descripcion %>)</h3>
 <div class="row">
   <div class="col-md-6">
-    <%= form_tag('/rutas/guarda_camino') do %>
-    <%= select("camino", "unidade_id", Unidade.all.collect {|u| [ u.descripcion, u.id ] }, {include_blank: 'Seleccione Unidad'}) %>
-    <div id="carga_cargos">
-    <%= select("camino", "cargo_id", Cargo.all.collect {|u| [ u.descripcion, u.id ] }, {include_blank: 'Seleccione Cargo'}) %>
-    </div>
-    <%= number_field_tag('camino[correlativo]') %>
-    <%= hidden_field_tag('camino[ruta_id]', @ruta.id) %>
+    <%= form_tag('/documento/guarda_nuevo') do %>
+    <%= hidden_field_tag('camino_id', @camino.id) %>
+    <%= text_field_tag('descripcion') %>
+    <select name="tipo">
+      <option value="">Seleccione Tipo</option>
+      <option value="ca">Campo Abierto</option>
+      <option value="nv">No Visisble</option>
+    </select>
+    <input type="checkbox" name="presento">&nbsp;&nbsp; Para presentar</label>
     <%= submit_tag("Guardar") %>
     <% end %>
   </div>
   <div class="col-md-6">
-    <% if @caminos.present? %>
+    <% if @listado_documentos.present? %>
 
     <table class="table table-bordered" id="myTable">
       <thead>
         <tr>
-          <th>Unidad</th>
-          <th>Funcionario</th>
-          <th>Orden</th>
+          <th>Descripcion</th>
+          <th>Tipo</th>
+          <th>Presento</th>
           <th></th>
         </tr>
       </thead>
 
       <tbody>
-        <% @caminos.each do |camino| %>
+        <% @listado_documentos.each do |ld| %>
         <tr>
-          <td><%= camino.unidade.descripcion %></td>
-          <td><%= camino.cargo.descripcion %></td>
-          <td><%= camino.correlativo %></td>
+          <td><%= ld.descripcion %></td>
+          <td><%= ld.tipo %></td>
+          <td><%= ld.presento %></td>
           <td>
             <%# link_to 'Ver', rutum %>
             <%# link_to 'Editar', edit_rutum_path(rutum.id) %>
             <%# link_to 'Caminos', ruta_ver_caminos_path(rutum) %>
-            <%= link_to 'Documentos', controller: 'documentos', action: 'nuevo', id_camino: camino.id %>
-            <%= link_to 'Eliminar', controller: 'caminos', action: 'eliminar', id_camino: camino.id, cod_ruta: camino.ruta_id %>
+            <%= link_to 'Eliminar', controller: 'caminos', action: 'eliminar', id_camino: @camino.id, cod_ruta: @camino.ruta_id %>
           </td>
         </tr>
         <% end %>
@@ -63,13 +64,13 @@
 <script src="<%= asset_path '/assets/plugins/sweetalert/sweetalert.min.js' %>"></script>
 <script type="text/javascript">
 
-  $( document ).ready(function() {
-      // console.log( "ready!" );
-      $("#camino_unidade_id").change(function(){
-        //alert('Hizo cambio');
-        var id_unidad = $("#camino_unidade_id").val();
-        $("#carga_cargos").load( "/rutas/muestra_cargos/"+id_unidad);
-      });
+  $(document).ready(function () {
+    // console.log( "ready!" );
+    $("#camino_unidade_id").change(function () {
+      //alert('Hizo cambio');
+      var id_unidad = $("#camino_unidade_id").val();
+      $("#carga_cargos").load("/rutas/muestra_cargos/" + id_unidad);
+    });
   });
 
   var table5 = $('#myTable').DataTable({

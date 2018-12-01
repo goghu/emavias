@@ -23,6 +23,10 @@ class RutaController < ApplicationController
   def edit
   end
 
+  def editar
+    
+  end
+
   # POST /ruta
   # POST /ruta.json
   def crear
@@ -84,6 +88,12 @@ class RutaController < ApplicationController
     render layout: false
   end
 
+  def muestra_cargos
+    @unidad = params[:id_unidad]
+    @cargos = Cargo.where(unidade_id: params[:id_unidad])
+    render layout: false
+  end
+
   def guarda_camino
     # byebug
     @n_camino = Camino.new
@@ -91,6 +101,7 @@ class RutaController < ApplicationController
     @n_camino.unidade_id = params[:camino][:unidade_id]
     @n_camino.correlativo = params[:camino][:correlativo]
     @n_camino.user_id = params[:camino][:user_id]
+    @n_camino.cargo_id = params[:camino][:cargo_id]
     @n_camino.save
     redirect_to action: "ver_caminos", id_ruta: params[:camino][:ruta_id]
   end

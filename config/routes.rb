@@ -42,6 +42,10 @@ Rails.application.routes.draw do
   get "/rutas/muestra_funcionarios/:id_unidad", to: "ruta#muestra_funcionarios", as: "ruta_muestra_funcionario"
   get "/camino/eliminar/:id_camino/:cod_ruta", to: "caminos#eliminar", as: "camino_eliminar"
   get "/camino/carga_funcionario/:proceso", to: "caminos#carga_funcionario", as: "camino_carga_funcionario"
+  get "/derivacione/ver_derivaciones/:id_compra", to: "derivaciones#ver_derivaciones", as: "derivaciones_ver_derivaciones"
+  get "/rutas/muestra_cargos/:id_unidad", to: "ruta#muestra_cargos", as: "ruta_muestra_cargos"
+  get "/documento/nuevo/:id_camino", to: "documentos#nuevo", as: "documento_nuevo"
+  post "/documento/guarda_nuevo", to: "documentos#guarda_nuevo", as: "documento_guarda_nuevo"
 
   # devise_for :users, path: 'auth', path_names: {  sign_out: 'logout', sign_up: 'cmon_let_me_in' }
 
