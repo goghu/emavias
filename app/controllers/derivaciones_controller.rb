@@ -96,6 +96,8 @@ class DerivacionesController < ApplicationController
       if @camino.present?
         siguiente_cargo = User.where(cargo_id: @camino.cargo_id, deleted: nil).take
         @siguiente_funcionario = siguiente_cargo
+
+        # @documentos = Documento.where(camino_id: )
       end
     else
       @rpa = User.where(unidade_id: 5, cargo_id: 41, deleted: nil).take
