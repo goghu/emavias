@@ -106,11 +106,11 @@
   </div>
 </div>
 
+<%= form_tag('/derivacione/guarda_derivacion', method: :post) do %>
 <div class="row">
-  <div class="col-md-10">
+  <div class="col-md-9">
     <div class="card card-outline-info">
       <div class="card-body">
-        <%= form_tag('/derivacione/guarda_derivacion', method: :post) do %>
         <div class="form-body">
 
           <div class="row">
@@ -281,6 +281,7 @@
                 <label class="control-label">Derivar a</label>
                 <div class="controls">
                   <% if @siguiente_funcionario.present? %>
+                    <%= hidden_field_tag(:camino_id, @camino.id ) %>
                     <%= hidden_field_tag(:correlativo, @camino.correlativo ) %>
                     <%= hidden_field_tag(:ruta_id, @camino.ruta_id ) %>
                     <%= hidden_field_tag(:userd_id, @siguiente_funcionario.id ) %>
@@ -312,26 +313,56 @@
           </div>
 
         </div>
-        <div class="row">
-          <div class="col-md-6">
-            <button type="submit" class="btn btn-block btn-success"><i class="fa fa-check"></i> Aceptar y Derivar</button>
-          </div>
-          <div class="col-md-6">
-            <%= link_to 'Rechazar', compras_mis_tramites_path, class: "btn btn-block btn-inverse" %>
-          </div>
-        </div>
-        <% end %>
       </div>
     </div>
   </div>
-  <div class="col-md-2">
+  <div class="col-md-3">
     <div class="card card-outline-info">
       <div class="card-body">
         Documentos
+        <div class="table-responsive">
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th></th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
+              <% @documentos.each_with_index do |d, index| %>
+                <tr>
+                  <td>
+                    <div class="form-group">
+                      <label class="control-label"><%= d.descripcion %></label>
+                      <div class="controls">
+                        <input type="text" name="doc[<%= index %>]" class="form-control">
+                      </div>
+                    </div>
+                  </td>
+                  <td>
+                    <label class="control-label">Presento</label>
+                    <input type="checkbox" id="cbox1" name="presento[<%= index %>]">&nbsp;&nbsp; Si
+                  </td>
+                </tr>
+              <% end %>
+            </tbody>
+          </table>
+        </div>
       </div>
     </div>
   </div>
+
 </div>
+
+<div class="row">
+  <div class="col-md-6">
+    <button type="submit" class="btn btn-block btn-success"><i class="fa fa-check"></i> Aceptar y Derivar</button>
+  </div>
+  <div class="col-md-6">
+    <%= link_to 'Rechazar', compras_mis_tramites_path, class: "btn btn-block btn-inverse" %>
+  </div>
+</div>
+<% end %>
 
 <% content_for :add_css do %>
 

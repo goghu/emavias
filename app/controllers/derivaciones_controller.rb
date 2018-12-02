@@ -63,7 +63,7 @@ class DerivacionesController < ApplicationController
   end
 
   def guarda_derivacion
-    # byebug
+    byebug
     consulta = Derivacione.where(compra_id: params[:compra_id]).last
     c_derivacion = Derivacione.find(consulta.id)
     c_derivacion.estado = "Derivado"
@@ -79,6 +79,7 @@ class DerivacionesController < ApplicationController
     m_derivacion.ruta_id = params[:ruta_id]
     m_derivacion.cargoo_id = params[:cargoo_id]
     m_derivacion.cargod_id = params[:cargod_id]
+    m_derivacion.camino_id = params[:camino_id]
     m_derivacion.estado = "Recibido"
     m_derivacion.fecha = Date.current
     m_derivacion.save
@@ -97,7 +98,7 @@ class DerivacionesController < ApplicationController
         siguiente_cargo = User.where(cargo_id: @camino.cargo_id, deleted: nil).take
         @siguiente_funcionario = siguiente_cargo
 
-        # @documentos = Documento.where(camino_id: )
+        @documentos = Documento.where(camino_id: @derivacion.camino_id)
       end
     else
       @rpa = User.where(unidade_id: 5, cargo_id: 41, deleted: nil).take
