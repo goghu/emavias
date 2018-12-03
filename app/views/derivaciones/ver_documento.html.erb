@@ -316,24 +316,46 @@ height: 30px;
   <div class="col-md-3">
     <div class="card card-outline-info">
       <div class="card-body">
-        Documentos
+        <h3>Documentos</h3>
+        <% if @docderivaciones.present? %>
+
+          <table class="table table-striped">
+            <% @docderivaciones.each do |doc| %>
+            <tr>
+              <td>
+                <b><span style="color: blue;"><%= doc.descripcion %>: </span></b>
+                <%= doc.docvalor.nil? ? 'N/R' : doc.docvalor %>
+              </td>
+              <td>
+                <span style="color: #ff0000;"><%= doc.presento.nil? ? 'No' : 'Si' %></span>
+              </td>
+            </tr>
+            <% end %>
+          </table>
+
+        <% else %>
+
         <div class="table-responsive">
           <% @documentos.each_with_index do |d, index| %>
-            <label class="control-label"><%= d.descripcion %></label>
-            <input type="hidden" name="descripcion[<%= index %>]" value="<%= d.descripcion %>">
-            <input type="hidden" name="camino_id[<%= index %>]" value="<%= d.camino_id %>">
-            <% if d.tipo == 'ca' %>
-              <input type="text" name="doc[<%= index %>]" class="form-control">
-            <% else %>
-              <br />
-            <% end %>
-            <div class="form-check form-check-inline">
-              <input name="presento[<%= index %>]" class="form-check-input largerCheckbox" type="checkbox">
-              <label class="form-check-label" for="inlineCheckbox1">Presento</label>
-            </div>
-            <br />
+          <label class="control-label">
+            <%= d.descripcion %></label>
+          <input type="hidden" name="docderivaciones[<%= index %>]descripcion" value="<%= d.descripcion %>">
+          <input type="hidden" name="docderivaciones[<%= index %>]camino_id" value="<%= d.camino_id %>">
+          <input type="hidden" name="docderivaciones[<%= index %>]derivacione_id" value="<%= @derivacion.id %>">
+          <% if d.tipo == 'ca' %>
+          <input type="text" name="docderivaciones[<%= index %>]docvalor" class="form-control">
+          <% else %>
+          <br />
+          <% end %>
+          <div class="form-check form-check-inline">
+            <input name="docderivaciones[<%= index %>]presento" class="form-check-input largerCheckbox" type="checkbox">
+            <label class="form-check-label" for="inlineCheckbox1">Presento</label>
+          </div>
+          <br />
           <% end %>
         </div>
+
+        <% end %>
       </div>
     </div>
   </div>

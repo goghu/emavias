@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :docderivaciones
   resources :derivaciones
   resources :items
   resources :ruta

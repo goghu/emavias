@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Docderivaciones</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Camino</th>
+      <th>Descripcion</th>
+      <th>Docvalor</th>
+      <th>Presento</th>
+      <th>Estado</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @docderivaciones.each do |docderivacione| %>
+      <tr>
+        <td><%= docderivacione.camino_id %></td>
+        <td><%= docderivacione.descripcion %></td>
+        <td><%= docderivacione.docvalor %></td>
+        <td><%= docderivacione.presento %></td>
+        <td><%= docderivacione.estado %></td>
+        <td><%= link_to 'Show', docderivacione %></td>
+        <td><%= link_to 'Edit', edit_docderivacione_path(docderivacione) %></td>
+        <td><%= link_to 'Destroy', docderivacione, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Docderivacione', new_docderivacione_path %>

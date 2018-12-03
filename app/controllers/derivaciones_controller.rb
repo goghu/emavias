@@ -63,7 +63,7 @@ class DerivacionesController < ApplicationController
   end
 
   def guarda_derivacion
-    byebug
+    # byebug
     consulta = Derivacione.where(compra_id: params[:compra_id]).last
     c_derivacion = Derivacione.find(consulta.id)
     c_derivacion.estado = "Derivado"
@@ -84,25 +84,35 @@ class DerivacionesController < ApplicationController
     m_derivacion.fecha = Date.current
     m_derivacion.save
 
+    params[:docderivaciones].each_pair do |indice, i|
+      documento_derivacion = Docderivacione.new
+      documento_derivacion.derivacione_id = i[:derivacione_id]
+      documento_derivacion.camino_id = i[:camino_id]
+      documento_derivacion.descripcion = i[:descripcion]
+      documento_derivacion.docvalor = i[:docvalor]
+      documento_derivacion.presento = i[:presento]
+      documento_derivacion.save
+    end
+
     redirect_to controller: "compras", action: "bandeja_entrada"
   end
 
   def ver_documento
     # byebug
     @derivacion = Derivacione.find(params[:id_derivacion])
-    @items = 
-    if @derivacion.ruta_id.present?
-      siguiente = @derivacion.correlativo.to_i + 1
-      @camino = Camino.where(ruta_id: @derivacion.ruta_id, correlativo: siguiente).take
-      if @camino.present?
-        siguiente_cargo = User.where(cargo_id: @camino.cargo_id, deleted: nil).take
-        @siguiente_funcionario = siguiente_cargo
-
-        @documentos = Documento.where(camino_id: @derivacion.camino_id)
+    @items =
+      if @derivacion.ruta_id.present?
+        siguiente = @derivacion.correlativo.to_i + 1
+        @camino = Camino.where(ruta_id: @derivacion.ruta_id, correlativo: siguiente).take
+        if @camino.present?
+          siguiente_cargo = User.where(cargo_id: @camino.cargo_id, deleted: nil).take
+          @siguiente_funcionario = siguiente_cargo
+          @docderivaciones = Docderivacione.where(derivacione_id: @derivacion.id)
+          @documentos = Documento.where(camino_id: @derivacion.camino_id)
+        end
+      else
+        @rpa = User.where(unidade_id: 5, cargo_id: 41, deleted: nil).take
       end
-    else
-      @rpa = User.where(unidade_id: 5, cargo_id: 41, deleted: nil).take
-    end
     # byebug
     # @ultimo_paso = Derivacione.where(compra_id: @documento.compra_id).last
   end

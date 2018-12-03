@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  camino_id: 1
+  descripcion: MyString
+  docvalor: MyString
+  presento: false
+  estado: MyString
+
+two:
+  camino_id: 1
+  descripcion: MyString
+  docvalor: MyString
+  presento: false
+  estado: MyString

@@ -1,0 +1,42 @@
+<%= form_with(model: docderivacione, local: true) do |form| %>
+  <% if docderivacione.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(docderivacione.errors.count, "error") %> prohibited this docderivacione from being saved:</h2>
+
+      <ul>
+      <% docderivacione.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :camino_id %>
+    <%= form.number_field :camino_id, id: :docderivacione_camino_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :descripcion %>
+    <%= form.text_field :descripcion, id: :docderivacione_descripcion %>
+  </div>
+
+  <div class="field">
+    <%= form.label :docvalor %>
+    <%= form.text_field :docvalor, id: :docderivacione_docvalor %>
+  </div>
+
+  <div class="field">
+    <%= form.label :presento %>
+    <%= form.check_box :presento, id: :docderivacione_presento %>
+  </div>
+
+  <div class="field">
+    <%= form.label :estado %>
+    <%= form.text_field :estado, id: :docderivacione_estado %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
