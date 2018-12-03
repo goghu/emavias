@@ -84,14 +84,16 @@ class DerivacionesController < ApplicationController
     m_derivacion.fecha = Date.current
     m_derivacion.save
 
-    params[:docderivaciones].each_pair do |indice, i|
-      documento_derivacion = Docderivacione.new
-      documento_derivacion.derivacione_id = i[:derivacione_id]
-      documento_derivacion.camino_id = i[:camino_id]
-      documento_derivacion.descripcion = i[:descripcion]
-      documento_derivacion.docvalor = i[:docvalor]
-      documento_derivacion.presento = i[:presento]
-      documento_derivacion.save
+    if params[:docderivacione].present? 
+      params[:docderivaciones].each_pair do |indice, i|
+        documento_derivacion = Docderivacione.new
+        documento_derivacion.derivacione_id = i[:derivacione_id]
+        documento_derivacion.camino_id = i[:camino_id]
+        documento_derivacion.descripcion = i[:descripcion]
+        documento_derivacion.docvalor = i[:docvalor]
+        documento_derivacion.presento = i[:presento]
+        documento_derivacion.save
+      end
     end
 
     redirect_to controller: "compras", action: "bandeja_entrada"
@@ -108,6 +110,7 @@ class DerivacionesController < ApplicationController
           siguiente_cargo = User.where(cargo_id: @camino.cargo_id, deleted: nil).take
           @siguiente_funcionario = siguiente_cargo
           @docderivaciones = Docderivacione.where(derivacione_id: @derivacion.id)
+          # @doc_anteriores = Docderivacione.where(compra_id: @derivacion.compra_id)
           @documentos = Documento.where(camino_id: @derivacion.camino_id)
         end
       else

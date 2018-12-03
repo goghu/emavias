@@ -72,14 +72,6 @@
               <td><%= d.unidad_d.descripcion %></td>
               <td><%= d.fecha %></td>
               <td>
-                <% if(current_user.unidade_id == 5) && (current_user.cargo_id == 41) %>
-                  <button class="btn btn-info ver_m_rpa" data-id="<%= d.id %>" title="Ver Documento"><i class="fa fa-file-text"></i></button>
-                <% else %>
-                  <button class="btn btn-info ver_m" data-id="<%= d.id %>" title="Ver Documento"><i class="fa fa-file-text"></i></button>
-                <% end %>
-                <button class="btn btn-success ver_camino" data-id="<%= d.compra_id %>" title="Ver Derivaciones"><i class="fa fa-list"></i></button>
-                
-                <button class="btn btn-danger eliminar_m" data-id="<%= d.id %>" data-nombre="demo" title="Eliminar"><i class="fa fa-remove"></i></button>
               </td>
             </tr>
             <% end %>
