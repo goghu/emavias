@@ -3,14 +3,11 @@
   .oculto {
     display: none;
   }
-
-  input[type="checkbox"] {
-    -ms-transform: scale(2);/* IE */
-    -moz-transform: scale(2);/* FF */
-    -webkit-transform: scale(2);/* Safari and Chrome */
-    -o-transform: scale(2);/* Opera */
-    padding: 10px;
-  }
+input.largerCheckbox
+{
+width: 30px;
+height: 30px;
+}
 </style>
 <div class="row page-titles">
   <div class="col-md-6 col-8 align-self-center">
@@ -321,32 +318,21 @@
       <div class="card-body">
         Documentos
         <div class="table-responsive">
-          <table class="table table-striped">
-            <thead>
-              <tr>
-                <th></th>
-                <th></th>
-              </tr>
-            </thead>
-            <tbody>
-              <% @documentos.each_with_index do |d, index| %>
-                <tr>
-                  <td>
-                    <div class="form-group">
-                      <label class="control-label"><%= d.descripcion %></label>
-                      <div class="controls">
-                        <input type="text" name="doc[<%= index %>]" class="form-control">
-                      </div>
-                    </div>
-                  </td>
-                  <td>
-                    <label class="control-label">Presento</label>
-                    <input type="checkbox" id="cbox1" name="presento[<%= index %>]">&nbsp;&nbsp; Si
-                  </td>
-                </tr>
-              <% end %>
-            </tbody>
-          </table>
+          <% @documentos.each_with_index do |d, index| %>
+            <label class="control-label"><%= d.descripcion %></label>
+            <input type="hidden" name="descripcion[<%= index %>]" value="<%= d.descripcion %>">
+            <input type="hidden" name="camino_id[<%= index %>]" value="<%= d.camino_id %>">
+            <% if d.tipo == 'ca' %>
+              <input type="text" name="doc[<%= index %>]" class="form-control">
+            <% else %>
+              <br />
+            <% end %>
+            <div class="form-check form-check-inline">
+              <input name="presento[<%= index %>]" class="form-check-input largerCheckbox" type="checkbox">
+              <label class="form-check-label" for="inlineCheckbox1">Presento</label>
+            </div>
+            <br />
+          <% end %>
         </div>
       </div>
     </div>
