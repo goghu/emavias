@@ -42,11 +42,11 @@
     width: 100%;
     color: #000000;
   }
-  .tabla-impresion tr td.subtotal{
+ .tabla-impresion tr td.subtotal{
     color: #ff0000;
     text-align: right;
     font-size: 14pt;
-  }
+ }
   .tabla-impresion tr td{
     border: 1px solid #54667a;
     padding: 4px;
