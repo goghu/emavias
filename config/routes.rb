@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :alternativos
   resources :docderivaciones
   resources :derivaciones
   resources :items
@@ -27,9 +28,12 @@ Rails.application.routes.draw do
   # end
   get "/compra/mis_compras/:usuario", to: "compras#mis_compras", as: "mis_compras"
   get "/cargo/excel", to: "cargos#excel", as: "cargos_excel"
+
   get "/rutas/ver_caminos/:id_ruta", to: "ruta#ver_caminos", as: "ruta_ver_caminos"
+  get "/rutas/eliminar/:id_ruta", to: "ruta#eliminar", as: "ruta_eliminar"
   post "/rutas/guarda_camino", to: "ruta#guarda_camino", as: "ruta_guarda_camino"
   post "/rutas/crear", to: "ruta#crear", as: "ruta_crear"
+
   get "/user/inicio", to: "users#inicio", as: "users_inicio"
   get "/compra/mis_tramites", to: "compras#mis_tramites", as: "compras_mis_tramites"
   get "/compra/imprime_solicitud/:id_compra", to: "compras#imprime_solicitud", as: "compras_imprime_solicitud"

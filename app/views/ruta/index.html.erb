@@ -1,32 +1,80 @@
-<p id="notice"><%= notice %></p>
+<% if notice.present? %>
+  <div class="alert alert-success"> 
+    <i class="ti-user"></i>&nbsp;&nbsp;<%= notice %>
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close"> <span aria-hidden="true">×</span> </button>
+  </div>  
+<% end %>
 
-<h1>Rutas</h1>
+<div class="row page-titles">
+  <div class="col-md-6 col-8 align-self-center">
+    <h3 class="text-themecolor m-b-0 m-t-0">
+      LISTA DE RUTAS
+      <div class="btn btn-md btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-lg">
+        <i class="fa fa-question-circle"></i> &nbsp;Ayuda
+      </div>
+    </h3>
+  </div>
 
-<table class="table table-bordered" id="myTable">
-  <thead>
-    <tr>
-      <th>Nombre</th>
-      <th>Descripcion</th>
-      <th></th>
-    </tr>
-  </thead>
+      <!-- modal -->
+    <div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true" style="display: none;">
+      <div class="modal-dialog modal-lg">
+          <div class="modal-content">
+              <div class="modal-header">
+                  <h4 class="modal-title" id="myLargeModalLabel">TUTORIAL</h4>
+                  <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+              </div>
+              <div class="modal-body">
+                  <iframe width="100%" height="400" src="#" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+              </div>
+              <div class="modal-footer">
+                  <button type="button" class="btn btn-danger waves-effect text-left" data-dismiss="modal">Cancelar</button>
+              </div>
+          </div>
+          <!-- /.modal-content -->
+      </div>
+      <!-- /.modal-dialog -->
+    </div>
+  <!-- /.modal -->
+  <!-- find modal -->
 
-  <tbody>
-    <% @ruta.each do |rutum| %>
-      <tr>
-        <td><%= rutum.nombre %></td>
-        <td><%= rutum.descripcion %></td>
-        <td>
-          <%# link_to 'Ver', rutum %>
-          <%# link_to 'Editar', edit_ruta_path(ruta.id) %>
-          <%= link_to 'Caminos', ruta_ver_caminos_path(rutum) %>
-          <%# link_to 'Eliminar', rutum, method: :delete, data: { confirm: 'Estas seguro?' } %>
-        </td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+  
+</div>
 
+<div class="row">
+  <div class="col-12">
+    <div class="card">
+      <div class="card-body">
+
+        <table class="table table-bordered" id="myTable">
+          <thead>
+            <tr>
+              <th>Nombre</th>
+              <th>Descripcion</th>
+              <th></th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <% @ruta.each do |ruta| %>
+            <tr>
+              <td>
+                <%= ruta.nombre %>
+              </td>
+              <td>
+                <%= ruta.descripcion %>
+              </td>
+              <td>
+                <a href="<%= url_for(controller: 'ruta', action: 'ver_caminos', id_ruta: ruta.id) %>" class="btn btn-info" title="Ver caminos"><i class="fa fa-arrows"></i></a>
+                <a href="<%= url_for(controller: 'ruta', action: 'eliminar', id_ruta: ruta.id) %>" class="btn btn-danger" title="Eliminar"><i class="fa fa-times"></i></a>
+              </td>
+            </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
 <br>
 <%= link_to 'Nueva Ruta', new_rutum_path %>
 <% content_for :add_css do %>

@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Alternativos</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Ruta</th>
+      <th>Alternativo</th>
+      <th>Estado</th>
+      <th>Obs</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @alternativos.each do |alternativo| %>
+      <tr>
+        <td><%= alternativo.ruta_id %></td>
+        <td><%= alternativo.alternativo_id %></td>
+        <td><%= alternativo.estado %></td>
+        <td><%= alternativo.obs %></td>
+        <td><%= link_to 'Show', alternativo %></td>
+        <td><%= link_to 'Edit', edit_alternativo_path(alternativo) %></td>
+        <td><%= link_to 'Destroy', alternativo, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Alternativo', new_alternativo_path %>

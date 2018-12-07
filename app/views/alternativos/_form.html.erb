@@ -1,0 +1,37 @@
+<%= form_with(model: alternativo, local: true) do |form| %>
+  <% if alternativo.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(alternativo.errors.count, "error") %> prohibited this alternativo from being saved:</h2>
+
+      <ul>
+      <% alternativo.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :ruta_id %>
+    <%= form.number_field :ruta_id, id: :alternativo_ruta_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :alternativo_id %>
+    <%= form.number_field :alternativo_id, id: :alternativo_alternativo_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :estado %>
+    <%= form.text_field :estado, id: :alternativo_estado %>
+  </div>
+
+  <div class="field">
+    <%= form.label :obs %>
+    <%= form.text_field :obs, id: :alternativo_obs %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

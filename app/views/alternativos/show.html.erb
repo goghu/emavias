@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Ruta:</strong>
+  <%= @alternativo.ruta_id %>
+</p>
+
+<p>
+  <strong>Alternativo:</strong>
+  <%= @alternativo.alternativo_id %>
+</p>
+
+<p>
+  <strong>Estado:</strong>
+  <%= @alternativo.estado %>
+</p>
+
+<p>
+  <strong>Obs:</strong>
+  <%= @alternativo.obs %>
+</p>
+
+<%= link_to 'Edit', edit_alternativo_path(@alternativo) %> |
+<%= link_to 'Back', alternativos_path %>

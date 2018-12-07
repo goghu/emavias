@@ -1,1 +1,1 @@
-<%= select("camino", "cargo_id", Cargo.where(unidade_id: @unidad).all.collect {|u| [ u.descripcion, u.id ] }, {include_blank: 'Seleccione Cargo'}) %>
+<%= select("camino", "cargo_id", Cargo.where(unidade_id: @unidad).all.collect {|u| [ u.descripcion, u.id ] }, {include_blank: 'Seleccione Cargo'}, {class: 'form-control'}) %>

@@ -1,54 +1,86 @@
 <!-- <p id="notice"><%# notice %></p> -->
+<% if notice.present? %>
+  <div class="alert alert-success"> 
+    <i class="ti-user"></i>&nbsp;&nbsp;<%= notice %>
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close"> <span aria-hidden="true">×</span> </button>
+  </div>  
+<% end %>
 
-<h1><%= @ruta.nombre %></h1>
-<div class="row">
-  <div class="col-md-6">
-    <%= form_tag('/rutas/guarda_camino') do %>
-    <%= select("camino", "unidade_id", Unidade.all.collect {|u| [ u.descripcion, u.id ] }, {include_blank: 'Seleccione Unidad'}) %>
-    <div id="carga_cargos">
-    <%= select("camino", "cargo_id", Cargo.all.collect {|u| [ u.descripcion, u.id ] }, {include_blank: 'Seleccione Cargo'}) %>
-    </div>
-    <%= number_field_tag('camino[correlativo]') %>
-    <%= hidden_field_tag('camino[ruta_id]', @ruta.id) %>
-    <%= submit_tag("Guardar") %>
-    <% end %>
-  </div>
-  <div class="col-md-6">
-    <% if @caminos.present? %>
-
-    <table class="table table-bordered" id="myTable">
-      <thead>
-        <tr>
-          <th>Unidad</th>
-          <th>Funcionario</th>
-          <th>Orden</th>
-          <th></th>
-        </tr>
-      </thead>
-
-      <tbody>
-        <% @caminos.each do |camino| %>
-        <tr>
-          <td><%= camino.unidade.descripcion %></td>
-          <td><%= camino.cargo.descripcion %></td>
-          <td><%= camino.correlativo %></td>
-          <td>
-            <%# link_to 'Ver', rutum %>
-            <%# link_to 'Editar', edit_rutum_path(rutum.id) %>
-            <%# link_to 'Caminos', ruta_ver_caminos_path(rutum) %>
-            <%= link_to 'Documentos', controller: 'documentos', action: 'nuevo', id_camino: camino.id %>
-            <%= link_to 'Eliminar', controller: 'caminos', action: 'eliminar', id_camino: camino.id, cod_ruta: camino.ruta_id %>
-          </td>
-        </tr>
-        <% end %>
-      </tbody>
-    </table>
-    <% else %>
-    No tiene unidades
-    <% end %>
-
+<div class="row page-titles">
+  <div class="col-md-6 col-8 align-self-center">
+    <h3 class="text-themecolor m-b-0 m-t-0">
+      <span style="color: #000000;">Proceso: </span><%= @ruta.nombre %>
+    </h3>
   </div>
 </div>
+
+<div class="row">
+  <div class="col-12">
+    <div class="card">
+      <div class="card-body">
+
+        <div class="row">
+          <div class="col-md-4">
+
+          <div class="row">
+            <%= form_tag('/rutas/guarda_camino') do %>
+            <div class="col-md-8">
+              <%= select("camino", "unidade_id", Unidade.all.collect {|u| [ u.descripcion, u.id ] }, {include_blank: 'Seleccione Unidad'}, {class: 'form-control'}) %>
+            </div>
+            <div class="col-md-12">
+              <div id="carga_cargos">
+                <%= select("camino", "cargo_id", Cargo.all.collect {|u| [ u.descripcion, u.id ] }, {include_blank: 'Seleccione Cargo'}, {class: 'form-control'}) %>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <%= number_field_tag('camino[correlativo]', nil, class: 'form-control', min: 1) %>
+              <%= hidden_field_tag('camino[ruta_id]', @ruta.id) %>
+              <%= submit_tag("Guardar") %>
+            </div>
+            <% end %>
+          </div>
+        </div>
+
+          <div class="col-md-8">
+            <% if @caminos.present? %>
+
+            <table class="table table-bordered" id="myTable">
+              <thead>
+                <tr>
+                  <th>Unidad</th>
+                  <th>Funcionario</th>
+                  <th>No.</th>
+                  <th></th>
+                </tr>
+              </thead>
+
+              <tbody>
+                <% @caminos.each do |camino| %>
+                <tr>
+                  <td><%= camino.unidade.descripcion %></td>
+                  <td><%= camino.cargo.descripcion %></td>
+                  <td><%= camino.correlativo %></td>
+                  <td>
+                    <a href="<%= url_for(controller: 'documentos', action: 'nuevo', id_camino: camino.id) %>" class="btn btn-success" title="Adicionar Documentos"><i class="fa fa-files-o"></i></a>
+                    <a href="<%= url_for(controller: 'documentos', action: 'nuevo', id_camino: camino.id) %>" class="btn btn-warning" title="Adicionar Documentos"><i class="fa fa-question-circle"></i></a>
+                    <a href="<%= url_for(controller: 'caminos', action: 'eliminar', id_camino: camino.id, cod_ruta: camino.ruta_id) %>" class="btn btn-danger" title="Eliminar"><i class="fa fa-times"></i></a>
+                  </td>
+                </tr>
+                <% end %>
+              </tbody>
+            </table>
+            <% else %>
+            No tiene unidades
+            <% end %>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
 
 <br>
 <%= link_to 'Nueva Ruta', new_rutum_path %>
@@ -76,7 +108,7 @@
     "oLanguage": {
       "sUrl": "https://cdn.datatables.net/plug-ins/1.10.16/i18n/Spanish.json"
     },
-    aaSorting: [[1, 'asc']]
+    aaSorting: [[2, 'asc']]
   });
 </script>
 <% end %>

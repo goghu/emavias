@@ -71,6 +71,15 @@ class RutaController < ApplicationController
     end
   end
 
+  def eliminar
+    Ruta.destroy(params[:id_ruta])
+    respond_to do |format|
+      format.html { redirect_to ruta_url, notice: "Se elimino correctamente." }
+      format.json { head :no_content }
+    end
+
+  end
+
   def ver_caminos
     # byebug
     @caminos = Camino.order(correlativo: :asc).where(ruta_id: params[:id_ruta])
