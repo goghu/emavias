@@ -31,3 +31,4 @@ emavias.code-workspace
 
 # opciones de visual code
 .vscode/settings.json
+.history/

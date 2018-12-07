@@ -74,17 +74,19 @@
     <div class="card">
       <div class="card-body">
         <div class="clase-impresion" style="width: 800px;">
-          <table class="tabla-impresion-cabecera" border="1">
+          <table class="tabla-impresion-cabecera" border="0">
             <tr>
-              <td width="10%">
+              <td style="width: 150px;">
                 <img src="<%= asset_path '/assets/images/logo_emavias.jpg' %>" />
               </td>
-              <td>
-                <h5>SOLICITUD DE COMPRA O DE CONTRATACION</h5>
+              <td style="width: 600px; text-align: center;">
+                <h5 style="font-weight: bold;">SOLICITUD DE COMPRA O DE CONTRATACION</h5>
+              </td>
+              <td style="width: 160px; text-align: right;">
+                <h5>FORMULARIO # <%= @solicitud.numero %></h5>
               </td>
             </tr>
           </table>
-
           <table class="tabla-impresion">
             <thead>
               <tr>
@@ -93,11 +95,12 @@
                 <th>Unidad</th>
                 <th>Cantidad</th>
                 <th>P. Unitario</th>
-                <th>P. Referencial</th>
+                <th>Subtotal</th>
               </tr>
             </thead>
             <tbody>
               <% precio_total = 0 %>
+              <% subtotal = 0 %>
 
               <% @solicitud.item.each_with_index do |i, con| %>
               <tr>
@@ -105,9 +108,9 @@
                 <td><%= i.descripcion %></td>
                 <td><%= i.unidad %></td>
                 <td><%= i.cantidad %></td>
-                <% precio_total = precio_total + i.p_unitario %>
                 <td class="montos"><%= i.p_unitario %></td>
-                <td class="montos"><%= i.p_referencial %></td>
+                <td class="montos"><%= subtotal = i.p_unitario * i.cantidad %></td>
+                <% precio_total = precio_total + subtotal %>
               </tr>
 
               <% end %>
@@ -120,6 +123,10 @@
               </tr>
             </tbody>
           </table>
+          <span style="font-size: 10pt;">
+            Justificacion y Proyecto al que se destinará lo requerido: <br />
+            Se requiere adquirir proyector para la Gerencia General.
+          </span>
           <table class="tabla-impresion-cabecera">
             <tr>
               <td>

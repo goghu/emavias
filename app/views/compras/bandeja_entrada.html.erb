@@ -68,7 +68,7 @@
               <td><%= d.compra.docvalor %></td>
               <td><%= d.fecha %></td>
               <td>
-                <button class="btn btn-info imprimir_m" data-id="<%= d.compra_id %>" title="Imprimir"><i class="fa fa-print"></i></button>
+                <button class="btn btn-secondary imprimir_m" data-id="<%= d.compra_id %>" title="Imprimir"><i class="fa fa-print"></i></button>
                 <% if(current_user.unidade_id == 5) && (current_user.cargo_id == 41) %>
                   <button class="btn btn-info ver_m_rpa" data-id="<%= d.id %>" title="Ver Documento"><i class="fa fa-file-text"></i></button>
                 <% else %>

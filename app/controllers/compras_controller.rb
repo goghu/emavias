@@ -29,6 +29,7 @@ class ComprasController < ApplicationController
   def create
     # byebug
     @compra = Compra.new(compra_params)
+    @compra.fecha = Date.current
     @compra.user_id = current_user.id
     if params[:compra][:existencia]
       @compra.existencia = 1
