@@ -1,5 +1,6 @@
 class AlternativosController < ApplicationController
   before_action :set_alternativo, only: [:show, :edit, :update, :destroy]
+  layout "template"
 
   # GET /alternativos
   # GET /alternativos.json
@@ -61,8 +62,18 @@ class AlternativosController < ApplicationController
     end
   end
 
-  def adicionar
-    
+  def nuevo
+    @datos_camino = Camino.find(params[:id_camino])
+    @listado_alternativos = Alternativo.where(camino_id: params[:id_camino])
+  end
+
+  def guarda_nuevo
+    # byebug
+    m_alternativo = Alternativo.new
+    m_alternativo.camino_id = params[:alternativo][:camino_id]
+    m_alternativo.ruta_id = params[:alternativo][:ruta_id]
+    m_alternativo.alternativo_id = params[:alternativo][:alt]
+    m_alternativo.save
   end
 
   private
