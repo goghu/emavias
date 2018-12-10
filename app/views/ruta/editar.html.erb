@@ -1,0 +1,44 @@
+<%# form_tag('/create', method: :post) do %>
+<div class="row">
+  <div class="col-lg-12">
+    <div class="card card-outline-info">
+      <div class="card-body">
+
+        <%# form_tag('/rutas/crear') do %>
+        <%= form_for @ruta, url: ruta_guarda_editado_path do |f| %>
+        <%# form_with(model: ruta, local: true) do |f| %>
+        <div class="row">
+          <div class="col-md-4">
+            <div class="form-group">
+                <label class="control-label">Nombre</label>
+                <div class="controls">
+                  <%# text_field_tag('ruta[nombre]', nil, class: 'form-control') %>
+                  <%# text_field_tag('ruta[nombre]', nil, class: 'form-control') %>
+                  <%= f.text_field(:nombre, class: 'form-control') %>
+                  <%= f.hidden_field(:id, value: @ruta.id) %>
+                </div>
+            </div>
+          </div>
+          <div class="col-md-8">
+            <div class="form-group">
+                <label class="control-label">Descripcion</label>
+                <div class="controls">
+                  <%= f.text_field(:descripcion, class: 'form-control') %>
+                </div>
+            </div>
+          </div>
+        </div>
+        <div class="form-group" style="text-align:center;">
+          <div class="form-actions">
+            <div class="row">
+              <div class="col-md-12">
+                <button type="submit" class="btn btn-block btn-success"><i class="fa fa-check"></i> Guardar</button>
+              </div>
+            </div>
+          </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

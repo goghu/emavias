@@ -24,18 +24,29 @@ class RutaController < ApplicationController
   end
 
   def editar
-    
+    # byebug
+    @ruta = Ruta.find(params[:id_ruta])
+  end
+
+  def guarda_editado
+    # byebug
+    mRuta = Ruta.find(params[:ruta][:id])
+    mRuta.nombre = params[:ruta][:nombre]
+    mRuta.descripcion = params[:ruta][:descripcion]
+    mRuta.save
+    redirect_to action: "index"
   end
 
   # POST /ruta
   # POST /ruta.json
   def crear
     # byebug
-    @ruta = Ruta.new
-    @ruta.nombre = params[:ruta][:nombre]
-    @ruta.descripcion = params[:ruta][:descripcion]
-    @ruta.save
+    ruta = Ruta.new
+    ruta.nombre = params[:ruta][:nombre]
+    ruta.descripcion = params[:ruta][:descripcion]
+    ruta.save
     redirect_to action: "index"
+
     # respond_to do |format|
     #   if @ruta.save
     #     format.html { redirect_to @ruta, notice: "Rutum was successfully created." }
@@ -118,12 +129,12 @@ class RutaController < ApplicationController
   private
 
   # Use callbacks to share common setup or constraints between actions.
-  def set_rutum
-    @rutum = Rutum.find(params[:id])
+  def set_ruta
+    @ruta = Ruta.find(params[:id])
   end
 
   # Never trust parameters from the scary internet, only allow the white list through.
-  def rutum_params
-    params.require(:rutum).permit(:nombre, :descripcion, :ruta_id, :unidade_id)
+  def ruta_params
+    params.require(:ruta).permit(:nombre, :descripcion, :ruta_id, :unidade_id)
   end
 end

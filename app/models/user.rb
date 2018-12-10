@@ -1,8 +1,5 @@
 class User < ApplicationRecord
   
-  belongs_to :cargo, optional: true
-  belongs_to :unidade, optional: true
-
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable, :recoverable, :rememberable, :trackable, :validatable
@@ -10,6 +7,9 @@ class User < ApplicationRecord
   # validates_uniqueness_of :nit, :message => 'El Nit ya ha sido registrado', :allow_blank => true, :allow_nil => true
   attr_accessor :contra2
   before_save :encrypt_password
+
+  belongs_to :cargo, optional: true
+  belongs_to :unidade, optional: true
 
   def encrypt_password
     if contra2.present?

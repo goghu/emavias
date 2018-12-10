@@ -25,7 +25,7 @@
           <div class="row">
             <%= form_tag('/rutas/guarda_camino') do %>
             <div class="col-md-8">
-              <%= select("camino", "unidade_id", Unidade.all.collect {|u| [ u.descripcion, u.id ] }, {include_blank: 'Seleccione Unidad'}, {class: 'form-control'}) %>
+              <%= select("camino", "unidade_id", Unidade.all.collect {|u| [ u.descripcion, u.id ] }, {include_blank: 'Seleccione Unidad'}, {class: 'form-control', required: true}) %>
             </div>
             <div class="col-md-12">
               <div id="carga_cargos">
@@ -33,7 +33,7 @@
               </div>
             </div>
             <div class="col-md-4">
-              <%= number_field_tag('camino[correlativo]', nil, class: 'form-control', min: 1) %>
+              <%= number_field_tag('camino[correlativo]', nil, class: 'form-control', required: true, min: 1) %>
               <%= hidden_field_tag('camino[ruta_id]', @ruta.id) %>
               <%= submit_tag("Guardar") %>
             </div>

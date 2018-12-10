@@ -65,6 +65,7 @@
               </td>
               <td>
                 <a href="<%= url_for(controller: 'ruta', action: 'ver_caminos', id_ruta: ruta.id) %>" class="btn btn-info" title="Ver caminos"><i class="fa fa-arrows"></i></a>
+                <a href="<%= url_for(controller: 'ruta', action: 'editar', id_ruta: ruta.id) %>" class="btn btn-warning" title="Ver caminos"><i class="fa fa-pencil"></i></a>
                 <a href="<%= url_for(controller: 'ruta', action: 'eliminar', id_ruta: ruta.id) %>" class="btn btn-danger" title="Eliminar"><i class="fa fa-times"></i></a>
               </td>
             </tr>

@@ -35,6 +35,8 @@ Rails.application.routes.draw do
   post "/rutas/crear", to: "ruta#crear", as: "ruta_crear"
   get "/rutas/muestra_funcionarios/:id_unidad", to: "ruta#muestra_funcionarios", as: "ruta_muestra_funcionario"
   get "/rutas/muestra_cargos/:id_unidad", to: "ruta#muestra_cargos", as: "ruta_muestra_cargos"
+  get "/rutas/editar/:id_ruta", to: "ruta#editar", as: "ruta_editar"
+  patch "/rutas/guarda_editado", to: "ruta#guarda_editado", as: "ruta_guarda_editado"
 
   get "/user/inicio", to: "users#inicio", as: "users_inicio"
   
