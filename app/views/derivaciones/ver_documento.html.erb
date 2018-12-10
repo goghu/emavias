@@ -5,8 +5,8 @@
   }
 input.largerCheckbox
 {
-width: 30px;
-height: 30px;
+  width: 30px;
+  height: 30px;
 }
 </style>
 <div class="row page-titles">
@@ -70,19 +70,11 @@ height: 30px;
               <tr>
                 <td><%= con+1 %></td>
                 <td><%= i.descripcion %></td>
-                <td>
-                  <%= i.unidad %>
-                </td>
-                <td>
-                  <%= i.cantidad %>
-                </td>
+                <td><%= i.unidad %></td>
+                <td><%= i.cantidad %></td>
                 <% precio_total = precio_total + i.p_unitario %>
-                <td style="text-align: right">
-                  <%= i.p_unitario %>
-                </td>
-                <td style="text-align: right">
-                  <%= i.p_referencial %>
-                </td>
+                <td style="text-align: right"><%= i.p_unitario %></td>
+                <td style="text-align: right"><%= i.p_referencial %></td>
               </tr>
 
               <% end %>
@@ -93,6 +85,7 @@ height: 30px;
                   <%= number_to_currency(precio_total, unit: "") %>
                 </td>
               </tr>
+
             </tbody>
           </table>
 
@@ -262,13 +255,14 @@ height: 30px;
               <div class="form-group">
                 <label class="control-label">Observaciones</label>
                 <div class="controls">
-                  <%= @derivacion.compra.obs %>
+                  <%# @derivacion.compra.obs %>
 
+                  <%= text_field_tag(:observaciones, nil, class: 'form-control') %>
                   <%= hidden_field_tag(:cargoo_id, current_user.cargo_id ) %>
                   <%= hidden_field_tag(:compra_id, @derivacion.compra.id ) %>
                   <%= hidden_field_tag(:usero_id, current_user.id ) %>
                   <%= hidden_field_tag(:unidadeo_id, current_user.unidade_id ) %>
-
+    
                 </div>
               </div>
             </div>

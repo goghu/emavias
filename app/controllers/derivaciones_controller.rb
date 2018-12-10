@@ -80,6 +80,7 @@ class DerivacionesController < ApplicationController
     m_derivacion.cargoo_id = params[:cargoo_id]
     m_derivacion.cargod_id = params[:cargod_id]
     m_derivacion.camino_id = params[:camino_id]
+    m_derivacion.observaciones = params[:observaciones]
     m_derivacion.estado = "Recibido"
     m_derivacion.fecha = Date.current
     m_derivacion.save

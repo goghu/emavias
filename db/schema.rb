@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20181207214928) do
+ActiveRecord::Schema.define(version: 20181210154609) do
 
   create_table "alternativos", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.integer "camino_id"
@@ -118,6 +118,7 @@ ActiveRecord::Schema.define(version: 20181207214928) do
   create_table "ruta", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.string "nombre", limit: 150
     t.string "descripcion"
+    t.boolean "subruta"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

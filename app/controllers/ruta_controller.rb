@@ -33,6 +33,7 @@ class RutaController < ApplicationController
     mRuta = Ruta.find(params[:ruta][:id])
     mRuta.nombre = params[:ruta][:nombre]
     mRuta.descripcion = params[:ruta][:descripcion]
+    mRuta.subruta = params[:ruta][:subruta]
     mRuta.save
     redirect_to action: "index"
   end
@@ -44,6 +45,7 @@ class RutaController < ApplicationController
     ruta = Ruta.new
     ruta.nombre = params[:ruta][:nombre]
     ruta.descripcion = params[:ruta][:descripcion]
+    ruta.subruta = params[:ruta][:subruta]
     ruta.save
     redirect_to action: "index"
 

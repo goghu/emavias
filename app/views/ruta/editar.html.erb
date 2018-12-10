@@ -19,11 +19,20 @@
                 </div>
             </div>
           </div>
-          <div class="col-md-8">
+          <div class="col-md-6">
             <div class="form-group">
                 <label class="control-label">Descripcion</label>
                 <div class="controls">
                   <%= f.text_field(:descripcion, class: 'form-control') %>
+                </div>
+            </div>
+          </div>
+          <div class="col-md-2">
+            <div class="form-group">
+                <label class="control-label">Subruta</label>
+                <div class="controls">
+                  <%= f.check_box(:subruta) %>
+                  <!-- <input type="checkbox" name="ruta[subruta]" class="form-check-input largerCheckbox"> -->
                 </div>
             </div>
           </div>

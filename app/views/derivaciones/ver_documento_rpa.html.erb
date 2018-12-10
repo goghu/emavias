@@ -74,12 +74,8 @@
               <tr>
                 <td><%= con+1 %></td>
                 <td><%= i.descripcion %></td>
-                <td>
-                  <%= i.unidad %>
-                </td>
-                <td>
-                  <%= i.cantidad %>
-                </td>
+                <td><%= i.unidad %></td>
+                <td><%= i.cantidad %></td>
                 <% precio_total = precio_total + i.p_unitario %>
                 <td style="text-align: right">
                   <%= i.p_unitario %>
@@ -270,7 +266,7 @@
                   <%= hidden_field_tag(:compra_id, @documento.compra.id ) %>
                   <%= hidden_field_tag(:usero_id, current_user.id ) %>
                   <%= hidden_field_tag(:unidadeo_id, current_user.unidade_id ) %>
-                  <%= select("ruta", "ruta_id", Ruta.all.collect {|u| [ u.nombre, u.id ] }, {include_blank: 'Seleccione Ruta'}, {class: 'form-control'}) %>
+                  <%= select("ruta", "ruta_id", Ruta.all.collect {|u| [ u.nombre, u.id ] }, {include_blank: 'Seleccione Ruta'}, {class: 'form-control', required: true}) %>
                 </div>
               </div>
             </div>

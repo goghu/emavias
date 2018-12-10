@@ -49,6 +49,7 @@
           <thead>
             <tr>
               <th>Nombre</th>
+              <th>Subruta</th>
               <th>Descripcion</th>
               <th></th>
             </tr>
@@ -57,12 +58,15 @@
           <tbody>
             <% @ruta.each do |ruta| %>
             <tr>
+              <td><%= ruta.nombre %></td>
               <td>
-                <%= ruta.nombre %>
+              <% if ruta.subruta.present? %>
+                SI
+              <% else %>                    
+                NO
+              <% end %>    
               </td>
-              <td>
-                <%= ruta.descripcion %>
-              </td>
+              <td><%= ruta.descripcion %></td>
               <td>
                 <a href="<%= url_for(controller: 'ruta', action: 'ver_caminos', id_ruta: ruta.id) %>" class="btn btn-info" title="Ver caminos"><i class="fa fa-arrows"></i></a>
                 <a href="<%= url_for(controller: 'ruta', action: 'editar', id_ruta: ruta.id) %>" class="btn btn-warning" title="Ver caminos"><i class="fa fa-pencil"></i></a>
