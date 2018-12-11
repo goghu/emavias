@@ -60,21 +60,21 @@ input.largerCheckbox
                 <th>Unidad</th>
                 <th>Cantidad</th>
                 <th>P. Unitario</th>
-                <th>P. Referencial</th>
+                <th>Subtotal</th>
               </tr>
             </thead>
             <tbody>
               <% precio_total = 0 %>
-
+              <% subTotal = 0 %>
               <% @derivacion.compra.item.each_with_index do |i, con| %>
               <tr>
                 <td><%= con+1 %></td>
                 <td><%= i.descripcion %></td>
                 <td><%= i.unidad %></td>
                 <td><%= i.cantidad %></td>
-                <% precio_total = precio_total + i.p_unitario %>
                 <td style="text-align: right"><%= i.p_unitario %></td>
-                <td style="text-align: right"><%= i.p_referencial %></td>
+                <td style="text-align: right"><%= subTotal = i.cantidad * i.p_unitario %></td>
+                <% precio_total = precio_total + subTotal %>
               </tr>
 
               <% end %>
@@ -271,31 +271,36 @@ input.largerCheckbox
               <div class="form-group">
                 <label class="control-label">Derivar a</label>
                 <div class="controls">
-                  <% if @siguiente_funcionario.present? %>
-                    <%= hidden_field_tag(:camino_id, @camino.id ) %>
-                    <%= hidden_field_tag(:correlativo, @camino.correlativo ) %>
-                    <%= hidden_field_tag(:ruta_id, @camino.ruta_id ) %>
-                    <%= hidden_field_tag(:userd_id, @siguiente_funcionario.id ) %>
-                    <%= hidden_field_tag(:unidadd_id, @siguiente_funcionario.unidade_id ) %>
-                    <%= hidden_field_tag(:cargod_id, @siguiente_funcionario.cargo_id ) %>
-                    <b>UNIDAD</b>
-                    <%= @siguiente_funcionario.unidade.descripcion %><br />
-                    <b>CARGO</b>
-                    <%= @siguiente_funcionario.cargo.descripcion %>
-                    <b>NOMBRE</b>
-                    <%= @siguiente_funcionario.nombre %>
+                  <% if @alternativos.present? %>
+                    <% @alternativos.inspect %>
+                    <%= select("ruta", "ruta_id", Alternativo.where(camino_id: @alternativos.camino_id).collect {|u| [ u.alternativo.nombre, u.id ] }, {include_blank: 'Seleccione Ruta'}, {class: 'form-control', required: true}) %>
+                    <div id="carga_persona"></div>
                   <% else %>
-                    <b>UNIDAD</b>
-                    <%= @rpa.unidade.descripcion %><br />
-                    <b>CARGO</b>
-                    <%= @rpa.cargo.descripcion %>
-                    <b>NOMBRE</b>
-                    <%= @rpa.nombre %>
+                    <% if @siguiente_funcionario.present? %>
+                      <%= hidden_field_tag(:camino_id, @camino.id ) %>
+                      <%= hidden_field_tag(:correlativo, @camino.correlativo ) %>
+                      <%= hidden_field_tag(:ruta_id, @camino.ruta_id ) %>
+                      <%= hidden_field_tag(:userd_id, @siguiente_funcionario.id ) %>
+                      <%= hidden_field_tag(:unidadd_id, @siguiente_funcionario.unidade_id ) %>
+                      <%= hidden_field_tag(:cargod_id, @siguiente_funcionario.cargo_id ) %>
+                      <b>UNIDAD</b>
+                      <%= @siguiente_funcionario.unidade.descripcion %><br />
+                      <b>CARGO</b>
+                      <%= @siguiente_funcionario.cargo.descripcion %>
+                      <b>NOMBRE</b>
+                      <%= @siguiente_funcionario.nombre %>
+                    <% else %>
+                      <b>UNIDAD</b>
+                      <%= @rpa.unidade.descripcion %><br />
+                      <b>CARGO</b>
+                      <%= @rpa.cargo.descripcion %>
+                      <b>NOMBRE</b>
+                      <%= @rpa.nombre %>
 
-                    <%= hidden_field_tag(:userd_id, @rpa.id ) %>
-                    <%= hidden_field_tag(:unidadd_id, @rpa.unidade_id ) %>
-                    <%= hidden_field_tag(:cargod_id, @rpa.cargo_id ) %>
-
+                      <%= hidden_field_tag(:userd_id, @rpa.id ) %>
+                      <%= hidden_field_tag(:unidadd_id, @rpa.unidade_id ) %>
+                      <%= hidden_field_tag(:cargod_id, @rpa.cargo_id ) %>
+                    <% end %>    
                   <% end %>
                 </div>
               </div>

@@ -20,7 +20,7 @@ Rails.application.routes.draw do
   # resources :cotizaciones
   get "welcome/index"
 
-  root :to => "users#index"
+  root :to => "compras#bandeja_entrada"
   # root :to => 'panelcontrols#index'
 
   # devise_scope :user do
@@ -60,6 +60,7 @@ Rails.application.routes.draw do
 
   get "/alternativo/nuevo/:id_camino", to: "alternativos#nuevo", as: "alternativos_nuevo"
   post "/alternativo/guarda_nuevo", to: "alternativos#guarda_nuevo", as: "alternativos_guarda_nuevo"
+  # get "/alternativo/muestra_alternativos/:id_camino", to: "alternativos#nuevo", as: "alternativos_nuevo"
 
   # devise_for :users, path: 'auth', path_names: {  sign_out: 'logout', sign_up: 'cmon_let_me_in' }
 

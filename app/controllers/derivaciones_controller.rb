@@ -103,16 +103,20 @@ class DerivacionesController < ApplicationController
   def ver_documento
     # byebug
     @derivacion = Derivacione.find(params[:id_derivacion])
-    @items =
       if @derivacion.ruta_id.present?
         siguiente = @derivacion.correlativo.to_i + 1
         @camino = Camino.where(ruta_id: @derivacion.ruta_id, correlativo: siguiente).take
         if @camino.present?
-          siguiente_cargo = User.where(cargo_id: @camino.cargo_id, deleted: nil).take
-          @siguiente_funcionario = siguiente_cargo
-          @docderivaciones = Docderivacione.where(derivacione_id: @derivacion.id)
-          # @doc_anteriores = Docderivacione.where(compra_id: @derivacion.compra_id)
-          @documentos = Documento.where(camino_id: @derivacion.camino_id)
+          caminos_alternativos = Alternativo.where(camino_id: @derivacion.camino_id).take
+          if caminos_alternativos.present?
+            @alternativos = caminos_alternativos
+          else
+            siguiente_cargo = User.where(cargo_id: @camino.cargo_id, deleted: nil).take
+            @siguiente_funcionario = siguiente_cargo
+            @docderivaciones = Docderivacione.where(derivacione_id: @derivacion.id)
+            # @doc_anteriores = Docderivacione.where(compra_id: @derivacion.compra_id)
+            @documentos = Documento.where(camino_id: @derivacion.camino_id)
+          end
         end
       else
         @rpa = User.where(unidade_id: 5, cargo_id: 41, deleted: nil).take

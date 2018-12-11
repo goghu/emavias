@@ -74,6 +74,7 @@ class AlternativosController < ApplicationController
     m_alternativo.ruta_id = params[:alternativo][:ruta_id]
     m_alternativo.alternativo_id = params[:alternativo][:alt]
     m_alternativo.save
+    redirect_to action: :nuevo, id_camino: params[:alternativo][:camino_id]
   end
 
   private

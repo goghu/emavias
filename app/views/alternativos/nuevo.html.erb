@@ -30,7 +30,7 @@
           <div class="row">
             <%= form_tag('/alternativo/guarda_nuevo') do %>
             <div class="col-md-12">
-              <%= select("alternativo", "alt", Ruta.all.collect {|u| [ u.nombre, u.id ] }, {include_blank: 'Seleccione Ruta'}, {class: 'form-control', required: 'required'}) %>
+              <%= select("alternativo", "alt", Ruta.where(subruta: 1).collect {|u| [ u.nombre, u.id ] }, {include_blank: 'Seleccione Ruta'}, {class: 'form-control', required: 'required'}) %>
               <%= hidden_field_tag('alternativo[camino_id]', @datos_camino.id) %>
               <%= hidden_field_tag('alternativo[ruta_id]', @datos_camino.ruta_id) %>
               <%= submit_tag("Guardar") %>
@@ -47,7 +47,7 @@
             <table class="table table-bordered" id="myTable">
               <thead>
                 <tr>
-                  <th>Unidad</th>
+                  <th>Camino</th>
                   <th></th>
                 </tr>
               </thead>
