@@ -20,7 +20,7 @@ Rails.application.routes.draw do
   # resources :cotizaciones
   get "welcome/index"
 
-  root :to => "compras#bandeja_entrada"
+  root :to => "users#index"
   # root :to => 'panelcontrols#index'
 
   # devise_scope :user do

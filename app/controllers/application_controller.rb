@@ -13,7 +13,7 @@ class ApplicationController < ActionController::Base
     if current_user.rol == "Administrador"
       root_path
     elsif current_user.rol == "Funcionario"
-      users_inicio_path
+      compras_bandeja_entrada_path
     elsif current_user.rol == "Cliente"
       users_path
     end

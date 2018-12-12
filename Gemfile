@@ -53,6 +53,10 @@ group :development, :test do
   gem 'selenium-webdriver'
   # para mostrar bien los datos
   gem 'awesome_print', require: "ap"
+  
+  gem "better_errors"
+  gem "binding_of_caller"
+
 end
 
 group :development do
