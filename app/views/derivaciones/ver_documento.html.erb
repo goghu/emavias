@@ -272,7 +272,12 @@ input.largerCheckbox
                 <label class="control-label">Derivar a</label>
                 <div class="controls">
                   <% if @camino.present? %>
-                  
+
+                  <%# si el cargo es archivo central finaliza %>
+                  <% if @camino.cargo_id == 46 %>
+                    El proceso finalizo
+                  <% else %>
+
                     <% if @alternativos.present? %>
                       <% @alternativos.inspect %>
                       <%= select("ruta", "ruta_id", Alternativo.where(camino_id: @alternativos.camino_id).collect {|u| [ u.alternativo.nombre, u.id ] }, {include_blank: 'Seleccione Ruta'}, {class: 'form-control', required: true}) %>
@@ -304,7 +309,10 @@ input.largerCheckbox
                         <%= hidden_field_tag(:cargod_id, @rpa.cargo_id ) %>
                       <% end %>    
                     <% end %>
-                    
+
+                  <%# fin si el cargo es archivo central finaliza %>
+                  <% end %>
+
                   <% else %>
                     No tiene configuraciones
                   <% end %>

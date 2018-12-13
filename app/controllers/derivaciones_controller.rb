@@ -103,6 +103,7 @@ class DerivacionesController < ApplicationController
   def ver_documento
     # byebug
     @derivacion = Derivacione.find(params[:id_derivacion])
+    
       if @derivacion.ruta_id.present?
         siguiente = @derivacion.correlativo.to_i + 1
         @camino = Camino.where(ruta_id: @derivacion.ruta_id, correlativo: siguiente).take
@@ -112,6 +113,11 @@ class DerivacionesController < ApplicationController
             @alternativos = caminos_alternativos
           else
             siguiente_cargo = User.where(cargo_id: @camino.cargo_id, deleted: nil).take
+            # if siguiente_cargo
+              
+            # else
+              
+            # end
             @siguiente_funcionario = siguiente_cargo
             @docderivaciones = Docderivacione.where(derivacione_id: @derivacion.id)
             # @doc_anteriores = Docderivacione.where(compra_id: @derivacion.compra_id)
@@ -123,6 +129,11 @@ class DerivacionesController < ApplicationController
       end
     # byebug
     # @ultimo_paso = Derivacione.where(compra_id: @documento.compra_id).last
+  end
+
+  def ver_documento_jefe
+    @documento = Derivacione.find(params[:id_derivacion])
+    @rpa = User.where(unidade_id: 5, cargo_id: 41, deleted: nil).take
   end
 
   def ver_documento_rpa

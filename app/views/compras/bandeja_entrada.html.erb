@@ -69,8 +69,11 @@
               <td><%= d.fecha %></td>
               <td>
                 <button class="btn btn-secondary imprimir_m" data-id="<%= d.compra_id %>" title="Imprimir"><i class="fa fa-print"></i></button>
+                <% cantidad_derivaciones = Derivacione.where(compra_id: d.compra_id).count %>
                 <% if(current_user.unidade_id == 5) && (current_user.cargo_id == 41) %>
                   <button class="btn btn-info ver_m_rpa" data-id="<%= d.id %>" title="Ver Documento"><i class="fa fa-file-text"></i></button>
+                <% elsif(cantidad_derivaciones == 1) %>
+                  <button class="btn btn-info ver_m_jefe" data-id="<%= d.id %>" title="Ver Documento"><i class="fa fa-file-text"></i></button>
                 <% else %>
                   <button class="btn btn-info ver_m" data-id="<%= d.id %>" title="Ver Documento"><i class="fa fa-file-text"></i></button>
                 <% end %>
@@ -112,6 +115,11 @@
   $(document).on('click', '.ver_m_rpa', function () {
     el_id = $(this).data('id');
     window.location.href = '/derivacione/ver_documento_rpa/' + el_id;
+  });
+
+  $(document).on('click', '.ver_m_jefe', function () {
+    el_id = $(this).data('id');
+    window.location.href = '/derivacione/ver_documento_jefe/' + el_id;
   });
 
   $(document).on('click', '.ver_derivaciones', function () {
