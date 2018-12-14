@@ -260,8 +260,10 @@
 
             <div class="col-md-6">
               <div class="form-group">
-                <label class="control-label">Proceso</label>
+                <label class="control-label">Observaciones</label>
+
                 <div class="controls">
+                  <%= text_field_tag(:observaciones, nil, class: 'form-control') %>
                   <%= hidden_field_tag(:cargoo_id, current_user.cargo_id ) %>
                   <%= hidden_field_tag(:compra_id, @documento.compra.id ) %>
                   <%= hidden_field_tag(:usero_id, current_user.id ) %>

@@ -55,6 +55,7 @@ Rails.application.routes.draw do
   
   get "/camino/eliminar/:id_camino/:cod_ruta", to: "caminos#eliminar", as: "camino_eliminar"
   get "/camino/carga_funcionario/:proceso", to: "caminos#carga_funcionario", as: "camino_carga_funcionario"
+  get "/camino/carga_funcionario_alternativo/:id_alternativo/:id_compra", to: "caminos#carga_funcionario_alternativo", as: "camino_carga_funcionario_alternativo"
 
   get "/documento/nuevo/:id_camino", to: "documentos#nuevo", as: "documento_nuevo"
   post "/documento/guarda_nuevo", to: "documentos#guarda_nuevo", as: "documento_guarda_nuevo"

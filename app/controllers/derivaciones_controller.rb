@@ -102,31 +102,48 @@ class DerivacionesController < ApplicationController
 
   def ver_documento
     # byebug
-    @derivacion = Derivacione.find(params[:id_derivacion])
     
-      if @derivacion.ruta_id.present?
-        siguiente = @derivacion.correlativo.to_i + 1
-        @camino = Camino.where(ruta_id: @derivacion.ruta_id, correlativo: siguiente).take
-        if @camino.present?
-          caminos_alternativos = Alternativo.where(camino_id: @derivacion.camino_id).take
-          if caminos_alternativos.present?
-            @alternativos = caminos_alternativos
-          else
-            siguiente_cargo = User.where(cargo_id: @camino.cargo_id, deleted: nil).take
-            # if siguiente_cargo
-              
-            # else
-              
-            # end
-            @siguiente_funcionario = siguiente_cargo
-            @docderivaciones = Docderivacione.where(derivacione_id: @derivacion.id)
-            # @doc_anteriores = Docderivacione.where(compra_id: @derivacion.compra_id)
-            @documentos = Documento.where(camino_id: @derivacion.camino_id)
-          end
-        end
+      # if @derivacion.ruta_id.present?
+      #   siguiente = @derivacion.correlativo.to_i + 1
+      #   @camino = Camino.where(ruta_id: @derivacion.ruta_id, correlativo: siguiente).take
+      #   if @camino.present?
+      #     caminos_alternativos = Alternativo.where(camino_id: @derivacion.camino_id).take
+      #     if caminos_alternativos.present?
+      #       @alternativos = caminos_alternativos
+      #     else
+      #       siguiente_cargo = User.where(cargo_id: @camino.cargo_id, deleted: nil).take
+      #       @siguiente_funcionario = siguiente_cargo
+      #       @docderivaciones = Docderivacione.where(derivacione_id: @derivacion.id)
+      #       @documentos = Documento.where(camino_id: @derivacion.camino_id)
+      #     end
+      #   end
+      # else
+      #   @rpa = User.where(unidade_id: 5, cargo_id: 41, deleted: nil).take
+      # end
+    @derivacion = Derivacione.find(params[:id_derivacion])
+    # @camino = Camino.where(ruta_id: @derivacion.ruta_id, correlativo: siguiente).take
+    # si tiene subcaminos mandamos para que sea combo
+    sub_caminos = Alternativo.where(ruta_id: @derivacion.ruta_id, camino_id: @derivacion.camino_id).take
+    if sub_caminos.present?
+      @caminos = sub_caminos
+    else
+      # siguiente_cargo = User.where(cargo_id: @camino.cargo_id, deleted: nil).take
+      # siguiente = @derivacion.correlativo.to_i + 1
+      # @camino = Camino.where(ruta_id: @derivacion.ruta_id, correlativo: siguiente).take
+
+      if siguiente_cargo == (47 || 48)
+        funcionario = Derivacione.where(compra_id: @derivacion.compra_id).first
+        primer_funcionario = User.find(funcionario.usero_id)
+        @siguiente_funcionario = primer_funcionario
       else
-        @rpa = User.where(unidade_id: 5, cargo_id: 41, deleted: nil).take
+
+        @siguiente_funcionario = siguiente_cargo
       end
+      @docderivaciones = Docderivacione.where(derivacione_id: @derivacion.id)
+      @documentos = Documento.where(camino_id: @derivacion.camino_id)
+    end
+    # fin si tiene subcaminos mandamos para que sea combo
+    
     # byebug
     # @ultimo_paso = Derivacione.where(compra_id: @documento.compra_id).last
   end

@@ -271,51 +271,24 @@ input.largerCheckbox
               <div class="form-group">
                 <label class="control-label">Derivar a</label>
                 <div class="controls">
-                  <% if @camino.present? %>
-
-                  <%# si el cargo es archivo central finaliza %>
-                  <% if @camino.cargo_id == 46 %>
-                    El proceso finalizo
-                  <% else %>
-
-                    <% if @alternativos.present? %>
-                      <% @alternativos.inspect %>
-                      <%= select("ruta", "ruta_id", Alternativo.where(camino_id: @alternativos.camino_id).collect {|u| [ u.alternativo.nombre, u.id ] }, {include_blank: 'Seleccione Ruta'}, {class: 'form-control', required: true}) %>
-                      <div id="carga_persona"></div>
-                    <% else %>
-                      <% if @siguiente_funcionario.present? %>
-                        <%= hidden_field_tag(:camino_id, @camino.id ) %>
-                        <%= hidden_field_tag(:correlativo, @camino.correlativo ) %>
-                        <%= hidden_field_tag(:ruta_id, @camino.ruta_id ) %>
-                        <%= hidden_field_tag(:userd_id, @siguiente_funcionario.id ) %>
-                        <%= hidden_field_tag(:unidadd_id, @siguiente_funcionario.unidade_id ) %>
-                        <%= hidden_field_tag(:cargod_id, @siguiente_funcionario.cargo_id ) %>
-                        <b>UNIDAD</b>
-                        <%= @siguiente_funcionario.unidade.descripcion %><br />
-                        <b>CARGO</b>
-                        <%= @siguiente_funcionario.cargo.descripcion %>
-                        <b>NOMBRE</b>
-                        <%= @siguiente_funcionario.nombre %>
-                      <% else %>
-                        <b>UNIDAD</b>
-                        <%= @rpa.unidade.descripcion %><br />
-                        <b>CARGO</b>
-                        <%= @rpa.cargo.descripcion %>
-                        <b>NOMBRE</b>
-                        <%= @rpa.nombre %>
-
-                        <%= hidden_field_tag(:userd_id, @rpa.id ) %>
-                        <%= hidden_field_tag(:unidadd_id, @rpa.unidade_id ) %>
-                        <%= hidden_field_tag(:cargod_id, @rpa.cargo_id ) %>
-                      <% end %>    
-                    <% end %>
-
-                  <%# fin si el cargo es archivo central finaliza %>
-                  <% end %>
-
-                  <% else %>
-                    No tiene configuraciones
-                  <% end %>
+                
+                <% if @caminos.present? %>
+                  <%= select("alternativo", "alternativo_id", Alternativo.where(camino_id: @caminos.camino_id).collect {|u| [ u.alternativo.nombre, u.id ] }, {include_blank: 'Seleccione Ruta'}, {class: 'form-control', required: true}) %>
+                  <div id="carga_persona"></div>
+                <% else %>
+                  <%= hidden_field_tag(:camino_id, @camino.id ) %>
+                  <%= hidden_field_tag(:correlativo, @camino.correlativo ) %>
+                  <%= hidden_field_tag(:ruta_id, @camino.ruta_id ) %>
+                  <%= hidden_field_tag(:userd_id, @siguiente_funcionario.id ) %>
+                  <%= hidden_field_tag(:unidadd_id, @siguiente_funcionario.unidade_id ) %>
+                  <%= hidden_field_tag(:cargod_id, @siguiente_funcionario.cargo_id ) %>
+                  <b>UNIDAD</b>
+                  <%= @siguiente_funcionario.unidade.descripcion %><br />
+                  <b>CARGO</b>
+                  <%= @siguiente_funcionario.cargo.descripcion %>
+                  <b>NOMBRE</b>
+                  <%= @siguiente_funcionario.nombre %>  
+                <% end %>
                 </div>
               </div>
             </div>              
@@ -544,10 +517,11 @@ input.largerCheckbox
 <script>
   $(document).ready(function() {
       // console.log( "ready!" );
-      $("#ruta_ruta_id").change(function(){
+      $("#alternativo_alternativo_id").change(function(){
         // alert('Hizo cambio');
-        var proceso = $("#ruta_ruta_id").val();
-        $("#carga_persona").load("/camino/carga_funcionario/"+proceso);
+        var id_alternativo = $("#alternativo_alternativo_id").val();
+        var id_compra = '<%= @derivacion.compra.numero %>';
+        $("#carga_persona").load("/camino/carga_funcionario_alternativo/"+id_alternativo+"/"+id_compra);
       });
   });
 </script>
