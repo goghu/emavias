@@ -121,26 +121,35 @@ class DerivacionesController < ApplicationController
       #   @rpa = User.where(unidade_id: 5, cargo_id: 41, deleted: nil).take
       # end
     @derivacion = Derivacione.find(params[:id_derivacion])
-    # @camino = Camino.where(ruta_id: @derivacion.ruta_id, correlativo: siguiente).take
     # si tiene subcaminos mandamos para que sea combo
     sub_caminos = Alternativo.where(ruta_id: @derivacion.ruta_id, camino_id: @derivacion.camino_id).take
     if sub_caminos.present?
       @caminos = sub_caminos
     else
-      # siguiente_cargo = User.where(cargo_id: @camino.cargo_id, deleted: nil).take
-      # siguiente = @derivacion.correlativo.to_i + 1
-      # @camino = Camino.where(ruta_id: @derivacion.ruta_id, correlativo: siguiente).take
+      # buscamos el siguiente camino
+      siguiente = @derivacion.correlativo.to_i + 1
+      @camino = Camino.where(ruta_id: @derivacion.ruta_id, correlativo: siguiente).take
 
-      if siguiente_cargo == (47 || 48)
-        funcionario = Derivacione.where(compra_id: @derivacion.compra_id).first
-        primer_funcionario = User.find(funcionario.usero_id)
-        @siguiente_funcionario = primer_funcionario
+      # si no es archivo central
+      if @camino.cargo_id != 46
+      # si el cargo es comision de recepcion y calificacion
+        if @camino.cargo_id == (47 || 48)
+          
+          primer_funcionario = Derivacione.where(compra_id: @derivacion.compra_id).first
+          funcionario = User.find(primer_funcionario.usero_id)
+          @siguiente_funcionario = funcionario
+          # byebug
+        else
+          @siguiente_funcionario = User.where(cargo_id: @camino.cargo_id, deleted: nil).take
+        end
+        @docderivaciones = Docderivacione.where(derivacione_id: @derivacion.id)
+        @documentos = Documento.where(camino_id: @derivacion.camino_id)
+
       else
-
-        @siguiente_funcionario = siguiente_cargo
+        # se acaba el proceso
+        @camino = nil
       end
-      @docderivaciones = Docderivacione.where(derivacione_id: @derivacion.id)
-      @documentos = Documento.where(camino_id: @derivacion.camino_id)
+
     end
     # fin si tiene subcaminos mandamos para que sea combo
     

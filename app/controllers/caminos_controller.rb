@@ -47,16 +47,17 @@ class CaminosController < ApplicationController
   def carga_funcionario_alternativo
     # byebug
     datos_alternativo = Alternativo.find(params[:id_alternativo])
-    camino = Camino.where(ruta_id: datos_alternativo.alternativo_id, correlativo: 1).take
+    @camino = Camino.where(ruta_id: datos_alternativo.alternativo_id, correlativo: 1).take
 
     # si es comision de calificacion o recepcion
-    if camino.cargo_id == (47 || 48)
+    if @camino.cargo_id == (47 || 48)
       # buscamos quien inicio el proceso
       primer_funcionario = Derivacione.where(compra_id: params[:id_compra]).first
       @funcionario = User.find(primer_funcionario.usero_id)
     else
-      @funcionario = User.where(cargo_id: camino.cargo_id, deleted: nil).take
+      @funcionario = User.where(cargo_id: @camino.cargo_id, deleted: nil).take
     end
+    # byebug
     # @camino = Camino.where(ruta_id: params[:proceso], correlativo: 1).take
     # @funcionario = User.where(cargo_id: @camino.cargo_id, deleted: nil).take
     # @ruta_id = params[:proceso]
