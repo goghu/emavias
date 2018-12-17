@@ -22,6 +22,11 @@ class AlternativosController < ApplicationController
   def edit
   end
 
+  def eliminar
+    Alternativo.destroy(params[:id_alternativo])
+    redirect_to action: 'nuevo', id_camino: params[:id_camino] 
+  end
+
   # POST /alternativos
   # POST /alternativos.json
   def create

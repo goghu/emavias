@@ -53,13 +53,14 @@
               </thead>
 
               <tbody>
+                <%# byebug %>
                 <% @listado_alternativos.each do |la| %>
                 <tr>
                   <td><%= la.alternativo.nombre %></td>
                   <td>
                     <!-- <a href="<%# url_for(controller: 'documentos', action: 'nuevo', id_camino: camino.id) %>" class="btn btn-success" title="Adicionar Documentos"><i class="fa fa-files-o"></i></a>
                     <a href="<%# url_for(controller: 'alternativos', action: 'nuevo', id_ruta: camino.ruta_id) %>" class="btn btn-warning" title="Caminos Alternativos"><i class="fa fa-question-circle"></i></a> -->
-                    <a href="<%# url_for(controller: 'caminos', action: 'eliminar', id_camino: camino.id, cod_ruta: camino.ruta_id) %>" class="btn btn-danger" title="Eliminar"><i class="fa fa-times"></i></a>
+                    <a href="<%= url_for(controller: 'alternativos', action: 'eliminar', id_alternativo: la.id, id_camino: la.camino_id) %>" class="btn btn-danger" title="Eliminar"><i class="fa fa-times"></i></a>
                   </td>
                 </tr>
                 <% end %>
