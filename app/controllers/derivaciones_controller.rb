@@ -159,20 +159,21 @@ class DerivacionesController < ApplicationController
     @documento = Derivacione.find(params[:id_derivacion])
     @cantidad_rpa = Derivacione.where(compra_id: @documento.compra_id, cargod_id: 41).count
 
-    # cambio para que nose repita las rutas
-    @derivacion = Derivacione.find(params[:id_derivacion])
-    # si tiene subcaminos mandamos para que sea combo
-    sub_caminos = Alternativo.where(ruta_id: @derivacion.ruta_id, camino_id: @derivacion.camino_id).take
-    if sub_caminos.present?
-      @caminos = sub_caminos
-    else
-      # buscamos el siguiente camino
-      siguiente = @derivacion.correlativo.to_i + 1
-      @camino = Camino.where(ruta_id: @derivacion.ruta_id, correlativo: siguiente).take
+    if @cantidad_rpa > 1
+      # cambio para que nose repita las rutas
+      @derivacion = Derivacione.find(params[:id_derivacion])
+      # si tiene subcaminos mandamos para que sea combo
+      sub_caminos = Alternativo.where(ruta_id: @derivacion.ruta_id, camino_id: @derivacion.camino_id).take
+      if sub_caminos.present?
+        @caminos = sub_caminos
+      else
+        # buscamos el siguiente camino
+        siguiente = @derivacion.correlativo.to_i + 1
+        @camino = Camino.where(ruta_id: @derivacion.ruta_id, correlativo: siguiente).take
 
-      # si no es archivo central
-      # if @camino.cargo_id != 46
-      # si el cargo es comision de recepcion y calificacion
+        # si no es archivo central
+        # if @camino.cargo_id != 46
+        # si el cargo es comision de recepcion y calificacion
         if @camino.cargo_id == (47 || 48)
           
           primer_funcionario = Derivacione.where(compra_id: @derivacion.compra_id).first
@@ -189,20 +190,19 @@ class DerivacionesController < ApplicationController
         # enviamos los documentos para el formulario
         @documentos = Documento.where(camino_id: @derivacion.camino_id)
 
-      # else
-        # se acaba el proceso
-      #   @camino = nil
-      # end
+        # else
+          # se acaba el proceso
+        #   @camino = nil
+        # end
 
+      end
+    else
+      @derivacion = Derivacione.find(params[:id_derivacion])
+      siguiente = @derivacion.correlativo.to_i + 1
+      @camino = Camino.where(ruta_id: @derivacion.ruta_id, correlativo: siguiente).take
+      @caminos = Camino.all.count
     end
 
-
-    # if @cantidad_rpa.present?
-    #   @documento = nil
-    # else
-    #   @documento = Derivacione.find(params[:id_derivacion])
-    # end
-    # byebug
   end
 
   def ver_derivaciones
