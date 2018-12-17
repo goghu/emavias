@@ -34,7 +34,7 @@
         <tr>
           <th>Descripcion</th>
           <th>Tipo</th>
-          <th>Presento</th>
+          <!-- <th>Presento</th> -->
           <th></th>
         </tr>
       </thead>
@@ -43,8 +43,14 @@
         <% @listado_documentos.each do |ld| %>
         <tr>
           <td><%= ld.descripcion %></td>
-          <td><%= ld.tipo %></td>
-          <td><%= ld.presento %></td>
+          <td>
+            <% if ld.tipo == 'ca' %>
+              Campo Abierto
+            <% else %>
+              No Visible
+            <% end %>
+          </td>
+          <!-- <td><%# ld.presento %></td> -->
           <td>
             <%# link_to 'Ver', rutum %>
             <%# link_to 'Editar', edit_rutum_path(rutum.id) %>

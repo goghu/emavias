@@ -69,7 +69,7 @@
             </thead>
             <tbody>
               <% precio_total = 0 %>
-
+              <% sub_total = 0 %>
               <% @documento.compra.item.each_with_index do |i, con| %>
               <tr>
                 <td><%= con+1 %></td>
@@ -81,7 +81,7 @@
                   <%= i.p_unitario %>
                 </td>
                 <td style="text-align: right">
-                  <%= i.p_referencial %>
+                  <%= sub_total = i.cantidad*i.p_unitario %>
                 </td>
               </tr>
 
