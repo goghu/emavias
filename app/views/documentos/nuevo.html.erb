@@ -1,17 +1,28 @@
 <!-- <p id="notice"><%# notice %></p> -->
+<style type="text/css">
+  input[type=checkbox]
+  {
+    /* Double-sized Checkboxes */
+    -ms-transform: scale(2); /* IE */
+    -moz-transform: scale(2); /* FF */
+    -webkit-transform: scale(2); /* Safari and Chrome */
+    -o-transform: scale(2); /* Opera */
+    padding: 10px;
+  }
+</style>
 <h2><%= @camino.ruta.nombre %></h2>
 <h3><%= @camino.unidade.descripcion %> (<%= @camino.cargo.descripcion %>)</h3>
 <div class="row">
   <div class="col-md-6">
     <%= form_tag('/documento/guarda_nuevo') do %>
     <%= hidden_field_tag('camino_id', @camino.id) %>
-    <%= text_field_tag('descripcion') %>
-    <select name="tipo">
+    <%= text_field_tag('descripcion', nil, :required => true) %>
+    <select name="tipo" required>
       <option value="">Seleccione Tipo</option>
       <option value="ca">Campo Abierto</option>
       <option value="nv">No Visisble</option>
     </select>
-    <input type="checkbox" name="presento">&nbsp;&nbsp; Para presentar</label>
+    <input type="checkbox" name="presento" checked>&nbsp;&nbsp; Para presentar</label>
     <%= submit_tag("Guardar") %>
     <% end %>
   </div>
@@ -38,7 +49,7 @@
             <%# link_to 'Ver', rutum %>
             <%# link_to 'Editar', edit_rutum_path(rutum.id) %>
             <%# link_to 'Caminos', ruta_ver_caminos_path(rutum) %>
-            <%= link_to 'Eliminar', controller: 'caminos', action: 'eliminar', id_camino: @camino.id, cod_ruta: @camino.ruta_id %>
+            <%= link_to 'Eliminar', controller: 'documentos', action: 'eliminar', id_documento: ld.id, id_camino: @camino.id %>
           </td>
         </tr>
         <% end %>

@@ -79,6 +79,11 @@ class DocumentosController < ApplicationController
     redirect_to action: 'nuevo', id_camino: params[:camino_id]  
   end
 
+  def eliminar
+    Documento.destroy(params[:id_documento])
+    redirect_to controller: 'documentos', action: 'nuevo', id_camino: params[:id_camino] 
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_documento

@@ -59,6 +59,7 @@ Rails.application.routes.draw do
 
   get "/documento/nuevo/:id_camino", to: "documentos#nuevo", as: "documento_nuevo"
   post "/documento/guarda_nuevo", to: "documentos#guarda_nuevo", as: "documento_guarda_nuevo"
+  get "/documento/eliminar/:id_documento/:id_camino", to: "documentos#eliminar", as: "documento_eliminar"
 
   get "/alternativo/nuevo/:id_camino", to: "alternativos#nuevo", as: "alternativos_nuevo"
   post "/alternativo/guarda_nuevo", to: "alternativos#guarda_nuevo", as: "alternativos_guarda_nuevo"
