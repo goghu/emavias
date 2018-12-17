@@ -85,11 +85,15 @@ class DerivacionesController < ApplicationController
     m_derivacion.fecha = Date.current
     m_derivacion.save
 
-    if params[:docderivacione].present? 
+    if params[:docderivaciones].present? 
       params[:docderivaciones].each_pair do |indice, i|
         documento_derivacion = Docderivacione.new
         documento_derivacion.derivacione_id = i[:derivacione_id]
         documento_derivacion.camino_id = i[:camino_id]
+        documento_derivacion.user_id = i[:user_id]
+        documento_derivacion.unidade_id = i[:unidade_id]
+        documento_derivacion.cargo_id = i[:cargo_id]
+        documento_derivacion.compra_id = i[:compra_id]
         documento_derivacion.descripcion = i[:descripcion]
         documento_derivacion.docvalor = i[:docvalor]
         documento_derivacion.presento = i[:presento]
@@ -142,7 +146,11 @@ class DerivacionesController < ApplicationController
         else
           @siguiente_funcionario = User.where(cargo_id: @camino.cargo_id, deleted: nil).take
         end
-        @docderivaciones = Docderivacione.where(derivacione_id: @derivacion.id)
+
+        # los documentos y llenados
+        @docderivaciones = Docderivacione.where(compra_id: @derivacion.compra_id)
+
+        # enviamos los documentos para el formulario
         @documentos = Documento.where(camino_id: @derivacion.camino_id)
 
       else

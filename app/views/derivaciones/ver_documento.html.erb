@@ -320,7 +320,7 @@ input.largerCheckbox
             <% end %>
           </table>
 
-        <% else %>
+        <% end %>
 
         <div class="table-responsive">
           <% if @documentos.present? %>
@@ -330,6 +330,10 @@ input.largerCheckbox
             <input type="hidden" name="docderivaciones[<%= index %>]descripcion" value="<%= d.descripcion %>">
             <input type="hidden" name="docderivaciones[<%= index %>]camino_id" value="<%= d.camino_id %>">
             <input type="hidden" name="docderivaciones[<%= index %>]derivacione_id" value="<%= @derivacion.id %>">
+            <input type="hidden" name="docderivaciones[<%= index %>]user_id" value="<%= current_user.id %>">
+            <input type="hidden" name="docderivaciones[<%= index %>]unidade_id" value="<%= current_user.unidade_id %>">
+            <input type="hidden" name="docderivaciones[<%= index %>]cargo_id" value="<%= current_user.cargo_id %>">
+            <input type="hidden" name="docderivaciones[<%= index %>]compra_id" value="<%= @derivacion.compra.id %>">
             <% if d.tipo == 'ca' %>
             <input type="text" name="docderivaciones[<%= index %>]docvalor" class="form-control">
             <% else %>
@@ -347,7 +351,6 @@ input.largerCheckbox
           <% end %>
         </div>
 
-        <% end %>
       </div>
     </div>
   </div>
