@@ -256,46 +256,84 @@
 
           </div>
 
-          <div class="row">
+          
+          <% if @rpa.present? %>
+            <div class="row">
 
-            <div class="col-md-6">
-              <div class="form-group">
-                <label class="control-label">Proceso</label>
-                <div class="controls">
-                  <%= hidden_field_tag(:cargoo_id, current_user.cargo_id ) %>
-                  <%= hidden_field_tag(:compra_id, @documento.compra.id ) %>
-                  <%= hidden_field_tag(:usero_id, current_user.id ) %>
-                  <%= hidden_field_tag(:unidadeo_id, current_user.unidade_id ) %>
-                  <%= select("ruta", "ruta_id", Ruta.where(subruta: nil).collect {|u| [ u.nombre, u.id ] }, {include_blank: 'Seleccione Ruta'}, {class: 'form-control', required: true}) %>
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label class="control-label">Proceso</label>
+                  <div class="controls">
+                      <%= hidden_field_tag(:compra_id, @documento.compra.id ) %>
+                      <%= hidden_field_tag(:usero_id, current_user.id ) %>
+                      <%= hidden_field_tag(:unidadeo_id, current_user.unidade_id ) %>
+                      <%= select("ruta", "ruta_id", Ruta.where(subruta: nil).collect {|u| [ u.nombre, u.id ] }, {include_blank: 'Seleccione Ruta'}, {class: 'form-control', required: true}) %>
+                  </div>
                 </div>
               </div>
-            </div>
+              
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label class="control-label">Derivar a</label>
+                  <div class="controls" id="carga_persona">
+                    <%= select("ruta", "ruta_id", Ruta.all.collect {|u| [ u.nombre, u.id ] }, {include_blank: 'Seleccione Ruta'}, {class: 'form-control'}) %>
+                  </div>
+                </div>
+              </div>
+
+            </div>  
+
+          <% else %>
+
+            <div class="row">
+
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label class="control-label">Observaciones</label>
+                  <div class="controls">
+                    <%# @derivacion.compra.obs %>
+
+                    <%= text_field_tag(:observaciones, nil, class: 'form-control') %>
+                    <%= hidden_field_tag(:cargoo_id, current_user.cargo_id ) %>
+                    <%= hidden_field_tag(:compra_id, @derivacion.compra.id ) %>
+                    <%= hidden_field_tag(:usero_id, current_user.id ) %>
+                    <%= hidden_field_tag(:unidadeo_id, current_user.unidade_id ) %>
             
-            <div class="col-md-6">
-              <div class="form-group">
-                <label class="control-label">Derivar a</label>
-                <div class="controls" id="carga_persona">
-                  <%# select("ruta", "ruta_id", Ruta.all.collect {|u| [ u.nombre, u.id ] }, {include_blank: 'Seleccione Ruta'}, {class: 'form-control'}) %>
+                  </div>
                 </div>
               </div>
-            </div>
-
-          </div>
-
-          <div class="row">
-
-            <div class="col-md-6">
-              <div class="form-group">
-                <label class="control-label">Observaciones</label>
-                <div class="controls">
-                  <%= text_field_tag(:observaciones, nil, class: 'form-control', placeholder:'Revisar informe') %>
+              
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label class="control-label">Derivar a</label>
+                  <div class="controls">
+                  
+                  <% if @caminos.present? %>
+                    <%= select("alternativo", "alternativo_id", Alternativo.where(camino_id: @caminos.camino_id).collect {|u| [ u.alternativo.nombre, u.id ] }, {include_blank: 'Seleccione Ruta'}, {class: 'form-control', required: true}) %>
+                    <div id="carga_persona"></div>
+                  <% else %>
+                    <%= hidden_field_tag(:camino_id, @camino.id ) %>
+                    <%= hidden_field_tag(:correlativo, @camino.correlativo ) %>
+                    <%= hidden_field_tag(:ruta_id, @camino.ruta_id ) %>
+                    <%= hidden_field_tag(:userd_id, @siguiente_funcionario.id ) %>
+                    <%= hidden_field_tag(:unidadd_id, @siguiente_funcionario.unidade_id ) %>
+                    <%= hidden_field_tag(:cargod_id, @siguiente_funcionario.cargo_id ) %>
+                    <b>UNIDAD</b>
+                    <%= @siguiente_funcionario.unidade.descripcion %><br />
+                    <b>CARGO</b>
+                    <%= @siguiente_funcionario.cargo.descripcion %>
+                    <b>NOMBRE</b>
+                    <%= @siguiente_funcionario.nombre %>  
+                  <% end %>
+                  </div>
                 </div>
-              </div>
-            </div>
-            
-          </div>
+              </div>              
 
+            </div>
+
+          <% end %>
         </div>
+        
         <div class="row">
           <div class="col-md-6">
             <button type="submit" class="btn btn-block btn-success"><i class="fa fa-check"></i> Aceptar y Derivar</button>

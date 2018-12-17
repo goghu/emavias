@@ -63,9 +63,9 @@
             </tr>
           </thead>
           <tbody>
-            <% @derivaciones.each do |d| %>
+            <% @derivaciones.each_with_index do |d, i| %>
             <tr>
-              <td><%= d.id %></td>
+              <td><%= i+1 %></td>
               <td><%= d.user_o.nombre %></td>
               <td><%= d.unidad_o.descripcion %></td>
               <td><%= d.user_d.nombre %></td>

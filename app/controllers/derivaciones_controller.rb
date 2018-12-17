@@ -107,23 +107,6 @@ class DerivacionesController < ApplicationController
   def ver_documento
     # byebug
     
-      # if @derivacion.ruta_id.present?
-      #   siguiente = @derivacion.correlativo.to_i + 1
-      #   @camino = Camino.where(ruta_id: @derivacion.ruta_id, correlativo: siguiente).take
-      #   if @camino.present?
-      #     caminos_alternativos = Alternativo.where(camino_id: @derivacion.camino_id).take
-      #     if caminos_alternativos.present?
-      #       @alternativos = caminos_alternativos
-      #     else
-      #       siguiente_cargo = User.where(cargo_id: @camino.cargo_id, deleted: nil).take
-      #       @siguiente_funcionario = siguiente_cargo
-      #       @docderivaciones = Docderivacione.where(derivacione_id: @derivacion.id)
-      #       @documentos = Documento.where(camino_id: @derivacion.camino_id)
-      #     end
-      #   end
-      # else
-      #   @rpa = User.where(unidade_id: 5, cargo_id: 41, deleted: nil).take
-      # end
     @derivacion = Derivacione.find(params[:id_derivacion])
     # si tiene subcaminos mandamos para que sea combo
     sub_caminos = Alternativo.where(ruta_id: @derivacion.ruta_id, camino_id: @derivacion.camino_id).take
@@ -135,7 +118,7 @@ class DerivacionesController < ApplicationController
       @camino = Camino.where(ruta_id: @derivacion.ruta_id, correlativo: siguiente).take
 
       # si no es archivo central
-      if @camino.cargo_id != 46
+      # if @camino.cargo_id != 46
       # si el cargo es comision de recepcion y calificacion
         if @camino.cargo_id == (47 || 48)
           
@@ -153,10 +136,10 @@ class DerivacionesController < ApplicationController
         # enviamos los documentos para el formulario
         @documentos = Documento.where(camino_id: @derivacion.camino_id)
 
-      else
-        # se acaba el proceso
-        @camino = nil
-      end
+      # else
+      #   # se acaba el proceso
+      #   @camino = nil
+      # end
 
     end
     # fin si tiene subcaminos mandamos para que sea combo
@@ -172,8 +155,53 @@ class DerivacionesController < ApplicationController
 
   def ver_documento_rpa
     # byebug
+    # buscamos la derivacion
     @documento = Derivacione.find(params[:id_derivacion])
+    @cantidad_rpa = Derivacione.where(compra_id: @documento.compra_id, cargod_id: 41).count
 
+    # cambio para que nose repita las rutas
+    @derivacion = Derivacione.find(params[:id_derivacion])
+    # si tiene subcaminos mandamos para que sea combo
+    sub_caminos = Alternativo.where(ruta_id: @derivacion.ruta_id, camino_id: @derivacion.camino_id).take
+    if sub_caminos.present?
+      @caminos = sub_caminos
+    else
+      # buscamos el siguiente camino
+      siguiente = @derivacion.correlativo.to_i + 1
+      @camino = Camino.where(ruta_id: @derivacion.ruta_id, correlativo: siguiente).take
+
+      # si no es archivo central
+      # if @camino.cargo_id != 46
+      # si el cargo es comision de recepcion y calificacion
+        if @camino.cargo_id == (47 || 48)
+          
+          primer_funcionario = Derivacione.where(compra_id: @derivacion.compra_id).first
+          funcionario = User.find(primer_funcionario.usero_id)
+          @siguiente_funcionario = funcionario
+          # byebug
+        else
+          @siguiente_funcionario = User.where(cargo_id: @camino.cargo_id, deleted: nil).take
+        end
+
+        # los documentos y llenados
+        @docderivaciones = Docderivacione.where(compra_id: @derivacion.compra_id)
+
+        # enviamos los documentos para el formulario
+        @documentos = Documento.where(camino_id: @derivacion.camino_id)
+
+      # else
+        # se acaba el proceso
+      #   @camino = nil
+      # end
+
+    end
+
+
+    # if @cantidad_rpa.present?
+    #   @documento = nil
+    # else
+    #   @documento = Derivacione.find(params[:id_derivacion])
+    # end
     # byebug
   end
 
