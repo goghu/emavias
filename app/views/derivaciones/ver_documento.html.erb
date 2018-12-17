@@ -335,9 +335,9 @@ input.largerCheckbox
             <input type="hidden" name="docderivaciones[<%= index %>]cargo_id" value="<%= current_user.cargo_id %>">
             <input type="hidden" name="docderivaciones[<%= index %>]compra_id" value="<%= @derivacion.compra.id %>">
             <% if d.tipo == 'ca' %>
-            <input type="text" name="docderivaciones[<%= index %>]docvalor" class="form-control">
+              <input type="text" name="docderivaciones[<%= index %>]docvalor" class="form-control">
             <% else %>
-            <br />
+              <br />
             <% end %>
             <div class="form-check form-check-inline">
               <input name="docderivaciones[<%= index %>]presento" class="form-check-input largerCheckbox" type="checkbox">
