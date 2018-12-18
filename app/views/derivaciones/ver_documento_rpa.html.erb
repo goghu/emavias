@@ -256,62 +256,29 @@
 
           </div>
 
-          
-          <% if @cantidad_rpa > 1 %>
-
-            <div class="row">
-
-              <div class="col-md-6">
-                <div class="form-group">
-                  <label class="control-label">Proceso</label>
-                  <div class="controls">
-                      <%= hidden_field_tag(:compra_id, @documento.compra.id ) %>
-                      <%= hidden_field_tag(:usero_id, current_user.id ) %>
-                      <%= hidden_field_tag(:unidadeo_id, current_user.unidade_id ) %>
-                      <%= select("ruta", "ruta_id", Ruta.where(subruta: nil).collect {|u| [ u.nombre, u.id ] }, {include_blank: 'Seleccione Ruta'}, {class: 'form-control', required: true}) %>
-                  </div>
-                </div>
-              </div>
-              
-              <div class="col-md-6">
-                <div class="form-group">
-                  <label class="control-label">Derivar a</label>
-                  <div class="controls" id="carga_persona">
-                    <%= select("ruta", "ruta_id", Ruta.all.collect {|u| [ u.nombre, u.id ] }, {include_blank: 'Seleccione Ruta'}, {class: 'form-control'}) %>
-                  </div>
-                </div>
-              </div>
-
-            </div>  
-
-          <% else %>
-
           <div class="row">
 
             <div class="col-md-6">
               <div class="form-group">
                 <label class="control-label">Proceso</label>
                 <div class="controls">
-                  <%= hidden_field_tag(:compra_id, @documento.compra.id ) %>
-                  <%= hidden_field_tag(:usero_id, current_user.id ) %>
-                  <%= hidden_field_tag(:unidadeo_id, current_user.unidade_id ) %>
-                  <%= select("ruta", "ruta_id", Ruta.where(subruta: nil).collect {|u| [ u.nombre, u.id ] }, {include_blank: 'Seleccione Ruta'}, {class: 'form-control', required: true}) %>
+                    <%= hidden_field_tag(:compra_id, @documento.compra.id ) %>
+                    <%= hidden_field_tag(:usero_id, current_user.id ) %>
+                    <%= hidden_field_tag(:unidadeo_id, current_user.unidade_id ) %>
+                    <%= select("ruta", "ruta_id", Ruta.where(subruta: nil).collect {|u| [ u.nombre, u.id ] }, {include_blank: 'Seleccione Ruta'}, {class: 'form-control', required: true}) %>
                 </div>
               </div>
             </div>
-
             <div class="col-md-6">
               <div class="form-group">
                 <label class="control-label">Derivar a</label>
                 <div class="controls" id="carga_persona">
-                  
                 </div>
               </div>
             </div>
 
           </div>  
 
-          <% end %>
         </div>
 
         <div class="row">
