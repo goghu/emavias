@@ -192,7 +192,7 @@ class ComprasController < ApplicationController
   def bandeja_entrada
     @documentos = Derivacione.where("userd_id = ? AND estado = ?", current_user.id, 'Recibido').last(350)
     @documento = Derivacione.where("userd_id = ? AND estado = ?", current_user.id, 'Recibido').take
-    @cantidad_rpa = Derivacione.where(compra_id: @documento.compra_id, cargod_id: 41).count
+    # @cantidad_rpa = Derivacione.where(compra_id: @documento.compra_id, cargod_id: 41).count
     # if @cantidad_rpa >= 2
     #   @verificador = 's'
     # else
