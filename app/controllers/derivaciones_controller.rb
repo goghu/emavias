@@ -120,21 +120,20 @@ class DerivacionesController < ApplicationController
       # si no es archivo central
       # if @camino.cargo_id != 46
       # si el cargo es comision de recepcion y calificacion
-        if @camino.cargo_id == (47 || 48)
-          
-          primer_funcionario = Derivacione.where(compra_id: @derivacion.compra_id).first
-          funcionario = User.find(primer_funcionario.usero_id)
-          @siguiente_funcionario = funcionario
-          # byebug
-        else
-          @siguiente_funcionario = User.where(cargo_id: @camino.cargo_id, deleted: nil).take
-        end
+      if @camino.cargo_id == (47 || 48)
+        primer_funcionario = Derivacione.where(compra_id: @derivacion.compra_id).first
+        funcionario = User.find(primer_funcionario.usero_id)
+        @siguiente_funcionario = funcionario
+        # byebug
+      else
+        @siguiente_funcionario = User.where(cargo_id: @camino.cargo_id, deleted: nil).take
+      end
 
-        # los documentos y llenados
-        @docderivaciones = Docderivacione.where(compra_id: @derivacion.compra_id)
+      # los documentos y llenados
+      @docderivaciones = Docderivacione.where(compra_id: @derivacion.compra_id)
 
-        # enviamos los documentos para el formulario
-        @documentos = Documento.where(camino_id: @derivacion.camino_id)
+      # enviamos los documentos para el formulario
+      @documentos = Documento.where(camino_id: @derivacion.camino_id)
 
       # else
       #   # se acaba el proceso
