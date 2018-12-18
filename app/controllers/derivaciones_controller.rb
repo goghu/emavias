@@ -105,8 +105,7 @@ class DerivacionesController < ApplicationController
   end
 
   def ver_documento
-    # byebug
-    
+
     @derivacion = Derivacione.find(params[:id_derivacion])
     # si tiene subcaminos mandamos para que sea combo
     sub_caminos = Alternativo.where(ruta_id: @derivacion.ruta_id, camino_id: @derivacion.camino_id).take
@@ -130,6 +129,7 @@ class DerivacionesController < ApplicationController
           # byebug
         else
           @siguiente_funcionario = User.where(cargo_id: @camino.cargo_id, deleted: nil).take
+          puts "crt"
         end
       else
         @camino = nil     

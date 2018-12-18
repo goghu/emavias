@@ -271,27 +271,29 @@ input.largerCheckbox
               <div class="form-group">
                 <label class="control-label">Derivar a</label>
                 <div class="controls">
-                <% if @s_caminos.present? %>
+
                   <% if @s_caminos.present? %>
                     <%= select("alternativo", "alternativo_id", Alternativo.where(camino_id: @s_caminos.camino_id).collect {|u| [ u.alternativo.nombre, u.id ] }, {include_blank: 'Seleccione Ruta'}, {class: 'form-control', required: true}) %>
                     <div id="carga_persona"></div>
                   <% else %>
-                    <%= hidden_field_tag(:camino_id, @camino.id ) %>
-                    <%= hidden_field_tag(:correlativo, @camino.correlativo ) %>
-                    <%= hidden_field_tag(:ruta_id, @camino.ruta_id ) %>
-                    <%= hidden_field_tag(:userd_id, @siguiente_funcionario.id ) %>
-                    <%= hidden_field_tag(:unidadd_id, @siguiente_funcionario.unidade_id ) %>
-                    <%= hidden_field_tag(:cargod_id, @siguiente_funcionario.cargo_id ) %>
-                    <b>UNIDAD</b>
-                    <%= @siguiente_funcionario.unidade.descripcion %><br />
-                    <b>CARGO</b>
-                    <%= @siguiente_funcionario.cargo.descripcion %>
-                    <b>NOMBRE</b>
-                    <%= @siguiente_funcionario.nombre %>  
+
+                    <% if @camino.present? %>
+                      <%= hidden_field_tag(:camino_id, @camino.id ) %>
+                      <%= hidden_field_tag(:correlativo, @camino.correlativo ) %>
+                      <%= hidden_field_tag(:ruta_id, @camino.ruta_id ) %>
+                      <%= hidden_field_tag(:userd_id, @siguiente_funcionario.id ) %>
+                      <%= hidden_field_tag(:unidadd_id, @siguiente_funcionario.unidade_id ) %>
+                      <%= hidden_field_tag(:cargod_id, @siguiente_funcionario.cargo_id ) %>
+                      <b>UNIDAD</b>
+                      <%= @siguiente_funcionario.unidade.descripcion %><br />
+                      <b>CARGO</b>
+                      <%= @siguiente_funcionario.cargo.descripcion %>
+                      <b>NOMBRE</b>
+                      <%= @siguiente_funcionario.nombre %>  
+                    <% else %>
+                      No tiene configuraciones  
+                    <% end %>
                   <% end %>
-                <% else %>
-                  <span style="color: #ff0000"> No tiene configuraciones</span>
-                <% end %>
 
                 </div>
               </div>
