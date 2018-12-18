@@ -110,13 +110,15 @@ class DerivacionesController < ApplicationController
     @derivacion = Derivacione.find(params[:id_derivacion])
     # si tiene subcaminos mandamos para que sea combo
     sub_caminos = Alternativo.where(ruta_id: @derivacion.ruta_id, camino_id: @derivacion.camino_id).take
+    # byebug
     if sub_caminos.present?
-      @caminos = sub_caminos
+      @s_caminos = sub_caminos
     else
-      # buscamos el siguiente camino
+      # adicionamos uno al correlavito
       siguiente = @derivacion.correlativo.to_i + 1
+      # buscamos el siguiente camino
       @camino = Camino.where(ruta_id: @derivacion.ruta_id, correlativo: siguiente).take
-
+      # byebug
       # si no es archivo central
       # if @camino.cargo_id != 46
       if @camino.present?
@@ -132,18 +134,10 @@ class DerivacionesController < ApplicationController
       else
         @camino = nil     
       end
-
       # los documentos y llenados
       @docderivaciones = Docderivacione.where(compra_id: @derivacion.compra_id)
-
       # enviamos los documentos para el formulario
       @documentos = Documento.where(camino_id: @derivacion.camino_id)
-
-      # else
-      #   # se acaba el proceso
-      #   @camino = nil
-      # end
-
     end
     # fin si tiene subcaminos mandamos para que sea combo
     
