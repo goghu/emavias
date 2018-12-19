@@ -42,13 +42,19 @@
             <ul id="sidebarnav">
                 <li>
                     <%= link_to  controller: "compras", action: "mis_tramites" do %>
-                    <i class="mdi mdi-account-card-details"></i> <span class="hide-menu">Mis tramites</span>
+                    <i class="mdi mdi-file-document"></i> <span class="hide-menu">Mis tramites</span>
                     <% end %>
                 </li>
 
                 <li>
                     <%= link_to  controller: "compras", action: "bandeja_entrada" do %>
-                    <i class="mdi mdi-account-card-details"></i> <span class="hide-menu">Bandeja Entrada</span>
+                    <i class="mdi mdi-inbox-arrow-down"></i> <span class="hide-menu">Bandeja Entrada</span>
+                    <% end %>
+                </li>
+
+                <li>
+                    <%= link_to  controller: "compras", action: "mis_tramites" do %>
+                    <i class="mdi mdi-file-multiple"></i> <span class="hide-menu">Tramites</span>
                     <% end %>
                 </li>
 

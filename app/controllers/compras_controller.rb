@@ -202,6 +202,10 @@ class ComprasController < ApplicationController
     # @documentos = Derivacione.where("userd_id = ?", current_user.id).last(350)
   end
 
+  def todos_tramites
+    @todas_compras = Compra.all.last(350)
+  end
+
   private
 
   # Use callbacks to share common setup or constraints between actions.
