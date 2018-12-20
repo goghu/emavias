@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'reportes/tramites'
+
+  get 'reportes/fechas'
+
   resources :alternativos
   resources :docderivaciones
   resources :derivaciones
@@ -65,6 +69,8 @@ Rails.application.routes.draw do
   post "/alternativo/guarda_nuevo", to: "alternativos#guarda_nuevo", as: "alternativos_guarda_nuevo"
   get "/alternativo/eliminar/:id_alternativo/:id_camino", to: "alternativos#eliminar", as: "alternativos_eliminar"
   # get "/alternativo/muestra_alternativos/:id_camino", to: "alternativos#nuevo", as: "alternativos_nuevo"
+
+  get "/reportes/tramites", to: "reportes#tramites", as: "reporte_tramites"
 
   # devise_for :users, path: 'auth', path_names: {  sign_out: 'logout', sign_up: 'cmon_let_me_in' }
 

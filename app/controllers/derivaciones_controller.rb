@@ -122,14 +122,15 @@ class DerivacionesController < ApplicationController
       # if @camino.cargo_id != 46
       if @camino.present?
         # si el cargo es comision de recepcion y calificacion
-        if @camino.cargo_id == (47 || 48)
+        if @camino.cargo_id == 47 || @camino.cargo_id == 48
+          # byebug
           primer_funcionario = Derivacione.where(compra_id: @derivacion.compra_id).first
           funcionario = User.find(primer_funcionario.usero_id)
           @siguiente_funcionario = funcionario
-          # byebug
-        else
-          @siguiente_funcionario = User.where(cargo_id: @camino.cargo_id, deleted: nil).take
           puts "crt"
+        else
+          # byebug
+          @siguiente_funcionario = User.where(cargo_id: @camino.cargo_id, deleted: nil).take
         end
       else
         @camino = nil     
