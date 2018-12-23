@@ -71,6 +71,7 @@ Rails.application.routes.draw do
   # get "/alternativo/muestra_alternativos/:id_camino", to: "alternativos#nuevo", as: "alternativos_nuevo"
 
   get "/reportes/tramites", to: "reportes#tramites", as: "reporte_tramites"
+  post "/reportes/por_numero", to: "reportes#por_numero", as: "reporte_por_numero"
 
   # devise_for :users, path: 'auth', path_names: {  sign_out: 'logout', sign_up: 'cmon_let_me_in' }
 
