@@ -74,19 +74,24 @@
     <div class="card">
       <div class="card-body">
         <div class="clase-impresion" style="width: 800px;">
-          <table class="tabla-impresion-cabecera" border="0">
-            <tr>
-              <td style="width: 150px;">
-                <img src="<%= asset_path '/assets/images/logo_emavias.jpg' %>" />
-              </td>
-              <td style="width: 600px; text-align: center;">
-                <h5 style="font-weight: bold; font-size: 18pt;">FORMULARIO: #<%= @compra.numero %></h5>
-                <h5><b>CREADO POR: </b><%= @compra.user.nombre %></h5>
-                <h5><b>UNIDAD: </b><%= @compra.user.unidade.descripcion %></h5>
-                <h5><b>FECHA: </b><%= @compra.fecha %></h5>
-              </td>
-            </tr>
-          </table>
+          <% if @compra.present? %>
+            <table class="tabla-impresion-cabecera" border="0">
+              <tr>
+                <td style="width: 150px;">
+                  <img src="<%= asset_path '/assets/images/logo_emavias.jpg' %>" />
+                </td>
+                <td style="width: 600px; text-align: center;">
+                  <h5 style="font-weight: bold; font-size: 18pt;">FORMULARIO: #<%= @compra.numero %></h5>
+                  <h5><b>CREADO POR: </b><%= @compra.user.nombre %></h5>
+                  <h5><b>UNIDAD: </b><%= @compra.user.unidade.descripcion %></h5>
+                  <h5><b>FECHA: </b><%= @compra.fecha %></h5>
+                </td>
+              </tr>
+            </table>
+          <% else %>
+            No existe el registro <br />
+          <% end %>
+
           <% if @derivaciones.present? %>
             <table class="tabla-impresion">
               <thead>
