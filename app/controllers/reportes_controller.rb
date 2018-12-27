@@ -28,5 +28,13 @@ class ReportesController < ApplicationController
     @usuario = User.find(params[:reporte][:usuario])
     # byebug
   end
+
+  def por_fecha
+    @fecha_inicio = params[:fechai].to_date
+    @fecha_fin = params[:fechaf].to_date
+    @derivaciones = Derivacione.where(created_at: (@fecha_inicio.beginning_of_day..@fecha_fin.end_of_day)).group(:compra_id)
+    # byebug
+  end
+  
   
 end

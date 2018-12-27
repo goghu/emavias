@@ -63,7 +63,7 @@
   <div class="col-lg-12">
     <div class="card card-outline-info">
       <div class="card-header">
-        <h4 class="m-b-0 text-white">REPORTES POR FORMULARIO / TRAMITE</h4>
+        <h4 class="m-b-0 text-white">REPORTES POR USUARIO</h4>
       </div>
       <div class="row">
         <div class="col-lg-12">
@@ -103,30 +103,30 @@
   <div class="col-lg-12">
     <div class="card card-outline-info">
       <div class="card-header">
-        <h4 class="m-b-0 text-white">REPORTES POR FORMULARIO / TRAMITE</h4>
+        <h4 class="m-b-0 text-white">REPORTES POR FECHA</h4>
       </div>
       <div class="row">
         <div class="col-lg-12">
           <div class="card card-outline-info">
             <div class="card-body">
-              <%= form_tag('/reportes/por_numero') do %>
+              <%= form_tag('/reportes/por_fecha') do %>
               <div class="form-body">
                 <div class="field-group row">
 
                   <div class="col-md-4">
                     <div class="form-group">
-                      <label class="control-label-{?}">Numero</label>
+                      <label class="control-label-{?}">Fecha Inicial</label>
                       <div class="controls">
-                        <%= text_field_tag('numero', nil, class: 'form-control', required: true) %>
+                        <%= date_field_tag('fechai', nil, class: 'form-control', required: true) %>
                       </div>
                     </div>
                   </div>
 
                   <div class="col-md-4">
                     <div class="form-group">
-                      <label class="control-label-{?}">Formulario</label>
+                      <label class="control-label-{?}">Fecha Final</label>
                       <div class="controls">
-                        <%= text_field_tag('docvalor', nil, class: 'form-control', required: true) %>
+                        <%= date_field_tag('fechaf', nil, class: 'form-control', required: true) %>
                       </div>
                     </div>
                   </div>
