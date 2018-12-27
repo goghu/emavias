@@ -50,6 +50,7 @@ Rails.application.routes.draw do
   get "/compra/asignar/:id_compra", to: "compras#asignar", as: "compras_asignar"
   post "/compra/completa_solicitud", to: "compras#completa_solicitud", as: "compras_completa_solicitud"
   get "/compra/bandeja_entrada", to: "compras#bandeja_entrada", as: "compras_bandeja_entrada"
+  get "/compra/carga_excepcion", to: "compras#carga_excepcion", as: "compras_carga_excepcion"
 
   get "/derivacione/ver_documento/:id_derivacion", to: "derivaciones#ver_documento", as: "derivaciones_ver_documento"
   get "/derivacione/ver_documento_rpa/:id_derivacion", to: "derivaciones#ver_documento_rpa", as: "derivaciones_ver_documento_rpa"

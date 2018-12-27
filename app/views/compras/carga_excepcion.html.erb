@@ -1,0 +1,12 @@
+<b>UNIDAD</b>
+<%= @mae.unidade.descripcion %><br />
+<b>CARGO</b>
+<%= @mae.cargo.descripcion %>
+<b>NOMBRE</b>
+<%= @mae.nombre %>
+
+<%= hidden_field_tag(:userd_id, @mae.id ) %>
+<%= hidden_field_tag(:ruta_id, 15 ) %>
+<%= hidden_field_tag(:correlativo, 1 ) %>
+<%= hidden_field_tag(:unidadd_id, @mae.unidade_id ) %>
+<%= hidden_field_tag(:cargod_id, @mae.cargo_id ) %>

@@ -178,6 +178,8 @@ class ComprasController < ApplicationController
     modelo_derivacion.fecha = params[:fecha]
     modelo_derivacion.cargoo_id = params[:cargoo_id]
     modelo_derivacion.cargod_id = params[:cargod_id]
+    modelo_derivacion.ruta_id = params[:ruta_id]
+    modelo_derivacion.correlativo = params[:correlativo]
     modelo_derivacion.estado = 'Recibido'
     modelo_derivacion.save
     redirect_to action: 'mis_tramites'
@@ -204,6 +206,11 @@ class ComprasController < ApplicationController
 
   def todos_tramites
     @todas_compras = Compra.all.last(350)
+  end
+
+  def carga_excepcion
+    @mae = User.where(cargo_id: 1, deleted: nil).take
+    render layout: false
   end
 
   private

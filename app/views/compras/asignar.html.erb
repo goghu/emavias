@@ -211,21 +211,30 @@
 
           <div class="col-md-6">
             <div class="form-group">
-              <label class="control-label">Derivar a</label>
+              <label class="control-label">
+                Derivar a &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <span style="color: #59B7F0;"> Contratación por Excepción &nbsp;&nbsp;
+                  <input type="checkbox" id="chk_compra_mayor">
+                </span>
+              </label>
               <div class="controls">
-                <b>UNIDAD</b>
-                <%= @jefe_unidad.unidade.descripcion %><br />
-                <b>CARGO</b>
-                <%= @jefe_unidad.cargo.descripcion %>
-                <b>NOMBRE</b>
-                <%= @jefe_unidad.nombre %>
-
                 <%= hidden_field_tag(:cargoo_id, current_user.cargo_id ) %>
                 <%= hidden_field_tag(:usero_id, current_user.id ) %>
                 <%= hidden_field_tag(:unidado_id, current_user.unidade_id ) %>
-                <%= hidden_field_tag(:userd_id, @jefe_unidad.id ) %>
-                <%= hidden_field_tag(:unidadd_id, @jefe_unidad.unidade_id ) %>
-                <%= hidden_field_tag(:cargod_id, @jefe_unidad.cargo_id ) %>
+                <div id="carga_excepcion">
+                  <b>UNIDAD</b>
+                  <%= @jefe_unidad.unidade.descripcion %><br />
+                  <b>CARGO</b>
+                  <%= @jefe_unidad.cargo.descripcion %>
+                  <b>NOMBRE</b>
+                  <%= @jefe_unidad.nombre %>
+
+                  <%= hidden_field_tag(:userd_id, @jefe_unidad.id ) %>
+                  <%= hidden_field_tag(:unidadd_id, @jefe_unidad.unidade_id ) %>
+                  <%= hidden_field_tag(:cargod_id, @jefe_unidad.cargo_id ) %>
+                </div>
               </div>
             </div>
           </div>
@@ -292,6 +301,16 @@
     pregunta_eli('/productos/' + el_id, 'Eliminar el producto ' + el_nombre);
   });
 
+  $(document).on('change', '#chk_compra_mayor', function () {
+    if(this.checked) {
+      var returnVal = confirm("Es Contratación por Excepción?");
+      $(this).prop("checked", returnVal);
+      if(returnVal == true){
+        $("#carga_excepcion").load("/compra/carga_excepcion");
+      }
+      // console.log(returnVal);
+    }
+  });
 
   function pregunta_eli(urll, texto) {
     swal({
