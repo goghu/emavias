@@ -135,11 +135,12 @@ class DerivacionesController < ApplicationController
       else
         @camino = nil     
       end
-      # los documentos y llenados
-      @docderivaciones = Docderivacione.where(compra_id: @derivacion.compra_id)
-      # enviamos los documentos para el formulario
-      @documentos = Documento.where(camino_id: @derivacion.camino_id)
     end
+    # los documentos y llenados
+    @docderivaciones = Docderivacione.where(compra_id: @derivacion.compra_id)
+    # enviamos los documentos para el formulario
+    @documentos = Documento.where(camino_id: @derivacion.camino_id)
+
     # fin si tiene subcaminos mandamos para que sea combo
     
     # byebug
