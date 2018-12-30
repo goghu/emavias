@@ -60,22 +60,23 @@
                 <th>Descripcion</th>
                 <th>Unidad</th>
                 <th>Cantidad</th>
-                <th>P. Unitario</th>
-                <th>P. Referencial</th>
+                <th>Precio</th>
+                <th>Subtotal</th>
               </tr>
             </thead>
             <tbody>
               <% precio_total = 0 %>
-
+              <% subtotal = 0 %>
               <% @compra.item.each_with_index do |i, con| %>
               <tr>
                 <td><%= con+1 %></td>
                 <td><%= i.descripcion %></td>
                 <td><%= i.unidad %></td>
                 <td><%= i.cantidad %></td>
-                <% precio_total = precio_total + i.p_unitario %>
-                <td style="text-align: right"><%= i.p_unitario %></td>
-                <td style="text-align: right"><%= i.p_referencial %></td>
+                <td><%= i.p_unitario %></td>
+                <% subtotal = i.p_unitario * i.cantidad %>
+                <% precio_total = precio_total + subtotal %>
+                <td style="text-align: right"><%= subtotal %></td>
               </tr>
 
               <% end %>
@@ -108,7 +109,7 @@
         
           <div class="col-md-4">
             <div class="form-group">
-              <label class="control-label">Formulario</label>
+              <label class="control-label">Hoja de Ruta</label>
               <div class="controls">
                 <%= text_field_tag :docvalor, nil, class: 'form-control', required: 'required', placeholder:'Ej. 25478' %>
               </div>
@@ -117,9 +118,11 @@
         
           <div class="col-md-4">
             <div class="form-group">
-              <label class="control-label">Numero</label>
+              <label class="control-label">Numero de Formulario</label>
               <div class="controls">
-                <%= text_field_tag :numero, nil, value: @compra.numero, class: 'form-control', required: 'required', placeholder:'Ej. 25478' %>
+                <%= @compra.numero %>
+                <%= hidden_field_tag :numero, nil, value: @compra.numero %>
+                <%# text_field_tag :numero, nil, value: @compra.numero, class: 'form-control', required: 'required', placeholder:'Ej. 25478' %>
               </div>
             </div>
           </div>
@@ -128,7 +131,8 @@
             <div class="form-group">
               <label class="control-label">Fecha</label>
               <div class="controls">
-                <%= date_field_tag :fecha, nil, value: DateTime.now.to_date, class: 'form-control' %>
+                <%= DateTime.now.to_date %>
+                <%= hidden_field_tag :fecha, nil, value: DateTime.now.to_date %>
               </div>
             </div>
           </div>
@@ -181,16 +185,27 @@
           <div class="col-md-6">
             <div class="form-group">
               <div class="controls">
-                <label><input type="checkbox" id="cbox1" name="especificaciones">&nbsp;&nbsp; Especificaciones Tecnicas
+                <label>Comunicacion Interna</label>
+                <input type="text" name="cominterna" class="form-control" placeholder="Introduzca numero"  required>
+                <p>&nbsp;</p>
+                  <select name="terminos" class="form-control">
+                    <option value="et">Especificaciones Tecnicas</option>
+                    <option value="tr">Terminos Referencia</option>
+                  </select>
+                  <%# form.select :rol, [["Especificaciones Tecnicas","et"], ["Terminos Referencia", "tr"]] ,{},{class: 'form-control', required: 'required',id: "id-sel-rol"} %>
                   <%# form.text_field :numero, id: :compra_numero,  class: 'form-control', required: 'required',placeholder:'Ej. 25478' %>
               </div>
             </div>
           </div>
-        
+
           <div class="col-md-6">
             <div class="form-group">
               <div class="controls">
+                <label>Referencia</label>
+                <input type="text" name="referencia" class="form-control" placeholder="Introduzca referencia" required>
+                <p>&nbsp;</p>
                 <label><input type="checkbox" id="cbox1" name="cotizacion">&nbsp;&nbsp; Cotizacion</label>
+
                 <%# form.text_field :numero, id: :compra_numero,  class: 'form-control', required: 'required',placeholder:'Ej. 25478' %>
               </div>
             </div>

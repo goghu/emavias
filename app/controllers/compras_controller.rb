@@ -143,8 +143,13 @@ class ComprasController < ApplicationController
   end
 
   def completa_solicitud
-    # params
+    # byebug
     modelo_compra = Compra.find(params[:compra_id])
+    if params[:terminos] == 'et'
+      modelo_compra.especificaciones = 1      
+    else
+      modelo_compra.teref = 1
+    end
     # byebug
     if params[:existencia]
       modelo_compra.existencia = 1
@@ -158,13 +163,16 @@ class ComprasController < ApplicationController
     if params[:presupuestaria]
       modelo_compra.presupuestaria = 1
     end
-    if params[:especificaciones]
-      modelo_compra.especificaciones = 1
-    end
+    # if params[:especificaciones]
+    #   modelo_compra.especificaciones = 1
+    # end
     if params[:cotizacion]
       modelo_compra.cotizacion = 1
     end
 
+    modelo_compra.cominterna = params[:cominterna]
+    modelo_compra.referencia = params[:referencia]
+    modelo_compra.cominterna = params[:cominterna]
     modelo_compra.docvalor = params[:docvalor]
     modelo_compra.fecha = params[:fecha]
     modelo_compra.obs = params[:obs]
