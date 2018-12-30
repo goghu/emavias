@@ -18,36 +18,27 @@
         <%= form.hidden_field :docvalor, id: :compra_docvalor,  class: 'form-control', required: 'required',placeholder:'Ej. 45678' %>
         <%= form.hidden_field :fecha, id: :compra_fecha, class: 'form-control', required: 'required' %>
 
-            <!-- <div class="row">
+            <div class="row">
 
-                <div class="col-md-4">
+                <div class="col-md-6">
                     <div class="form-group">
-                        <label class="control-label">Hoja Ruta</label>
+                        <label class="control-label">Justificacion</label>
                         <div class="controls">
-                            <%# form.hidden_field :numero, id: :compra_numero, class: 'form-control', required: 'required',placeholder:'Ej. 25478' %>
+                            <%= form.text_field :justificacion, id: :justificacion,  class: 'form-control', required: 'required',placeholder:'Ej. descripcion de la justificacion' %>
                         </div>
                     </div>
                 </div>
 
-                <div class="col-md-4">
-                    <div class="form-group">
-                        <label class="control-label">Formulario</label>
-                        <div class="controls">
-                            <%# form.text_field :docvalor, id: :compra_docvalor,  class: 'form-control', required: 'required',placeholder:'Ej. 45678' %>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-4">
+                <!-- <div class="col-md-6">
                   <div class="form-group">
                     <label class="control-label">Fecha</label>
                     <div class="controls">
                       <%# form.date_field :fecha, id: :compra_fecha, class: 'form-control', required: 'required' %>
                     </div>
                   </div>
-                </div>
+                </div> -->
 
-            </div> -->
+            </div>
 
               <!-- inicio plantilla -->
               <script type="text/template" id="todos_labels">

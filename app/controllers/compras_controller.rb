@@ -27,8 +27,9 @@ class ComprasController < ApplicationController
   # POST /compras
   # POST /compras.json
   def create
-    # byebug
+      # byebug
     @compra = Compra.new(compra_params)
+    @compra.justificacion = params[:compra][:justificacion]
     @compra.fecha = Date.current
     @compra.user_id = current_user.id
     if params[:compra][:existencia]
