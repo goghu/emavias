@@ -327,7 +327,7 @@ input.largerCheckbox
             <tr>
               <td>
                 <b><span style="color: blue;"><%= doc.descripcion %>: </span></b>
-                <%= doc.docvalor.nil? ? 'N/R' : doc.docvalor %>
+                <%= doc.docvalor.nil? ? '' : doc.docvalor %>
               </td>
               <td>
                 <span style="color: #ff0000;"><%= doc.presento.nil? ? 'No' : 'Si' %></span>

@@ -16,7 +16,7 @@
   <div class="col-md-6">
     <%= form_tag('/documento/guarda_nuevo') do %>
     <%= hidden_field_tag('camino_id', @camino.id) %>
-    <%= text_field_tag('descripcion', nil, :required => true) %>
+    <%= text_field_tag('descripcion', nil, :required => true, maxlength: '150') %>
     <select name="tipo" required>
       <option value="">Seleccione Tipo</option>
       <option value="ca">Campo Abierto</option>
