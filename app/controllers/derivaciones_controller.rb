@@ -82,7 +82,11 @@ class DerivacionesController < ApplicationController
     m_derivacion.camino_id = params[:camino_id]
     m_derivacion.observaciones = params[:observaciones]
     m_derivacion.pagado = params[:pagado]
-    m_derivacion.estado = "Recibido"
+    if params[:cargod_id] == '51'
+      m_derivacion.estado = "Terminado"
+    else
+      m_derivacion.estado = "Recibido"
+    end
     m_derivacion.fecha = Date.current
     m_derivacion.save
 
