@@ -12,13 +12,15 @@ input.largerCheckbox
 <div class="row page-titles">
   <div class="col-md-6 col-8 align-self-center">
     <h3 class="text-themecolor m-b-0 m-t-0">
-      COMPRA NUMERO #
-      <%= @derivacion.compra.numero %>
-      <!-- <div class="btn btn-md btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-lg">
-        <i class="fa fa-question-circle"></i> &nbsp;Ayuda
-      </div> -->
+      COMPRA NUMERO # <%= @derivacion.compra.numero %>
     </h3>
+    <span style="color: #000000;">Enviado por <b><%= @derivacion.user_o.nombre %></b>: <%= @derivacion.observaciones %></span>
+    <h3><b>REFERENCIA: </b> <%= @derivacion.compra.referencia %></h3>
   </div>
+  <div class="col-md-6 col-8 align-self-center">
+    <h3><b>JUSTIFICACION: </b> <%= @derivacion.compra.justificacion %></h3>
+  </div>
+</div>
 
   <!-- modal -->
   <div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
@@ -105,7 +107,7 @@ input.largerCheckbox
 
           <div class="row">
 
-            <div class="col-md-4">
+            <div class="col-md-3">
               <div class="form-group">
                 <label class="control-label">Hoja Ruta</label>
                 <div class="controls">
@@ -115,7 +117,17 @@ input.largerCheckbox
               </div>
             </div>
 
-            <div class="col-md-4">
+            <div class="col-md-3">
+              <div class="form-group">
+                <label class="control-label">Com / int</label>
+                <div class="controls">
+                  <%# text_field_tag :docvalor, nil, class: 'form-control', required: 'required', placeholder:'Ej. 25478' %>
+                  <%= @derivacion.compra.cominterna %>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-3">
               <div class="form-group">
                 <label class="control-label">Numero</label>
                 <div class="controls">
@@ -125,7 +137,7 @@ input.largerCheckbox
               </div>
             </div>
 
-            <div class="col-md-4">
+            <div class="col-md-3">
               <div class="form-group">
                 <label class="control-label">Fecha</label>
                 <div class="controls">
@@ -215,13 +227,11 @@ input.largerCheckbox
             <div class="col-md-6">
               <div class="form-group">
                 <div class="controls">
-                  Especificaciones Tecnicas <b>(
                   <% if @derivacion.compra.especificaciones.present? %>
-                    SI
+                    Especificaciones Tecnicas
                   <% else %>
-                    NO
+                    Terminos Referencia
                   <% end %>
-                  )</b>
 
 <!--                   <label><input type="checkbox" id="cbox1" name="especificaciones">&nbsp;&nbsp; Especificaciones
                     Tecnicas
@@ -256,8 +266,8 @@ input.largerCheckbox
                 <label class="control-label">Observaciones</label>
                 <div class="controls">
                   <%# @derivacion.compra.obs %>
-
-                  <%= text_field_tag(:observaciones, nil, class: 'form-control') %>
+                  <textarea name="observaciones" class="form-control" maxlength="255" required ></textarea>
+                  <%# text_field_tag(:observaciones, nil, class: 'form-control') %>
                   <%= hidden_field_tag(:cargoo_id, current_user.cargo_id ) %>
                   <%= hidden_field_tag(:compra_id, @derivacion.compra.id ) %>
                   <%= hidden_field_tag(:usero_id, current_user.id ) %>

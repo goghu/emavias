@@ -219,7 +219,7 @@
             <div class="form-group">
               <label class="control-label">Observaciones</label>
               <div class="controls">
-                <%= text_field_tag :obs, nil, class: 'form-control', placeholder:'Ej. Aqui las observaciones' %>
+                <textarea name="obs" class="form-control" maxlength="255" required ></textarea>
               </div>
             </div>
           </div>
@@ -271,13 +271,6 @@
   </div>
 </div>
 
-<script>
-  $(document).ready(function () {
-      //$('#fecha').val(new Date().toDateInputValue());
-      //document.getElementById('fecha').valueAsDate = new Date();
-      //document.getElementById('fecha').value = moment().format('YYYY-MM-DD');
-  });​
-</script>
 <% content_for :add_css do %>
 
 <link href="<%= asset_path '/assets/plugins/sweetalert/sweetalert.css' %>" rel="stylesheet" type="text/css">

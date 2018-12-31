@@ -49,10 +49,11 @@
         <table class="table table-bordered" id="myTable">
           <thead>
             <tr>
-              <th>Persona</th>
-              <th>U/Origen</th>
+              <th>Origen</th>
               <th>Numero</th>
               <th>Formulario</th>
+              <th>Com/Int</th>
+              <th>Referencia</th>
               <th>Fecha</th>
               <th></th>
             </tr>
@@ -61,10 +62,11 @@
             <% usuario_actual = current_user %>
             <% @documentos.each do |d| %>
             <tr>
-              <td><%= d.user_o.nombre %></td>
-              <td><%= d.unidad_o.descripcion %></td>
+              <td><%= d.user_o.nombre %> <b>(<%= d.unidad_o.descripcion %>)</b></td>
               <td><%= d.compra.numero %></td>
               <td><%= d.compra.docvalor %></td>
+              <td><%= d.compra.cominterna %></td>
+              <td><%= d.compra.referencia %></td>
               <td><%= d.fecha %></td>
               <td>
                 <button class="btn btn-secondary imprimir_m" data-id="<%= d.compra_id %>" title="Imprimir"><i class="fa fa-print"></i></button>
@@ -112,7 +114,7 @@
     "oLanguage": {
       "sUrl": "https://cdn.datatables.net/plug-ins/1.10.16/i18n/Spanish.json"
     },
-    "order": [[2, "desc"]]
+    "order": [[1, "desc"]]
   });
 
   $(document).on('click', '.ver_m', function () {

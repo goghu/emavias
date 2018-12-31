@@ -11,7 +11,7 @@
   <div class="col-lg-12">
     <div class="card card-outline-info">
       <div class="card-body">
-        <%= form_with(model: compra, local: true, html: {id: "form-compras",novalidate: true}) do |form| %>
+        <%= form_with(model: compra, local: true, html: {id: "form-compras"}) do |form| %>
 
         <div class="form-body">
         <%= form.hidden_field :numero, id: :compra_numero, class: 'form-control', required: 'required',placeholder:'Ej. 25478' %>
@@ -20,11 +20,12 @@
 
             <div class="row">
 
-                <div class="col-md-6">
+                <div class="col-md-12">
                     <div class="form-group">
                         <label class="control-label">Justificacion</label>
                         <div class="controls">
-                            <%= form.text_field :justificacion, id: :justificacion,  class: 'form-control', required: 'required',placeholder:'Ej. descripcion de la justificacion' %>
+                            <textarea name="justificacion" class="form-control" maxlength="500"></textarea>
+                            <%# form.text_field :justificacion, id: :justificacion,  class: 'form-control', required: 'required',placeholder:'Ej. descripcion de la justificacion' %>
                         </div>
                     </div>
                 </div>
@@ -57,8 +58,8 @@
                         <div class="form-group">
                             <label class="control-label-{?}">Descripcion</label>
                             <div class="controls">
-                                <%= form.text_field :descripcion, name: 'item[{?}][descripcion]', id: :compra_numero, class: 'form-control', required: 'required',placeholder:'Ej. compra de un proyector' %>
-
+                                <%# form.text_field :descripcion, name: 'item[{?}][descripcion]', id: :compra_numero, class: 'form-control', required: 'required' ,placeholder:'Ej. compra de un proyector' %>
+                                <input name="item[{?}][descripcion]" id="compra_numero" class="form-control" placeholder="Ej. compra de un proyector" type="text" required />
                                 <!-- <input type="text" class="span6 form-control" name="item[{?}][descripcion]" id="task_{?}"> -->
                             </div>
                         </div>
@@ -70,7 +71,7 @@
                             <div class="controls">
                             <%# form.text_field :numero, id: :compra_numero, class: 'form-control',
                             required: 'required',placeholder:'Ej. 25478' %>
-                            <input type="text" class="span2 form-control" name="item[{?}][unidad]" >
+                            <input type="text" class="span2 form-control" name="item[{?}][unidad]" required />
                         </div>
                     </div>
                 </div>
@@ -81,7 +82,7 @@
                         <div class="controls">
                             <%# form.text_field :numero, id: :compra_numero, class: 'form-control',
                             required: 'required',placeholder:'Ej. 25478' %>
-                            <input type="text" class="span2 form-control" name="item[{?}][cantidad]" >
+                            <input type="text" class="span2 form-control" name="item[{?}][cantidad]" required />
                         </div>
                     </div>
                 </div>
@@ -92,7 +93,7 @@
                         <div class="controls">
                             <%# form.text_field :numero, id: :compra_numero, class: 'form-control',
                             required: 'required',placeholder:'Ej. 25478' %>
-                            <input type="text" class="span2 form-control" name="item[{?}][p_unitario]" >
+                            <input type="text" class="span2 form-control" name="item[{?}][p_unitario]" required />
                         </div>
                     </div>
                 </div>

@@ -29,7 +29,7 @@ class ComprasController < ApplicationController
   def create
       # byebug
     @compra = Compra.new(compra_params)
-    @compra.justificacion = params[:compra][:justificacion]
+    @compra.justificacion = params[:justificacion]
     @compra.fecha = Date.current
     @compra.user_id = current_user.id
     if params[:compra][:existencia]
@@ -190,6 +190,7 @@ class ComprasController < ApplicationController
     modelo_derivacion.ruta_id = params[:ruta_id]
     modelo_derivacion.correlativo = params[:correlativo]
     modelo_derivacion.estado = 'Recibido'
+    modelo_derivacion.observaciones = params[:obs]
     modelo_derivacion.save
     redirect_to action: 'mis_tramites'
   end

@@ -81,6 +81,7 @@
               </td>
               <td style="width: 600px; text-align: center;">
                 <h5 style="font-weight: bold;">SOLICITUD DE COMPRA O DE CONTRATACION</h5>
+                <h6 style="font-weight: bold;">Referencia: <%= @solicitud.referencia %></h6>
               </td>
               <td style="width: 160px; text-align: right;">
                 <h5>FORMULARIO # <%= @solicitud.numero %></h5>
@@ -107,7 +108,7 @@
                 <td><%= con+1 %></td>
                 <td><%= i.descripcion %></td>
                 <td><%= i.unidad %></td>
-                <td><%= i.cantidad %></td>
+                <td class="montos"><%= i.cantidad %></td>
                 <td class="montos"><%= i.p_unitario %></td>
                 <td class="montos"><%= subtotal = i.p_unitario * i.cantidad %></td>
                 <% precio_total = precio_total + subtotal %>
@@ -123,8 +124,8 @@
               </tr>
             </tbody>
           </table>
-          <span style="font-size: 10pt;">
-            <%= @solicitud.justificacion %>
+          <span style="font-size: 11pt; color: #000000;">
+            <b>Justificacion: </b><%= @solicitud.justificacion %>
           </span>
           <table class="tabla-impresion-cabecera">
             <tr>

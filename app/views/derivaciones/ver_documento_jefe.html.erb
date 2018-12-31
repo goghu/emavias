@@ -15,13 +15,13 @@
 <div class="row page-titles">
   <div class="col-md-6 col-8 align-self-center">
     <h3 class="text-themecolor m-b-0 m-t-0">
-      <%# byebug %>
-      COMPRA NUMERO #
-      <%= @documento.compra.numero %>
-      <!-- <div class="btn btn-md btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-lg">
-        <i class="fa fa-question-circle"></i> &nbsp;Ayuda
-      </div> -->
+      COMPRA NUMERO # <%= @documento.compra.numero %>
     </h3>
+      <span style="color: #000000;">Enviado por <b><%= @documento.user_o.nombre %></b>: <%= @documento.observaciones  %></span>
+    <h3><b>REFERENCIA: </b> <%= @documento.compra.referencia %></h3>
+  </div>
+  <div class="col-md-6 col-8 align-self-center">
+    <h3><b>JUSTIFICACION: </b> <%= @documento.compra.justificacion %></h3>
   </div>
 
   <!-- modal -->
@@ -63,26 +63,23 @@
                 <th>Descripcion</th>
                 <th>Unidad</th>
                 <th>Cantidad</th>
-                <th>P. Unitario</th>
-                <th>P. Referencial</th>
+                <th>Precio</th>
+                <th>Subtotal</th>
               </tr>
             </thead>
             <tbody>
               <% precio_total = 0 %>
-
+              <% subtotal = 0 %>
               <% @documento.compra.item.each_with_index do |i, con| %>
               <tr>
                 <td><%= con+1 %></td>
                 <td><%= i.descripcion %></td>
                 <td><%= i.unidad %></td>
-                <td><%= i.cantidad %></td>
-                <% precio_total = precio_total + i.p_unitario %>
-                <td style="text-align: right">
-                  <%= i.p_unitario %>
-                </td>
-                <td style="text-align: right">
-                  <%= i.p_referencial %>
-                </td>
+                <td style="text-align: right"><%= i.cantidad %></td>
+                <td style="text-align: right"><%= i.p_unitario %></td>
+                <% subtotal = i.p_unitario * i.cantidad %>
+                <% precio_total = precio_total + subtotal %>
+                <td style="text-align: right"><%= subtotal %></td>
               </tr>
 
               <% end %>
@@ -112,7 +109,7 @@
 
           <div class="row">
 
-            <div class="col-md-4">
+            <div class="col-md-3">
               <div class="form-group">
                 <label class="control-label">Hoja Ruta</label>
                 <div class="controls">
@@ -122,7 +119,17 @@
               </div>
             </div>
 
-            <div class="col-md-4">
+            <div class="col-md-3">
+              <div class="form-group">
+                <label class="control-label">Com / Int</label>
+                <div class="controls">
+                  <%# text_field_tag :docvalor, nil, class: 'form-control', required: 'required', placeholder:'Ej. 25478' %>
+                  <%= @documento.compra.cominterna %>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-3">
               <div class="form-group">
                 <label class="control-label">Numero</label>
                 <div class="controls">
@@ -132,7 +139,7 @@
               </div>
             </div>
 
-            <div class="col-md-4">
+            <div class="col-md-3">
               <div class="form-group">
                 <label class="control-label">Fecha</label>
                 <div class="controls">
@@ -222,13 +229,11 @@
             <div class="col-md-6">
               <div class="form-group">
                 <div class="controls">
-                  Especificaciones Tecnicas <b>(
                   <% if @documento.compra.especificaciones.present? %>
-                    SI
+                    Especificaciones Tecnicas
                   <% else %>
-                    NO
+                    Terminos Referencia
                   <% end %>
-                  )</b>
 
 <!--                   <label><input type="checkbox" id="cbox1" name="especificaciones">&nbsp;&nbsp; Especificaciones
                     Tecnicas
@@ -263,7 +268,8 @@
                 <label class="control-label">Observaciones</label>
 
                 <div class="controls">
-                  <%= text_field_tag(:observaciones, nil, class: 'form-control') %>
+                  <textarea name="observaciones" class="form-control" maxlength="255" required ></textarea>
+                  <%# text_field_tag(:observaciones, nil, class: 'form-control') %>
                   <%= hidden_field_tag(:cargoo_id, current_user.cargo_id ) %>
                   <%= hidden_field_tag(:compra_id, @documento.compra.id ) %>
                   <%= hidden_field_tag(:usero_id, current_user.id ) %>
