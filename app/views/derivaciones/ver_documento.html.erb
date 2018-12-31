@@ -8,6 +8,12 @@ input.largerCheckbox
   width: 30px;
   height: 30px;
 }
+input[type=radio] {
+  transform: scale(1.5);
+  /*border: 0px;*/
+  /*width: 100%;*/
+  /*height: 4em;*/
+}
 </style>
 <div class="row page-titles">
   <div class="col-md-6 col-8 align-self-center">
@@ -232,10 +238,14 @@ input.largerCheckbox
                   <% else %>
                     Terminos Referencia
                   <% end %>
-
-<!--                   <label><input type="checkbox" id="cbox1" name="especificaciones">&nbsp;&nbsp; Especificaciones
-                    Tecnicas
- -->                    <%# form.text_field :numero, id: :compra_numero,  class: 'form-control', required: 'required',placeholder:'Ej. 25478' %>
+                  <% if @derivacion.cargod_id == 20 %>
+                    <br />
+                    <span style="font-size: 14pt; color: #4da6ff;">
+                      <b>Pagado &nbsp;</b>
+                      <input type="radio" name="pagado" value="SI"> Si &nbsp;
+                      <input type="radio" name="pagado" value="NO" checked="checked"> No
+                    </span>
+                  <% end %>
                 </div>
               </div>
             </div>
@@ -378,7 +388,7 @@ input.largerCheckbox
     <button type="submit" class="btn btn-block btn-success"><i class="fa fa-check"></i> Aceptar y Derivar</button>
   </div>
   <div class="col-md-6">
-    <%= link_to 'Rechazar', compras_mis_tramites_path, class: "btn btn-block btn-inverse" %>
+    <%= link_to 'Atras', compras_mis_tramites_path, class: "btn btn-block btn-inverse" %>
   </div>
 </div>
 <% end %>

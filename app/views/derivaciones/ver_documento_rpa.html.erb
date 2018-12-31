@@ -237,7 +237,6 @@
                   <% else %>
                     Terminos Referencia
                   <% end %>
-
 <!--                   <label><input type="checkbox" id="cbox1" name="especificaciones">&nbsp;&nbsp; Especificaciones
                     Tecnicas
  -->                    <%# form.text_field :numero, id: :compra_numero,  class: 'form-control', required: 'required',placeholder:'Ej. 25478' %>
@@ -296,7 +295,7 @@
             <button type="submit" class="btn btn-block btn-success"><i class="fa fa-check"></i> Aceptar y Derivar</button>
           </div>
           <div class="col-md-6">
-            <%= link_to 'Rechazar', compras_mis_tramites_path, class: "btn btn-block btn-inverse" %>
+            <%= link_to 'Atras', compras_mis_tramites_path, class: "btn btn-block btn-inverse" %>
           </div>
         </div>
         <% end %>
