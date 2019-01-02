@@ -66,6 +66,7 @@ class ComprasController < ApplicationController
       if @compra.save
         id_compra = @compra.id
         # items.map {|item| Item.new(item).save }
+        total = 0
         items.each_pair do |indice, i|
           mod_item = Item.new
           mod_item.compra_id = id_compra
@@ -74,7 +75,12 @@ class ComprasController < ApplicationController
           mod_item.cantidad = i["cantidad"]
           mod_item.p_unitario = i["p_unitario"]
           mod_item.p_referencial = i["p_referencial"]
+          subtotal = i["cantidad"].to_f * i["p_unitario"].to_f
+          total = total + subtotal
           mod_item.save
+          mod_compra = Compra.find(id_compra)
+          mod_compra.total = total
+          mod_compra.save
         end
         format.html { redirect_to action: "mis_tramites" }
         format.json { render :show, status: :created, location: @compra }

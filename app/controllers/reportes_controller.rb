@@ -35,6 +35,20 @@ class ReportesController < ApplicationController
     @derivaciones = Derivacione.where(created_at: (@fecha_inicio.beginning_of_day..@fecha_fin.end_of_day)).group(:compra_id)
     # byebug
   end
+
+  def por_unidad
+    @fecha_inicio = params[:fechai].to_date
+    @fecha_fin = params[:fechaf].to_date
+    @derivaciones = Derivacione.where(created_at: (@fecha_inicio.beginning_of_day..@fecha_fin.end_of_day), unidadd_id: params[:reporte][:unidad]).group(:compra_id)
+    if @derivaciones.present?
+      derivacion = @derivaciones.take
+      
+      # byebug
+    end
+    
+    @unidad = Unidade.find(params[:reporte][:unidad])
+    # byebug
+  end
   
   
 end

@@ -75,6 +75,7 @@ Rails.application.routes.draw do
   post "/reportes/por_numero", to: "reportes#por_numero", as: "reporte_por_numero"
   post "/reportes/por_usuario", to: "reportes#por_usuario", as: "reporte_por_usuario"
   post "/reportes/por_fecha", to: "reportes#por_fecha", as: "reporte_por_fecha"
+  post "/reportes/por_unidad", to: "reportes#por_unidad", as: "reporte_por_unidad"
 
   # devise_for :users, path: 'auth', path_names: {  sign_out: 'logout', sign_up: 'cmon_let_me_in' }
 
