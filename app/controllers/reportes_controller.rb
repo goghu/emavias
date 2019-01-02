@@ -17,6 +17,7 @@ class ReportesController < ApplicationController
 
     if @compra.present?
       @derivaciones = Derivacione.where(compra_id: @compra.id).order(id: :asc)
+      @pagado = Derivacione.where(compra_id: @compra.id, pagado: "SI")
     else
       @derivacione = nil      
     end
@@ -40,12 +41,6 @@ class ReportesController < ApplicationController
     @fecha_inicio = params[:fechai].to_date
     @fecha_fin = params[:fechaf].to_date
     @derivaciones = Derivacione.where(created_at: (@fecha_inicio.beginning_of_day..@fecha_fin.end_of_day), unidadd_id: params[:reporte][:unidad]).group(:compra_id)
-    if @derivaciones.present?
-      derivacion = @derivaciones.take
-      
-      # byebug
-    end
-    
     @unidad = Unidade.find(params[:reporte][:unidad])
     # byebug
   end

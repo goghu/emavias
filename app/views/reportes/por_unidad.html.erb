@@ -74,59 +74,62 @@
     <div class="card">
       <div class="card-body">
         <div class="clase-impresion" style="width: 800px;">
-          <% if @compra.present? %>
+          <% if @derivaciones.present? %>
             <table class="tabla-impresion-cabecera" border="0">
               <tr>
                 <td style="width: 150px;">
                   <img src="<%= asset_path '/assets/images/logo_emavias.jpg' %>" />
                 </td>
                 <td style="width: 600px; text-align: center;">
-                  <h5 style="font-weight: bold; font-size: 18pt;">FORMULARIO: #<%= @compra.numero %></h5>
-                  <h5><b>CREADO POR: </b><%= @compra.user.nombre %></h5>
-                  <h5><b>UNIDAD: </b><%= @compra.user.unidade.descripcion %></h5>
-                  <h5><b>FECHA: </b><%= @compra.fecha %></h5>
+                  <h5 style="font-weight: bold; font-size: 18pt;">REPORTE POR FECHA</h5>
+                  <h5><b>FECHA INICIAL: </b><%= @fecha_inicio %></h5>
+                  <h5><b>FECHA FINAL: </b><%= @fecha_fin %></h5>
+                  <h5><b>UNIDAD: </b><%= @unidad.descripcion %></h5>
                 </td>
               </tr>
             </table>
           <% else %>
             No existe el registro <br />
           <% end %>
-          
-          <b>PAGADO: </b>
-          <% if @pagado.present? %>
-            SI
-          <% else %>
-            NO  
-          <% end %>
+          <% total = 0 %>
           <% if @derivaciones.present? %>
             <table class="tabla-impresion">
               <thead>
                 <tr>
                   <th>No.</th>
-                  <th>Persona</th>
-                  <th>U/Origen</th>
-                  <th>Destino</th>
-                  <th>U/Destino</th>
+                  <th>Numero</th>
+                  <th>Hoja Ruta</th>
+                  <th>Com / Int</th>
+                  <th>Monto</th>
                   <th>Fecha</th>
-                  <th>Observaciones</th>
                 </tr>
               </thead>
               <tbody>
                 <% @derivaciones.each_with_index do |d, i| %>
                   <tr>
                     <td><%= i+1 %></td>
-                    <td><%= d.user_o.nombre %></td>
-                    <td><%= d.unidad_o.descripcion %></td>
-                    <td><%= d.user_d.nombre %></td>
-                    <td><%= d.unidad_d.descripcion %></td>
+                    <td><%= d.compra.numero %></td>
+                    <td><%= d.compra.numero %></td>
+                    <td><%= d.compra.cominterna %></td>
+                    <td><%= d.compra.total %></td>
+                    <% total = total + d.compra.total.to_f %>
                     <td><%= d.fecha %></td>
-                    <td><%= d.observaciones %></td>
                   </tr>
                 <% end %>
               </tbody>
+              <tfoot>
+                <tr>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td><%= total %></td>
+                  <td></td>
+                </tr>
+              </tfoot>
             </table>
           <% else %>
-            No tiene derivaciones
+            No tiene derivaciones <br>
           <% end %>
       </div>
     </div>
