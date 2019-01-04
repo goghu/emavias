@@ -57,8 +57,16 @@
               <% @users.each do |u| %>
               <tr>
                 <td><%= u.nombre %></td>
-                <td><%= u.cargo.descripcion %></td>
-                <td><%= u.unidade.descripcion %></td>
+                <td>
+                  <% if u.cargo.descripcion.present? %>
+                    <%= u.cargo.descripcion %>
+                  <% end %>
+                </td>
+                <td>
+                  <% if u.unidade.descripcion %>
+                    <%= u.unidade.descripcion %>
+                  <% end %>
+                </td>
                 <td><%= u.email %></td>
                 <td><%= u.rol %></td>
                 <td>
