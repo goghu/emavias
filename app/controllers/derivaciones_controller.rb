@@ -154,7 +154,7 @@ class DerivacionesController < ApplicationController
 
   def ver_documento_jefe
     @documento = Derivacione.find(params[:id_derivacion])
-    @rpa = User.where(unidade_id: 5, cargo_id: 41, deleted: nil).take
+    @rpa = User.where(unidade_id: 5, cargo_id: 12, deleted: nil).take
   end
 
   def ver_documento_rpa

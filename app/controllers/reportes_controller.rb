@@ -22,7 +22,7 @@ class ReportesController < ApplicationController
       @derivacione = nil      
     end
   end
-
+# 
   def por_usuario
     @mi_poder = Derivacione.where(userd_id: params[:reporte][:usuario], estado: 'Recibido').group(:compra_id)
     @derivados = Derivacione.where(userd_id: params[:reporte][:usuario], estado: 'Derivado').group(:compra_id)
