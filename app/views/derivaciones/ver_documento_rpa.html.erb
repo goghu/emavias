@@ -272,7 +272,7 @@
                     <%= hidden_field_tag(:compra_id, @documento.compra.id ) %>
                     <%= hidden_field_tag(:usero_id, current_user.id ) %>
                     <%= hidden_field_tag(:unidadeo_id, current_user.unidade_id ) %>
-                    <%= select("ruta", "ruta_id", Ruta.where(subruta: nil).collect {|u| [ u.nombre, u.id ] }, {include_blank: 'Seleccione Ruta'}, {class: 'form-control', required: true}) %>
+                    <%= select("ruta", "ruta_id", Ruta.where(subruta: nil, :id=>[38, 39]).collect {|u| [ u.nombre, u.id ] }, {include_blank: 'Seleccione Ruta'}, {class: 'form-control', required: true}) %>
                 </div>
                 <label class="control-label">Observaciones</label>
                 <textarea name="observaciones" class="form-control" maxlength="255" required ></textarea>

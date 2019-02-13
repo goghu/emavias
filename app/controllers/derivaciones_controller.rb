@@ -165,6 +165,7 @@ class DerivacionesController < ApplicationController
   end
 
   def ver_derivaciones
+    numeros = [1, 2, 3]
     @derivaciones = Derivacione.where(compra_id: params[:id_compra])
     @compra = Compra.find(params[:id_compra])
     # byebug
