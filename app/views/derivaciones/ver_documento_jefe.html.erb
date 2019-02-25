@@ -153,7 +153,7 @@
 
           <div class="row">
 
-            <div class="col-md-3">
+            <div class="col">
               <div class="form-group">
                 <div class="controls">
                     <%# @documento.compra.existencia %>
@@ -170,7 +170,24 @@
               </div>
             </div>
 
-            <div class="col-md-3">
+            <div class="col">
+              <div class="form-group">
+                <div class="controls">
+                    <%# @documento.compra.existencia %>
+                    Existencia Minima<b>(
+                    <% if @documento.compra.minimo.present? %>
+                      SI
+                    <% else %>
+                      NO
+                    <% end %>
+                    )</b>
+                    <!-- <input type="checkbox" id="cbox1" name="existencia" checked>&nbsp;&nbsp; Inexistencia -->
+                    <%# form.text_field :numero, id: :compra_numero,  class: 'form-control', required: 'required',placeholder:'Ej. 25478' %>
+                </div>
+              </div>
+            </div>
+
+            <div class="col">
               <div class="form-group">
                 <div class="controls">
                   Autorizacion <b>(
@@ -187,7 +204,7 @@
               </div>
             </div>
 
-            <div class="col-md-3">
+            <div class="col">
               <div class="form-group">
                 <div class="controls">
                   POA <b>(
@@ -204,7 +221,7 @@
               </div>
             </div>
 
-            <div class="col-md-3">
+            <div class="col">
               <div class="form-group">
                 <div class="controls">
                   Certificacion Presupuestaria <b>(
@@ -252,7 +269,8 @@
                     NO
                   <% end %>
                   )</b>
-
+                  <br />
+                  <b><%= @documento.compra.otros %></b>
                   <!-- <label><input type="checkbox" id="cbox1" name="cotizacion">&nbsp;&nbsp; Cotizacion</label> -->
                   <%# form.text_field :numero, id: :compra_numero,  class: 'form-control', required: 'required',placeholder:'Ej. 25478' %>
                 </div>

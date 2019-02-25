@@ -169,14 +169,15 @@ class ComprasController < ApplicationController
     if params[:presupuestaria]
       modelo_compra.presupuestaria = 1
     end
-    # if params[:especificaciones]
-    #   modelo_compra.especificaciones = 1
-    # end
+    if params[:minimo]
+      modelo_compra.minimo = 1
+    end
     if params[:cotizacion]
       modelo_compra.cotizacion = 1
     end
 
     modelo_compra.cominterna = params[:cominterna]
+    modelo_compra.otros = params[:otros]
     modelo_compra.referencia = params[:referencia]
     modelo_compra.cominterna = params[:cominterna]
     modelo_compra.docvalor = params[:docvalor]
