@@ -357,7 +357,7 @@ input[type=radio] {
                 <%= doc.docvalor.nil? ? '' : doc.docvalor %>
               </td>
               <td>
-                <span style="color: #ff0000;"><%= doc.presento.nil? ? 'No' : 'Si' %></span>
+                <span style="color: #ff0000;"><%# doc.presento.nil? ? 'No' : 'Si' %></span>
               </td>
             </tr>
             <% end %>
@@ -383,7 +383,8 @@ input[type=radio] {
               <br />
             <% end %>
             <div class="form-check form-check-inline">
-              <input name="docderivaciones[<%= index %>]presento" class="form-check-input largerCheckbox" type="checkbox">
+              <!-- <input name="docderivaciones[<%# index %>]presento" class="form-check-input largerCheckbox" type="checkbox"> -->
+              <input type="file" name="docderivaciones[<%= index %>]adjunto">
               <label class="form-check-label" for="inlineCheckbox1">Presento</label>
             </div>
             <br />
