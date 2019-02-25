@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190102125707) do
+ActiveRecord::Schema.define(version: 20190225131624) do
 
   create_table "alternativos", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.integer "camino_id"
@@ -45,6 +45,7 @@ ActiveRecord::Schema.define(version: 20190102125707) do
     t.integer "user_id"
     t.string "numero", limit: 20
     t.string "docvalor", limit: 25
+    t.boolean "minimo"
     t.string "referencia"
     t.string "cominterna"
     t.text "justificacion"
@@ -58,6 +59,7 @@ ActiveRecord::Schema.define(version: 20190102125707) do
     t.decimal "total", precision: 10, scale: 2
     t.date "fecha"
     t.string "obs"
+    t.string "otros"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

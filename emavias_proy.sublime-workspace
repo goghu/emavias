@@ -370,11 +370,21 @@
 			}
 		},
 		{
+			"contents": "class DerivacionesController < ApplicationController\n  before_action :set_derivacione, only: [:show, :edit, :update, :destroy]\n  layout \"template\"\n\n  # GET /derivaciones\n  # GET /derivaciones.json\n  def index\n    @derivaciones = Derivacione.all\n  end\n\n  # GET /derivaciones/1\n  # GET /derivaciones/1.json\n  def show\n  end\n\n  # GET /derivaciones/new\n  def new\n    @derivacione = Derivacione.new\n  end\n\n  # GET /derivaciones/1/edit\n  def edit\n  end\n\n  # POST /derivaciones\n  # POST /derivaciones.json\n  def create\n    @derivacione = Derivacione.new(derivacione_params)\n\n    respond_to do |format|\n      if @derivacione.save\n        format.html { redirect_to @derivacione, notice: \"Derivacione was successfully created.\" }\n        format.json { render :show, status: :created, location: @derivacione }\n      else\n        format.html { render :new }\n        format.json { render json: @derivacione.errors, status: :unprocessable_entity }\n      end\n    end\n  end\n\n  # PATCH/PUT /derivaciones/1\n  # PATCH/PUT /derivaciones/1.json\n  def update\n    respond_to do |format|\n      if @derivacione.update(derivacione_params)\n        format.html { redirect_to @derivacione, notice: \"Derivacione was successfully updated.\" }\n        format.json { render :show, status: :ok, location: @derivacione }\n      else\n        format.html { render :edit }\n        format.json { render json: @derivacione.errors, status: :unprocessable_entity }\n      end\n    end\n  end\n\n  # DELETE /derivaciones/1\n  # DELETE /derivaciones/1.json\n  def destroy\n    @derivacione.destroy\n    respond_to do |format|\n      format.html { redirect_to derivaciones_url, notice: \"Derivacione was successfully destroyed.\" }\n      format.json { head :no_content }\n    end\n  end\n\n  def guarda_derivacion\n    # byebug\n    consulta = Derivacione.where(compra_id: params[:compra_id]).last\n    c_derivacion = Derivacione.find(consulta.id)\n    c_derivacion.estado = \"Derivado\"\n    c_derivacion.save\n\n    m_derivacion = Derivacione.new\n    m_derivacion.compra_id = params[:compra_id]\n    m_derivacion.usero_id = params[:usero_id]\n    m_derivacion.unidadeo_id = params[:unidadeo_id]\n    m_derivacion.userd_id = params[:userd_id]\n    m_derivacion.unidadd_id = params[:unidadd_id]\n    m_derivacion.correlativo = params[:correlativo]\n    m_derivacion.ruta_id = params[:ruta_id]\n    m_derivacion.cargoo_id = params[:cargoo_id]\n    m_derivacion.cargod_id = params[:cargod_id]\n    m_derivacion.camino_id = params[:camino_id]\n    m_derivacion.observaciones = params[:observaciones]\n    m_derivacion.pagado = params[:pagado]\n    if params[:cargod_id] == '51'\n      m_derivacion.estado = \"Terminado\"\n    else\n      m_derivacion.estado = \"Recibido\"\n    end\n    m_derivacion.fecha = Date.current\n    m_derivacion.save\n\n    if params[:docderivaciones].present? \n      params[:docderivaciones].each_pair do |indice, i|\n        documento_derivacion = Docderivacione.new\n        documento_derivacion.derivacione_id = i[:derivacione_id]\n        documento_derivacion.camino_id = i[:camino_id]\n        documento_derivacion.user_id = i[:user_id]\n        documento_derivacion.unidade_id = i[:unidade_id]\n        documento_derivacion.cargo_id = i[:cargo_id]\n        documento_derivacion.compra_id = i[:compra_id]\n        documento_derivacion.descripcion = i[:descripcion]\n        documento_derivacion.docvalor = i[:docvalor]\n        documento_derivacion.presento = i[:presento]\n        documento_derivacion.save\n      end\n    end\n\n    redirect_to controller: \"compras\", action: \"bandeja_entrada\"\n  end\n\n  def ver_documento\n\n    @derivacion = Derivacione.find(params[:id_derivacion])\n    # si tiene subcaminos mandamos para que sea combo\n    sub_caminos = Alternativo.where(ruta_id: @derivacion.ruta_id, camino_id: @derivacion.camino_id).take\n    # byebug\n    if sub_caminos.present?\n      @s_caminos = sub_caminos\n    else\n      # adicionamos uno al correlavito\n      siguiente = @derivacion.correlativo.to_i + 1\n      # buscamos el siguiente camino\n      @camino = Camino.where(ruta_id: @derivacion.ruta_id, correlativo: siguiente).tertake\n      # byebug\n      # si no es archivo central\n      # if @camino.cargo_id != 46\n      if @camino.present?\n        # si el cargo es comision de recepcion y calificacion\n        if @camino.cargo_id == 47 || @camino.cargo_id == 48\n          # byebug\n          primer_funcionario = Derivacione.where(compra_id: @derivacion.compra_id).first\n          funcionario = User.find(primer_funcionario.usero_id)\n          @siguiente_funcionario = funcionario\n          puts \"crt\"\n        else\n          # byebug\n          @siguiente_funcionario = User.where(cargo_id: @camino.cargo_id, deleted: nil).take\n        end\n      else\n        @camino = nil     \n      end\n    end\n    # los documentos y llenados\n    @docderivaciones = Docderivacione.where(compra_id: @derivacion.compra_id)\n    # enviamos los documentos para el formulario\n    @documentos = Documento.where(camino_id: @derivacion.camino_id)\n\n    # fin si tiene subcaminos mandamos para que sea combo\n    \n    # byebug\n    # @ultimo_paso = Derivacione.where(compra_id: @documento.compra_id).last\n  end\n\n  def ver_documento_jefe\n    @documento = Derivacione.find(params[:id_derivacion])\n    @rpa = User.where(unidade_id: 5, cargo_id: 12, deleted: nil).take\n  end\n\n  def ver_documento_rpa\n    # byebug\n    # buscamos la derivacion\n    @documento = Derivacione.find(params[:id_derivacion])\n    # @cantidad_rpa = Derivacione.where(compra_id: @documento.compra_id, cargod_id: 41).count\n  end\n\n  def ver_derivaciones\n    numeros = [1, 2, 3]\n    @derivaciones = Derivacione.where(compra_id: params[:id_compra])\n    @compra = Compra.find(params[:id_compra])\n    # byebug\n  end\n\n  private\n\n  # Use callbacks to share common setup or constraints between actions.\n  def set_derivacione\n    @derivacione = Derivacione.find(params[:id])\n  end\n\n  # Never trust parameters from the scary internet, only allow the white list through.\n  def derivacione_params\n    params.require(:derivacione).permit(:usero_id, :unidadeo_id, :userd_id, :unidadd_id, :fecha, :estado, :observaciones, :cargoo_id, :cargod_id)\n  end\nend\n",
 			"file": "app/controllers/derivaciones_controller.rb",
+			"file_size": 6103,
+			"file_write_time": 131945414141560723,
 			"settings":
 			{
-				"buffer_size": 6103,
-				"encoding": "UTF-8",
+				"buffer_size": 6106,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/views/compras/_form.html.erb",
+			"settings":
+			{
+				"buffer_size": 8809,
 				"line_ending": "Unix"
 			}
 		},
@@ -392,6 +402,15 @@
 			"settings":
 			{
 				"buffer_size": 15656,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/views/compras/imprime_solicitud.html.erb",
+			"settings":
+			{
+				"buffer_size": 7620,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -897,7 +916,7 @@
 						"translation.y": 234.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 3,
+					"stack_index": 5,
 					"type": "text"
 				},
 				{
@@ -1002,7 +1021,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 2,
+					"stack_index": 4,
 					"type": "text"
 				},
 				{
@@ -1011,15 +1030,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 6103,
+						"buffer_size": 6106,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								5538,
-								5538
+								3343,
+								3343
 							]
 						],
 						"settings":
@@ -1033,8 +1052,8 @@
 								{
 									"1":
 									[
-										5262,
-										5265
+										4715,
+										4718
 									]
 								},
 								"icon":
@@ -1049,8 +1068,8 @@
 								{
 									"1":
 									[
-										5109,
-										5112
+										3778,
+										3780
 									]
 								},
 								"unmatched":
@@ -1059,36 +1078,16 @@
 							},
 							"bracket_highlighter.clone_regions":
 							[
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_curly_content",
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close",
-								"bh_single_quote_content",
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_default_content",
 								"bh_round",
 								"bh_round_center",
 								"bh_round_open",
 								"bh_round_close",
 								"bh_round_content",
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_square_content",
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_double_quote_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
 								"bh_unmatched",
 								"bh_unmatched_center",
 								"bh_unmatched_open",
@@ -1099,11 +1098,11 @@
 								"bh_tag_open",
 								"bh_tag_close",
 								"bh_tag_content",
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_regex_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
 								"bh_angle",
 								"bh_angle_center",
 								"bh_angle_open",
@@ -1113,7 +1112,27 @@
 								"bh_c_define_center",
 								"bh_c_define_open",
 								"bh_c_define_close",
-								"bh_c_define_content"
+								"bh_c_define_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content"
 							],
 							"bracket_highlighter.locations":
 							{
@@ -1121,8 +1140,8 @@
 								{
 									"1":
 									[
-										5537,
-										5538
+										3342,
+										3343
 									]
 								},
 								"icon":
@@ -1137,8 +1156,8 @@
 								{
 									"1":
 									[
-										5529,
-										5530
+										3332,
+										3333
 									]
 								},
 								"unmatched":
@@ -1147,36 +1166,46 @@
 							},
 							"bracket_highlighter.regions":
 							[
-								"bh_c_define",
-								"bh_c_define_center",
-								"bh_c_define_open",
-								"bh_c_define_close",
-								"bh_c_define_content",
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_square_content",
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
-								"bh_angle_content",
 								"bh_curly",
 								"bh_curly_center",
 								"bh_curly_open",
 								"bh_curly_close",
 								"bh_curly_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
 								"bh_double_quote",
 								"bh_double_quote_center",
 								"bh_double_quote_open",
 								"bh_double_quote_close",
 								"bh_double_quote_content",
-								"bh_tag",
-								"bh_tag_center",
-								"bh_tag_open",
-								"bh_tag_close",
-								"bh_tag_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
 								"bh_single_quote",
 								"bh_single_quote_center",
 								"bh_single_quote_open",
@@ -1187,28 +1216,18 @@
 								"bh_default_open",
 								"bh_default_close",
 								"bh_default_content",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
-								"bh_unmatched_content",
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
-								"bh_round_content",
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_regex_content"
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content"
 							],
 							"syntax": "Packages/Ruby/Ruby.sublime-syntax",
 							"tab_size": 2,
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 1480.0,
+						"translation.y": 1090.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 1,
@@ -1216,6 +1235,199 @@
 				},
 				{
 					"buffer": 3,
+					"file": "app/views/compras/_form.html.erb",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 8809,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								8498,
+								8798
+							]
+						],
+						"settings":
+						{
+							"bracket_highlighter.busy": false,
+							"bracket_highlighter.clone": 17,
+							"bracket_highlighter.clone_locations":
+							{
+								"close":
+								{
+									"1":
+									[
+										8791,
+										8797
+									]
+								},
+								"icon":
+								{
+									"1":
+									[
+										"Packages/BracketHighlighter/icons/tag.png",
+										"region.orangish"
+									]
+								},
+								"open":
+								{
+									"1":
+									[
+										8486,
+										8492
+									]
+								},
+								"unmatched":
+								{
+								}
+							},
+							"bracket_highlighter.clone_regions":
+							[
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content"
+							],
+							"bracket_highlighter.locations":
+							{
+								"close":
+								{
+								},
+								"icon":
+								{
+								},
+								"open":
+								{
+								},
+								"unmatched":
+								{
+								}
+							},
+							"bracket_highlighter.regions":
+							[
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content"
+							],
+							"syntax": "Packages/Rails/HTML (Rails).sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 2067.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
 					"file": "app/controllers/compras_controller.rb",
 					"semi_transient": false,
 					"settings":
@@ -1336,7 +1548,7 @@
 						"translation.y": 184.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 4,
+					"stack_index": 6,
 					"type": "text"
 				}
 			]
@@ -1346,7 +1558,7 @@
 			"sheets":
 			[
 				{
-					"buffer": 4,
+					"buffer": 5,
 					"file": "app/views/derivaciones/ver_documento_rpa.html.erb",
 					"semi_transient": false,
 					"settings":
@@ -1358,8 +1570,8 @@
 						"selection":
 						[
 							[
-								10166,
-								10166
+								10283,
+								10283
 							]
 						],
 						"settings":
@@ -1367,68 +1579,146 @@
 							"auto_complete": false,
 							"bracket_highlighter.busy": false,
 							"bracket_highlighter.clone": -1,
-							"bracket_highlighter.locations":
+							"bracket_highlighter.clone_locations":
 							{
 								"close":
 								{
-									"1":
-									[
-										10166,
-										10167
-									]
 								},
 								"icon":
 								{
-									"1":
-									[
-										"Packages/BracketHighlighter/icons/square_bracket.png",
-										"region.bluish"
-									]
 								},
 								"open":
 								{
-									"1":
-									[
-										10159,
-										10160
-									]
 								},
 								"unmatched":
 								{
+									"1":
+									[
+										11188,
+										11191
+									]
 								}
 							},
-							"bracket_highlighter.regions":
+							"bracket_highlighter.clone_regions":
 							[
-								"bh_c_define",
-								"bh_c_define_center",
-								"bh_c_define_open",
-								"bh_c_define_close",
-								"bh_c_define_content",
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_square_content",
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
-								"bh_angle_content",
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_curly_content",
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_double_quote_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
 								"bh_tag",
 								"bh_tag_center",
 								"bh_tag_open",
 								"bh_tag_close",
 								"bh_tag_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content"
+							],
+							"bracket_highlighter.locations":
+							{
+								"close":
+								{
+								},
+								"icon":
+								{
+								},
+								"open":
+								{
+								},
+								"unmatched":
+								{
+									"1":
+									[
+										11188,
+										11191
+									]
+								}
+							},
+							"bracket_highlighter.regions":
+							[
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
 								"bh_single_quote",
 								"bh_single_quote_center",
 								"bh_single_quote_open",
@@ -1439,31 +1729,230 @@
 								"bh_default_open",
 								"bh_default_close",
 								"bh_default_content",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
-								"bh_unmatched_content",
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
-								"bh_round_content",
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_regex_content"
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content"
 							],
 							"syntax": "Packages/Rails/HTML (Rails).sublime-syntax",
 							"tab_size": 2,
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 3052.0,
+						"translation.y": 2961.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "app/views/compras/imprime_solicitud.html.erb",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 7620,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								466,
+								466
+							]
+						],
+						"settings":
+						{
+							"auto_complete": false,
+							"bracket_highlighter.busy": false,
+							"bracket_highlighter.clone": -1,
+							"bracket_highlighter.clone_locations":
+							{
+								"close":
+								{
+									"1":
+									[
+										504,
+										505
+									]
+								},
+								"icon":
+								{
+									"1":
+									[
+										"Packages/BracketHighlighter/icons/curly_bracket.png",
+										"region.purplish"
+									]
+								},
+								"open":
+								{
+									"1":
+									[
+										310,
+										311
+									]
+								},
+								"unmatched":
+								{
+								}
+							},
+							"bracket_highlighter.clone_regions":
+							[
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content"
+							],
+							"bracket_highlighter.locations":
+							{
+								"close":
+								{
+									"1":
+									[
+										504,
+										505
+									]
+								},
+								"icon":
+								{
+									"1":
+									[
+										"Packages/BracketHighlighter/icons/curly_bracket.png",
+										"region.purplish"
+									]
+								},
+								"open":
+								{
+									"1":
+									[
+										310,
+										311
+									]
+								},
+								"unmatched":
+								{
+								}
+							},
+							"bracket_highlighter.regions":
+							[
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content"
+							],
+							"syntax": "Packages/Rails/HTML (Rails).sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
 					"type": "text"
 				}
 			]
@@ -1532,6 +2021,14 @@
 		"last_filter": "",
 		"selected_items":
 		[
+			[
+				"_form",
+				"app/views/compras/_form.html.erb"
+			],
+			[
+				"imprime",
+				"app/views/compras/imprime_solicitud.html.erb"
+			],
 			[
 				"verdo",
 				"app/views/derivaciones/ver_documento_rpa.html.erb"
@@ -1651,10 +2148,6 @@
 			[
 				"porfec",
 				"app\\views\\reportes\\por_fecha.html.erb"
-			],
-			[
-				"_form",
-				"app\\views\\compras\\_form.html.erb"
 			],
 			[
 				"deriv",

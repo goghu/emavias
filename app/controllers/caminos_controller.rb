@@ -45,7 +45,7 @@ class CaminosController < ApplicationController
   end
 
   def carga_funcionario_alternativo
-    # byebug
+
     datos_alternativo = Alternativo.find(params[:id_alternativo])
     @camino = Camino.where(ruta_id: datos_alternativo.alternativo_id, correlativo: 1).take
 
