@@ -1,0 +1,33 @@
+<div class="card">
+	<div class="card-body">
+		<select class="select2 m-b-10 select2-multiple" name="funcionarios" style="width: 100%" multiple="multiple" data-placeholder="Seleccione">
+			<optgroup label="Funcionarios">
+				<% personal.each do |p| %>
+					<option value="<%= p.id %>"><%= p.nombre %> (<%= p.cargo.descripcion %>)</option>
+				<% end %>
+			</optgroup>
+		</select>
+		<input type="hidden" name="valores_personal" id="valores_personal">
+	</div>
+</div>
+
+<% content_for :add_css do %>
+	<link href="<%= asset_path '/assets/plugins/select2/dist/css/select2.min.css' %>" rel="stylesheet" type="text/css">
+<% end %>
+
+<% content_for :add_js do %>
+	<script src="<%= asset_path '/assets/plugins/select2/dist/js/select2.full.min.js' %>"></script>
+	<script type="text/javascript">
+		$(document).ready(function() {
+			$(".select2").select2();
+			$("#demo").hover(function() {
+				// alert("Selected value is: "+$(".select2").val());
+			$("#valores_personal").val($(".select2").val());
+			}, function() {
+				/* Stuff to do when the mouse leaves the element */
+			});
+			// $(".select2").focusout(function(event) {
+			// });
+		});
+	</script>
+<% end %>

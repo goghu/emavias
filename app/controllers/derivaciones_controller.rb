@@ -63,7 +63,7 @@ class DerivacionesController < ApplicationController
   end
 
   def guarda_derivacion
-    # byebug
+    byebug
     consulta = Derivacione.where(compra_id: params[:compra_id]).last
     c_derivacion = Derivacione.find(consulta.id)
     c_derivacion.estado = "Derivado"
@@ -145,6 +145,8 @@ class DerivacionesController < ApplicationController
     @docderivaciones = Docderivacione.where(compra_id: @derivacion.compra_id)
     # enviamos los documentos para el formulario
     @documentos = Documento.where(camino_id: @derivacion.camino_id)
+    # listamos el personal para enviar a la vista
+    @personal = User.where(rol: 'Funcionario')
 
     # fin si tiene subcaminos mandamos para que sea combo
     
