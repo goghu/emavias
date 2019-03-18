@@ -173,6 +173,10 @@ class DerivacionesController < ApplicationController
     # byebug
   end
 
+  def ver_memo
+    
+  end
+
   private
 
   # Use callbacks to share common setup or constraints between actions.
