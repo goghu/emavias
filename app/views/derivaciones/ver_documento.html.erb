@@ -346,8 +346,10 @@ input[type=radio] {
     <div class="card card-outline-info">
       <div class="card-body">
 
-        <h3>Asignados memorandum</h3>
+        <% if current_user.id == 42 %>
+          <h3>Asignados memorandum</h3>
           <%= render 'memorandum', personal: @personal %>
+        <% end %>
 
         <h3>Documentos</h3>
         <% if @docderivaciones.present? %>
@@ -385,6 +387,13 @@ input[type=radio] {
             <% else %>
               <br />
             <% end %>
+            <% if d.presento == 1 %>
+              <input type="file" name="docderivaciones[<%= index %>]archivo" class="form-control">
+            <% else %>
+              <br />
+            <% end %>
+
+
             <div class="form-check form-check-inline">
               <!-- <input name="docderivaciones[<%# index %>]presento" class="form-check-input largerCheckbox" type="checkbox"> -->
               <input type="file" name="docderivaciones[<%= index %>]adjunto">
