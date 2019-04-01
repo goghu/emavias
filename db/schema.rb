@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190225131624) do
+ActiveRecord::Schema.define(version: 20190401133435) do
 
   create_table "alternativos", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.integer "camino_id"
@@ -59,6 +59,7 @@ ActiveRecord::Schema.define(version: 20190225131624) do
     t.decimal "total", precision: 10, scale: 2
     t.date "fecha"
     t.string "obs"
+    t.string "archivo"
     t.string "otros"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

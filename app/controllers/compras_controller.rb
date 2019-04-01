@@ -27,7 +27,7 @@ class ComprasController < ApplicationController
   # POST /compras
   # POST /compras.json
   def create
-      # byebug
+    # byebug
     @compra = Compra.new(compra_params)
     @compra.justificacion = params[:justificacion]
     @compra.fecha = Date.current
