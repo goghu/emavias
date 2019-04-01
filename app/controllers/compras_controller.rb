@@ -51,6 +51,20 @@ class ComprasController < ApplicationController
       @compra.autorizaciones = 1
     end
 
+    # guardamos el archivo
+    archivo = params[:archivo]
+    if archivo.present?
+      nombre_archivo = archivo.original_filename
+      File.open(Rails.root.join("public", "adjuntos", archivo.original_filename), "wb") do |file|
+        file.write(archivo.read)
+      end
+      @compra.archivo = nombre_archivo
+    else
+      nombre_archivo = "S/I"
+      @compra.archivo = nombre_archivo
+    end
+    # fin guardamos el archivo
+
     numero = 1
     ultima_compra = Compra.last
     # byebug
@@ -228,6 +242,12 @@ class ComprasController < ApplicationController
   def carga_excepcion
     @mae = User.where(cargo_id: 1, deleted: nil).take
     render layout: false
+  end
+
+  def ver_documento
+    # @nombre_archivo = params[:nombre]+'.'+params[:format]
+    @compra = Compra.find(params[:id_compra])
+    # byebug
   end
 
   private
