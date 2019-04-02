@@ -4,28 +4,32 @@
 		"selected_items":
 		[
 			[
-				"comp",
-				"compra"
+				"Docume",
+				"Documento"
 			],
 			[
-				"eac",
-				"each_with_index"
+				"documen",
+				"documento"
 			],
 			[
-				"text",
-				"text-align"
+				"presetn",
+				"presento"
 			],
 			[
-				"ol",
-				"ol\tTag"
+				"curren",
+				"current_user"
 			],
 			[
-				"TE",
-				"text-align\tproperty"
+				"sele",
+				"select2"
 			],
 			[
-				"min",
-				"minimo"
+				"foc",
+				"focusout\t.focusout()"
+			],
+			[
+				"car",
+				"cargo\t(derivaciones_controller.rb)"
 			],
 			[
 				"if",
@@ -94,6 +98,10 @@
 			[
 				"fon",
 				"font-size\tproperty"
+			],
+			[
+				"comp",
+				"compra\t(derivaciones_controller.rb)"
 			],
 			[
 				"doc",
@@ -372,19 +380,10 @@
 	"buffers":
 	[
 		{
-			"file": "app/controllers/compras_controller.rb",
+			"file": "app/controllers/derivaciones_controller.rb",
 			"settings":
 			{
-				"buffer_size": 7656,
-				"encoding": "UTF-8",
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "app/views/compras/ver_documento.html.erb",
-			"settings":
-			{
-				"buffer_size": 83,
+				"buffer_size": 6227,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -393,34 +392,25 @@
 			"file": "app/views/compras/_form.html.erb",
 			"settings":
 			{
-				"buffer_size": 8877,
+				"buffer_size": 8797,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "app/views/compras/asignar.html.erb",
+			"file": "app/views/derivaciones/ver_documento.html.erb",
 			"settings":
 			{
-				"buffer_size": 15725,
+				"buffer_size": 20643,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "app/views/alternativos/nuevo.html.erb",
+			"file": "app/views/documentos/nuevo.html.erb",
 			"settings":
 			{
-				"buffer_size": 4054,
-				"encoding": "UTF-8",
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "app/views/compras/mis_tramites.html.erb",
-			"settings":
-			{
-				"buffer_size": 7309,
+				"buffer_size": 6193,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -430,7 +420,14 @@
 			"settings":
 			{
 				"buffer_size": 5080,
-				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/views/ruta/new.html.erb",
+			"settings":
+			{
+				"buffer_size": 250,
 				"line_ending": "Unix"
 			}
 		}
@@ -447,7 +444,15 @@
 		"selected_items":
 		[
 			[
-				"install",
+				"lis",
+				"Package Control: List Packages"
+			],
+			[
+				"Snippet: ",
+				"Snippet: if … end"
+			],
+			[
+				"isntal",
 				"Package Control: Install Package"
 			],
 			[
@@ -455,20 +460,12 @@
 				"Package Control: Install Package"
 			],
 			[
-				"isntall",
-				"Package Control: Install Package"
-			],
-			[
-				"isntal",
+				"install",
 				"Package Control: Install Package"
 			],
 			[
 				"instal",
 				"Install Package Control"
-			],
-			[
-				"lis",
-				"Package Control: List Packages"
 			],
 			[
 				"list p",
@@ -491,7 +488,7 @@
 	},
 	"console":
 	{
-		"height": 257.0,
+		"height": 346.0,
 		"history":
 		[
 		]
@@ -507,58 +504,41 @@
 	},
 	"expanded_folders":
 	[
-		"/home/cristiamherrera/Documents/ruby/emavias",
-		"/home/cristiamherrera/Documents/ruby/emavias/app",
-		"/home/cristiamherrera/Documents/ruby/emavias/app/views",
-		"/home/cristiamherrera/Documents/ruby/emavias/app/views/elements",
-		"/home/cristiamherrera/Documents/ruby/emavias/app/views/elements/menu",
-		"/home/cristiamherrera/Documents/ruby/emavias/app/views/elements/sidebar",
-		"/home/cristiamherrera/Documents/ruby/emavias/app/views/layouts"
+		"/C/ruby/emavias",
+		"/C/ruby/emavias/app",
+		"/C/ruby/emavias/app/controllers",
+		"/C/ruby/emavias/app/views",
+		"/C/ruby/emavias/app/views/derivaciones"
 	],
 	"file_history":
 	[
-		"/home/cristiamherrera/Documents/ruby/emavias/app/views/ruta/ver_caminos.html.erb",
-		"/home/cristiamherrera/Documents/ruby/emavias/config/routes.rb",
-		"/home/cristiamherrera/Documents/ruby/emavias/app/controllers/compras_controller.rb",
-		"/home/cristiamherrera/Documents/ruby/emavias/db/migrate/20190401133435_add_archivo_to_compras.rb",
-		"/home/cristiamherrera/Documents/ruby/emavias/db/migrate/20190225131624_add_otros_to_compras.rb",
-		"/home/cristiamherrera/Documents/ruby/emavias/public/css/impresion.css",
-		"/home/cristiamherrera/Documents/ruby/emavias/public/assets/plugins/styleswitcher/jQuery.style.switcher.js",
-		"/home/cristiamherrera/Documents/ruby/emavias/config/database.yml",
-		"/home/cristiamherrera/Documents/ruby/emavias/app/views/derivaciones/ver_memo.html.erb",
-		"/home/cristiamherrera/Documents/ruby/emavias/app/views/reportes/por_numero.html.erb",
-		"/home/cristiamherrera/Documents/ruby/emavias/app/controllers/derivaciones_controller.rb",
-		"/home/cristiamherrera/Documents/ruby/emavias/app/views/compras/bandeja_entrada.html.erb",
-		"/home/cristiamherrera/Documents/ruby/emavias/app/controllers/documentos_controller.rb",
-		"/home/cristiamherrera/Documents/ruby/emavias/app/views/documentos/nuevo.html.erb",
-		"/home/cristiamherrera/Documents/ruby/emavias/app/views/derivaciones/ver_documento.html.erb",
-		"/home/cristiamherrera/Documents/ruby/emavias/app/views/derivaciones/ver_documento_jefe.html.erb",
-		"/home/cristiamherrera/Documents/ruby/emavias/app/views/compras/imprime_solicitud.html.erb",
-		"/home/cristiamherrera/Documents/ruby/emavias/app/views/compras/asignar.html.erb",
-		"/home/cristiamherrera/Documents/ruby/emavias/app/views/derivaciones/ver_documento_rpa.html.erb",
-		"/home/cristiamherrera/Documents/ruby/emavias/app/views/compras/_form.html.erb",
-		"/home/cristiamherrera/Documents/ruby/emavias/app/controllers/reportes_controller.rb",
+		"/C/ruby/emavias/config/database.yml",
+		"/C/ruby/emavias/app/controllers/derivaciones_controller.rb",
+		"/C/ruby/emavias/app/views/derivaciones/_memorandum.html.erb",
+		"/C/ruby/emavias/app/views/compras/bandeja_entrada.html.erb",
+		"/C/ruby/emavias/app/views/compras/imprime_solicitud.html.erb",
+		"/C/ruby/emavias/app/views/derivaciones/ver_documento_rpa.html.erb",
+		"/C/ruby/emavias/app/controllers/compras_controller.rb",
+		"/C/ruby/emavias/app/views/compras/_form.html.erb",
+		"/C/ruby/emavias/app/controllers/reportes_controller.rb",
+		"/C/ruby/emavias/.gitignore",
 		"/home/cristiamherrera/Documents/ruby/emavias/app/views/reportes/por_unidad.html.erb",
+		"/home/cristiamherrera/Documents/ruby/emavias/app/views/reportes/por_numero.html.erb",
+		"/home/cristiamherrera/Documents/ruby/emavias/app/views/derivaciones/ver_documento_jefe.html.erb",
+		"/home/cristiamherrera/Documents/ruby/emavias/app/views/compras/bandeja_entrada.html.erb",
 		"/home/cristiamherrera/.config/sublime-text-3/Packages/User/SublimeCodeIntel.sublime-settings",
 		"/C/ruby/emavias/db/migrate/20190102125707_add_total_to_compras.rb",
 		"/C/ruby/emavias/app/views/derivaciones/ver_derivaciones.html.erb",
 		"/C/ruby/emavias/app/views/derivaciones/ver_documento.html.erb",
-		"/C/ruby/emavias/app/controllers/compras_controller.rb",
 		"/C/ruby/emavias/app/views/compras/asignar.html.erb",
-		"/C/ruby/emavias/app/controllers/derivaciones_controller.rb",
-		"/C/ruby/emavias/app/views/derivaciones/ver_documento_rpa.html.erb",
 		"/C/ruby/emavias/app/views/derivaciones/ver_documento_jefe.html.erb",
 		"/C/ruby/emavias/db/migrate/20181120183621_create_derivaciones.rb",
 		"/C/ruby/emavias/db/migrate/20181231125412_add_pagado_to_derivaciones.rb",
 		"/C/ruby/emavias/db/migrate/20181203133918_add_derivacione_id_to_docderivaciones.rb",
-		"/C/ruby/emavias/app/views/compras/imprime_solicitud.html.erb",
 		"/C/ruby/emavias/db/migrate/20181112172036_create_documentos.rb",
 		"/C/ruby/emavias/app/views/documentos/nuevo.html.erb",
 		"/C/ruby/emavias/config/routes.rb",
-		"/C/ruby/emavias/app/views/compras/bandeja_entrada.html.erb",
 		"/C/ruby/emavias/app/models/derivacione.rb",
-		"/C/ruby/emavias/app/views/compras/_form.html.erb",
-		"/C/ruby/emavias/app/controllers/reportes_controller.rb",
 		"/C/ruby/emavias/app/views/reportes/tramites.html.erb",
 		"/C/ruby/emavias/app/views/reportes/por_numero.html.erb",
 		"/C/ruby/emavias/app/views/reportes/por_usuario.html.erb",
@@ -566,7 +546,6 @@
 		"/C/ruby/emavias/app/models/compra.rb",
 		"/C/ruby/emavias/app/views/ruta/ver_caminos.html.erb",
 		"/C/ruby/emavias/app/models/user.rb",
-		"/C/ruby/emavias/.gitignore",
 		"/C/ruby/emavias/db/migrate/20181217041521_add_user_id_and_unidade_id_and_cargo_id_and_compra_id_to_docderivaciones.rb",
 		"/C/ruby/emavias/app/controllers/alternativos_controller.rb",
 		"/C/ruby/emavias/app/controllers/caminos_controller.rb",
@@ -630,7 +609,7 @@
 	],
 	"find":
 	{
-		"height": 24.0
+		"height": 26.0
 	},
 	"find_in_files":
 	{
@@ -645,22 +624,13 @@
 		"case_sensitive": false,
 		"find_history":
 		[
-			"carga_excepcion",
-			"col-md-4",
-			"fecha",
-			"direccion",
-			"@producto",
-			"justificacio",
-			"justifricac",
-			"root",
-			"h1",
-			"50px",
+			"col-md-7",
 			"col-md-3",
-			"minimo",
-			"col-md-3",
-			"cominterna",
-			"cotiza",
-			"col-md-3",
+			"admin",
+			"col-md-12",
+			"admin",
+			"();\n",
+			"documentos",
 			"<%",
 			"<% ",
 			"<%",
@@ -766,37 +736,40 @@
 	"groups":
 	[
 		{
-			"selected": 0,
+			"selected": 1,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "app/controllers/compras_controller.rb",
+					"file": "app/controllers/derivaciones_controller.rb",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 7656,
+						"buffer_size": 6227,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								117,
-								117
+								584,
+								584
 							]
 						],
 						"settings":
 						{
 							"SL.14.region_keys":
 							[
+								"SL.ruby.Highlights.|2dfa45728f54262b802a5a19a18a6c3c1e39d317f5e3a091b04a5968bd3c22c5|region.yellowish markup.warning.sublime_linter|32",
+								"SL.ruby.Gutter.|region.yellowish markup.warning.sublime_linter|dot",
 								"sublime_linter.protected_regions"
 							],
-							"SL.15.region_keys":
+							"SL.35.region_keys":
 							[
+								"SL.ruby.Highlights.|ff99187858e2ef36f0e0a39f872a532f1644370ee2d7f07d5b0311439c2d0ee6|region.yellowish markup.warning.sublime_linter|32",
+								"SL.ruby.Gutter.|region.yellowish markup.warning.sublime_linter|dot",
 								"sublime_linter.protected_regions"
 							],
-							"auto_complete": false,
 							"bracket_highlighter.busy": false,
 							"bracket_highlighter.clone": -1,
 							"bracket_highlighter.clone_locations":
@@ -805,511 +778,8 @@
 								{
 									"1":
 									[
-										429,
-										432
-									]
-								},
-								"icon":
-								{
-									"1":
-									[
-										"Packages/BracketHighlighter/icons/dot.png",
-										"region.yellowish brackethighlighter.default"
-									]
-								},
-								"open":
-								{
-									"1":
-									[
-										418,
-										421
-									]
-								},
-								"unmatched":
-								{
-								}
-							},
-							"bracket_highlighter.clone_regions":
-							[
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
-								"bh_unmatched_content",
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
-								"bh_angle_content",
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
-								"bh_round_content",
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_square_content",
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_curly_content",
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close",
-								"bh_single_quote_content",
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_regex_content",
-								"bh_c_define",
-								"bh_c_define_center",
-								"bh_c_define_open",
-								"bh_c_define_close",
-								"bh_c_define_content",
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_default_content",
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_double_quote_content",
-								"bh_tag",
-								"bh_tag_center",
-								"bh_tag_open",
-								"bh_tag_close",
-								"bh_tag_content"
-							],
-							"bracket_highlighter.locations":
-							{
-								"close":
-								{
-								},
-								"icon":
-								{
-								},
-								"open":
-								{
-								},
-								"unmatched":
-								{
-									"1":
-									[
-										0,
-										5
-									]
-								}
-							},
-							"bracket_highlighter.regions":
-							[
-								"bh_tag",
-								"bh_tag_center",
-								"bh_tag_open",
-								"bh_tag_close",
-								"bh_tag_content",
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_double_quote_content",
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_curly_content",
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close",
-								"bh_single_quote_content",
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_regex_content",
-								"bh_c_define",
-								"bh_c_define_center",
-								"bh_c_define_open",
-								"bh_c_define_close",
-								"bh_c_define_content",
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
-								"bh_round_content",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
-								"bh_unmatched_content",
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_default_content",
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
-								"bh_angle_content",
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_square_content"
-							],
-							"syntax": "Packages/Ruby/Ruby.sublime-syntax",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 2,
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "app/views/compras/ver_documento.html.erb",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 83,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"auto_complete": false,
-							"bracket_highlighter.busy": false,
-							"bracket_highlighter.clone": -1,
-							"bracket_highlighter.clone_locations":
-							{
-								"close":
-								{
-									"1":
-									[
-										1,
-										6
-									]
-								},
-								"icon":
-								{
-									"1":
-									[
-										"Packages/BracketHighlighter/icons/tag.png",
-										"region.orangish"
-									]
-								},
-								"open":
-								{
-									"1":
-									[
-										1,
-										6
-									]
-								},
-								"unmatched":
-								{
-								}
-							},
-							"bracket_highlighter.clone_regions":
-							[
-								"bh_tag",
-								"bh_tag_center",
-								"bh_tag_open",
-								"bh_tag_close",
-								"bh_tag_content",
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
-								"bh_angle_content",
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_curly_content",
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_default_content",
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_double_quote_content",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
-								"bh_unmatched_content",
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_regex_content",
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_square_content",
-								"bh_c_define",
-								"bh_c_define_center",
-								"bh_c_define_open",
-								"bh_c_define_close",
-								"bh_c_define_content",
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close",
-								"bh_single_quote_content",
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
-								"bh_round_content"
-							],
-							"bracket_highlighter.locations":
-							{
-								"close":
-								{
-									"1":
-									[
-										1,
-										6
-									]
-								},
-								"icon":
-								{
-									"1":
-									[
-										"Packages/BracketHighlighter/icons/tag.png",
-										"region.orangish"
-									]
-								},
-								"open":
-								{
-									"1":
-									[
-										1,
-										6
-									]
-								},
-								"unmatched":
-								{
-								}
-							},
-							"bracket_highlighter.regions":
-							[
-								"bh_tag",
-								"bh_tag_center",
-								"bh_tag_open",
-								"bh_tag_close",
-								"bh_tag_content",
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
-								"bh_angle_content",
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_curly_content",
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_default_content",
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_double_quote_content",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
-								"bh_unmatched_content",
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_regex_content",
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_square_content",
-								"bh_c_define",
-								"bh_c_define_center",
-								"bh_c_define_open",
-								"bh_c_define_close",
-								"bh_c_define_content",
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close",
-								"bh_single_quote_content",
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
-								"bh_round_content"
-							],
-							"syntax": "Packages/Rails/HTML (Rails).sublime-syntax"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 4,
-					"type": "text"
-				}
-			]
-		},
-		{
-			"selected": 2,
-			"sheets":
-			[
-				{
-					"buffer": 2,
-					"file": "app/views/compras/_form.html.erb",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 8877,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1189,
-								1189
-							]
-						],
-						"settings":
-						{
-							"SL.16.region_keys":
-							[
-							],
-							"auto_complete": false,
-							"bracket_highlighter.busy": false,
-							"bracket_highlighter.clone": -1,
-							"bracket_highlighter.clone_locations":
-							{
-								"close":
-								{
-									"1":
-									[
-										1469,
-										1472
-									]
-								},
-								"icon":
-								{
-									"1":
-									[
-										"Packages/BracketHighlighter/icons/tag.png",
-										"region.orangish"
-									]
-								},
-								"open":
-								{
-									"1":
-									[
-										1121,
-										1124
-									]
-								},
-								"unmatched":
-								{
-								}
-							},
-							"bracket_highlighter.clone_regions":
-							[
-								"bh_tag",
-								"bh_tag_center",
-								"bh_tag_open",
-								"bh_tag_close",
-								"bh_tag_content",
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_double_quote_content",
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_curly_content",
-								"bh_c_define",
-								"bh_c_define_center",
-								"bh_c_define_open",
-								"bh_c_define_close",
-								"bh_c_define_content",
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_default_content",
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_regex_content",
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
-								"bh_angle_content",
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_square_content",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
-								"bh_unmatched_content",
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close",
-								"bh_single_quote_content",
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
-								"bh_round_content"
-							],
-							"bracket_highlighter.locations":
-							{
-								"close":
-								{
-									"1":
-									[
-										1200,
-										1201
+										1917,
+										1918
 									]
 								},
 								"icon":
@@ -1324,8 +794,96 @@
 								{
 									"1":
 									[
-										1186,
-										1187
+										1908,
+										1909
+									]
+								},
+								"unmatched":
+								{
+								}
+							},
+							"bracket_highlighter.clone_regions":
+							[
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content"
+							],
+							"bracket_highlighter.locations":
+							{
+								"close":
+								{
+									"1":
+									[
+										948,
+										951
+									]
+								},
+								"icon":
+								{
+									"1":
+									[
+										"Packages/BracketHighlighter/icons/dot.png",
+										"region.yellowish brackethighlighter.default"
+									]
+								},
+								"open":
+								{
+									"1":
+									[
+										583,
+										585
 									]
 								},
 								"unmatched":
@@ -1334,61 +892,276 @@
 							},
 							"bracket_highlighter.regions":
 							[
-								"bh_tag",
-								"bh_tag_center",
-								"bh_tag_open",
-								"bh_tag_close",
-								"bh_tag_content",
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_double_quote_content",
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_curly_content",
-								"bh_c_define",
-								"bh_c_define_center",
-								"bh_c_define_open",
-								"bh_c_define_close",
-								"bh_c_define_content",
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_default_content",
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_regex_content",
 								"bh_angle",
 								"bh_angle_center",
 								"bh_angle_open",
 								"bh_angle_close",
 								"bh_angle_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
 								"bh_square",
 								"bh_square_center",
 								"bh_square_open",
 								"bh_square_close",
 								"bh_square_content",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
-								"bh_unmatched_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
 								"bh_single_quote",
 								"bh_single_quote_center",
 								"bh_single_quote_open",
 								"bh_single_quote_close",
 								"bh_single_quote_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
 								"bh_round",
 								"bh_round_center",
 								"bh_round_open",
 								"bh_round_close",
-								"bh_round_content"
+								"bh_round_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content"
+							],
+							"syntax": "Packages/Ruby/Ruby.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 146.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "app/views/compras/_form.html.erb",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 8797,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"SL.15.region_keys":
+							[
+							],
+							"SL.24.region_keys":
+							[
+							],
+							"auto_complete": false,
+							"bracket_highlighter.busy": false,
+							"bracket_highlighter.clone": -1,
+							"bracket_highlighter.clone_locations":
+							{
+								"close":
+								{
+									"1":
+									[
+										273,
+										278
+									]
+								},
+								"icon":
+								{
+									"1":
+									[
+										"Packages/BracketHighlighter/icons/tag.png",
+										"region.orangish"
+									]
+								},
+								"open":
+								{
+									"1":
+									[
+										1,
+										6
+									]
+								},
+								"unmatched":
+								{
+								}
+							},
+							"bracket_highlighter.clone_regions":
+							[
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content"
+							],
+							"bracket_highlighter.locations":
+							{
+								"close":
+								{
+									"1":
+									[
+										273,
+										278
+									]
+								},
+								"icon":
+								{
+									"1":
+									[
+										"Packages/BracketHighlighter/icons/tag.png",
+										"region.orangish"
+									]
+								},
+								"open":
+								{
+									"1":
+									[
+										1,
+										6
+									]
+								},
+								"unmatched":
+								{
+								}
+							},
+							"bracket_highlighter.regions":
+							[
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content"
 							],
 							"syntax": "Packages/Rails/HTML (Rails).sublime-syntax",
 							"tab_size": 4,
@@ -1398,29 +1171,44 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 6,
+					"stack_index": 2,
 					"type": "text"
-				},
+				}
+			]
+		},
+		{
+			"selected": 1,
+			"sheets":
+			[
 				{
-					"buffer": 3,
-					"file": "app/views/compras/asignar.html.erb",
+					"buffer": 2,
+					"file": "app/views/derivaciones/ver_documento.html.erb",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 15725,
+						"buffer_size": 20643,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								4543,
-								4543
+								5463,
+								5463
 							]
 						],
 						"settings":
 						{
+							"SL.15.region_keys":
+							[
+							],
+							"SL.16.region_keys":
+							[
+							],
 							"SL.17.region_keys":
+							[
+							],
+							"SL.63.region_keys":
 							[
 							],
 							"auto_complete": false,
@@ -1432,216 +1220,8 @@
 								{
 									"1":
 									[
-										5086,
-										5089
-									]
-								},
-								"icon":
-								{
-									"1":
-									[
-										"Packages/BracketHighlighter/icons/tag.png",
-										"region.orangish"
-									]
-								},
-								"open":
-								{
-									"1":
-									[
-										4934,
-										4937
-									]
-								},
-								"unmatched":
-								{
-								}
-							},
-							"bracket_highlighter.clone_regions":
-							[
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_default_content",
-								"bh_tag",
-								"bh_tag_center",
-								"bh_tag_open",
-								"bh_tag_close",
-								"bh_tag_content",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
-								"bh_unmatched_content",
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_double_quote_content",
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_square_content",
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_regex_content",
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_curly_content",
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
-								"bh_round_content",
-								"bh_c_define",
-								"bh_c_define_center",
-								"bh_c_define_open",
-								"bh_c_define_close",
-								"bh_c_define_content",
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close",
-								"bh_single_quote_content",
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
-								"bh_angle_content"
-							],
-							"bracket_highlighter.locations":
-							{
-								"close":
-								{
-									"1":
-									[
-										4554,
-										4555
-									]
-								},
-								"icon":
-								{
-									"1":
-									[
-										"Packages/BracketHighlighter/icons/double_quote.png",
-										"region.greenish"
-									]
-								},
-								"open":
-								{
-									"1":
-									[
-										4540,
-										4541
-									]
-								},
-								"unmatched":
-								{
-								}
-							},
-							"bracket_highlighter.regions":
-							[
-								"bh_tag",
-								"bh_tag_center",
-								"bh_tag_open",
-								"bh_tag_close",
-								"bh_tag_content",
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_double_quote_content",
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_curly_content",
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close",
-								"bh_single_quote_content",
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_regex_content",
-								"bh_c_define",
-								"bh_c_define_center",
-								"bh_c_define_open",
-								"bh_c_define_close",
-								"bh_c_define_content",
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
-								"bh_round_content",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
-								"bh_unmatched_content",
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_default_content",
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
-								"bh_angle_content",
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_square_content"
-							],
-							"syntax": "Packages/Rails/HTML (Rails).sublime-syntax",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 1265.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 1,
-					"type": "text"
-				},
-				{
-					"buffer": 4,
-					"file": "app/views/alternativos/nuevo.html.erb",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 4054,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								67,
-								67
-							]
-						],
-						"settings":
-						{
-							"bracket_highlighter.busy": false,
-							"bracket_highlighter.clone": -1,
-							"bracket_highlighter.locations":
-							{
-								"close":
-								{
-									"1":
-									[
-										296,
-										299
+										5745,
+										5748
 									]
 								},
 								"icon":
@@ -1656,16 +1236,21 @@
 								{
 									"1":
 									[
-										45,
-										47
+										5596,
+										5598
 									]
 								},
 								"unmatched":
 								{
 								}
 							},
-							"bracket_highlighter.regions":
+							"bracket_highlighter.clone_regions":
 							[
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
 								"bh_tag",
 								"bh_tag_center",
 								"bh_tag_open",
@@ -1676,6 +1261,84 @@
 								"bh_double_quote_open",
 								"bh_double_quote_close",
 								"bh_double_quote_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content"
+							],
+							"bracket_highlighter.locations":
+							{
+								"close":
+								{
+									"1":
+									[
+										6052,
+										6055
+									]
+								},
+								"icon":
+								{
+									"1":
+									[
+										"Packages/BracketHighlighter/icons/tag.png",
+										"region.orangish"
+									]
+								},
+								"open":
+								{
+									"1":
+									[
+										5456,
+										5459
+									]
+								},
+								"unmatched":
+								{
+								}
+							},
+							"bracket_highlighter.regions":
+							[
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
 								"bh_curly",
 								"bh_curly_center",
 								"bh_curly_open",
@@ -1686,75 +1349,97 @@
 								"bh_single_quote_open",
 								"bh_single_quote_close",
 								"bh_single_quote_content",
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_regex_content",
-								"bh_c_define",
-								"bh_c_define_center",
-								"bh_c_define_open",
-								"bh_c_define_close",
-								"bh_c_define_content",
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
-								"bh_round_content",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
-								"bh_unmatched_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
 								"bh_default",
 								"bh_default_center",
 								"bh_default_open",
 								"bh_default_close",
 								"bh_default_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
 								"bh_angle",
 								"bh_angle_center",
 								"bh_angle_open",
 								"bh_angle_close",
 								"bh_angle_content",
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_square_content"
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content"
 							],
 							"syntax": "Packages/Rails/HTML (Rails).sublime-syntax",
 							"tab_size": 2,
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 2275.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 0,
+					"stack_index": 1,
 					"type": "text"
 				},
 				{
-					"buffer": 5,
-					"file": "app/views/compras/mis_tramites.html.erb",
+					"buffer": 3,
+					"file": "app/views/documentos/nuevo.html.erb",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 7309,
+						"buffer_size": 6193,
 						"regions":
 						{
+							"bookmarks":
+							{
+								"flags": 144,
+								"icon": "bookmark",
+								"regions":
+								[
+									[
+										1941,
+										1941
+									]
+								],
+								"scope": "bookmarks"
+							}
 						},
 						"selection":
 						[
 							[
-								0,
-								0
+								1963,
+								1963
 							]
 						],
 						"settings":
 						{
+							"SL.25.region_keys":
+							[
+							],
+							"auto_complete": false,
 							"bracket_highlighter.busy": false,
 							"bracket_highlighter.clone": -1,
-							"bracket_highlighter.locations":
+							"bracket_highlighter.clone_locations":
 							{
 								"close":
 								{
@@ -1767,10 +1452,55 @@
 								},
 								"unmatched":
 								{
+									"1":
+									[
+										3291,
+										3294
+									]
 								}
 							},
-							"bracket_highlighter.regions":
+							"bracket_highlighter.clone_regions":
 							[
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
 								"bh_tag",
 								"bh_tag_center",
 								"bh_tag_open",
@@ -1781,65 +1511,113 @@
 								"bh_angle_open",
 								"bh_angle_close",
 								"bh_angle_content",
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_curly_content",
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_default_content",
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_double_quote_content",
 								"bh_unmatched",
 								"bh_unmatched_center",
 								"bh_unmatched_open",
 								"bh_unmatched_close",
-								"bh_unmatched_content",
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_regex_content",
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_square_content",
+								"bh_unmatched_content"
+							],
+							"bracket_highlighter.locations":
+							{
+								"close":
+								{
+									"1":
+									[
+										1962,
+										1965
+									]
+								},
+								"icon":
+								{
+									"1":
+									[
+										"Packages/BracketHighlighter/icons/tag.png",
+										"region.orangish"
+									]
+								},
+								"open":
+								{
+									"1":
+									[
+										1555,
+										1558
+									]
+								},
+								"unmatched":
+								{
+								}
+							},
+							"bracket_highlighter.regions":
+							[
 								"bh_c_define",
 								"bh_c_define_center",
 								"bh_c_define_open",
 								"bh_c_define_close",
 								"bh_c_define_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
 								"bh_single_quote",
 								"bh_single_quote_center",
 								"bh_single_quote_open",
 								"bh_single_quote_close",
 								"bh_single_quote_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
 								"bh_round",
 								"bh_round_center",
 								"bh_round_open",
 								"bh_round_close",
-								"bh_round_content"
+								"bh_round_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content"
 							],
 							"syntax": "Packages/Rails/HTML (Rails).sublime-syntax",
 							"tab_size": 2,
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 961.0,
+						"translation.y": 326.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 3,
+					"stack_index": 0,
 					"type": "text"
 				},
 				{
-					"buffer": 6,
+					"buffer": 4,
 					"file": "config/routes.rb",
 					"semi_transient": false,
 					"settings":
@@ -1857,115 +1635,22 @@
 						],
 						"settings":
 						{
-							"SL.14.region_keys":
+							"SL.16.region_keys":
 							[
 							],
-							"SL.18.region_keys":
-							[
-								"sublime_linter.protected_regions"
-							],
-							"SL.20.region_keys":
+							"SL.22.region_keys":
 							[
 							],
-							"auto_complete": false,
 							"bracket_highlighter.busy": false,
 							"bracket_highlighter.clone": -1,
-							"bracket_highlighter.clone_locations":
-							{
-								"close":
-								{
-									"1":
-									[
-										2652,
-										2653
-									]
-								},
-								"icon":
-								{
-									"1":
-									[
-										"Packages/BracketHighlighter/icons/double_quote.png",
-										"region.greenish"
-									]
-								},
-								"open":
-								{
-									"1":
-									[
-										2628,
-										2629
-									]
-								},
-								"unmatched":
-								{
-								}
-							},
-							"bracket_highlighter.clone_regions":
-							[
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
-								"bh_unmatched_content",
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
-								"bh_angle_content",
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
-								"bh_round_content",
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_square_content",
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_curly_content",
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close",
-								"bh_single_quote_content",
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_regex_content",
-								"bh_c_define",
-								"bh_c_define_center",
-								"bh_c_define_open",
-								"bh_c_define_close",
-								"bh_c_define_content",
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_default_content",
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_double_quote_content",
-								"bh_tag",
-								"bh_tag_center",
-								"bh_tag_open",
-								"bh_tag_close",
-								"bh_tag_content"
-							],
 							"bracket_highlighter.locations":
 							{
 								"close":
 								{
 									"1":
 									[
-										2433,
-										2434
+										2640,
+										2641
 									]
 								},
 								"icon":
@@ -1980,8 +1665,8 @@
 								{
 									"1":
 									[
-										2409,
-										2410
+										2598,
+										2599
 									]
 								},
 								"unmatched":
@@ -1990,69 +1675,193 @@
 							},
 							"bracket_highlighter.regions":
 							[
-								"bh_tag",
-								"bh_tag_center",
-								"bh_tag_open",
-								"bh_tag_close",
-								"bh_tag_content",
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
-								"bh_angle_content",
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_curly_content",
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_default_content",
 								"bh_double_quote",
 								"bh_double_quote_center",
 								"bh_double_quote_open",
 								"bh_double_quote_close",
 								"bh_double_quote_content",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
-								"bh_unmatched_content",
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_regex_content",
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_square_content",
 								"bh_c_define",
 								"bh_c_define_center",
 								"bh_c_define_open",
 								"bh_c_define_close",
 								"bh_c_define_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
 								"bh_single_quote",
 								"bh_single_quote_center",
 								"bh_single_quote_open",
 								"bh_single_quote_close",
 								"bh_single_quote_content",
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
-								"bh_round_content"
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content"
 							],
-							"history_list_is_closing": true,
 							"syntax": "Packages/Ruby/Ruby.sublime-syntax",
 							"tab_size": 2,
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 193.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "app/views/ruta/new.html.erb",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 250,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"SL.17.region_keys":
+							[
+							],
+							"SL.69.region_keys":
+							[
+							],
+							"bracket_highlighter.busy": false,
+							"bracket_highlighter.clone": -1,
+							"bracket_highlighter.locations":
+							{
+								"close":
+								{
+									"1":
+									[
+										245,
+										248
+									]
+								},
+								"icon":
+								{
+									"1":
+									[
+										"Packages/BracketHighlighter/icons/tag.png",
+										"region.orangish"
+									]
+								},
+								"open":
+								{
+									"1":
+									[
+										1,
+										4
+									]
+								},
+								"unmatched":
+								{
+								}
+							},
+							"bracket_highlighter.regions":
+							[
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content"
+							],
+							"history_list_is_closing": true,
+							"syntax": "Packages/Rails/HTML (Rails).sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 5,
@@ -2063,7 +1872,7 @@
 	],
 	"incremental_find":
 	{
-		"height": 24.0
+		"height": 26.0
 	},
 	"input":
 	{
@@ -2101,11 +1910,7 @@
 	"menu_visible": true,
 	"output.SublimeLinter":
 	{
-		"height": 239.0
-	},
-	"output.SublimeLinter Messages":
-	{
-		"height": 97.0
+		"height": 131.0
 	},
 	"output.find_results":
 	{
@@ -2119,7 +1924,7 @@
 	"project": "emavias_proy.sublime-project",
 	"replace":
 	{
-		"height": 44.0
+		"height": 48.0
 	},
 	"save_all_on_build": true,
 	"select_file":
@@ -2130,95 +1935,39 @@
 		[
 			[
 				"nuevo",
-				"app/views/alternativos/nuevo.html.erb"
-			],
-			[
-				"ver_camin",
-				"app/views/ruta/ver_caminos.html.erb"
-			],
-			[
-				"mistra",
-				"app/views/compras/mis_tramites.html.erb"
-			],
-			[
-				"routes",
-				"config/routes.rb"
-			],
-			[
-				"asi",
-				"app/views/compras/asignar.html.erb"
-			],
-			[
-				"comp",
-				"app/controllers/compras_controller.rb"
-			],
-			[
-				"add ",
-				"db/migrate/20190225131624_add_otros_to_compras.rb"
-			],
-			[
-				"add archi",
-				"db/migrate/20190401133435_add_archivo_to_compras.rb"
-			],
-			[
-				"compras",
-				"app/controllers/compras_controller.rb"
-			],
-			[
-				"_form com",
-				"app/views/compras/_form.html.erb"
+				"app\\views\\documentos\\nuevo.html.erb"
 			],
 			[
 				"data",
-				"config/database.yml"
-			],
-			[
-				"jQuery.style.switcher.js",
-				"public/assets/plugins/styleswitcher/jQuery.style.switcher.js"
-			],
-			[
-				"impresion",
-				"public/css/impresion.css"
-			],
-			[
-				"por",
-				"app/views/reportes/por_numero.html.erb"
-			],
-			[
-				"derviacion",
-				"app/controllers/derivaciones_controller.rb"
-			],
-			[
-				"bande",
-				"app/views/compras/bandeja_entrada.html.erb"
-			],
-			[
-				"verdo",
-				"app/views/derivaciones/ver_documento.html.erb"
-			],
-			[
-				"docu",
-				"app/controllers/documentos_controller.rb"
-			],
-			[
-				"ver",
-				"app/views/derivaciones/ver_documento_rpa.html.erb"
-			],
-			[
-				"derivac",
-				"app/controllers/derivaciones_controller.rb"
-			],
-			[
-				"ver_doc",
-				"app/views/derivaciones/ver_documento_jefe.html.erb"
-			],
-			[
-				"asignar",
-				"app/views/compras/asignar.html.erb"
+				"config\\database.yml"
 			],
 			[
 				"_form",
-				"app/views/compras/_form.html.erb"
+				"app\\views\\compras\\_form.html.erb"
+			],
+			[
+				"derivacion",
+				"app\\controllers\\derivaciones_controller.rb"
+			],
+			[
+				"routes",
+				"config\\routes.rb"
+			],
+			[
+				"bandej",
+				"app\\views\\compras\\bandeja_entrada.html.erb"
+			],
+			[
+				"new",
+				"app\\views\\ruta\\new.html.erb"
+			],
+			[
+				"verdo",
+				"app\\views\\derivaciones\\ver_documento.html.erb"
+			],
+			[
+				"git",
+				".gitignore"
 			],
 			[
 				"imprime",
@@ -2241,6 +1990,10 @@
 				"db\\migrate\\20190102125707_add_total_to_compras.rb"
 			],
 			[
+				"compras",
+				"app\\controllers\\compras_controller.rb"
+			],
+			[
 				"porunida",
 				"app\\views\\reportes\\por_unidad.html.erb"
 			],
@@ -2255,6 +2008,10 @@
 			[
 				"asig",
 				"app\\views\\compras\\asignar.html.erb"
+			],
+			[
+				"ver",
+				"app\\views\\derivaciones\\ver_documento.html.erb"
 			],
 			[
 				"verdocum",
@@ -2295,6 +2052,10 @@
 			[
 				"bandeja",
 				"app\\views\\compras\\bandeja_entrada.html.erb"
+			],
+			[
+				"asi",
+				"app\\views\\compras\\asignar.html.erb"
 			],
 			[
 				"deri",
@@ -2377,10 +2138,6 @@
 				".gitignore"
 			],
 			[
-				"bandej",
-				"app\\views\\compras\\bandeja_entrada.html.erb"
-			],
-			[
 				"nue",
 				"app\\views\\documentos\\nuevo.html.erb"
 			],
@@ -2445,6 +2202,10 @@
 				"app\\models\\cargo.rb"
 			],
 			[
+				"derivac",
+				"app\\models\\derivacione.rb"
+			],
+			[
 				"user con",
 				"app\\controllers\\users_controller.rb"
 			],
@@ -2459,10 +2220,6 @@
 			[
 				"_form uni",
 				"app\\views\\unidades\\_form.html.erb"
-			],
-			[
-				"new",
-				"app\\views\\ruta\\new.html.erb"
 			],
 			[
 				"_form rut",
@@ -2509,12 +2266,16 @@
 				"app\\views\\ruta\\index.html.erb"
 			],
 			[
-				"adduni",
-				"db/migrate/20181113013444_add_unidade_id_to_users.rb"
+				"mistra",
+				"app\\views\\compras\\mis_tramites.html.erb"
 			],
 			[
-				"derivacion",
-				"app/models/derivacione.rb"
+				"bande",
+				"app\\views\\compras\\bandeja_entrada.html.erb"
+			],
+			[
+				"adduni",
+				"db/migrate/20181113013444_add_unidade_id_to_users.rb"
 			],
 			[
 				"caminocon",

@@ -36,20 +36,29 @@
           <div class="col-md-4">
 
           <div class="row">
-            <%= form_tag('/rutas/guarda_camino') do %>
-            <div class="col-md-8">
-              <%= select("camino", "unidade_id", Unidade.all.collect {|u| [ u.descripcion, u.id ] }, {include_blank: 'Seleccione Unidad'}, {class: 'form-control', required: true}) %>
-            </div>
-            <div class="col-md-12">
-              <div id="carga_cargos">
-                <%= select("camino", "cargo_id", Cargo.all.collect {|u| [ u.descripcion, u.id ] }, {include_blank: 'Seleccione Cargo'}, {class: 'form-control'}) %>
+            <%= form_tag('/documento/guarda_nuevo') do %>
+
+            <div class="row">
+              <div class="col-md-4">
+                Documento
+              </div>  
+              <div class="col-md-8">
+                <%= hidden_field_tag('camino_id', @camino.id) %>
+                <%= text_field_tag('descripcion', nil, :required => true, :class=>'form-control', maxlength: '150') %>
               </div>
             </div>
-            <div class="col-md-4">
-              <%= number_field_tag('camino[correlativo]', nil, class: 'form-control', required: true, min: 1) %>
-              <%= hidden_field_tag('camino[ruta_id]', @ruta.id) %>
-              <%= submit_tag("Guardar") %>
+            
+            <div class="row">
+              <div class="col-md-4">tipo</div>
+              <div class="col-md-8">
+                <select name="tipo" class="form-control" required>
+                  <option value="">Seleccione Tipo</option>
+                  <option value="ca">Campo Abierto</option>
+                  <option value="nv">No Visisble</option>
+                </select>
+              </div>
             </div>
+            
             <% end %>
           </div>
         </div>
@@ -99,11 +108,7 @@
     <%= form_tag('/documento/guarda_nuevo') do %>
     <%= hidden_field_tag('camino_id', @camino.id) %>
     <%= text_field_tag('descripcion', nil, :required => true, maxlength: '150') %>
-    <select name="tipo" required>
-      <option value="">Seleccione Tipo</option>
-      <option value="ca">Campo Abierto</option>
-      <option value="nv">No Visisble</option>
-    </select>
+    
     <input type="checkbox" name="presento" checked>&nbsp;&nbsp; Documento Adjunto</label>
     <%= submit_tag("Guardar") %>
     <% end %>
