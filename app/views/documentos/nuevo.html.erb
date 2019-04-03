@@ -32,75 +32,110 @@
     <div class="card">
       <div class="card-body">
 
+      <%= form_tag('/documento/guarda_nuevo') do %>
         <div class="row">
-          <div class="col-md-4">
+          <div class="col-md-3" style="background-color: #efefef;">
 
-          <div class="row">
-            <%= form_tag('/documento/guarda_nuevo') do %>
             <h2>Documentos</h2>
-
-            <div class="row">
-              <div class="col-md-4">
-                Documento
-              </div>  
-              <div class="col-md-8">
-                <%= hidden_field_tag('camino_id', @camino.id) %>
-                <%= text_field_tag('descripcion', nil, :required => true, :class=>'form-control', maxlength: '150') %>
-              </div>
+           
+            <div class="form-group">
+              <label class="control-label">Documento</label>
+              <%= hidden_field_tag('camino_id', @camino.id) %>
+              <%= text_field_tag('descripcion', nil, :required => true, :class=>'form-control', maxlength: '150') %>
             </div>
 
-            <br />
-            
-            <div class="row">
-              <div class="col-md-4">Tipo</div>
-              <div class="col-md-8">
-                <select name="tipo" class="form-control" required>
-                  <option value="">Seleccione Tipo</option>
-                  <option value="ca">Campo Abierto</option>
-                  <option value="nv">No Visisble</option>
-                </select>
-              </div>
+            <div class="form-group">
+              <label class="control-label">Tipo</label>
+              <select name="tipo" class="form-control" required>
+                <option value="">Seleccione Tipo</option>
+                <option value="ca">Campo Abierto</option>
+                <option value="nv">No Visisble</option>
+              </select>
             </div>
 
-            <br />
-
-            <div class="row">
-              <div class="col-md-4">Adjunto</div>
-              <div class="col-md-8">
-                <input type="checkbox" name="presento"></label>
-              </div>
+            <div class="form-group">
+              <label class="control-label">Adjunto &nbsp;&nbsp;&nbsp;&nbsp;</label>
+              <input type="checkbox" name="presento"></label>
             </div>
-
-            <hr />
+        
+          </div>
+          <div class="col-md-9" style="background-color: #ffffe6;">
             <h2>Memorandum</h2>
 
             <div class="row">
-              <div class="col-md-4">
-                Documento
-              </div>  
-              <div class="col-md-8">
-                <div class="card">
-                  <div class="card-body">
-                    <select class="select2 m-b-10 select2-multiple" name="funcionarios" style="width: 100%" multiple="multiple" data-placeholder="Seleccione">
-                      <optgroup label="Funcionarios">
-                        <% personal.each do |p| %>
-                          <option value="<%= p.id %>"><%= p.nombre %> (<%= p.cargo.descripcion %>)</option>
-                        <% end %>
-                      </optgroup>
+              <div class="col-md-3">
+
+                <div class="form-group">
+                  <label class="control-label">Tipo</label>
+                  <p></p>
+                    <select name="tipo" class="form-control">
+                      <option value="">Seleccione</option>
+                      <option value="recepcion">Recepcion</option>
+                      <option value="revision">Revision</option>
                     </select>
-                    <input type="hidden" name="valores_personal" id="valores_personal">
-                  </div>
+                </div>
+
+              </div>
+              <div class="col-md-9">
+
+                <div class="form-group">
+                  <label class="control-label">Remitente</label>
+                    <div class="card">
+                      <div class="card-body">
+                        <% personal = User.where(rol: 'Funcionario') %>
+
+                        <select class="select2" style="width: 100%; background-color: #ffffe6;" >
+                          <option>Seleccione</option>
+                          <optgroup>
+                            <% personal.each do |p| %>
+                            <option value="<%= p.id %>"><%= p.nombre %> (<%= p.cargo.descripcion %>)</option>
+                            <% end %>
+                          </optgroup>
+                        </select>
+
+                        <input type="hidden" name="valores_personal" id="valores_personal">
+                      </div>
+                    </div>
+
+                
                 </div>
               </div>
+
             </div>
 
-            <%= submit_tag("Guardar") %>
+            <div class="row">
+              <div class="col-md-12">
+                <div class="form-group">
+                  <label class="control-label">Contenido</label>
+                  <textarea name="contenido" rows="5" class="form-control"> De mi consideracion:
+          Por la presente y en cumplimiento a lo establecido en el art. 34 del Decreto Supremo 0181
+          Normas Basicas del Sistema de Administracion de Bienes y Servicios, comunico a ustedes 
+          que han sido deesignados integrantes de la Comision de Calificacion para el proceso de contratacion
+          <b>ANPE-05/2019 "SERVICIO DE TRANSPORTE DE PERSONAL RUTA III RECURRENTE 2019" Segunda Convocatoria,</b>
+          para cuyo efecto y de acuerdo a lo establecido en el Art. 38 del D.S. 0181 tendran las siguientes funciones
+          <ol>
+            <li>Realizar la Apertura de propuestas</li>
+            <li>Evaluacion y calificacion de las propuestas tecnicas y economicas</li>
+            <li>Elaborar el informe de evaluacion y recomendacion de Adjudicacion o Declaratoria Desierta</li>
+          </ol>
+          Segun el cronograma del proceso, deberan contituirse en la Unidad Administrativa, para la 
+          apertura de propuestas el dia viernes 14 de Diciembre de 2018 a horas 15:00 p.m. debiendo cumplir las responsabilidades
+          con dedicacion exclusiva, no pudiendo delegar sus funciones, ni exclusarse de participar salvo los casos descritos en
+          la norma vigente.
+          El incumplimiento a los plazos senalados en el DBC, sera considerada como inobservancia a la normativa, por lo que deben 
+          presentar el informe respectivo hasta la fecha establecida.
+          Es cuanto  les comunico para fines consiguientes.</textarea>
+                </div>
+              </div>  
+            </div>
 
-            <% end %>
           </div>
         </div>
-
-          <div class="col-md-8">
+        <%= submit_tag("Guardar") %>
+        <% end %>
+        <br />
+        <div class="row">
+          <div class="col-md-12">
             
             <% if @listado_documentos.present? %>
 
