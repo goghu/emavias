@@ -35,3 +35,5 @@ emavias.code-workspace
 
 /emavias_proy.sublime-workspace
 emavias_proy.sublime-workspace
+
+config/database.yml

@@ -106,8 +106,11 @@
             <div class="row">
               <div class="col-md-12">
                 <div class="form-group">
+                  <!-- <div class="summernote">
+                    <h3>Default Summernote</h3>
+                  </div> -->
                   <label class="control-label">Contenido</label>
-                  <textarea name="contenido" rows="5" class="form-control"> De mi consideracion:
+                  <textarea name="contenido" rows="5" class="summernote"> De mi consideracion:
           Por la presente y en cumplimiento a lo establecido en el art. 34 del Decreto Supremo 0181
           Normas Basicas del Sistema de Administracion de Bienes y Servicios, comunico a ustedes 
           que han sido deesignados integrantes de la Comision de Calificacion para el proceso de contratacion
@@ -193,15 +196,19 @@
 <br>
 <%= link_to 'Nueva Ruta', new_rutum_path %>
 <% content_for :add_css do %>
-<link href="<%= asset_path '/assets/plugins/toast-master/css/jquery.toast.css' %>" rel="stylesheet">
-<link href="<%= asset_path '/assets/plugins/sweetalert/sweetalert.css' %>" rel="stylesheet" type="text/css">
-<link href="<%= asset_path '/assets/plugins/select2/dist/css/select2.min.css' %>" rel="stylesheet" type="text/css">
+<link href="<%= asset_path '/assets/plugins/summernote/dist/summernote-bs4.css' %>" rel="stylesheet" />
+<link href="<%= asset_path '/assets/plugins/toast-master/css/jquery.toast.css' %>" rel="stylesheet" />
+<link href="<%= asset_path '/assets/plugins/sweetalert/sweetalert.css' %>" rel="stylesheet" type="text/css" />
+<link href="<%= asset_path '/assets/plugins/select2/dist/css/select2.min.css' %>" rel="stylesheet" type="text/css" />
 <% end %>
 <% content_for :add_js do %>
 <script src="<%= asset_path '/assets/plugins/datatables/jquery.dataTables.min.js' %>"></script>
 <script src="<%= asset_path '/js/validation.js' %>"></script>
 <script src="<%= asset_path '/assets/plugins/toast-master/js/jquery.toast.js' %>"></script>
 <script src="<%= asset_path '/assets/plugins/sweetalert/sweetalert.min.js' %>"></script>
+<script src="<%= asset_path '/assets/plugins/select2/dist/js/select2.full.min.js' %>"></script>
+<script src="<%= asset_path '/assets/plugins/summernote/dist/summernote-bs4.min.js' %>"></script>
+
 <script type="text/javascript">
 
   $(document).ready(function () {
@@ -221,7 +228,31 @@
   });
 </script>
 
-<script src="<%= asset_path '/assets/plugins/select2/dist/js/select2.full.min.js' %>"></script>
+<script>
+    $(document).ready(function() {
+
+        $('.summernote').summernote({
+            height: 350, // set editor height
+            minHeight: null, // set minimum height of editor
+            maxHeight: null, // set maximum height of editor
+            focus: false // set focus to editable area after initializing summernote
+        });
+
+        $('.inline-editor').summernote({
+            airMode: true
+        });
+
+    });
+
+    window.edit = function() {
+            $(".click2edit").summernote()
+        },
+        window.save = function() {
+            $(".click2edit").summernote('destroy');
+        }
+</script>
+
+
 <script type="text/javascript">
   $(document).ready(function() {
     $(".select2").select2();
