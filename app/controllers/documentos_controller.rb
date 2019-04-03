@@ -75,6 +75,15 @@ class DocumentosController < ApplicationController
     m_documento.descripcion = params[:descripcion]  
     m_documento.tipo = params[:tipo]  
     m_documento.presento = params[:presento]
+
+    if params[:remitente] == 'Seleccione'
+      params[:remitente] = nil
+    end
+
+    if params[:memorandum]==''
+      params[:memorandum] = nil
+    end
+
     m_documento.memorandum = params[:memorandum]
     m_documento.remitente = params[:remitente]
     m_documento.contenido = params[:contenido]
