@@ -346,8 +346,8 @@ input[type=radio] {
     <div class="card card-outline-info">
       <div class="card-body">
 
-        <% if current_user.id == 42 %>
-          <h3>Asignados memorandum</h3>
+        <% if @memorandum.present? %>
+          <h3>Memorandum</h3>
           <%= render 'memorandum', personal: @personal %>
         <% end %>
 
@@ -372,9 +372,13 @@ input[type=radio] {
 
         <div class="table-responsive">
           <% if @documentos.present? %>
+
             <% @documentos.each_with_index do |d, index| %>
-            <label class="control-label">
-              <%= d.descripcion %></label>
+            <% if d.tipo == 'ca' %>
+              <label class="control-label"><%= d.descripcion %></label>
+            <% else %>
+                
+            <% end %>  
             <input type="hidden" name="docderivaciones[<%= index %>]descripcion" value="<%= d.descripcion %>">
             <input type="hidden" name="docderivaciones[<%= index %>]camino_id" value="<%= d.camino_id %>">
             <input type="hidden" name="docderivaciones[<%= index %>]derivacione_id" value="<%= @derivacion.id %>">
@@ -387,18 +391,18 @@ input[type=radio] {
             <% else %>
               <br />
             <% end %>
-            <% if d.presento == 1 %>
+            <% if d.presento == true %>
               <input type="file" name="docderivaciones[<%= index %>]archivo" class="form-control">
             <% else %>
               <br />
             <% end %>
 
 
-            <div class="form-check form-check-inline">
+            <!-- <div class="form-check form-check-inline"> -->
               <!-- <input name="docderivaciones[<%# index %>]presento" class="form-check-input largerCheckbox" type="checkbox"> -->
-              <input type="file" name="docderivaciones[<%= index %>]adjunto">
-              <label class="form-check-label" for="inlineCheckbox1">Presento</label>
-            </div>
+              <!-- <input type="file" name="docderivaciones[<%# index %>]adjunto"> -->
+              <!-- <label class="form-check-label" for="inlineCheckbox1">Presento</label> -->
+            <!-- </div> -->
             <br />
             <% end %>
 
@@ -415,10 +419,10 @@ input[type=radio] {
 
 <div class="row">
   <div class="col-md-6">
-    <button type="submit" class="btn btn-block btn-success"><i class="fa fa-check"></i> Aceptar y Derivar</button>
+    <button type="submit" class="btn btn-block btn-success" id="btn_genera_asignados"><i class="fa fa-check"></i> Aceptar y Derivar</button>
   </div>
   <div class="col-md-6">
-    <%= link_to 'Atras', compras_mis_tramites_path, class: "btn btn-block btn-inverse", id: "demo" %>
+    <%= link_to 'Atras', compras_mis_tramites_path, class: "btn btn-block btn-inverse" %>
   </div>
 </div>
 <% end %>

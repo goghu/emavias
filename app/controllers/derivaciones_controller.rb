@@ -143,6 +143,8 @@ class DerivacionesController < ApplicationController
     end
     # los documentos y llenados
     @docderivaciones = Docderivacione.where(compra_id: @derivacion.compra_id)
+    # enviamos los memos
+    @memorandum = Documento.where(camino_id: @derivacion.camino_id).where.not('memorandum'=>nil).take
     # enviamos los documentos para el formulario
     @documentos = Documento.where(camino_id: @derivacion.camino_id)
     # listamos el personal para enviar a la vista
