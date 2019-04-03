@@ -68,7 +68,7 @@
                 <div class="form-group">
                   <label class="control-label">Tipo</label>
                   <p></p>
-                    <select name="tipo" class="form-control">
+                    <select name="memorandum" class="form-control">
                       <option value="">Seleccione</option>
                       <option value="recepcion">Recepcion</option>
                       <option value="revision">Revision</option>
@@ -84,7 +84,7 @@
                       <div class="card-body">
                         <% personal = User.where(rol: 'Funcionario') %>
 
-                        <select class="select2" style="width: 100%; background-color: #ffffe6;" >
+                        <select class="select2" name="remitente" style="width: 100%; background-color: #ffffe6;" >
                           <option>Seleccione</option>
                           <optgroup>
                             <% personal.each do |p| %>
@@ -93,7 +93,7 @@
                           </optgroup>
                         </select>
 
-                        <input type="hidden" name="valores_personal" id="valores_personal">
+                        <!-- <input type="hidden" name="valores_personal" id="valores_personal"> -->
                       </div>
                     </div>
 
@@ -148,6 +148,8 @@
                   <th>Descripcion</th>
                   <th>Tipo</th>
                   <th>Adjunto</th>
+                  <th>Memorandum</th>
+                  <th>Remitente</th>
                   <th></th>
                 </tr>
               </thead>
@@ -165,12 +167,30 @@
                   </td>
                   <td>
                     <%# ld.presento %>
-                      <% if ld.presento.nil? %>
-                        No
-                      <% else %>
-                        Si
-                      <% end %>
+                    <% if ld.presento.nil? %>
+                      No
+                    <% else %>
+                      Si
+                    <% end %>
                   </td>
+                  <td>
+                    <% if(ld.memorandum=='recepcion') %>
+                      Recepcion
+                    <% elsif(ld.memorandum=='revision') %>
+                      Revision            
+                    <% else %>
+                      N/T
+                    <% end %>
+                  </td>
+                  <td>
+                    <% if ld.remitente.nil? %>
+                      No
+                    <% else %>
+                      <%= ld.remitente.nombre %>
+                      (<%= ld.remitente.cargo.descripcion %>)
+                    <% end %>
+                  </td>
+                  
                   <td>
                     <%# link_to 'Ver', rutum %>
                     <%# link_to 'Editar', edit_rutum_path(rutum.id) %>
