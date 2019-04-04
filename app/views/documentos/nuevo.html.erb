@@ -71,7 +71,7 @@
                     <select name="memorandum" class="form-control">
                       <option value="">Seleccione</option>
                       <option value="recepcion">Recepcion</option>
-                      <option value="revision">Revision</option>
+                      <option value="calificacion">Calificacion</option>
                     </select>
                 </div>
 
@@ -176,8 +176,8 @@
                   <td>
                     <% if(ld.memorandum=='recepcion') %>
                       Recepcion
-                    <% elsif(ld.memorandum=='revision') %>
-                      Revision            
+                    <% elsif(ld.memorandum=='calificacion') %>
+                      Calificacion            
                     <% else %>
                       N/T
                     <% end %>
