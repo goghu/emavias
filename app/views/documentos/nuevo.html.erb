@@ -49,7 +49,7 @@
               <select name="tipo" class="form-control" required>
                 <option value="">Seleccione Tipo</option>
                 <option value="ca">Campo Abierto</option>
-                <option value="nv">No Visisble</option>
+                <option value="nv">No Visible</option>
               </select>
             </div>
 
@@ -183,11 +183,11 @@
                     <% end %>
                   </td>
                   <td>
-                    <% if ld.remitente.nil? %>
+                    <% if ld.remi.nil? %>
                       No
                     <% else %>
-                      <%= ld.remitente.nombre %>
-                      (<%= ld.remitente.cargo.descripcion %>)
+                      <%= ld.remi.nombre %>
+                      (<%= ld.remi.cargo.descripcion %>)
                     <% end %>
                   </td>
                   

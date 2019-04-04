@@ -76,16 +76,13 @@ class DocumentosController < ApplicationController
     m_documento.tipo = params[:tipo]  
     m_documento.presento = params[:presento]
 
-    if params[:remitente] == 'Seleccione'
-      params[:remitente] = nil
-    end
-
-    if params[:memorandum]==''
+    remitente = params[:remitente].to_i
+    if params[:memorandum].empty?
       params[:memorandum] = nil
     end
 
     m_documento.memorandum = params[:memorandum]
-    m_documento.remitente = params[:remitente]
+    m_documento.remitente = remitente
     m_documento.contenido = params[:contenido]
     m_documento.save
     redirect_to action: 'nuevo', id_camino: params[:camino_id]  
