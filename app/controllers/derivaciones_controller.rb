@@ -63,7 +63,7 @@ class DerivacionesController < ApplicationController
   end
 
   def guarda_derivacion
-    # byebug
+    byebug
     consulta = Derivacione.where(compra_id: params[:compra_id]).last
     c_derivacion = Derivacione.find(consulta.id)
     c_derivacion.estado = "Derivado"

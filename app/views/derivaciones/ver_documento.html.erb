@@ -348,7 +348,7 @@ input[type=radio] {
 
         <% if @memorandum.present? %>
           <h3>Memorandum</h3>
-          <%= render 'memorandum', personal: @personal %>
+          <%= render 'memorandum', personal: @personal, memo: @memorandum %>
         <% end %>
 
         <h3>Documentos</h3>
