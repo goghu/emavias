@@ -370,7 +370,7 @@ input[type=radio] {
 
         <% end %>
 
-        <div class="table-responsive">
+        <!-- <div class="table-responsive"> -->
           <% if @documentos.present? %>
 
             <% @documentos.each_with_index do |d, index| %>
@@ -389,12 +389,12 @@ input[type=radio] {
             <% if d.tipo == 'ca' %>
               <input type="text" name="docderivaciones[<%= index %>]docvalor" class="form-control">
             <% else %>
-              <br />
+              <!-- <br /> -->
             <% end %>
             <% if d.presento == true %>
               <input type="file" name="docderivaciones[<%= index %>]archivo" class="form-control">
             <% else %>
-              <br />
+              <!-- <br /> -->
             <% end %>
 
 
@@ -403,13 +403,13 @@ input[type=radio] {
               <!-- <input type="file" name="docderivaciones[<%# index %>]adjunto"> -->
               <!-- <label class="form-check-label" for="inlineCheckbox1">Presento</label> -->
             <!-- </div> -->
-            <br />
+            <!-- <br /> -->
             <% end %>
 
           <% else %>
             No tienes configuraciones
           <% end %>
-        </div>
+        <!-- </div> -->
 
       </div>
     </div>
