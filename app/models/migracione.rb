@@ -1,0 +1,2 @@
+class Migracione < ApplicationRecord
+end

@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :migraciones
   get 'reportes/tramites'
 
   get 'reportes/fechas'

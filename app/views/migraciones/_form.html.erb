@@ -1,0 +1,32 @@
+<%= form_with(model: migracione, local: true) do |form| %>
+  <% if migracione.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(migracione.errors.count, "error") %> prohibited this migracione from being saved:</h2>
+
+      <ul>
+      <% migracione.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :cite %>
+    <%= form.text_field :cite, id: :migracione_cite %>
+  </div>
+
+  <div class="field">
+    <%= form.label :documento %>
+    <%= form.text_area :documento, id: :migracione_documento %>
+  </div>
+
+  <div class="field">
+    <%= form.label :fecha %>
+    <%= form.date_select :fecha, id: :migracione_fecha %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
