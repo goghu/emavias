@@ -1,11 +1,13 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
+  docderivacione_id: 1
   cite: MyString
   documento: MyText
-  fecha: 2019-04-12
+  fecha: 2019-04-15
 
 two:
+  docderivacione_id: 1
   cite: MyString
   documento: MyText
-  fecha: 2019-04-12
+  fecha: 2019-04-15

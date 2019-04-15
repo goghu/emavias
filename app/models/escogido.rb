@@ -1,0 +1,2 @@
+class Escogido < ApplicationRecord
+end

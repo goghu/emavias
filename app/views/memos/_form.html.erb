@@ -1,0 +1,37 @@
+<%= form_with(model: memo, local: true) do |form| %>
+  <% if memo.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(memo.errors.count, "error") %> prohibited this memo from being saved:</h2>
+
+      <ul>
+      <% memo.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :docderivacione_id %>
+    <%= form.number_field :docderivacione_id, id: :memo_docderivacione_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :cite %>
+    <%= form.text_field :cite, id: :memo_cite %>
+  </div>
+
+  <div class="field">
+    <%= form.label :documento %>
+    <%= form.text_area :documento, id: :memo_documento %>
+  </div>
+
+  <div class="field">
+    <%= form.label :fecha %>
+    <%= form.date_select :fecha, id: :memo_fecha %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

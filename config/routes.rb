@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-  resources :migraciones
+  resources :escogidos
+  resources :memos
   get 'reportes/tramites'
 
   get 'reportes/fechas'

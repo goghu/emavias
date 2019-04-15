@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Docderivacione:</strong>
+  <%= @memo.docderivacione_id %>
+</p>
+
+<p>
+  <strong>Cite:</strong>
+  <%= @memo.cite %>
+</p>
+
+<p>
+  <strong>Documento:</strong>
+  <%= @memo.documento %>
+</p>
+
+<p>
+  <strong>Fecha:</strong>
+  <%= @memo.fecha %>
+</p>
+
+<%= link_to 'Edit', edit_memo_path(@memo) %> |
+<%= link_to 'Back', memos_path %>

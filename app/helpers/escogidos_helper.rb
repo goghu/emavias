@@ -1,0 +1,2 @@
+module EscogidosHelper
+end
