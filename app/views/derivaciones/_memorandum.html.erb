@@ -1,26 +1,26 @@
 <div class="form-group">
   <label class="control-label">CITE</label>
   <%# text_field_tag('descripcion', nil, :required => true, :class=>'form-control', maxlength: '150') %>
-  <input type="text" name="doc[cite]" class="form-control">
+  <input type="text" name="memo[cite]" class="form-control">
 </div>
 
 <div class="form-group">
   <label class="control-label">Comision</label>
-  <select class="select2 m-b-10 select2-multiple" name="doc[funcionarios]" style="width: 100%" multiple="multiple" data-placeholder="Seleccione">
+  <select class="select2 m-b-10 select2-multiple" name="memo[funcionarios]" style="width: 100%" multiple="multiple" data-placeholder="Seleccione">
   	<optgroup label="Funcionarios">
   		<% personal.each do |p| %>
   			<option value="<%= p.id %>"><%= p.nombre %> (<%= p.cargo.descripcion %>)</option>
   		<% end %>
   	</optgroup>
   </select>
-  <input type="hidden" name="doc[valores_personal]" id="valores_personal">
+  <input type="hidden" name="memo[valores_personal]" id="valores_personal">
 </div>
 
 <div class="form-group">
   <label class="control-label">Documento</label>
   <%# text_field_tag('descripcion', nil, :required => true, :class=>'form-control', maxlength: '150') %>
   <!-- <input type="text" name="doc[documento]" class="form-control"> -->
-  <textarea name="doc[documento]" rows="5" class="summernote"><%= @memorandum.contenido %></textarea>  	
+  <textarea name="memo[documento]" rows="5" class="summernote"><%= @memorandum.contenido %></textarea>  	
 </div>
 
 <% content_for :add_css do %>
