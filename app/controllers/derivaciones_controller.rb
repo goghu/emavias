@@ -138,7 +138,7 @@ class DerivacionesController < ApplicationController
           @siguiente_funcionario = User.where(cargo_id: @camino.cargo_id, deleted: nil).take
         end
       else
-        @camino = nil     
+        @camino = nil
       end
     end
     # los documentos y llenados

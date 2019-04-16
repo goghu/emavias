@@ -147,6 +147,14 @@ ActiveRecord::Schema.define(version: 20190415142936) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "migraciones", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
+    t.string "cite", limit: 150
+    t.text "documento"
+    t.date "fecha"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "ruta", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.string "nombre", limit: 150
     t.string "descripcion"
