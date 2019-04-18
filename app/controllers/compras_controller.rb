@@ -149,7 +149,7 @@ class ComprasController < ApplicationController
   end
 
   def completa_solicitud
-    # byebug
+    byebug
 
     modelo_compra = Compra.find(params[:compra_id])
     if params[:terminos] == 'et'
@@ -175,6 +175,18 @@ class ComprasController < ApplicationController
     end
     if params[:cotizacion]
       modelo_compra.cotizacion = 1
+    end
+
+    photo = params[:photo]
+    name = photo.original_filename
+    directory = "public/uploads/photos"
+    path = File.join(directory, name) 
+    uniq_name = (0...10).map { (65 + rand(26)).chr }.join
+    time_footprint = Time.now.to_formatted_s(:number)
+    File.open(path, "wb") do |file|
+      file.write(photo.read)
+      @uniq_path = File.join(directory, uniq_name + time_footprint + File.extname(file))
+      File.rename(file, @uniq_path)
     end
 
     # guardamos el archivo

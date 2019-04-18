@@ -141,6 +141,11 @@
             <div class="form-group">
               <label class="control-label">Adjunto</label>
               <div class="controls">
+                <% if  %>
+                  <%= @compra.inspect %>
+                <% else %>
+                  <%= @compra.inspect %>
+                <% end %>
                 <input type="file" name="archivo">
                 <a href="/compra/ver_documento/<%= @compra.id %>" target="_blank"><%= @compra.archivo %></a>
               </div>
