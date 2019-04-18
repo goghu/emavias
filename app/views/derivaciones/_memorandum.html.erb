@@ -1,14 +1,13 @@
 <div class="form-group">
 	<%# @memorandum.remitente.inspect %>
-  <label class="control-label">REMITENTE: </label>
+  <label class="control-label">REMITENTE: </label><br />
 	<% remitente = User.find(@memorandum.remitente) %>
 	<% remitente.inspect %>
 	<%= remitente.nombre %> - (<%= remitente.cargo.descripcion %>)
 	
   <%# text_field_tag('descripcion', nil, :required => true, :class=>'form-control', maxlength: '150') %>
   <input type="hidden" name="memo[remitente]" value="<%= remitente.id %>" />
-  <input type="hidden" name="memo[remitente]" value="<%= remitente.id %>" />
-  <input type="text" name="memo[cite]" class="form-control" />
+  <!-- <input type="text" name="memo[cite]" class="form-control" /> -->
 </div>
 
 <div class="form-group">

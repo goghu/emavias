@@ -63,7 +63,8 @@ class DerivacionesController < ApplicationController
   end
 
   def guarda_derivacion
-    # byebug
+    array_escojidos = params[:memo][:valores_personal]
+    byebug
     consulta = Derivacione.where(compra_id: params[:compra_id]).last
     c_derivacion = Derivacione.find(consulta.id)
     c_derivacion.estado = "Derivado"
@@ -105,6 +106,8 @@ class DerivacionesController < ApplicationController
         documento_derivacion.save
       end
     end
+
+
 
     redirect_to controller: "compras", action: "bandeja_entrada"
   end
