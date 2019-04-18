@@ -27,6 +27,7 @@ emavias.sublime-workspace
 emavias.code-workspace
 
 /public/uploads/*
+/public/adjuntos/*
 !/public/uploads/empty
 
 # opciones de visual code
@@ -37,3 +38,4 @@ emavias.code-workspace
 emavias_proy.sublime-workspace
 
 config/database.yml
+
