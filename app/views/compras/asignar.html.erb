@@ -101,7 +101,7 @@
   <div class="col-lg-12">
     <div class="card card-outline-info">
       <div class="card-body">
-        <%= form_tag('/compra/completa_solicitud', method: :post) do %>
+        <%= form_tag('/compra/completa_solicitud', method: :post, multipart: true) do %>
         <%= hidden_field_tag(:compra_id, @compra.id ) %>
         <div class="form-body">
 
