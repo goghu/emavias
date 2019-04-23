@@ -54,6 +54,7 @@ Rails.application.routes.draw do
   get "/compra/bandeja_entrada", to: "compras#bandeja_entrada", as: "compras_bandeja_entrada"
   get "/compra/carga_excepcion", to: "compras#carga_excepcion", as: "compras_carga_excepcion"
   get "/compra/ver_documento/:id_compra", to: "compras#ver_documento", as: "compras_ver_documento"
+  get "/compra/ver_adjunto/:id_compra", to: "compras#ver_adjunto", as: "compras_ver_adjunto"
 
   get "/derivacione/ver_documento/:id_derivacion", to: "derivaciones#ver_documento", as: "derivaciones_ver_documento"
   get "/derivacione/ver_documento_rpa/:id_derivacion", to: "derivaciones#ver_documento_rpa", as: "derivaciones_ver_documento_rpa"

@@ -264,6 +264,10 @@ class ComprasController < ApplicationController
     # byebug
   end
 
+  def ver_adjunto
+    @archivo_adjunto = Compra.where(archivo: params[:nombre_archivo])
+  end
+
   private
 
   # Use callbacks to share common setup or constraints between actions.

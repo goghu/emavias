@@ -141,12 +141,12 @@
 
             <div class="col-md-3">
               <div class="form-group">
-                <label class="control-label">Adjunto</label>
+                <label class="control-label"></label>
                 <div class="controls">
                 <% if @documento.compra.archivo.present? %>
-                  <%= @documento.compra.archivo %>
+                  <a href="/adjuntos/<%= @documento.compra.archivo %>" target="_blank" class="btn btn-info">Archivo Adjunto</a>
                 <% else %>
-                  no
+                  Sin Adjunto
                 <% end %>
                   <%# date_field_tag :fecha, nil, value: DateTime.now.to_date, class: 'form-control' %>
                 </div>
