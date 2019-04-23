@@ -141,9 +141,13 @@
 
             <div class="col-md-3">
               <div class="form-group">
-                <label class="control-label">Fecha</label>
+                <label class="control-label">Adjunto</label>
                 <div class="controls">
-                  <%= @documento.compra.fecha %>
+                <% if @documento.compra.archivo.present? %>
+                  <%= @documento.compra.archivo %>
+                <% else %>
+                  no
+                <% end %>
                   <%# date_field_tag :fecha, nil, value: DateTime.now.to_date, class: 'form-control' %>
                 </div>
               </div>

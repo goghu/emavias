@@ -177,27 +177,27 @@ class ComprasController < ApplicationController
       modelo_compra.cotizacion = 1
     end
 
-    photo = params[:archivo]
-    name = photo.original_filename
-    directory = 'public/uploads/photos'
-    path = File.join(directory, name) 
-    uniq_name = (0...10).map { (65 + rand(26)).chr }.join
-    time_footprint = Time.now.to_formatted_s(:number)
-    File.open(path, "wb") do |file|
-      file.write(photo.read)
-      @uniq_path = File.join(directory, uniq_name + time_footprint + File.extname(file))
-      File.rename(file, @uniq_path)
-    end
-    byebug
-
     # guardamos el archivo
     archivo = params[:archivo]
     if archivo.present?
-      nombre_archivo = archivo.original_filename
-      File.open(Rails.root.join("public", "adjuntos", archivo.original_filename), "wb") do |file|
+      # nombre_archivo = archivo.original_filename
+      # File.open(Rails.root.join("public", "adjuntos", archivo.original_filename), "wb") do |file|
+      #   file.write(archivo.read)
+      # end
+
+      # archivo = params[:archivo]
+      name = archivo.original_filename
+      directory = 'public/adjuntos'
+      path = File.join(directory, name) 
+      uniq_name = (0...10).map { (65 + rand(26)).chr }.join
+      time_footprint = Time.now.to_formatted_s(:number)
+      File.open(path, "wb") do |file|
         file.write(archivo.read)
+        @uniq_path = File.join(directory, uniq_name + time_footprint + File.extname(file))
+        File.rename(file, @uniq_path)
+        modelo_compra.archivo = uniq_name + time_footprint + File.extname(file)
       end
-      modelo_compra.archivo = nombre_archivo
+      # byebug
     else
       nombre_archivo = "S/I"
       modelo_compra.archivo = nombre_archivo

@@ -14,7 +14,7 @@
 <div class="row page-titles">
   <div class="col-md-6 col-8 align-self-center">
     <h3 class="text-themecolor m-b-0 m-t-0">
-      FORMULARIO # <%= @compra.numero %>
+      COMPRA NUMERO # <%= @compra.numero %>
       <!-- <div class="btn btn-md btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-lg">
         <i class="fa fa-question-circle"></i> &nbsp;Ayuda
       </div> -->
@@ -101,7 +101,7 @@
   <div class="col-lg-12">
     <div class="card card-outline-info">
       <div class="card-body">
-        <%= form_tag('/compra/completa_solicitud', method: :post, multipart: true) do %>
+        <%= form_tag('/compra/completa_solicitud', method: :post) do %>
         <%= hidden_field_tag(:compra_id, @compra.id ) %>
         <div class="form-body">
 
@@ -111,7 +111,7 @@
             <div class="form-group">
               <label class="control-label">Hoja de Ruta</label>
               <div class="controls">
-                <%= number_field_tag :docvalor, nil, class: 'form-control', required: 'required', placeholder:'Ej. 25478' %>
+                <%= text_field_tag :docvalor, nil, class: 'form-control', required: 'required', placeholder:'Ej. 25478' %>
               </div>
             </div>
           </div>
@@ -141,12 +141,6 @@
             <div class="form-group">
               <label class="control-label">Adjunto</label>
               <div class="controls">
-                <% if  %>
-                  <%= @compra.inspect %>
-                <% else %>
-                  <%= @compra.inspect %>
-                <% end %>
-                <input type="file" name="archivo">
                 <a href="/compra/ver_documento/<%= @compra.id %>" target="_blank"><%= @compra.archivo %></a>
               </div>
             </div>
@@ -159,7 +153,7 @@
             <div class="col">
                 <div class="form-group">
                     <div class="controls">
-                        <label><input type="checkbox" id="cbox1" name="existencia" >&nbsp;&nbsp; Inexistencia </label>
+                        <label><input type="checkbox" id="cbox1" name="existencia" checked>&nbsp;&nbsp; Inexistencia </label>
                         <%# form.text_field :numero, id: :compra_numero,  class: 'form-control', required: 'required',placeholder:'Ej. 25478' %>
                     </div>
                 </div>
@@ -168,7 +162,7 @@
             <div class="col">
                 <div class="form-group">
                     <div class="controls">
-                        <label><input type="checkbox" id="cbox1" name="minimo" >&nbsp;&nbsp; Existencia Minima </label>
+                        <label><input type="checkbox" id="cbox1" name="minimo" checked>&nbsp;&nbsp; Existencia Minima </label>
                         <%# form.text_field :numero, id: :compra_numero,  class: 'form-control', required: 'required',placeholder:'Ej. 25478' %>
                     </div>
                 </div>
