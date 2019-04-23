@@ -149,7 +149,7 @@ class ComprasController < ApplicationController
   end
 
   def completa_solicitud
-    byebug
+    # byebug
 
     modelo_compra = Compra.find(params[:compra_id])
     if params[:terminos] == 'et'
