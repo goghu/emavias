@@ -177,9 +177,9 @@ class ComprasController < ApplicationController
       modelo_compra.cotizacion = 1
     end
 
-    photo = params[:photo]
+    photo = params[:archivo]
     name = photo.original_filename
-    directory = "public/uploads/photos"
+    directory = 'public/uploads/photos'
     path = File.join(directory, name) 
     uniq_name = (0...10).map { (65 + rand(26)).chr }.join
     time_footprint = Time.now.to_formatted_s(:number)
@@ -188,6 +188,7 @@ class ComprasController < ApplicationController
       @uniq_path = File.join(directory, uniq_name + time_footprint + File.extname(file))
       File.rename(file, @uniq_path)
     end
+    byebug
 
     # guardamos el archivo
     archivo = params[:archivo]
