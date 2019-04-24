@@ -64,7 +64,7 @@ class DocumentosController < ApplicationController
   end
 
   def nuevo
-    @listado_documentos = Documento.where(camino_id: params[:id_camino])
+    @listado_documentos = Documento.where(camino_id: params[:id_camino], remitente: nil)
     @camino = Camino.find(params[:id_camino])
   end
 
