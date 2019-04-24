@@ -32,35 +32,9 @@
     <div class="card">
       <div class="card-body">
 
-      <%= form_tag('/documento/guarda_nuevo') do %>
+      <%= form_tag('/documento/guarda_memo') do %>
         <div class="row">
-          <div class="col-md-3" style="background-color: #efefef;">
-
-            <h2>Documentos</h2>
-           
-            <div class="form-group">
-              <label class="control-label">Documento</label>
-              <%= hidden_field_tag('camino_id', @camino.id) %>
-              <%= text_field_tag('descripcion', nil, :required => true, :class=>'form-control', maxlength: '150') %>
-            </div>
-
-            <div class="form-group">
-              <label class="control-label">Tipo</label>
-              <select name="tipo" class="form-control" required>
-                <option value="">Seleccione Tipo</option>
-                <option value="ca">Campo Abierto</option>
-                <option value="nv">No Visible</option>
-              </select>
-            </div>
-
-            <div class="form-group">
-              <label class="control-label">Adjunto &nbsp;&nbsp;&nbsp;&nbsp;</label>
-              <input type="checkbox" name="presento"></label>
-            </div>
-        
-          </div>
-          <div class="col-md-9" style="background-color: #ffffe6;">
-            <h2>Memorandum</h2>
+          <div class="col-md-8">
 
             <div class="row">
               <div class="col-md-3">
@@ -68,11 +42,11 @@
                 <div class="form-group">
                   <label class="control-label">Tipo</label>
                   <p></p>
-                    <select name="memorandum" class="form-control">
-                      <option value="">Seleccione</option>
-                      <option value="recepcion">Recepcion</option>
-                      <option value="calificacion">Calificacion</option>
-                    </select>
+                  <select name="memorandum" class="form-control">
+                    <option value="">Seleccione</option>
+                    <option value="recepcion">Recepcion</option>
+                    <option value="calificacion">Calificacion</option>
+                  </select>
                 </div>
 
               </div>
@@ -80,24 +54,24 @@
 
                 <div class="form-group">
                   <label class="control-label">Remitente</label>
-                    <div class="card">
-                      <div class="card-body">
-                        <% personal = User.where(rol: 'Funcionario') %>
+                  <div class="card">
+                    <div class="card-body">
+                      <%= hidden_field_tag('camino_id', @camino.id) %>
+                      <% personal = User.where(rol: 'Funcionario') %>
+                      <select class="select2" name="remitente" style="width: 100%; background-color: #ffffe6;">
+                        <option>Seleccione</option>
+                        <optgroup>
+                          <% personal.each do |p| %>
+                          <option value="<%= p.id %>"><%= p.nombre %> (<%= p.cargo.descripcion %>)</option>
+                          <% end %>
+                        </optgroup>
+                      </select>
 
-                        <select class="select2" name="remitente" style="width: 100%; background-color: #ffffe6;" >
-                          <option>Seleccione</option>
-                          <optgroup>
-                            <% personal.each do |p| %>
-                            <option value="<%= p.id %>"><%= p.nombre %> (<%= p.cargo.descripcion %>)</option>
-                            <% end %>
-                          </optgroup>
-                        </select>
-
-                        <!-- <input type="hidden" name="valores_personal" id="valores_personal"> -->
-                      </div>
+                      <!-- <input type="hidden" name="valores_personal" id="valores_personal"> -->
                     </div>
+                  </div>
 
-                
+
                 </div>
               </div>
 
@@ -129,65 +103,40 @@
           presentar el informe respectivo hasta la fecha establecida.
           Es cuanto  les comunico para fines consiguientes.</textarea>
                 </div>
-              </div>  
+              </div>
             </div>
 
           </div>
-        </div>
-        <%= submit_tag("Guardar") %>
-        <% end %>
-        <br />
-        <div class="row">
-          <div class="col-md-12">
-            
-            <% if @listado_documentos.present? %>
+
+          <div class="col-md-4">
+            <% if @listado_memos.present? %>
 
             <table class="table table-bordered" id="myTable">
               <thead>
-                <tr>
-                  <th>Descripcion</th>
                   <th>Tipo</th>
-                  <th>Adjunto</th>
-                  <th>Memorandum</th>
                   <th>Remitente</th>
-                  <th></th>
+                  <th>Acciones</th>
                 </tr>
               </thead>
 
               <tbody>
-                <% @listado_documentos.each do |ld| %>
+                <% @listado_memos.each do |lm| %>
                 <tr>
-                  <td><%= ld.descripcion %></td>
                   <td>
-                    <% if ld.tipo == 'ca' %>
-                      Campo Abierto
-                    <% else %>
-                      No Visible
-                    <% end %>
-                  </td>
-                  <td>
-                    <%# ld.presento %>
-                    <% if ld.presento.nil? %>
-                      No
-                    <% else %>
-                      Si
-                    <% end %>
-                  </td>
-                  <td>
-                    <% if(ld.memorandum=='recepcion') %>
+                    <% if(lm.memorandum=='recepcion') %>
                       Recepcion
-                    <% elsif(ld.memorandum=='calificacion') %>
+                    <% elsif(lm.memorandum=='calificacion') %>
                       Calificacion            
                     <% else %>
                       N/T
                     <% end %>
                   </td>
                   <td>
-                    <% if ld.remi.nil? %>
+                    <% if lm.remi.nil? %>
                       No
                     <% else %>
-                      <%= ld.remi.nombre %>
-                      (<%= ld.remi.cargo.descripcion %>)
+                      <%= lm.remi.nombre %>
+                      (<%= lm.remi.cargo.descripcion %>)
                     <% end %>
                   </td>
                   
@@ -195,15 +144,24 @@
                     <%# link_to 'Ver', rutum %>
                     <%# link_to 'Editar', edit_rutum_path(rutum.id) %>
                     <%# link_to 'Caminos', ruta_ver_caminos_path(rutum) %>
-                    <%= link_to 'Eliminar', controller: 'documentos', action: 'eliminar', id_documento: ld.id, id_camino: @camino.id %>
+                    <%= link_to 'Eliminar', controller: 'documentos', action: 'eliminar', id_documento: lm.id, id_camino: @camino.id %>
                   </td>
                 </tr>
                 <% end %>
               </tbody>
             </table>
             <% else %>
-            No tiene unidades
+              No tiene Memos
             <% end %>
+          </div>
+
+        </div>
+        <%= submit_tag("Guardar") %>
+        <% end %>
+        <br />
+        <div class="row">
+          <div class="col-md-12">
+            
 
           </div>
         </div>

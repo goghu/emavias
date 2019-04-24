@@ -95,8 +95,28 @@ class DocumentosController < ApplicationController
 
   def memos
     # byebug  
-    @listado_documentos = Documento.where(camino_id: params[:id_camino])
+    @listado_memos = Documento.where(camino_id: params[:id_camino], tipo: nil)
     @camino = Camino.find(params[:id_camino])
+  end
+
+  def guarda_memo
+    # byebug
+    m_documento = Documento.new
+    m_documento.camino_id = params[:camino_id]  
+    # m_documento.descripcion = params[:descripcion]  
+    # m_documento.tipo = params[:tipo]  
+    # m_documento.presento = params[:presento]
+
+    remitente = params[:remitente].to_i
+    if params[:memorandum].empty?
+      params[:memorandum] = nil
+    end
+
+    m_documento.memorandum = params[:memorandum]
+    m_documento.remitente = remitente
+    m_documento.contenido = params[:contenido]
+    m_documento.save
+    redirect_to action: 'memos', id_camino: params[:camino_id]  
   end
 
   private
