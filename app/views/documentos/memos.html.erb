@@ -34,8 +34,10 @@
 
       <%= form_tag('/documento/guarda_nuevo') do %>
         <div class="row">
-          <div class="col-md-3">
+          <div class="col-md-3" style="background-color: #efefef;">
 
+            <h2>Documentos</h2>
+           
             <div class="form-group">
               <label class="control-label">Documento</label>
               <%= hidden_field_tag('camino_id', @camino.id) %>
@@ -57,7 +59,87 @@
             </div>
         
           </div>
-          <div class="col-md-9">
+          <div class="col-md-9" style="background-color: #ffffe6;">
+            <h2>Memorandum</h2>
+
+            <div class="row">
+              <div class="col-md-3">
+
+                <div class="form-group">
+                  <label class="control-label">Tipo</label>
+                  <p></p>
+                    <select name="memorandum" class="form-control">
+                      <option value="">Seleccione</option>
+                      <option value="recepcion">Recepcion</option>
+                      <option value="calificacion">Calificacion</option>
+                    </select>
+                </div>
+
+              </div>
+              <div class="col-md-9">
+
+                <div class="form-group">
+                  <label class="control-label">Remitente</label>
+                    <div class="card">
+                      <div class="card-body">
+                        <% personal = User.where(rol: 'Funcionario') %>
+
+                        <select class="select2" name="remitente" style="width: 100%; background-color: #ffffe6;" >
+                          <option>Seleccione</option>
+                          <optgroup>
+                            <% personal.each do |p| %>
+                            <option value="<%= p.id %>"><%= p.nombre %> (<%= p.cargo.descripcion %>)</option>
+                            <% end %>
+                          </optgroup>
+                        </select>
+
+                        <!-- <input type="hidden" name="valores_personal" id="valores_personal"> -->
+                      </div>
+                    </div>
+
+                
+                </div>
+              </div>
+
+            </div>
+
+            <div class="row">
+              <div class="col-md-12">
+                <div class="form-group">
+                  <!-- <div class="summernote">
+                    <h3>Default Summernote</h3>
+                  </div> -->
+                  <label class="control-label">Contenido</label>
+                  <textarea name="contenido" rows="5" class="summernote"> De mi consideracion:
+          Por la presente y en cumplimiento a lo establecido en el art. 34 del Decreto Supremo 0181
+          Normas Basicas del Sistema de Administracion de Bienes y Servicios, comunico a ustedes 
+          que han sido deesignados integrantes de la Comision de Calificacion para el proceso de contratacion
+          <b>ANPE-05/2019 "SERVICIO DE TRANSPORTE DE PERSONAL RUTA III RECURRENTE 2019" Segunda Convocatoria,</b>
+          para cuyo efecto y de acuerdo a lo establecido en el Art. 38 del D.S. 0181 tendran las siguientes funciones
+          <ol>
+            <li>Realizar la Apertura de propuestas</li>
+            <li>Evaluacion y calificacion de las propuestas tecnicas y economicas</li>
+            <li>Elaborar el informe de evaluacion y recomendacion de Adjudicacion o Declaratoria Desierta</li>
+          </ol>
+          Segun el cronograma del proceso, deberan contituirse en la Unidad Administrativa, para la 
+          apertura de propuestas el dia viernes 14 de Diciembre de 2018 a horas 15:00 p.m. debiendo cumplir las responsabilidades
+          con dedicacion exclusiva, no pudiendo delegar sus funciones, ni exclusarse de participar salvo los casos descritos en
+          la norma vigente.
+          El incumplimiento a los plazos senalados en el DBC, sera considerada como inobservancia a la normativa, por lo que deben 
+          presentar el informe respectivo hasta la fecha establecida.
+          Es cuanto  les comunico para fines consiguientes.</textarea>
+                </div>
+              </div>  
+            </div>
+
+          </div>
+        </div>
+        <%= submit_tag("Guardar") %>
+        <% end %>
+        <br />
+        <div class="row">
+          <div class="col-md-12">
+            
             <% if @listado_documentos.present? %>
 
             <table class="table table-bordered" id="myTable">
@@ -66,6 +148,8 @@
                   <th>Descripcion</th>
                   <th>Tipo</th>
                   <th>Adjunto</th>
+                  <th>Memorandum</th>
+                  <th>Remitente</th>
                   <th></th>
                 </tr>
               </thead>
@@ -90,6 +174,24 @@
                     <% end %>
                   </td>
                   <td>
+                    <% if(ld.memorandum=='recepcion') %>
+                      Recepcion
+                    <% elsif(ld.memorandum=='calificacion') %>
+                      Calificacion            
+                    <% else %>
+                      N/T
+                    <% end %>
+                  </td>
+                  <td>
+                    <% if ld.remi.nil? %>
+                      No
+                    <% else %>
+                      <%= ld.remi.nombre %>
+                      (<%= ld.remi.cargo.descripcion %>)
+                    <% end %>
+                  </td>
+                  
+                  <td>
                     <%# link_to 'Ver', rutum %>
                     <%# link_to 'Editar', edit_rutum_path(rutum.id) %>
                     <%# link_to 'Caminos', ruta_ver_caminos_path(rutum) %>
@@ -100,17 +202,8 @@
               </tbody>
             </table>
             <% else %>
-            No tiene Documentos
+            No tiene unidades
             <% end %>
-          </div>
-        </div>
-        <%= submit_tag("Guardar") %>
-        <% end %>
-        <br />
-        <div class="row">
-          <div class="col-md-12">
-            
-            
 
           </div>
         </div>

@@ -76,14 +76,14 @@ class DocumentosController < ApplicationController
     m_documento.tipo = params[:tipo]  
     m_documento.presento = params[:presento]
 
-    remitente = params[:remitente].to_i
-    if params[:memorandum].empty?
-      params[:memorandum] = nil
-    end
+    # remitente = params[:remitente].to_i
+    # if params[:memorandum].empty?
+    #   params[:memorandum] = nil
+    # end
 
-    m_documento.memorandum = params[:memorandum]
-    m_documento.remitente = remitente
-    m_documento.contenido = params[:contenido]
+    # m_documento.memorandum = params[:memorandum]
+    # m_documento.remitente = remitente
+    # m_documento.contenido = params[:contenido]
     m_documento.save
     redirect_to action: 'nuevo', id_camino: params[:camino_id]  
   end
@@ -91,6 +91,12 @@ class DocumentosController < ApplicationController
   def eliminar
     Documento.destroy(params[:id_documento])
     redirect_to controller: 'documentos', action: 'nuevo', id_camino: params[:id_camino] 
+  end
+
+  def memos
+    # byebug  
+    @listado_documentos = Documento.where(camino_id: params[:id_camino])
+    @camino = Camino.find(params[:id_camino])
   end
 
   private
