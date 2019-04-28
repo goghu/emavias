@@ -144,7 +144,7 @@
                     <%# link_to 'Ver', rutum %>
                     <%# link_to 'Editar', edit_rutum_path(rutum.id) %>
                     <%# link_to 'Caminos', ruta_ver_caminos_path(rutum) %>
-                    <%= link_to 'Eliminar', controller: 'documentos', action: 'eliminar', id_documento: lm.id, id_camino: @camino.id %>
+                    <%= link_to 'Eliminar', controller: 'documentos', action: 'elimina_memo', id_memo: lm.id, id_camino: @camino.id %>
                   </td>
                 </tr>
                 <% end %>

@@ -99,6 +99,11 @@ class DocumentosController < ApplicationController
     @camino = Camino.find(params[:id_camino])
   end
 
+  def elimina_memo
+    Documento.destroy(params[:id_memo])
+    redirect_to controller: 'documentos', action: 'memos', id_camino: params[:id_camino] 
+  end
+
   def guarda_memo
     # byebug
     m_documento = Documento.new
