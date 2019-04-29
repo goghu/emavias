@@ -10,11 +10,11 @@
   <!-- <input type="text" name="memo[cite]" class="form-control" /> -->
 </div>
 
-<div class="form-group">
+<!-- <div class="form-group">
   <label class="control-label">CITE</label>
   <%# text_field_tag('descripcion', nil, :required => true, :class=>'form-control', maxlength: '150') %>
   <input type="text" name="memo[cite]" class="form-control">
-</div>
+</div> -->
 
 <div class="form-group">
   <label class="control-label">Comision</label>
@@ -28,12 +28,12 @@
   <input type="hidden" name="memo[valores_personal]" id="valores_personal">
 </div>
 
-<div class="form-group">
+<!-- <div class="form-group">
   <label class="control-label">Documento</label>
   <%# text_field_tag('descripcion', nil, :required => true, :class=>'form-control', maxlength: '150') %>
-  <!-- <input type="text" name="doc[documento]" class="form-control"> -->
+  <input type="text" name="doc[documento]" class="form-control">
   <textarea name="memo[documento]" rows="5" class="summernote"><%= @memorandum.contenido %></textarea>  	
-</div>
+</div> -->
 
 <% content_for :add_css do %>
 	<link href="<%= asset_path '/assets/plugins/select2/dist/css/select2.min.css' %>" rel="stylesheet" type="text/css">
