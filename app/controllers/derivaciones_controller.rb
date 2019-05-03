@@ -63,7 +63,7 @@ class DerivacionesController < ApplicationController
   end
 
   def guarda_derivacion
-    # array_escojidos = params[:memo][:valores_personal]
+
     # byebug
     consulta = Derivacione.where(compra_id: params[:compra_id]).last
     c_derivacion = Derivacione.find(consulta.id)
@@ -107,7 +107,29 @@ class DerivacionesController < ApplicationController
       end
     end
 
+    # guardamos memorandum
+    if params[:memo][:valores_personal].present?
+      m_memo = Memo.new
+      m_memo.remitente_id = params[:memo][:remitente]
+      m_memo.usero_id = params[:usero_id]
+      m_memo.correlativo = params[:correlativo]
+      m_memo.ruta_id = params[:ruta_id]
+      m_memo.camino_id = params[:camino_id]
+      m_memo.save
+      id_memo = m_memo.id
+      # guardamos los escogidos
+      array_escojidos = params[:memo][:valores_personal]
+      array_escojidos.split(",").each do |ae|
+        # puts "#{ae}"
+        m_escojidos = Escogido.new
+        m_escojidos.memo_id = id_memo
+        m_escojidos.user_id = ae
+        m_escojidos.save
+      end
 
+      # fin guardamos los escogidos
+    end
+    # fin guardamos memorandum
 
     redirect_to controller: "compras", action: "bandeja_entrada"
   end

@@ -40,7 +40,7 @@ gem 'bcrypt', '~> 3.1.7'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
-gem 'ajax-datatables-rails'
+gem 'ajax-datatables-rails', '~> 0.4.0'
 
 gem 'rails-i18n', '~> 5.1' # For 5.0.x, 5.1.x and 5.2.x
 gem 'humanize_numbers', :git => 'git://github.com/gedera/humanize_numbers.git'

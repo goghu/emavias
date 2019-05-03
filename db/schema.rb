@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190415142936) do
+ActiveRecord::Schema.define(version: 20190503020851) do
 
   create_table "alternativos", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.integer "camino_id"
@@ -142,6 +142,11 @@ ActiveRecord::Schema.define(version: 20190415142936) do
     t.integer "docderivacione_id"
     t.string "cite", limit: 240
     t.text "documento"
+    t.integer "remitente_id"
+    t.integer "usero_id"
+    t.integer "correlativo"
+    t.integer "ruta_id"
+    t.integer "camino_id"
     t.date "fecha"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
