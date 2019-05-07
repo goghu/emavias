@@ -104,7 +104,7 @@ input[type=radio] {
   </div>
 </div>
 
-<%= form_tag('/derivacione/guarda_derivacion', method: :post) do %>
+<%= form_tag('/derivacione/guarda_derivacion', method: :post, multipart: true) do %>
 <div class="row">
   <div class="col-md-8">
     <div class="card card-outline-info">
@@ -349,13 +349,14 @@ input[type=radio] {
   <div class="col-md-4">
     <div class="card card-outline-info">
       <div class="card-body">
-
+        <%# @derivacion.inspect %>
         <% if @memorandum.present? %>
           <h3>Memorandum</h3>
           <%= render 'memorandum', personal: @personal, memo: @memorandum %>
         <% end %>
-
-        <h3>Documentos</h3>
+        <% if @documentos.present? %>
+          <h3>Documentos</h3>
+        <% end %>
         <% if @docderivaciones.present? %>
 
           <table class="table table-striped">
@@ -363,6 +364,11 @@ input[type=radio] {
             <tr>
               <td>
                 <b><span style="color: blue;"><%= doc.descripcion %>: </span></b>
+                <% if doc.adjunto.present? %>
+                  <a href="/adjuntos/<%= doc.adjunto %>" target="_blank" class="btn btn-warning">Ver Archivo Adjunto</a>
+                <% else %>
+                  Sin Adjunto
+                <% end %>
                 <%= doc.docvalor.nil? ? '' : doc.docvalor %>
               </td>
               <td>
@@ -373,16 +379,12 @@ input[type=radio] {
           </table>
 
         <% end %>
-
+        <% @documentos.inspect %>
         <!-- <div class="table-responsive"> -->
           <% if @documentos.present? %>
 
             <% @documentos.each_with_index do |d, index| %>
-            <% if d.tipo == 'ca' %>
-              <label class="control-label"><%= d.descripcion %></label>
-            <% else %>
-                
-            <% end %>  
+            <label class="control-label"><%= d.descripcion %></label>
             <input type="hidden" name="docderivaciones[<%= index %>]descripcion" value="<%= d.descripcion %>">
             <input type="hidden" name="docderivaciones[<%= index %>]camino_id" value="<%= d.camino_id %>">
             <input type="hidden" name="docderivaciones[<%= index %>]derivacione_id" value="<%= @derivacion.id %>">
@@ -411,7 +413,7 @@ input[type=radio] {
             <% end %>
 
           <% else %>
-            No tienes configuraciones
+
           <% end %>
         <!-- </div> -->
 

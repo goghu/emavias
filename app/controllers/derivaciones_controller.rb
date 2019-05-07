@@ -93,7 +93,35 @@ class DerivacionesController < ApplicationController
 
     if params[:docderivaciones].present? 
       params[:docderivaciones].each_pair do |indice, i|
+
         documento_derivacion = Docderivacione.new
+        # guardamos el archivo
+        archivo = i[:archivo]
+        if archivo.present?
+          # nombre_archivo = archivo.original_filename
+          # File.open(Rails.root.join("public", "adjuntos", archivo.original_filename), "wb") do |file|
+          #   file.write(archivo.read)
+          # end
+
+          # archivo = i[:archivo]
+          name = archivo.original_filename
+          directory = 'public/adjuntos'
+          path = File.join(directory, name) 
+          uniq_name = (0...10).map { (65 + rand(26)).chr }.join
+          time_footprint = Time.now.to_formatted_s(:number)
+          File.open(path, "wb") do |file|
+            file.write(archivo.read)
+            @uniq_path = File.join(directory, uniq_name + time_footprint + File.extname(file))
+            File.rename(file, @uniq_path)
+            documento_derivacion.adjunto = uniq_name + time_footprint + File.extname(file)
+          end
+          # byebug
+        else
+          nombre_archivo = "S/I"
+          documento_derivacion.adjunto = nombre_archivo
+        end
+        # fin guardamos el archivo
+
         documento_derivacion.derivacione_id = i[:derivacione_id]
         documento_derivacion.camino_id = i[:camino_id]
         documento_derivacion.user_id = i[:user_id]
@@ -108,7 +136,7 @@ class DerivacionesController < ApplicationController
     end
 
     # guardamos memorandum
-    if params[:memo][:valores_personal].present?
+    if params[:memo].present?
       m_memo = Memo.new
       m_memo.remitente_id = params[:memo][:remitente]
       m_memo.usero_id = params[:usero_id]
@@ -157,7 +185,6 @@ class DerivacionesController < ApplicationController
           primer_funcionario = Derivacione.where(compra_id: @derivacion.compra_id).first
           funcionario = User.find(primer_funcionario.usero_id)
           @siguiente_funcionario = funcionario
-          puts "crt"
         else
           # byebug
           @siguiente_funcionario = User.where(cargo_id: @camino.cargo_id, deleted: nil).take
@@ -171,7 +198,7 @@ class DerivacionesController < ApplicationController
     # enviamos los memos
     @memorandum = Documento.where(camino_id: @derivacion.camino_id).where.not('memorandum'=>nil).take
     # enviamos los documentos para el formulario
-    @documentos = Documento.where(camino_id: @derivacion.camino_id)
+    @documentos = Documento.where(camino_id: @derivacion.camino_id).where.not('tipo'=>nil)
     # listamos el personal para enviar a la vista
     @personal = User.where(rol: 'Funcionario')
 

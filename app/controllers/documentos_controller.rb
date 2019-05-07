@@ -47,7 +47,7 @@ class DocumentosController < ApplicationController
         format.html { redirect_to @documento, notice: 'Documento was successfully updated.' }
         format.json { render :show, status: :ok, location: @documento }
       else
-        format.html { render :edit }
+    k    format.html { render :edit }
         format.json { render json: @documento.errors, status: :unprocessable_entity }
       end
     end
