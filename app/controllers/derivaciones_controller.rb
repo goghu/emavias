@@ -117,8 +117,8 @@ class DerivacionesController < ApplicationController
           end
           # byebug
         else
-          nombre_archivo = "S/I"
-          documento_derivacion.adjunto = nombre_archivo
+          # nombre_archivo = "S/I"
+          documento_derivacion.adjunto = nil
         end
         # fin guardamos el archivo
 
@@ -197,6 +197,8 @@ class DerivacionesController < ApplicationController
     @docderivaciones = Docderivacione.where(compra_id: @derivacion.compra_id)
     # enviamos los memos
     @memorandum = Documento.where(camino_id: @derivacion.camino_id).where.not('memorandum'=>nil).take
+    # completa memo
+    @completa_memo = Memo.where(camino_id: @derivacion.camino_id)
     # enviamos los documentos para el formulario
     @documentos = Documento.where(camino_id: @derivacion.camino_id).where.not('tipo'=>nil)
     # listamos el personal para enviar a la vista

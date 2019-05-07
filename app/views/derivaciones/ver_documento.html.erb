@@ -379,7 +379,12 @@ input[type=radio] {
           </table>
 
         <% end %>
-        <% @documentos.inspect %>
+        <% @completa_memo.inspect %>
+        <% if @completa_memo.present? %>
+          <%= render 'completa_memo', memo: @completa_memo %>
+        <% else %>
+          
+        <% end %>
         <!-- <div class="table-responsive"> -->
           <% if @documentos.present? %>
 

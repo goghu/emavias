@@ -199,8 +199,8 @@ class ComprasController < ApplicationController
       end
       # byebug
     else
-      nombre_archivo = "S/I"
-      modelo_compra.archivo = nombre_archivo
+      # nombre_archivo = "S/I"
+      modelo_compra.archivo = nil
     end
     # fin guardamos el archivo
 
