@@ -139,6 +139,8 @@ class DerivacionesController < ApplicationController
     if params[:memo].present?
       m_memo = Memo.new
       m_memo.remitente_id = params[:memo][:remitente]
+      m_memo.documento = params[:memo][:contenido]
+      m_memo.compra_id = params[:compra_id]
       m_memo.usero_id = params[:usero_id]
       m_memo.correlativo = params[:correlativo]
       m_memo.ruta_id = params[:ruta_id]
