@@ -235,6 +235,17 @@ class DerivacionesController < ApplicationController
     
   end
 
+  def genera_memo
+    m_memo = Memo.find(params[:memo_id])
+    m_memo.cite = params[:cite]
+    m_memo.documento = params[:documento]
+    m_memo.fecha = params[:fecha]
+    m_memo.save
+    @datos_memo = Memo.find(params[:memo_id])
+    render layout: false
+    # byebug
+  end
+
   private
 
   # Use callbacks to share common setup or constraints between actions.

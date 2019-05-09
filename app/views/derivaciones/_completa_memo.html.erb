@@ -7,25 +7,34 @@
 	<%# remitente.nombre %> (<%= memo[0].remitente.nombre %>)
 	
   <%# text_field_tag('descripcion', nil, :required => true, :class=>'form-control', maxlength: '150') %>
-  <input type="hidden" name="cmemo[memo_id]" value="<%= memo[0].id %>" />
+  <input type="hidden" name="cmemo[memo_id]" id="cm_memo_id" value="<%= memo[0].id %>" />
   <!-- <input type="text" name="memo[cite]" class="form-control" /> -->
 </div>
+<div id="memo_generado">
 
-<div class="form-group">
-  <label class="control-label">CITE</label>
-  <%# text_field_tag('descripcion', nil, :required => true, :class=>'form-control', maxlength: '150') %>
-  <input type="text" name="cmemo[cite]" class="form-control">
-</div>
+	<div class="form-group">
+		<label class="control-label">CITE</label>
+		<%# text_field_tag('descripcion', nil, :required => true, :class=>'form-control', maxlength: '150') %>
+		<input type="text" name="cmemo[cite]" id="cm_cite" class="form-control">
+	</div>
 
-<div class="form-group">
-  <label class="control-label">FECHA</label>
-  <%# text_field_tag('descripcion', nil, :required => true, :class=>'form-control', maxlength: '150') %>
-  <input type="date" name="cmemo[cite]" class="form-control">
-</div>
+	<div class="form-group">
+		<label class="control-label">FECHA</label>
+		<%# text_field_tag('descripcion', nil, :required => true, :class=>'form-control', maxlength: '150') %>
+		<input type="date" name="cmemo[fecha]" id="cm_fecha" class="form-control">
+	</div>
 
-<div class="form-group">
-  <label class="control-label">Documento</label>
-  <textarea name="cmemo[documento]" rows="5" class="summernote"><%= memo[0].documento %></textarea>  	
+	<div class="form-group">
+		<label class="control-label">Documento</label>
+		<textarea name="cmemo[documento]" id="ta_memo" rows="5" class="summernote"><%= memo[0].documento %></textarea>
+	</div>
+
+	<div class="row">
+		<div class="col-md-12">
+			<button type="button" class="btn btn-block btn-danger" id="btn_genera_memo"><i class="fa fa-check"></i> Genera
+				memorandum</button>
+		</div>
+	</div>
 </div>
 
 <% content_for :add_css do %>
@@ -38,17 +47,32 @@
 	<script src="<%= asset_path '/assets/plugins/summernote/dist/summernote-bs4.min.js' %>"></script>
 
 	<script type="text/javascript">
+
 		$(document).ready(function() {
-			
-			$.ajax({
-				type: 'POST',
-				url: '/personas/b_ci_ajax/' + campo_texto,
-				data: { "dato_crt": campo_texto },
-				success: function (data, textStatus, jqXHR) {
-					$("#des_personas").load('/personas/b_ci_ajax/' + campo_texto);
-				}
+
+			$("#btn_genera_memo").click(function(){
+
+				var doc = $("#ta_memo").val();
+				var memo_id = $("#cm_memo_id").val();
+				var cite = $("#cm_cite").val();
+				var fecha = $("#cm_fecha").val();
+				
+				// console.log("Hizo click " + memo);
+				$.ajax({
+					type: 'POST',
+					url: '/derivacione/genera_memo',
+					beforeSend: function(xhr) {xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))},
+					data: { "documento": doc, "memo_id": memo_id, "cite": cite, "fecha": fecha },
+					success: function (data, textStatus, jqXHR) {
+						// $("#des_personas").load('/personas/b_ci_ajax/' + campo_texto);
+						console.log("si entro");
+					}
+				});
+
 			});
+
 		});
+
 	</script>
 
 	<script>
