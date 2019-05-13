@@ -11,7 +11,6 @@
   <!-- <input type="text" name="memo[cite]" class="form-control" /> -->
 </div>
 <div id="memo_generado">
-
 	<div class="form-group">
 		<label class="control-label">CITE</label>
 		<%# text_field_tag('descripcion', nil, :required => true, :class=>'form-control', maxlength: '150') %>
@@ -64,8 +63,8 @@
 					beforeSend: function(xhr) {xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))},
 					data: { "documento": doc, "memo_id": memo_id, "cite": cite, "fecha": fecha },
 					success: function (data, textStatus, jqXHR) {
-						// $("#des_personas").load('/personas/b_ci_ajax/' + campo_texto);
-						console.log("si entro");
+						$("#memo_generado").load('/derivacione/ve_genera_memo/'+memo_id);
+						// console.log("si entro");
 					}
 				});
 
@@ -76,27 +75,25 @@
 	</script>
 
 	<script>
-		
-	    $(document).ready(function() {
+	$(document).ready(function () {
+		$('.summernote').summernote({
+			height: 350, // set editor height
+			minHeight: null, // set minimum height of editor
+			maxHeight: null, // set maximum height of editor
+			focus: false // set focus to editable area after initializing summernote
+		});
 
-	        $('.summernote').summernote({
-	            height: 350, // set editor height
-	            minHeight: null, // set minimum height of editor
-	            maxHeight: null, // set maximum height of editor
-	            focus: false // set focus to editable area after initializing summernote
-	        });
+		$('.inline-editor').summernote({
+			airMode: true
+		});
 
-	        $('.inline-editor').summernote({
-	            airMode: true
-	        });
+	});
 
-	    });
-
-	    window.edit = function() {
-	            $(".click2edit").summernote()
-	        },
-	        window.save = function() {
-	            $(".click2edit").summernote('destroy');
-	        }
+	window.edit = function () {
+			$(".click2edit").summernote()
+		},
+		window.save = function () {
+			$(".click2edit").summernote('destroy');
+		}
 	</script>
 <% end %>

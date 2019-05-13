@@ -63,7 +63,6 @@ class DerivacionesController < ApplicationController
   end
 
   def guarda_derivacion
-
     # byebug
     consulta = Derivacione.where(compra_id: params[:compra_id]).last
     c_derivacion = Derivacione.find(consulta.id)
@@ -244,6 +243,12 @@ class DerivacionesController < ApplicationController
     @datos_memo = Memo.find(params[:memo_id])
     render layout: false
     # byebug
+  end
+
+  def ve_genera_memo
+    @memorandum = Memo.find(params[:id_memo])
+    # byebug
+    render layout: false
   end
 
   private

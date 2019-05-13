@@ -61,8 +61,9 @@ Rails.application.routes.draw do
   post "/derivacione/guarda_derivacion", to: "derivaciones#guarda_derivacion", as: "derivaciones_guarda_derivacion"
   get "/derivacione/ver_derivaciones/:id_compra", to: "derivaciones#ver_derivaciones", as: "derivaciones_ver_derivaciones"
   get "/derivacione/ver_documento_jefe/:id_derivacion", to: "derivaciones#ver_documento_jefe", as: "derivaciones_ver_documento_jefe"
-  get "/derivacione/ver_memo", to: "derivaciones#ver_memo", as: "derivaciones_ver_memo"
+  get "/derivacione/ver_memo", to: "derivaciones#ver_memok", as: "derivaciones_ver_memo"
   post "/derivacione/genera_memo", to: "derivaciones#genera_memo", as: "derivaciones_genera_memo"
+  get "/derivacione/ve_genera_memo/:id_memo", to: "derivaciones#ve_genera_memo", as: "derivaciones_ve_genera_memo"
   
   get "/camino/eliminar/:id_camino/:cod_ruta", to: "caminos#eliminar", as: "camino_eliminar"
   get "/camino/carga_funcionario/:proceso", to: "caminos#carga_funcionario", as: "camino_carga_funcionario"
