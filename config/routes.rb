@@ -1,10 +1,6 @@
 Rails.application.routes.draw do
   resources :escogidos
   resources :memos
-  get 'reportes/tramites'
-
-  get 'reportes/fechas'
-
   resources :alternativos
   resources :docderivaciones
   resources :derivaciones
@@ -17,6 +13,8 @@ Rails.application.routes.draw do
   resources :unidades
   resources :cargos
   # devise_for :users
+  get "reportes/tramites"
+  get "reportes/fechas"
 
   # get '/users/sign_in', to: 'users/sessions#new', as: 'new_user_session'
   # post '/users/sign_in', to: 'users/sessions#create', as: 'user_session'
@@ -45,7 +43,7 @@ Rails.application.routes.draw do
   patch "/rutas/guarda_editado", to: "ruta#guarda_editado", as: "ruta_guarda_editado"
 
   get "/user/inicio", to: "users#inicio", as: "users_inicio"
-  
+
   get "/compra/mis_tramites", to: "compras#mis_tramites", as: "compras_mis_tramites"
   get "/compra/imprime_solicitud/:id_compra", to: "compras#imprime_solicitud", as: "compras_imprime_solicitud"
   get "/compra/edita_compra/:id_compra", to: "compras#edita_compra", as: "compras_edita_compra"
@@ -64,7 +62,7 @@ Rails.application.routes.draw do
   get "/derivacione/ver_memo", to: "derivaciones#ver_memok", as: "derivaciones_ver_memo"
   post "/derivacione/genera_memo", to: "derivaciones#genera_memo", as: "derivaciones_genera_memo"
   get "/derivacione/ve_genera_memo/:id_memo", to: "derivaciones#ve_genera_memo", as: "derivaciones_ve_genera_memo"
-  
+
   get "/camino/eliminar/:id_camino/:cod_ruta", to: "caminos#eliminar", as: "camino_eliminar"
   get "/camino/carga_funcionario/:proceso", to: "caminos#carga_funcionario", as: "camino_carga_funcionario"
   get "/camino/carga_funcionario_alternativo/:id_alternativo/:id_compra", to: "caminos#carga_funcionario_alternativo", as: "camino_carga_funcionario_alternativo"
@@ -87,6 +85,7 @@ Rails.application.routes.draw do
   post "/reportes/por_fecha", to: "reportes#por_fecha", as: "reporte_por_fecha"
   post "/reportes/por_unidad", to: "reportes#por_unidad", as: "reporte_por_unidad"
 
+  get "/memo/imprime/:id_memo", to: "memos#imprime", as: "memo_imprime"
   # devise_for :users, path: 'auth', path_names: {  sign_out: 'logout', sign_up: 'cmon_let_me_in' }
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
