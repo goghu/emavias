@@ -1,5 +1,6 @@
 class MemosController < ApplicationController
   before_action :set_memo, only: [:show, :edit, :update, :destroy]
+  layout "template"
 
   # GET /memos
   # GET /memos.json

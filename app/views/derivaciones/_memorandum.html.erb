@@ -3,6 +3,7 @@
   <label class="control-label">REMITENTE: </label><br />
 	<% remitente = User.find(@memorandum.remitente) %>
 	<% remitente.inspect %>
+
 	<%= remitente.nombre %> - (<%= remitente.cargo.descripcion %>)
 	
   <%# text_field_tag('descripcion', nil, :required => true, :class=>'form-control', maxlength: '150') %>

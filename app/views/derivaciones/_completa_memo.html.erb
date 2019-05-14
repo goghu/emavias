@@ -1,11 +1,15 @@
 <div class="form-group">
 	<%# @memorandum.remitente.inspect %>
-	<% memo.inspect %>
+	<%# memo[0].escogidos.inspect %>
   <label class="control-label">REMITENTE: </label><br />
 	<%# remitente = User.find(@memorandum.remitente) %>
 	<%# remitente.inspect %>
-	<%# remitente.nombre %> (<%= memo[0].remitente.nombre %>)
-	
+	<%# remitente.nombre %> (<%= memo[0].remitente.nombre %>)<br />
+	<hr />
+  <label class="control-label">COMISION: </label><br />
+  <% memo[0].escogidos.each do |e| %>
+  	<%= e.user.nombre %> (<%= e.user.cargo.descripcion %>)<br />
+  <% end %>
   <%# text_field_tag('descripcion', nil, :required => true, :class=>'form-control', maxlength: '150') %>
   <input type="hidden" name="cmemo[memo_id]" id="cm_memo_id" value="<%= memo[0].id %>" />
   <!-- <input type="text" name="memo[cite]" class="form-control" /> -->

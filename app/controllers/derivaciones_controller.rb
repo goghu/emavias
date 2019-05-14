@@ -139,6 +139,7 @@ class DerivacionesController < ApplicationController
       m_memo = Memo.new
       m_memo.remitente_id = params[:memo][:remitente]
       m_memo.documento = params[:memo][:contenido]
+      m_memo.estado = 'Derivado'
       m_memo.compra_id = params[:compra_id]
       m_memo.usero_id = params[:usero_id]
       m_memo.correlativo = params[:correlativo]
@@ -199,7 +200,7 @@ class DerivacionesController < ApplicationController
     # enviamos los memos
     @memorandum = Documento.where(camino_id: @derivacion.camino_id).where.not('memorandum'=>nil).take
     # completa memo
-    @completa_memo = Memo.where(camino_id: @derivacion.camino_id)
+    @completa_memo = Memo.where(camino_id: @derivacion.camino_id, compra_id: @derivacion.compra_id)
     # enviamos los documentos para el formulario
     @documentos = Documento.where(camino_id: @derivacion.camino_id).where.not('tipo'=>nil)
     # listamos el personal para enviar a la vista
