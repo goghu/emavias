@@ -201,6 +201,8 @@ class DerivacionesController < ApplicationController
     @memorandum = Documento.where(camino_id: @derivacion.camino_id).where.not('memorandum'=>nil).take
     # completa memo
     @completa_memo = Memo.where(camino_id: @derivacion.camino_id, compra_id: @derivacion.compra_id)
+    # memo generado
+    @memo_generado = Memo.where(camino_id: @derivacion.camino_id, compra_id: @derivacion.compra_id, estado: 'Generado').take
     # enviamos los documentos para el formulario
     @documentos = Documento.where(camino_id: @derivacion.camino_id).where.not('tipo'=>nil)
     # listamos el personal para enviar a la vista
@@ -238,6 +240,7 @@ class DerivacionesController < ApplicationController
   def genera_memo
     m_memo = Memo.find(params[:memo_id])
     m_memo.cite = params[:cite]
+    m_memo.estado = 'Generado'
     m_memo.documento = params[:documento]
     m_memo.fecha = params[:fecha]
     m_memo.save

@@ -381,7 +381,18 @@ input[type=radio] {
         <% end %>
         <% @completa_memo.inspect %>
         <% if @completa_memo.present? %>
-          <%= render 'completa_memo', memo: @completa_memo %>
+
+          <% if @memo_generado.present? %>
+            <% @memo_generado.inspect %>
+            <div class="row">
+              <div class="col-md-12">
+                <a href="/memo/imprime/<%= @memo_generado.id %>" target="_blank" class="btn btn-block btn-info"><i class="fa fa-check"></i> Imprime memorandum</a>
+              </div>
+            </div>
+          <% else %>
+            <%= render 'completa_memo', memo: @completa_memo %>
+          <% end %>
+
         <% else %>
           
         <% end %>

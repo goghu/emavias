@@ -1,3 +1,4 @@
+<%# @datos_memo.inspect %>
 <link href="<%= asset_path '/css/impresion.css' %>" rel="stylesheet" type="text/css" />
 
 <div class="row page-titles">
@@ -38,50 +39,40 @@
           <table class="tabla" border="0">
             <tr>
               <td style="width: 40%;" text-align=>
-                18 Febrero 2018
+                <%= @datos_memo.fecha %>
               </td>
               <td style="width: 60%;">
-                GAF - CC CITE N. 95/2018
-                <br />
-                <br />Para: Lic, Elizabeth Brouset Ponce
-                <br /><b>
-                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                Responsable de Almacenes y Servicios Generales</b>
+                <h3>GAF - CC CITE <%= @datos_memo.cite %></h3><br />
+                <table>
+                  <tr>
+                    <td>Para:&nbsp;&nbsp;&nbsp;</td>
+                    <td>
+                      <% @datos_memo.escogidos.inspect %>
+                      <% @datos_memo.escogidos.each do |e| %>
+                        <%= e.user.nombre %><br />
+                        <b><%= e.user.cargo.descripcion %></b><br />
+                      <% end %>
+                    </td>
+                  </tr>
+                </table>
+                <p>&nbsp;</p>
+                <table>
+                  <tr>
+                    <td>De:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                    <td>
+                      <%= @datos_memo.remitente.nombre %><br />
+                      <b><%= @datos_memo.remitente.cargo.descripcion %></b><br />
+                    </td>
+                  </tr>
+                </table>
 
-                <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Ing. Eliot Gutierrez Valencia
-                <br /><b>
-                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                Tecnico en tecnologias de la informacion</b>
-                <br />
-                <br />De: Lic, Elizabeth Brouset Ponce
-                <br /><b>
-                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                Responsable de Procesos de Contratacion de Apoyo a la Produccion Nacional </b>
-                <br />
                 <br /><b>Ref: Designacion de Calificacion </b>
 
               </td>
             </tr>
           </table>
           <hr />
-          De mi consideracion:
-          Por la presente y en cumplimiento a lo establecido en el art. 34 del Decreto Supremo 0181
-          Normas Basicas del Sistema de Administracion de Bienes y Servicios, comunico a ustedes 
-          que han sido deesignados integrantes de la Comision de Calificacion para el proceso de contratacion
-          <b>ANPE-05/2019 "SERVICIO DE TRANSPORTE DE PERSONAL RUTA III RECURRENTE 2019" Segunda Convocatoria,</b>
-          para cuyo efecto y de acuerdo a lo establecido en el Art. 38 del D.S. 0181 tendran las siguientes funciones
-          <ol>
-            <li>Realizar la Apertura de propuestas</li>
-            <li>Evaluacion y calificacion de las propuestas tecnicas y economicas</li>
-            <li>Elaborar el informe de evaluacion y recomendacion de Adjudicacion o Declaratoria Desierta</li>
-          </ol>
-          Segun el cronograma del proceso, deberan contituirse en la Unidad Administrativa, para la 
-          apertura de propuestas el dia viernes 14 de Diciembre de 2018 a horas 15:00 p.m. debiendo cumplir las responsabilidades
-          con dedicacion exclusiva, no pudiendo delegar sus funciones, ni exclusarse de participar salvo los casos descritos en
-          la norma vigente.
-          El incumplimiento a los plazos senalados en el DBC, sera considerada como inobservancia a la normativa, por lo que deben 
-          presentar el informe respectivo hasta la fecha establecida.
-          Es cuanto  les comunico para fines consiguientes.
+          <%= @datos_memo.documento.html_safe %>
       </div>
     </div>
   </div>

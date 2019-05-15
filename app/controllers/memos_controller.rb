@@ -63,6 +63,8 @@ class MemosController < ApplicationController
   end
 
   def imprime
+    # byebug
+    @datos_memo = Memo.find(params[:id_memo])
   end
 
   private
