@@ -63,7 +63,7 @@ class DerivacionesController < ApplicationController
   end
 
   def guarda_derivacion
-    byebug
+    # byebug
     consulta = Derivacione.where(compra_id: params[:compra_id]).last
     c_derivacion = Derivacione.find(consulta.id)
     c_derivacion.estado = "Derivado"
@@ -238,7 +238,7 @@ class DerivacionesController < ApplicationController
   end
 
   def genera_memo
-    m_memo = Memo.find(params[:memo_id])
+    m_memo = Memo.fingoo[:memo_id]
     m_memo.cite = params[:cite]
     m_memo.estado = 'Generado'
     m_memo.documento = params[:documento]
